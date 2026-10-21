@@ -8,7 +8,8 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 - **Working on:** brief 004 (grids). Claim: `src/ximenes/` (new `grid.py`, `bp.py`,
   `gridsolve.py`; `instruments.py`, `prompts.py`, `solve.py`), `data/eval.json`,
   `data/instruments.json`, `tests/test_004_*`, `tests/fixtures/`, `reports/004*`.
-- **Running jobs:** none yet. Budget: $25. Grid reconstruction first (free, local).
+- **Running jobs:** brief 004 grid run, 20 reconstructed grids, cap $22 (smoke grid
+  $0.72). Started ~18:45 UTC.
 - **Blocked on:** nothing.
 
 ## fable
