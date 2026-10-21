@@ -5,7 +5,8 @@ brief 003's committed posterior. Then: belief propagation over the slots;
 commit any slot whose top marginal reaches τ (committed letters are hard
 evidence and never change); re-propose uncommitted slots with the pattern of
 committed letters (only when the pattern has gained letters since the slot
-was last proposed); repeat up to max_rounds; submit the MAP.
+was last proposed); repeat up to max_rounds; submit the MAP, entering the
+best candidate where the MAP says OTHER.
 
     python -m ximenes.gridsolve --grids runs/grids --n 20 --seed 20261021
         [--backend stub --log ...]
@@ -173,15 +174,23 @@ def solve_grid(grid: Grid, clues: dict[str, CryptoniteClue], *, models: dict[str
     marg = propagate(vs, edges)
     out = {}
     for k, s in slots.items():
-        word = final[k]
+        # OTHER is not a word: where the MAP says OTHER, enter the candidate with
+        # the highest marginal (a blank scores 0 under the game's payoff,
+        # docs/GAME.md, so a guess weakly dominates it)
+        map_word = final[k]
+        word = map_word
+        if word is OTHER and vs[k].words:
+            word = vs[k].words[max(range(len(vs[k].words)), key=lambda i: marg[k][i])]
         h = next((h for h in cands[k] if h["answer"] == word), None)
         alone_top = max(cands[k][:len(alone[k]["candidates"])], key=lambda h: h["posterior"],
                         default=None)
         out[k] = {
-            "length": s.length, "submitted": word, "gold": normalise(clues[k].answer),
+            "length": s.length, "submitted": word, "map_other": map_word is OTHER,
+            "gold": normalise(clues[k].answer),
             "status": h["status"] if h else "none",
             "reasons": list(h["reasons"]) if h else [],
             "marginal": marg[k][vs[k].domain.index(word)] if word is not OTHER else marg[k][-1],
+            "other_marginal": marg[k][-1],
             "committed_round": commits[k][1] if k in commits else None,
             "committed_word": commits[k][0] if k in commits else None,
             "reproposed": reproposed[k], "n_candidates": len(cands[k]),
@@ -206,6 +215,9 @@ def score_grid(grid: Grid, result: dict[str, Any]) -> dict[str, Any]:
         "letters_correct": cells_ok / len(gold),
         "clues_correct": sum(r["submitted"] == r["gold"] for r in rs) / len(rs),
         "clues_correct_alone": sum(r["alone_answer"] == r["gold"] for r in rs) / len(rs),
+        "clues_correct_pure_map": sum(r["submitted"] == r["gold"] and not r["map_other"]
+                                      for r in rs) / len(rs),
+        "map_other": sum(r["map_other"] for r in rs),
         "proven": proven,
         "slots_ok": sum(r["status"] == "Ok" for r in rs),
         "slots_quarantine": sum(r["status"] == "Quarantine" for r in rs),
