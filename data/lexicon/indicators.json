@@ -1,0 +1,13 @@
+{
+  "source": "hand seed 2026-10-21; extend from rdeits/cryptics indicators and mdda/cryptic-crossword-reasoning-verifier",
+  "anagram": ["broadcast", "crazy", "mad", "upset", "bananas", "out", "off", "novel", "damaged", "processed", "wild", "drunk", "inebriated", "terribly", "cooked", "confused", "arranged", "sort of"],
+  "reverse": ["back", "up", "returned", "flipped", "over", "reflected", "going west", "rising", "climbing"],
+  "insert": ["in", "inside", "within", "about", "around", "holding", "keeping", "swallowing", "plugging", "entering"],
+  "hidden": ["some", "part of", "in", "within", "held by", "concealed", "a bit of"],
+  "homophone": ["heard", "say", "we hear", "by the sound of it", "reportedly", "on the radio", "spoken"],
+  "delete_first": ["headless", "topless", "beheaded", "not starting", "losing head"],
+  "delete_last": ["endless", "endlessly", "cut short", "almost", "nearly", "unfinished"],
+  "delete_middle": ["heartless", "gutted", "hollow", "emptied"],
+  "initials": ["initially", "at first", "leaders", "heads of", "first of", "leads to"],
+  "alternate": ["regularly", "oddly", "evenly", "every other", "at odds"]
+}
