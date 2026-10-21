@@ -1,0 +1,18 @@
+{
+  "source": "prices: claude-api skill model table (cached 2026-10-06), USD per million tokens, first-party API; max_tokens per skill default for non-streaming requests; effort/retries chosen 2026-10-21 for brief 000",
+  "tokens_per_price_unit": 1000000,
+  "prices_usd": {
+    "claude-fable-5-1": {"input": 10.0, "output": 50.0},
+    "claude-opus-5-5": {"input": 4.0, "output": 20.0},
+    "claude-sonnet-5-5": {"input": 2.0, "output": 10.0},
+    "claude-haiku-5-5": {"input": 0.1, "output": 0.5}
+  },
+  "propose_answers": {
+    "prompt": "answer-only-v1",
+    "max_tokens": 16000,
+    "effort": "low"
+  },
+  "anthropic": {
+    "max_retries": 8
+  }
+}

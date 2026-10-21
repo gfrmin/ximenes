@@ -1,0 +1,8 @@
+{
+  "source": "briefs/000-harness.md: n=1000 clues, k=20 samples, 10 reliability bins; seed chosen once on 2026-10-21 and frozen",
+  "n": 1000,
+  "k": 20,
+  "bins": 10,
+  "seed": 20261021,
+  "workers": 16
+}
