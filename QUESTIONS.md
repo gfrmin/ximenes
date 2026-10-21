@@ -17,17 +17,12 @@ clue text. (This was item 1.)
    002. Going with: no filter (p≈0.75).
 
 3. **Which model is "the proposer"?** The brief leaves `--model <id>` open.
-   `claude-opus-5-5` at effort `low` costs ~$0.0055 per sample, ~$110 for
-   1000×20. It was stopped after 98 clues ($10.80), and the headline moved to
-   the free `minimax-m3.1-flash` on Ollama cloud, at your request. Should a
-   paid Claude row come back later, e.g. `claude-haiku-5-5` (~$0.10/$0.50 per
-   million tokens), or Opus on the post-cutoff set only, where it says
-   something about contamination?
-
-7. **The Ollama backend ignores `effort`.** The value still sits in the
-   logged input, because the replay key is shared across backends, but it is
-   not sent to Ollama. No `think` setting is sent either, so samples run at
-   the model's defaults. Going with: model defaults (p≈0.7).
+   The headline is `claude-haiku-5-5` at effort `low` (~$10 for 1000×20),
+   after Opus (~$110 projected; stopped at 98 clues, $10.80) and free Ollama
+   cloud (1 concurrent request; days for 20,000 calls) were ruled out. See
+   `reports/000-harness.md` § Why Haiku. Open: should Opus be run on the
+   post-cutoff set only, once it exists? That's where a contamination gap
+   for a strong model would show.
 
 4. **No refusal fallback, no temperature.** The API's server-side refusal
    fallback would answer some samples with a different model, which muddies
