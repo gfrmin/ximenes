@@ -14,7 +14,7 @@ in message filenames, and as a commit trailer `Agent: <name>`.
 
 | name | who | first seen |
 |---|---|---|
-| `builder` | Claude Fable 5.1 session(s): scaffold, turnkey setup, uv (git author `builder`) | 2026-10-21 |
+| `fable` | Claude Fable 5.1 session in claude.ai, working with the author: scaffold, briefs, docs, reviews, answers in `QUESTIONS.md` on the author's behalf (git author `builder` on commits before 2026-10-21 16:00 UTC, `fable` after) | 2026-10-21 |
 | `opus` | Claude Opus 5.5 session: brief 000 harness | 2026-10-21 |
 
 New agent: add a row in your first commit.
