@@ -26,9 +26,11 @@ from typing import Any
 from .clue import Clue, normalise
 from .data import CryptoniteClue, format_enumeration, load_cryptonite
 from .eval import PARAMS, sample_indices
+from .hyp import hyp_of
 from .instruments import (
     JUDGE_DEFINITION,
     JUDGE_HOMOPHONE,
+    JUDGE_INDICATOR,
     JUDGE_SYNONYM,
     SETTINGS,
     Instrument,
@@ -53,6 +55,7 @@ LEAF_JUDGE = {
     Reason.HOMOPHONE: JUDGE_HOMOPHONE,
     Reason.DOUBLE_DEF: JUDGE_DEFINITION,
     Reason.CRYPTIC_DEF: JUDGE_DEFINITION,
+    Reason.INDICATOR: JUDGE_INDICATOR,
 }
 
 
@@ -90,13 +93,17 @@ def formalise_and_verify(clue: Clue, answer: str, model: str, backend: Instrumen
     return src, verdict, attempt + 1
 
 
-def judged(verdict: Ok | Quarantine, clue: Clue, model: str, backend: Instrument
-           ) -> Ok | Quarantine:
+def judged(verdict: Ok | Quarantine, clue: Clue, model: str, backend: Instrument,
+           score_indicators: bool = True) -> Ok | Quarantine:
     """Attach oracle scores to every judgement leaf and to the definition.
-    The verdict's status never changes (DESIGN D4); scores travel with it."""
+    The verdict's status never changes (DESIGN D4); scores travel with it.
+    score_indicators=False leaves unlisted-indicator leaves unscored, as brief
+    002's run was made (its log has no judge_indicator calls)."""
     context = clue.text
 
     def score_leaf(leaf: OracleLeaf) -> OracleLeaf:
+        if leaf.reason == Reason.INDICATOR and not score_indicators:
+            return leaf
         instrument = LEAF_JUDGE[leaf.reason]
         value = verdict.answer if instrument == JUDGE_DEFINITION else leaf.value
         phrase = leaf.value if leaf.reason == Reason.HOMOPHONE else leaf.phrase
@@ -120,13 +127,22 @@ def judged(verdict: Ok | Quarantine, clue: Clue, model: str, backend: Instrument
 
 def min_score(verdict: Verdict) -> float | None:
     """Minimum oracle score over the leaves and the definition; None if no
-    judgement exists (an unscored judgement counts as 0: it was not cleared)."""
+    judgement exists (an unscored judgement counts as 0: it was not cleared).
+    Indicator leaves are excluded: brief 002's rule is kept exactly (brief 003
+    records them separately, see indicator_min)."""
     if isinstance(verdict, Reject):
         return None
     scores = [lf.score if lf.score is not None else 0.0
-              for lf in getattr(verdict, "leaves", ())]
+              for lf in getattr(verdict, "leaves", ()) if lf.reason != Reason.INDICATOR]
     if verdict.definition.status == "judged":
         scores.append(verdict.definition.score if verdict.definition.score is not None else 0.0)
+    return min(scores) if scores else None
+
+
+def indicator_min(verdict: Verdict) -> float | None:
+    """Minimum score over unlisted-indicator leaves (None: none, or unscored)."""
+    scores = [lf.score for lf in getattr(verdict, "leaves", ())
+              if lf.reason == Reason.INDICATOR and lf.score is not None]
     return min(scores) if scores else None
 
 
@@ -137,13 +153,13 @@ def decide(records: Sequence[dict[str, Any]]) -> dict[str, Any] | None:
     """The pre-registered rule: rank by status (Ok > Quarantine > no parse),
     then by minimum oracle score (no judgement ranks above any judged score),
     then by vote share; ties keep candidate order. Pure function of the
-    recorded fields `status`, `min_score`, `vote_share`."""
+    recorded fields `status`, `scores.min_score`, `vote_share` (Hyp records)."""
     if not records:
         return None
 
     def key(ir: tuple[int, dict[str, Any]]) -> tuple[float, ...]:
         i, r = ir
-        s = r["min_score"]
+        s = r["scores"]["min_score"]
         return (STATUS_RANK[r["status"]], 1.0 + 1 if s is None else s, r["vote_share"], -i)
 
     return max(enumerate(records), key=key)[1]
@@ -163,48 +179,38 @@ def verified(record: dict[str, Any] | None, floor: float, strict: bool = True) -
         return True
     if strict and UNSCORED & set(record["reasons"]):
         return False
-    return record["status"] == "Quarantine" and record["min_score"] is not None \
-        and record["min_score"] >= floor
+    score = record["scores"]["min_score"]
+    return record["status"] == "Quarantine" and score is not None and score >= floor
 
 
 # --- one clue, many clues ---------------------------------------------------------
 
 
-def _status(v: Verdict) -> str:
-    return "none" if isinstance(v, Reject) else type(v).__name__
-
-
 def solve_clue(c: CryptoniteClue, *, models: dict[str, str], backend: Instrument, k: int,
-               m: int, retries: int, floor: float) -> dict[str, Any]:
+               m: int, retries: int, floor: float, slot: str = "",
+               score_indicators: bool = True) -> dict[str, Any]:
     clue = Clue(c.text, c.enumeration, c.orientation)
     samples = propose_answers(c.text, format_enumeration(c.enumeration), k, models["proposer"],
                               backend=backend)
     records = []
-    for answer, share in candidates(samples, clue, m):
+    for rank, (answer, share) in enumerate(candidates(samples, clue, m)):
         src, verdict, attempts = formalise_and_verify(clue, answer, models["formaliser"],
                                                       backend, retries)
         if not isinstance(verdict, Reject):
-            verdict = judged(verdict, clue, models["judge"], backend)
-        records.append({
-            "answer": answer, "vote_share": share, "src": src, "attempts": attempts,
-            "status": _status(verdict), "min_score": min_score(verdict),
-            "reasons": [r.value for r in getattr(verdict, "reasons", ())],
-            "rule": getattr(verdict, "first_broken_rule", None),
-            "definition": dataclasses.asdict(verdict.definition)
-            if not isinstance(verdict, Reject) else None,
-            "leaves": [{"reason": lf.reason.value, "score": lf.score}
-                       for lf in getattr(verdict, "leaves", ())],
-        })
+            verdict = judged(verdict, clue, models["judge"], backend, score_indicators)
+        records.append(hyp_of(slot, answer, src, verdict, vote_share=share, rank=rank,
+                              attempts=attempts, min_score=min_score(verdict),
+                              indicator_min=indicator_min(verdict)).to_record())
     chosen = decide(records)
     gold = normalise(c.answer)
     top = max(Counter(a for a in map(normalise, samples) if a).items(),
               key=lambda kv: kv[1], default=(None, 0))
     return {
-        "answer": gold, "publisher": c.publisher, "is_quick": c.is_quick,
+        "slot": slot, "answer": gold, "publisher": c.publisher, "is_quick": c.is_quick,
         "chosen": chosen["answer"] if chosen else None,
         "correct": bool(chosen) and chosen["answer"] == gold,
         "chosen_status": chosen["status"] if chosen else "none",
-        "chosen_min_score": chosen["min_score"] if chosen else None,
+        "chosen_min_score": chosen["scores"]["min_score"] if chosen else None,
         "chosen_vote_share": chosen["vote_share"] if chosen else 0.0,
         "verified": verified(chosen, floor),
         "verified_lenient": verified(chosen, floor, strict=False),
@@ -249,10 +255,15 @@ def summarise(items: Sequence[dict[str, Any]]) -> dict[str, Any]:
 
 
 def run(clues: Sequence[CryptoniteClue], *, models: dict[str, str], backend: Instrument,
-        k: int, m: int, retries: int, floor: float, workers: int) -> dict[str, Any]:
+        k: int, m: int, retries: int, floor: float, workers: int,
+        slots: Sequence[str] | None = None, score_indicators: bool = True) -> dict[str, Any]:
+    names = list(slots) if slots is not None else [f"#{i}" for i in range(len(clues))]
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        items = list(pool.map(lambda c: solve_clue(c, models=models, backend=backend, k=k, m=m,
-                                                   retries=retries, floor=floor), clues))
+        items = list(pool.map(
+            lambda cs: solve_clue(cs[0], models=models, backend=backend, k=k, m=m,
+                                  retries=retries, floor=floor, slot=cs[1],
+                                  score_indicators=score_indicators),
+            zip(clues, names, strict=True)))
     return {**summarise(items), "items": items}
 
 
@@ -279,7 +290,7 @@ def _backend(args: argparse.Namespace, log_path: pathlib.Path) -> Instrument:
         return memoized(logged(replay, log_path))
     live: Instrument = budgeted(anthropic_backend(), args.max_usd)
     for extra in reversed(args.log or []):
-        live = replay_then(pathlib.Path(extra), live)
+        live = replay_then(pathlib.Path(extra), live, on_conflict=args.on_conflict)
     # memoized outside logged: a repeated input is neither re-asked nor re-logged
     return memoized(logged(live, log_path))
 
@@ -294,10 +305,13 @@ def cmd_solve(args: argparse.Namespace) -> dict[str, Any]:
     models = {"proposer": args.proposer, "formaliser": args.formaliser, "judge": args.judge}
     out = run([population[i] for i in indices], models=models,
               backend=_backend(args, log_path), k=args.k, m=args.candidates,
-              retries=args.retries, floor=args.floor, workers=args.workers)
+              retries=args.retries, floor=args.floor, workers=args.workers,
+              slots=[f"{args.set}:{i}" for i in indices],
+              score_indicators=not args.no_indicator_scores)
     out = {"run_id": run_id, "set": args.set, "run_date": started.date().isoformat(),
            "seed": args.seed, "indices": list(indices), "models": models,
            "candidates_m": args.candidates, "oracle_floor": args.floor,
+           "score_indicators": not args.no_indicator_scores,
            "backend": args.backend, "replayed_from": args.log, "log": str(log_path),
            "max_usd": args.max_usd,
            "spend_usd": spend_by_instrument(log_path, [pathlib.Path(x) for x in args.log or []]),
@@ -324,6 +338,8 @@ def parser() -> argparse.ArgumentParser:
                    "e.g. brief 000's vote log for the proposer samples")
     p.add_argument("--on-conflict", choices=("raise", "first"), default="raise",
                    help="stub replay of a log with conflicting outputs (pre-memoization)")
+    p.add_argument("--no-indicator-scores", action="store_true",
+                   help="leave unlisted indicators unscored (as brief 002's run was made)")
     p.add_argument("--max-usd", type=float, default=PARAMS["max_usd"])
     p.add_argument("--workers", type=int, default=PARAMS["workers"])
     p.add_argument("--runs-dir", default="runs")

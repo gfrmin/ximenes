@@ -23,8 +23,10 @@ MODELS = {"proposer": "hand-fixture", "formaliser": "hand-fixture", "judge": "ha
 
 def rec(answer: str, status: str, score: float | None, share: float,
         reasons: tuple[str, ...] = ()) -> dict:
-    return {"answer": answer, "status": status, "min_score": score, "vote_share": share,
-            "reasons": list(reasons)}
+    # Superseded by brief 003: records follow the Hyp schema (ximenes/hyp.py);
+    # the decision rule reads scores.min_score. Cases unchanged.
+    return {"answer": answer, "status": status, "scores": {"min_score": score},
+            "vote_share": share, "reasons": list(reasons)}
 
 
 # --- the decision rule is a pure function of status, min score, vote share ------------
@@ -153,8 +155,9 @@ def test_formalise_clue_prompt_lists_the_new_operators_and_v1_is_frozen() -> Non
 
 def _run() -> dict:
     backend = replay_then(FIX / "stub-20.jsonl", stub_backend(FIX / "solve-stub-20.jsonl"))
+    # brief 003: the fixture predates judge_indicator, so indicators stay unscored
     return run(CLUES, models=MODELS, backend=backend, k=20, m=3, retries=2, floor=0.5,
-               workers=4)
+               workers=4, score_indicators=False)
 
 
 def test_offline_loop_replays_exactly() -> None:
@@ -163,7 +166,7 @@ def test_offline_loop_replays_exactly() -> None:
     assert a["n"] == len(CLUES) and a["top1"] == pytest.approx(1.0)
     assert a["vote_top1"] == pytest.approx(0.7)
     assert a["verified_n"] == 8 and a["verified_top1"] == pytest.approx(1.0)
-    listen = next(x for x in a["items"] if x["answer"] == "LISTEN")
+    listen = next(x for x in a["items"] if x["answer"] == "LISTEN")  # (Hyp records)
     assert [r["answer"] for r in listen["candidates"]] == ["LISTEN", "SILENT"]
     assert listen["chosen"] == "LISTEN"
 
@@ -180,7 +183,9 @@ def test_headline_run_replays_exactly() -> None:
 
     paths = pathlib.Path("runs").glob("*-solve-anthropic-*.json")
     runs = [json.loads(p.read_text()) for p in paths]
-    full = max((r for r in runs if r["n"] == 1000), key=lambda r: r["run_id"], default=None)
+    full = max((r for r in runs if r["n"] == 1000 and r["set"] == "test"
+                and not r.get("score_indicators", False)),
+               key=lambda r: r["run_id"], default=None)
     if full is None:
         pytest.skip("no 1,000-clue run yet")
     test = load_cryptonite("test")
@@ -189,7 +194,7 @@ def test_headline_run_replays_exactly() -> None:
         backend = memoized(stub_backend(pathlib.Path(full["log"]), on_conflict="first"))
         return run([test[i] for i in full["indices"]], models=full["models"], backend=backend,
                    k=20, m=full["candidates_m"], retries=2, floor=full["oracle_floor"],
-                   workers=32)
+                   workers=32, score_indicators=False)
 
     a, b = replay(), replay()
     assert a == b

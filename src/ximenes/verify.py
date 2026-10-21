@@ -313,8 +313,10 @@ def _eval(node: CallNode | str | Tok) -> Val:
         ind = vals[0].tok
         assert ind is not None
         trusted = indicator_trust().get(name, {}).get(ind.phrase)
-        if trusted is None:
-            base = _with(base, reasons=base.reasons | {Reason.INDICATOR})
+        if trusted is None:  # unlisted: a judgement an oracle may score (brief 003)
+            leaf = OracleLeaf(Reason.INDICATOR, ind.phrase, name, name)
+            base = _with(base, reasons=base.reasons | {Reason.INDICATOR},
+                         leaves=(*base.leaves, leaf))
         else:
             base = _with(base, table_hits=(*base.table_hits, ("indicators", name, ind.phrase)),
                          reasons=base.reasons | (set() if trusted else {Reason.TABLE_UNREVIEWED}))

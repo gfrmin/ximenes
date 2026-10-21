@@ -195,6 +195,13 @@ JUDGES = {
         "if signalled)." + _JUDGE_TAIL,
         "Clue: {context}\nDefinition span: {phrase}\nAnswer: {value}",
     ),
+    "judge-indicator-v1": (
+        "In cryptic crosswords, an indicator word or phrase tells the solver which "
+        "operation to apply to nearby letters (anagram, reversal, insertion, hidden word, "
+        "deletion, first/last letters, and so on). Judge whether the phrase can fairly "
+        "indicate the named operation in this clue." + _JUDGE_TAIL,
+        "Clue: {context}\nPhrase: {phrase}\nOperation: {value}",
+    ),
     "judge-homophone-v1": (
         "In cryptic crosswords, a homophone indicator says one word sounds like another. "
         "Judge whether the two sound alike in standard British pronunciation (near-"
