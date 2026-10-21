@@ -3,6 +3,10 @@
 Read `DESIGN.md` first, then the brief you're on under `briefs/`. One brief
 per session. Work on `master`.
 
+Other agents share this repo. Read `AGENTS.md` (protocol), `STATUS.md` (who's
+doing what, running jobs) and new files in `comms/` before starting. How
+LLMs are used: `docs/LLM-USE.md`.
+
 ## Rules that are mechanically checked (`./kit/check.sh`, also CI)
 - Tests in `tests/` pass. Tests from earlier briefs are not edited or
   deleted; if one must change, say so in the report and explain why.
