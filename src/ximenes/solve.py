@@ -34,6 +34,7 @@ from .instruments import (
     Instrument,
     anthropic_backend,
     budgeted,
+    call_key,
     formalise_clue,
     judge,
     logged,
@@ -254,10 +255,16 @@ def run(clues: Sequence[CryptoniteClue], *, models: dict[str, str], backend: Ins
     return {**summarise(items), "items": items}
 
 
-def spend_by_instrument(log: pathlib.Path) -> dict[str, float]:
+def spend_by_instrument(log: pathlib.Path, replayed_from: Sequence[pathlib.Path] = ()
+                        ) -> dict[str, float]:
+    """New spend in this run's log by instrument: calls replayed from an earlier
+    log are not counted (their cost was paid by that run)."""
+    old = {call_key(r["instrument"], r["model"], r["input"])
+           for p in replayed_from for r in read_log(p)}
     out: Counter[str] = Counter()
     for r in read_log(log) if log.exists() else ():
-        out[r["instrument"]] += r["cost"].get("usd") or 0.0
+        if call_key(r["instrument"], r["model"], r["input"]) not in old:
+            out[r["instrument"]] += r["cost"].get("usd") or 0.0
     return dict(out)
 
 
@@ -290,7 +297,9 @@ def cmd_solve(args: argparse.Namespace) -> dict[str, Any]:
            "seed": args.seed, "indices": list(indices), "models": models,
            "candidates_m": args.candidates, "oracle_floor": args.floor,
            "backend": args.backend, "replayed_from": args.log, "log": str(log_path),
-           "max_usd": args.max_usd, "spend_usd": spend_by_instrument(log_path), **out}
+           "max_usd": args.max_usd,
+           "spend_usd": spend_by_instrument(log_path, [pathlib.Path(x) for x in args.log or []]),
+           **out}
     runs.mkdir(parents=True, exist_ok=True)
     (runs / f"{run_id}.json").write_text(json.dumps(out, indent="  ", ensure_ascii=False))
     return out
