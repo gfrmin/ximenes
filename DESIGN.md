@@ -27,10 +27,13 @@ change the law explicitly.
 
 ## D4. Three verdicts, honestly named
 - `Ok`: every step is mechanical (string algebra, abbreviation table,
-  indicator table) and coverage holds.
+  indicator table) and coverage holds. The tables are trusted data, so
+  every entry is reviewed and every change from upstream is listed in
+  `data/lexicon/REVIEW.md`; an `Ok` is a proof modulo those tables.
 - `Quarantine(reasons)`: mechanics and coverage hold but at least one leaf
   rests on an oracle — `synonym`, `definition`, `homophone`, `cryptic_def`,
-  `double_def` — or there is a declared residual. Reasons are typed.
+  `double_def` — or on an `indicator` phrase the table does not list, or
+  there is a declared residual. Reasons are typed.
 - `Reject(first_broken_rule)`: name the first rule broken, nothing more.
 The word "proof" is never used for a `Quarantine`.
 
