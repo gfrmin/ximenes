@@ -16,16 +16,17 @@ import random
 import sys
 import uuid
 from collections import Counter
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict, dataclass
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 from fractions import Fraction
 from typing import Any
 
 from .clue import normalise
 from .data import DATA, SPLITS, CryptoniteClue, format_enumeration, load_cryptonite, read_cryptonite
 from .instruments import (
+    SETTINGS,
     Instrument,
     anthropic_backend,
     logged,
@@ -40,12 +41,35 @@ POSTCUTOFF = DATA / "postcutoff"
 PARAMS: dict[str, Any] = json.loads((DATA / "eval.json").read_text())
 
 
-def load_postcutoff(*, allow_postcutoff: bool = False) -> tuple[CryptoniteClue, ...]:
-    """Every `*.jsonl` under data/postcutoff/, read as Cryptonite-format rows."""
+def postcutoff_cutoff(model: str, released: Mapping[str, str | None], floor: str) -> date:
+    """Last date a row may carry and still be seen by `model` in training:
+    the later of the global floor and the model's release date. Raises if the
+    model has no release date in data/instruments.json (the author fills it)."""
+    day = released.get(model)
+    if day is None:
+        raise ValueError(f"no release date for {model!r}: fill `released` in data/instruments.json")
+    return max(date.fromisoformat(floor), date.fromisoformat(day))
+
+
+def load_postcutoff(
+    *,
+    allow_postcutoff: bool = False,
+    model: str | None = None,
+    root: pathlib.Path = POSTCUTOFF,
+    released: Mapping[str, str | None] | None = None,
+) -> tuple[tuple[CryptoniteClue, ...], int]:
+    """Rows from every `*.jsonl` under data/postcutoff/ (Cryptonite format)
+    dated after `model`'s cutoff, and the count of rows excluded by date."""
     if not allow_postcutoff:
         raise PermissionError("data/postcutoff/ is opened only with allow_postcutoff=True")
-    files = sorted(POSTCUTOFF.glob("*.jsonl"))
-    return tuple(c for f in files for c in read_cryptonite(f))
+    if model is None:
+        raise ValueError("post-cutoff rows are filtered per model: pass model=")
+    cutoff = postcutoff_cutoff(
+        model, SETTINGS["released"] if released is None else released, PARAMS["postcutoff_floor"]
+    )
+    rows = tuple(c for f in sorted(root.glob("*.jsonl")) for c in read_cryptonite(f))
+    kept = tuple(c for c in rows if c.date > cutoff)
+    return kept, len(rows) - len(kept)
 
 
 # --- scoring ---------------------------------------------------------------
@@ -144,6 +168,7 @@ def vote_run(
         samples = list(pool.map(one, clues))
     votes = [score(s, c.answer) for s, c in zip(samples, clues, strict=True)]
     return {
+        "enum_fail_share": float(enum_fail_share(samples, clues)),
         "n": len(votes),
         "k": k,
         "model": model,
@@ -162,11 +187,27 @@ def vote_run(
     }
 
 
+def enum_fail_share(samples: Sequence[Sequence[str]], clues: Sequence[CryptoniteClue]) -> Fraction:
+    """Diagnostic, not a filter: share of samples with no letters or the wrong
+    length for the enumeration (what brief 002's first check would prune)."""
+    fails = sum(
+        not normalise(a) or not c.enumeration.matches(a)
+        for s, c in zip(samples, clues, strict=True) for a in s
+    )
+    total = sum(map(len, samples))
+    return Fraction(fails, total) if total else Fraction(0)
+
+
 def _bin_json(b: Bin) -> dict[str, Any]:
     def f(x: Fraction | None) -> float | None:
         return None if x is None else float(x)
 
     return {k: (v if isinstance(v, int) else f(v)) for k, v in asdict(b).items()}
+
+
+def _total_refusals(log_path: pathlib.Path) -> int:
+    records = read_log(log_path) if log_path.exists() else ()
+    return sum(r["cost"].get("refusals", 0) for r in records)
 
 
 def _total_usd(log_path: pathlib.Path) -> float | None:
@@ -175,10 +216,11 @@ def _total_usd(log_path: pathlib.Path) -> float | None:
     return None if any(c is None for c in costs) else sum(costs)
 
 
-def _load_set(name: str, allow_postcutoff: bool) -> tuple[CryptoniteClue, ...]:
-    if name == "postcutoff":
-        return load_postcutoff(allow_postcutoff=allow_postcutoff)
-    return load_cryptonite(name)
+def _load_set(args: argparse.Namespace) -> tuple[tuple[CryptoniteClue, ...], int | None]:
+    """The population to sample from, and (post-cutoff only) rows excluded by date."""
+    if args.set == "postcutoff":
+        return load_postcutoff(allow_postcutoff=args.allow_postcutoff, model=args.model)
+    return load_cryptonite(args.set), None
 
 
 def _backend(args: argparse.Namespace, log_path: pathlib.Path) -> Instrument:
@@ -197,7 +239,7 @@ def cmd_vote(args: argparse.Namespace) -> dict[str, Any]:
     run_id = f"{started.strftime('%Y%m%dT%H%M%SZ')}-{args.backend}-{uuid.uuid4().hex}"
     runs = pathlib.Path(args.runs_dir)
     log_path = runs / f"{run_id}.jsonl"
-    population = _load_set(args.set, args.allow_postcutoff)
+    population, excluded_by_date = _load_set(args)
     if not population:
         raise SystemExit(f"set {args.set!r} is empty")
     indices = sample_indices(len(population), args.n, args.seed)
@@ -216,7 +258,9 @@ def cmd_vote(args: argparse.Namespace) -> dict[str, Any]:
         "population": len(population),
         "indices": list(indices),
         "log": str(log_path),
+        "excluded_by_date": excluded_by_date,
         "cost_usd": _total_usd(log_path),
+        "refusals": _total_refusals(log_path),
         **summary,
     }
     runs.mkdir(parents=True, exist_ok=True)
@@ -246,9 +290,9 @@ def parser() -> argparse.ArgumentParser:
 def main(argv: Sequence[str] | None = None) -> int:
     args = parser().parse_args(argv)
     out = cmd_vote(args)
-    print(json.dumps({k: out[k] for k in
-                      ("run_id", "set", "run_date", "clue_dates", "n", "k", "model",
-                       "backend", "seed", "top1", "ece", "cost_usd", "log")}, indent="  "))
+    keys = ("run_id", "set", "run_date", "clue_dates", "n", "k", "model", "backend", "seed",
+            "top1", "ece", "enum_fail_share", "refusals", "excluded_by_date", "cost_usd", "log")
+    print(json.dumps({k: out[k] for k in keys}, indent="  "))
     return 0
 
 

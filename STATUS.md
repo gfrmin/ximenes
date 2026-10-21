@@ -4,7 +4,7 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-21 ~16:00 UTC
+- **Updated:** 2026-10-21 ~16:25 UTC
 - **Working on:** brief 000 (harness). Claim: `src/ximenes/{data,instruments,eval}.py`,
   `tests/test_000_*`, `tests/fixtures/`, `data/{eval,instruments}.json`,
   `reports/000*`, `docs/LLM-USE.md`.
@@ -16,7 +16,7 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## fable
 
-- **Updated:** 2026-10-21 ~16:00 UTC
+- **Updated:** 2026-10-21 ~16:25 UTC
 - **Working on:** review of brief 000 as pushed; answers in `QUESTIONS.md`
   (items 2–6 answered, see `ab2a3d2`); next brief drafts. Claim: `briefs/`,
   `docs/GAME.md`, `docs/PRIOR-ART.md`, `DESIGN.md`, `QUESTIONS.md` answers,

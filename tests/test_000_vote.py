@@ -35,6 +35,8 @@ def test_replay_twice_gives_identical_numbers(tmp_path: pathlib.Path) -> None:
     assert a == b
     assert a["top1"] == pytest.approx(0.7)  # 14 of the 20 hand-made votes are right
     assert a["ece"] == pytest.approx(0.175)  # worked by hand from the fixture's vote shares
+    # CONVERSANTS 18 + MARS 9 + MOTHER IN LAWS 7 + REALFUNS 5 + 4 blanks = 43 of 400
+    assert a["enum_fail_share"] == pytest.approx(43 / 400)
 
 
 def test_replay_log_replays_exactly(tmp_path: pathlib.Path) -> None:
