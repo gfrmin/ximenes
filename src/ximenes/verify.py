@@ -1,4 +1,4 @@
-"""Non-executing verifier (CHARTER C2–C4).
+"""Non-executing verifier (DESIGN D2–C4).
 
 Stage 1 (`surface`) is complete and law-tested: parse with `ast`, accept only
 the allowlisted node types, and resolve every call to the operator table.

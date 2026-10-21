@@ -1,34 +1,34 @@
-# Builder instructions (read before anything else)
+# Working on ximenes
 
-You are the **builder** for `ximenes`. You work from one brief at a time
-under `briefs/`. The author rules; you propose and build.
+Read `DESIGN.md` first, then the brief you're on under `briefs/`. One brief
+per session. Work on `master`.
 
-## The cage
-1. Read `CHARTER.md` and the current brief. If the brief conflicts with the
-   charter, stop and report the conflict; do not resolve it yourself.
-2. Work on a branch `b/<brief-number>-<slug>`. Never commit to `main`.
-3. Before you say a brief is done, `./kit/check.sh` must be green. Paste its
-   full output in your report. "Mostly green" is red.
-4. Every new behaviour gets a law under `tests/laws/<brief>/`. Laws from
-   earlier briefs are frozen: do not edit them. If one must change, say so in
-   the report and stop.
-5. No numeric literals in `src/ximenes/` except 0 and 1 (`kit/lint_numbers.py`
-   enforces this). Numbers go in `data/` tables with a `source` field.
-6. No `exec`, `eval`, `subprocess`, `importlib`, `pickle`, or network calls in
-   `src/ximenes/` (lint enforces). Oracle calls go through
-   `src/ximenes/instruments.py` and are logged to `runs/` as JSONL.
-7. Never read, print, or copy anything under `data/postcutoff/`. Loaders may
-   open it only inside `ximenes.eval` with `allow_postcutoff=True`, and only
-   to compute a number.
-8. Prefer the smallest change that makes the law pass. Do not add features
-   the brief does not ask for. Do not refactor across the brief's boundary.
-9. Each report ends with: the headline number for this brief, the kit output,
-   open questions for the author, and a probability (0–1) that the brief is
-   correctly complete, with one sentence of reasoning.
+## Rules that are mechanically checked (`./kit/check.sh`, also CI)
+- Tests in `tests/` pass. Tests from earlier briefs are not edited or
+  deleted; if one must change, say so in the report and explain why.
+- No numeric literals in `src/ximenes/` except 0 and 1 (`kit/lint_numbers.py`).
+  Numbers go in `data/` tables with a `source` field.
+- No `exec`, `eval`, `subprocess`, `importlib`, `pickle`, or network calls in
+  `src/ximenes/` (`kit/lint_forbidden.py`). Oracle and LLM calls go through
+  `src/ximenes/instruments.py` and are logged to `runs/` as JSONL.
+- Nothing under `data/postcutoff/` is ever committed.
+
+## Rules that are not checked, so follow them
+- Never read, print, or copy anything under `data/postcutoff/`. Loaders may
+  open it only inside `ximenes.eval` with `allow_postcutoff=True`, and only
+  to compute a number.
+- Smallest change that makes the test pass. No features the brief doesn't
+  ask for. No refactors across the brief's boundary.
+- Run `./kit/check.sh` before saying a brief is done and paste its output.
+
+## Report format (end of each brief)
+The headline number for the brief; the kit output; open questions; a
+probability (0–1) that the brief is correctly complete, with one sentence of
+reasoning.
 
 ## Style
 - Python 3.11+, type hints everywhere, `dataclass(frozen=True)` for kernel
-  types, no classes with mutable state in the kernel.
+  types, no mutable state in the kernel.
 - `ruff` clean, `pytest -q` clean.
 - Keep `src/ximenes/dsl.py` (operator table) and `src/ximenes/verify.py`
   (AST walker) small and boring. Cleverness goes in proposers, not the kernel.

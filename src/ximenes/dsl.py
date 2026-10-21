@@ -2,7 +2,7 @@
 
 Each operator has fixed arity, argument sorts, a result sort, and a flag for
 whether it is mechanical (-> Ok) or oracle-backed (-> Quarantine). Adding an
-operator is a charter-visible change: it must come with a law.
+operator is a design change: it must come with a test.
 
 Sorts
   TOK   a reference to clue token(s)        tok("word")

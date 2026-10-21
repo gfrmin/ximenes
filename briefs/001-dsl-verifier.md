@@ -1,6 +1,6 @@
 # Brief 001 — Typed DSL and non-executing verifier
 
-Branch: `b/001-dsl-verifier`. Headline number: **gold-parse coverage** —
+Headline number: **gold-parse coverage** —
 the share of Wordplay-dataset explanations (val split) that can be written in
 the DSL and accepted as `Ok` or `Quarantine` by the verifier. This is the
 honest ceiling of a sound-by-grammar approach. Also report the
@@ -36,21 +36,21 @@ produces `Quarantine` not `Ok`.
 3. Evaluate mechanical operators over strings; call indicator/abbreviation
    tables; call oracle instruments (logged) for oracle leaves.
 4. Build provenance: a multiset (N[X]) of consumed token ids. Apply the
-   coverage law (CHARTER C3). Report residual and reused tokens.
+   coverage law (DESIGN D3). Report residual and reused tokens.
 5. Check final string == answer (normalised) and matches enumeration.
 6. Return `Ok | Quarantine(reasons) | Reject(first_broken_rule)` plus a
    hinted error string in the Andrews & Witteveen style for the proposer.
 
-## Laws (tests/laws/001/)
+## Tests (tests/test_001_*.py)
 - The four A&W exploits are `Reject`ed at the surface step (see
-  `tests/test_exploits.py`, already present; extend it).
+  `tests/test_exploits.py`, already present; extend it, never prune it).
 - A token used twice, or left over, cannot be `Ok`.
 - Every operator has a property test with random fodder.
 - Coverage number computed only on val; test untouched.
 
 ## Not in scope
 Grid, probabilities, metacomputation, fine-tuning. Do not try to raise
-coverage by adding operators beyond the list without an author note.
+coverage by adding operators beyond the list without a note in the report.
 
 ## Report
 Coverage on val (overall, quick, hard), the breakdown of `Reject` reasons for

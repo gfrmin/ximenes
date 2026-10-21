@@ -1,4 +1,4 @@
-"""The three verdicts (CHARTER C4). Nothing else may be returned by verify()."""
+"""The three verdicts (DESIGN D4). Nothing else may be returned by verify()."""
 
 from __future__ import annotations
 

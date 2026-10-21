@@ -1,4 +1,4 @@
-"""CHARTER C5: no numeric literal in kernel code except 0 and 1.
+"""DESIGN D5: no numeric literal in kernel code except 0 and 1.
 
 Numbers belong in data tables with a `source`. Files listed in ALLOW may use
 other literals (e.g. regex group indices, bin counts under a comment naming

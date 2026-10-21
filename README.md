@@ -29,12 +29,12 @@ That is the target. See `docs/PRIOR-ART.md`.
 ## Layout
 
 ```
-CHARTER.md          one page, author-signed; what cannot change without a sitting
-CLAUDE.md           instructions for the caged builder (Claude Code)
-briefs/             one brief per builder session, numbered; each has a kit check and one number
-kit/check.sh        the mechanical gate every PR must pass
+DESIGN.md           the rules the code is built to; which are mechanically checked
+CLAUDE.md           instructions for Claude Code sessions
+briefs/             one brief per session, numbered; each has tests and one headline number
+kit/check.sh        lints + tests; runs in CI on every push
 src/ximenes/        kernel: types, DSL operator table, AST verifier, loaders, eval
-tests/              laws (frozen per brief) incl. the exploit-mutation suite
+tests/              incl. the exploit-mutation suite; earlier briefs' tests are never edited
 data/lexicon/       indicator / abbreviation tables (seeded; extend from Deits & A&W)
 data/postcutoff/    private, never committed: post-cutoff clues for clean eval
 docs/               prior art, design notes
