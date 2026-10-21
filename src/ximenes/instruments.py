@@ -196,6 +196,10 @@ def ollama_backend() -> Instrument:
     def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
         if instrument != PROPOSE_ANSWERS:
             raise ValueError(f"ollama backend has no instrument {instrument!r}")
+        if inp.get("effort") is not None:
+            # The log must not claim a parameter that was not sent (QUESTIONS.md
+            # brief 000 item 7): pass effort=None in the input before using Ollama.
+            raise ValueError("ollama sends no effort; the logged input must say effort: null")
         responses = [_with_retries(sample, transient, model, inp) for _ in range(inp["k"])]
         tokens_in = sum(r.prompt_eval_count or 0 for r in responses)
         tokens_out = sum(r.eval_count or 0 for r in responses)
