@@ -1,8 +1,8 @@
 """Instruments: the only door to LLMs and oracles (DESIGN D6).
 
-An `Instrument` maps (instrument name, model, input) to (output, cost). Two
-backends exist: `anthropic` (live API) and `stub` (replays a JSONL log and
-raises if an input is missing). `logged` wraps either one so every call is
+An `Instrument` maps (instrument name, model, input) to (output, cost).
+Backends: `anthropic` and `ollama` (live APIs) and `stub` (replays a JSONL
+log and raises if an input is missing). `logged` wraps either one so every call is
 appended to `runs/<run-id>.jsonl` as `{ts, instrument, model, input, output,
 cost}`; replaying that log with `stub` reproduces the outputs exactly.
 """
@@ -12,6 +12,7 @@ from __future__ import annotations
 import json
 import pathlib
 import threading
+import time
 from collections.abc import Mapping
 from datetime import UTC, datetime
 from typing import Any, Protocol
@@ -149,6 +150,50 @@ def anthropic_backend() -> Instrument:
             "refusals": sum(m.stop_reason == "refusal" for m in messages),
         }
         return [_first_line(m) for m in messages], cost
+
+    return call
+
+
+def _with_retries(f: Any, *args: Any) -> Any:
+    """Call f, sleeping through the delays in the table between failed tries."""
+    for delay in SETTINGS["ollama"]["retry_delays_seconds"]:
+        try:
+            return f(*args)
+        except Exception:  # noqa: BLE001 - transport errors vary; the final try re-raises
+            time.sleep(delay)
+    return f(*args)
+
+
+def ollama_backend() -> Instrument:
+    """Ollama cloud (ollama.com). Needs the `llm` extra and OLLAMA_API_KEY.
+    Sends no sampling options, so samples use the model's defaults; `effort`
+    has no Ollama equivalent and is not sent."""
+    import os
+
+    from ollama import Client  # optional dependency; imported only when used
+
+    client = Client(
+        host=SETTINGS["ollama"]["host"],
+        headers={"Authorization": "Bearer " + os.environ["OLLAMA_API_KEY"]},
+    )
+
+    def sample(model: str, inp: Mapping[str, Json]) -> Any:
+        prompt = PROMPTS[inp["prompt"]].format(**inp)
+        return client.chat(model=model, messages=[{"role": "user", "content": prompt}])
+
+    def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
+        if instrument != PROPOSE_ANSWERS:
+            raise ValueError(f"ollama backend has no instrument {instrument!r}")
+        responses = [_with_retries(sample, model, inp) for _ in range(inp["k"])]
+        tokens_in = sum(r.prompt_eval_count or 0 for r in responses)
+        tokens_out = sum(r.eval_count or 0 for r in responses)
+        cost = {
+            "input_tokens": tokens_in,
+            "output_tokens": tokens_out,
+            "usd": usd(model, tokens_in, tokens_out),
+        }
+        lines = ((r.message.content or "").splitlines() for r in responses)
+        return [next((ln.strip() for ln in ls if ln.strip()), "") for ls in lines], cost
 
     return call
 

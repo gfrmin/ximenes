@@ -1,11 +1,27 @@
 {
-  "source": "prices: claude-api skill model table (cached 2026-10-06), USD per million tokens, first-party API; max_tokens per skill default for non-streaming requests; effort/retries chosen 2026-10-21 for brief 000",
+  "source": "prices: claude-api skill model table (cached 2026-10-06), USD per million tokens, first-party API; max_tokens per skill default for non-streaming requests; effort/retries chosen 2026-10-21 for brief 000; ollama: ollama.com cloud, free tier per author 2026-10-21 (price 0), retry delays chosen 2026-10-21",
   "tokens_per_price_unit": 1000000,
   "prices_usd": {
-    "claude-fable-5-1": {"input": 10.0, "output": 50.0},
-    "claude-opus-5-5": {"input": 4.0, "output": 20.0},
-    "claude-sonnet-5-5": {"input": 2.0, "output": 10.0},
-    "claude-haiku-5-5": {"input": 0.1, "output": 0.5}
+    "claude-fable-5-1": {
+      "input": 10.0,
+      "output": 50.0
+    },
+    "claude-opus-5-5": {
+      "input": 4.0,
+      "output": 20.0
+    },
+    "claude-sonnet-5-5": {
+      "input": 2.0,
+      "output": 10.0
+    },
+    "claude-haiku-5-5": {
+      "input": 0.1,
+      "output": 0.5
+    },
+    "minimax-m3.1-flash": {
+      "input": 0.0,
+      "output": 0.0
+    }
   },
   "propose_answers": {
     "prompt": "answer-only-v1",
@@ -14,5 +30,17 @@
   },
   "anthropic": {
     "max_retries": 8
+  },
+  "ollama": {
+    "host": "https://ollama.com",
+    "retry_delays_seconds": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ]
   }
 }

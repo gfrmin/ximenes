@@ -4,7 +4,7 @@ The only module allowed to open `data/postcutoff/`, and only through
 `load_postcutoff(allow_postcutoff=True)`.
 
     python -m ximenes.eval vote --set test --n 1000 --k 20 --model <id>
-        [--backend anthropic|stub --log runs/<id>.jsonl]
+        [--backend anthropic|ollama|stub --log runs/<id>.jsonl]
 """
 
 from __future__ import annotations
@@ -29,6 +29,7 @@ from .instruments import (
     Instrument,
     anthropic_backend,
     logged,
+    ollama_backend,
     propose_answers,
     read_log,
     replay_then,
@@ -185,7 +186,7 @@ def _backend(args: argparse.Namespace, log_path: pathlib.Path) -> Instrument:
         if args.log is None:
             raise SystemExit("--backend stub needs --log runs/<id>.jsonl")
         return logged(stub_backend(pathlib.Path(args.log)), log_path)
-    live = anthropic_backend()
+    live = ollama_backend() if args.backend == "ollama" else anthropic_backend()
     if args.log is not None:  # resume: replay what the log has, call the API for the rest
         return logged(replay_then(pathlib.Path(args.log), live), log_path)
     return logged(live, log_path)
@@ -231,8 +232,8 @@ def parser() -> argparse.ArgumentParser:
     v.add_argument("--n", type=int, default=PARAMS["n"])
     v.add_argument("--k", type=int, default=PARAMS["k"])
     v.add_argument("--model", required=True)
-    v.add_argument("--backend", choices=("anthropic", "stub"), default="anthropic")
-    v.add_argument("--log", help="JSONL log to replay (stub), or to resume from (anthropic)")
+    v.add_argument("--backend", choices=("anthropic", "ollama", "stub"), default="anthropic")
+    v.add_argument("--log", help="JSONL log to replay (stub), or to resume from (live backends)")
     v.add_argument("--seed", type=int, default=PARAMS["seed"])
     v.add_argument("--bins", type=int, default=PARAMS["bins"])
     v.add_argument("--workers", type=int, default=PARAMS["workers"])
