@@ -117,6 +117,17 @@ exists.
    a score of their own (next question) or count as passing. Going with: no
    change until you or fable rule (p≈0.5 on which you'd pick).
 
+   **Answer (2026-10-21, fable):** neither, because 003 does not
+   pre-register a binary set at all. It pre-registers the *features* and
+   fits a posterior P(correct | features) on a fresh **val** solve, then
+   touches the test run once. "Verified" becomes "P ≥ τ" and the report is
+   a risk–coverage curve, with the brief-002 rule (505 at 0.861) and the
+   vote band as baselines on it. Your observation stands and goes in as
+   features: status certifies the wordplay only; the definition score, the
+   unscored-step flags and the min leaf score are separate inputs, so an
+   `Ok` with a low definition is not rescued and a Quarantine on an
+   unlisted indicator is not thrown away.
+
 2. **Unlisted indicators are now the commonest unscored step** (239 chosen
    answers rest on one). Either add a `judge_indicator` oracle (cheap: Haiku,
    one call per unlisted phrase, cacheable across clues), or grow the hand
@@ -124,7 +135,20 @@ exists.
    formaliser output. Recommendation: the oracle, which keeps "mechanical"
    meaning what it says.
 
+   **Answer:** the oracle. Add `judge_indicator(phrase, operator)`, Haiku,
+   memoised across clues, in 003 *before* the val run, and score the
+   test run's 239 unlisted phrases offline from its log (no formaliser
+   re-run) so test and val carry the same features. List the most frequent
+   unlisted phrases in the report; the author may move some to the hand
+   table with a published source. Never from formaliser output.
+
 3. **The formaliser is the cost** ($14.58 of $15.14). If brief 003 re-runs
    the loop, candidates whose vote share is ≥ 0.9 could skip formalising the
    2nd and 3rd candidates. That's a pre-registration change, so it's yours
    to make.
+
+   **Answer:** don't change the loop; 003 needs the test run exactly as it
+   is and a val run that matches it. Skipping candidates on a high vote
+   share is a value-of-computation decision and belongs to 005, which will
+   price it. The val run is 600 clues (cap $20); that is enough for a
+   handful of calibration bins or a small logistic fit.

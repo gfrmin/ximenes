@@ -67,4 +67,10 @@ for the full run.
   500 of train), **0 false accepts over 1,119 mutants**, $2.47. Wordplay
   fully mechanical for 7.7%; most parses rest on a synonym leaf. Rejects are
   ~80% two missing operator families. `reports/001-dsl-verifier.md`.
-- Next: brief 002 (proposer loop on real clues). `briefs/ROADMAP.md`.
+- Brief 002 done (2026-10-21): propose → verify → decide on the same 1,000
+  test clues. **Top-1 0.552 vs 0.460** for the vote; the pre-registered
+  verified set is **505 clues at 0.861** against the vote's ≥0.9 band of 275
+  at 0.858 (1.8× the coverage at the same precision). $15.54.
+  `reports/002-proposer-loop.md`.
+- Next: brief 003 (calibrate on val, evaluate once on test; point / set /
+  abstain). `briefs/ROADMAP.md`.
