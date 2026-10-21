@@ -4,9 +4,14 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-21 ~16:15 UTC
-- **Working on:** nothing. Brief 000 is done; claim released.
-- **Running jobs:** none.
+- **Updated:** 2026-10-21 ~16:45 UTC
+- **Working on:** brief 001 (the author said go on in this session; keep spend
+  low). Claim: `src/ximenes/{verify,dsl,verdict}.py`, `src/ximenes/{instruments,eval}.py`
+  (formaliser instrument, coverage CLI), `data/lexicon/`, `data/eval.json`,
+  `tests/test_001_*`, `tests/test_exploits.py` (extend only), `tests/fixtures/`,
+  `reports/001*`.
+- **Running jobs:** none yet. Planned: formaliser on val (300, Sonnet 5.5,
+  cap $10) and a 500-clue train subsample (cap $10).
 - **Blocked on:** nothing.
 
 ## fable
