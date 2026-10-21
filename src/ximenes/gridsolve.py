@@ -199,8 +199,25 @@ def solve_grid(grid: Grid, clues: dict[str, CryptoniteClue], *, models: dict[str
     return {"slots": out, "rounds": rounds, "budget_hit": budget_hit}
 
 
+def slot_class(k: str, r: dict[str, Any], crossers: dict[str, list[str]],
+               result: dict[str, Any]) -> str:
+    """D9 accounting (fable, comms 2026-10-21): "guessed" if entered over OTHER
+    or below tau at submission; "proven" if Ok and every crossing slot is
+    committed; otherwise "quarantined" (it names its oracle leaves)."""
+    if r["submitted"] is None or r["map_other"] or r["marginal"] < BP["tau"]:
+        return "guessed"
+    if r["status"] == "Ok" and all(result["slots"][o]["committed_round"] is not None
+                                   for o in crossers[k]):
+        return "proven"
+    return "quarantined"
+
+
 def score_grid(grid: Grid, result: dict[str, Any]) -> dict[str, Any]:
     slots = {slot_key(s): s for s in grid.slots}
+    crossers = {slot_key(Slot(n, o, ())): [slot_key(Slot(on, oo, ())) for _i, (on, oo), _j in cx]
+                for (n, o), cx in grid.crossers().items()}
+    cls = {k: slot_class(k, r, crossers, result) for k, r in result["slots"].items()}
+    letters = sum(slots[k].length for k in cls)
     sub: dict[tuple[int, int], set[str]] = {}
     gold: dict[tuple[int, int], str] = {}
     for k, r in result["slots"].items():
@@ -209,7 +226,6 @@ def score_grid(grid: Grid, result: dict[str, Any]) -> dict[str, Any]:
             sub.setdefault(c, set()).add(r["submitted"][i] if r["submitted"] else "")
     cells_ok = sum(len(v) == 1 and next(iter(v)) == gold[c] for c, v in sub.items())
     rs = list(result["slots"].values())
-    proven = all(r["status"] == "Ok" and r["submitted"] is not None for r in rs)
     return {
         "fully_correct": cells_ok == len(gold),
         "letters_correct": cells_ok / len(gold),
@@ -218,13 +234,24 @@ def score_grid(grid: Grid, result: dict[str, Any]) -> dict[str, Any]:
         "clues_correct_pure_map": sum(r["submitted"] == r["gold"] and not r["map_other"]
                                       for r in rs) / len(rs),
         "map_other": sum(r["map_other"] for r in rs),
-        "proven": proven,
+        "proven": all(v == "proven" for v in cls.values()),
         "slots_ok": sum(r["status"] == "Ok" for r in rs),
         "slots_quarantine": sum(r["status"] == "Quarantine" for r in rs),
         "slots_none": sum(r["status"] == "none" or r["submitted"] is None for r in rs),
         "quarantine_reasons": dict(Counter(x for r in rs if r["status"] == "Quarantine"
                                            for x in r["reasons"])),
         "uncommitted": sum(r["committed_round"] is None for r in rs),
+        "classes": {c: sum(v == c for v in cls.values()) / len(cls)
+                    for c in ("proven", "quarantined", "guessed")},
+        "classes_letters": {c: sum(slots[k].length for k, v in cls.items() if v == c) / letters
+                            for c in ("proven", "quarantined", "guessed")},
+        "class_counts": {c: sum(v == c for v in cls.values())
+                         for c in ("proven", "quarantined", "guessed")},
+        "class_correct": {c: sum(result["slots"][k]["submitted"] == result["slots"][k]["gold"]
+                                 for k, v in cls.items() if v == c)
+                          for c in ("proven", "quarantined", "guessed")},
+        "grid_class": "proven" if all(v == "proven" for v in cls.values()) else
+        "quarantined" if not any(v == "guessed" for v in cls.values()) else "guessed",
         "rounds": result["rounds"], "n_slots": len(rs),
     }
 
