@@ -161,26 +161,45 @@ def _key(word: str) -> str:
     return word.lower().replace("’", "'")
 
 
-def _resolve(node: CallNode | str, clue: Clue, seen: dict[tuple[str, ...], int]
+def _words(node: CallNode) -> tuple[str, ...]:
+    return tuple(_key(w) for a in node.args for w in str(a).split())
+
+
+def _double_duty_spans(node: CallNode | str) -> frozenset[tuple[str, ...]]:
+    if isinstance(node, str):
+        return frozenset()
+    own = frozenset({_words(a) for a in node.args if isinstance(a, CallNode)
+                     and a.op.name == "tok"}) if node.op.name == "double_duty" else frozenset()
+    return own.union(*(_double_duty_spans(a) for a in node.args))
+
+
+def _resolve(node: CallNode | str, clue: Clue, seen: dict[tuple[str, ...], int],
+             double: frozenset[tuple[str, ...]] = frozenset(), declaring: bool = False
              ) -> tuple[CallNode | str | Tok, dict[tuple[str, ...], int]]:
-    """Replace tok(...) nodes by Tok, in preorder; `seen` counts uses per span."""
+    """Replace tok(...) nodes by Tok, in preorder; `seen` counts uses per span.
+    A span declared with double_duty(...) may be referenced again at its last
+    occurrence; the declaration itself names the first and counts as no use."""
     if isinstance(node, str):
         return node, seen
     if node.op.name == "tok":
-        words = tuple(_key(w) for a in node.args for w in str(a).split())
+        words = _words(node)
         tokens = clue.tokens
         starts = [i for i in range(len(tokens) - len(words) + 1)
                   if all(tokens[i + j].key.replace("’", "'") == w for j, w in enumerate(words))]
-        k = seen.get(words, 0)
-        if k >= len(starts):
+        k = 0 if declaring else seen.get(words, 0)
+        if k >= len(starts) and words in double and starts:
+            k = len(starts) - 1
+        elif k >= len(starts):
             raise _Broken(f"tok:not_found:{' '.join(words)}",
                           f"no{' further' if k else ''} contiguous clue tokens {' '.join(words)!r}")
         start = starts[k]
         ids = tuple(range(start, start + len(words)))
+        if declaring:
+            return Tok(ids, tuple(tokens[i].text for i in ids)), seen
         return Tok(ids, tuple(tokens[i].text for i in ids)), {**seen, words: k + 1}
     args: list[CallNode | str | Tok] = []
     for a in node.args:
-        r, seen = _resolve(a, clue, seen)
+        r, seen = _resolve(a, clue, seen, double, node.op.name == "double_duty")
         args.append(r)
     return CallNode(node.op, tuple(args)), seen  # type: ignore[arg-type]
 
@@ -376,7 +395,7 @@ def verify(clue: Clue, answer: str, src: str) -> Verdict:
         return tree
     try:
         _typecheck(tree)
-        resolved, _ = _resolve(tree, clue, {})
+        resolved, _ = _resolve(tree, clue, {}, _double_duty_spans(tree))
         top = _eval(resolved)
         _coverage(clue, top)
         a = normalise(answer)

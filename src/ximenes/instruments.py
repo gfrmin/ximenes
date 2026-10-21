@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import pathlib
+import re
 import threading
 import time
 from collections.abc import Mapping
@@ -152,7 +153,8 @@ def _message_usd(model: str, m: Any) -> float:
 def _formalise_user(inp: Mapping[str, Json]) -> str:
     tokens = " ".join(f"[{i}] {t}" for i, t in enumerate(inp["tokens"]))
     previous = "".join(
-        f"Your earlier parse:\n{p['src']}\nwas rejected: {p['rule']}. {p['hint']}\n"
+        f"Your earlier parse:\n{p['src'] or '(no parse found in your reply)'}\n"
+        f"was rejected: {p['rule']}. {p['hint']}\n"
         for p in inp["previous"]
     )
     return FORMALISE_USER.format(
@@ -162,11 +164,31 @@ def _formalise_user(inp: Mapping[str, Json]) -> str:
     )
 
 
+_TOP = re.compile(r"\b(clue|double_def|cryptic_def|andlit)\(")
+
+
+def extract_expression(text: str) -> str:
+    """The last balanced top-level parse in a reply (prose and fences ignored);
+    '' if there is none."""
+    for m in reversed(list(_TOP.finditer(text))):
+        depth, quote = 0, ""
+        for j in range(m.end() - 1, len(text)):
+            c = text[j]
+            if quote:
+                quote = "" if c == quote and text[j - 1] != "\\" else quote
+            elif c in "\"'":
+                quote = c
+            elif c == "(":
+                depth += 1
+            elif c == ")":
+                depth -= 1
+                if depth == 0:
+                    return text[m.start(): j + 1]
+    return ""
+
+
 def _expression(message: Any) -> str:
-    """The reply's expression: text blocks joined, code fences dropped."""
-    text = "".join(b.text for b in message.content if b.type == "text")
-    lines = [ln for ln in text.strip().splitlines() if not ln.strip().startswith("```")]
-    return "\n".join(lines).strip()
+    return extract_expression("".join(b.text for b in message.content if b.type == "text"))
 
 
 def _first_line(message: Any) -> str:
@@ -219,6 +241,9 @@ def anthropic_backend() -> Instrument:
             "usd": sum(_message_usd(model, m) for m in messages)
             if model in SETTINGS["prices_usd"] else None,
             "refusals": sum(m.stop_reason == "refusal" for m in messages),
+            "refusal_categories": [
+                getattr(m.stop_details, "category", None) for m in messages
+                if m.stop_reason == "refusal" and getattr(m, "stop_details", None)],
         }
         return output, cost
 
