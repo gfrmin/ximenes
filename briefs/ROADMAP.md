@@ -5,7 +5,7 @@
 |---|---|---|---|
 | 000 | Harness, splits, logged instruments, vote baseline | top-1 + ECE on test vs post-cutoff | — |
 | 001 | Typed DSL + non-executing verifier + coverage law | gold-parse coverage; mutant false-accept = 0 | 000 |
-| 002 | Proposer loop: answers → wordplay → formalise → verify, with hinted retries | top-1 with verifier vs vote baseline, quick/hard split | 001 |
+| 002 | Proposer loop on real clues: new operators, table-review rule, oracle instruments, concurrent samples, fixed decision rule | top-1 vs 0.460 on the same 1,000; verified-set size and accuracy | 001 |
 | 003 | `Hyp` relation with semiring annotations (N[X] coverage, Why over oracle calls); `propagate` as semi-join; oracle calibration on val | exact-solve rate (singleton surviving set containing the truth); calibration curve P(correct \| quarantine reasons) | 002 |
 | 004 | Grid: `Slot`/`Dom`, arc consistency over crossers, nogoods, re-propose with pattern on empty domains | fully-correct grid rate; share of solves *proven* vs *quarantined*; frontier tokens per correct grid | 003 |
 | 005 | `wald` pack: price moves in seconds/tokens; value of computation (Hay et al.) vs MRV vs Dr.Fill confidence gap vs attempt-all-first; stopping rule for submit | expected score per unit time; "price of the floor" | 004, wald amendment |

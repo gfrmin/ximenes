@@ -26,16 +26,24 @@ are declared, not inferred. `&lit` and double-duty are declared modes that
 change the law explicitly.
 
 ## D4. Three verdicts, honestly named
-- `Ok`: every step is mechanical (string algebra, abbreviation table,
-  indicator table) and coverage holds. The tables are trusted data, so
-  every entry is reviewed and every change from upstream is listed in
-  `data/lexicon/REVIEW.md`; an `Ok` is a proof modulo those tables.
-- `Quarantine(reasons)`: mechanics and coverage hold but at least one leaf
-  rests on an oracle — `synonym`, `definition`, `homophone`, `cryptic_def`,
-  `double_def` — or on an `indicator` phrase the table does not list, or
-  there is a declared residual. Reasons are typed.
+A verdict is about the **wordplay derivation**. The definition is a separate
+confirmation channel (with crossers the third; `docs/GAME.md` §3) and is
+reported alongside every verdict as `definition: pending | judged(oracle,
+score)`, never folded into the verdict's status.
+- `Ok`: every wordplay step is mechanical (string algebra, abbreviation
+  table, indicator table) and coverage holds. The tables are trusted data:
+  an entry counts as mechanical only once it is **reviewed** (`REVIEW.md`,
+  origin tag); a step that rests on an unreviewed entry gives
+  `Quarantine(table_unreviewed)`. An `Ok` is a proof of the wordplay modulo
+  the reviewed tables.
+- `Quarantine(reasons)`: mechanics and coverage hold but at least one step
+  rests on an oracle (`synonym`, `homophone`, `cryptic_def`, `double_def`),
+  on an `indicator` phrase the table does not list, on a `table_unreviewed`
+  entry, or there is a declared residual. Reasons are typed; oracle scores,
+  when judged, travel with the verdict.
 - `Reject(first_broken_rule)`: name the first rule broken, nothing more.
-The word "proof" is never used for a `Quarantine`.
+The word "proof" is never used for a `Quarantine`, and never for the
+definition.
 
 ## D5. Numbers live in tables  *(checked: `kit/lint_numbers.py`)*
 Probabilities, prices and lexicon weights live in `data/` tables with a

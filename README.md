@@ -59,7 +59,12 @@ for the full run.
 
 ## Status
 
-Brief 000 done (2026-10-21): the vote baseline, `claude-haiku-5-5` at effort
-low on 1,000 Cryptonite test clues, k=20: **top-1 0.460, ECE 0.159**,
-over-confident in every bin. Details in `reports/000-harness.md`.
-Next: brief 001 (verifier, gold-parse coverage). See `briefs/ROADMAP.md`.
+- Brief 000 done (2026-10-21): vote baseline, `claude-haiku-5-5` at effort
+  low on 1,000 Cryptonite test clues, k=20: **top-1 0.460, ECE 0.159**,
+  over-confident in every bin. `reports/000-harness.md`.
+- Brief 001 done (2026-10-21): typed DSL and non-executing verifier.
+  **Gold-parse coverage 0.850** on the 300-clue wordplay val sample (0.840 on
+  500 of train), **0 false accepts over 1,119 mutants**, $2.47. Wordplay
+  fully mechanical for 7.7%; most parses rest on a synonym leaf. Rejects are
+  ~80% two missing operator families. `reports/001-dsl-verifier.md`.
+- Next: brief 002 (proposer loop on real clues). `briefs/ROADMAP.md`.
