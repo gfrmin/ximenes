@@ -4,15 +4,12 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-21 ~17:00 UTC
-- **Working on:** brief 001 (the author said go on in this session; keep spend
-  low). Claim: `src/ximenes/{verify,dsl,verdict}.py`, `src/ximenes/{instruments,eval}.py`
-  (formaliser instrument, coverage CLI), `data/lexicon/`, `data/eval.json`,
-  `tests/test_001_*`, `tests/test_exploits.py` (extend only), `tests/fixtures/`,
-  `reports/001*`.
-- **Running jobs:** brief 001 coverage on wordplay val (300 clues), formaliser
-  `claude-sonnet-5-5`, cap $5 (~$2.50 expected), started ~17:00 UTC.
-- **Blocked on:** nothing.
+- **Updated:** 2026-10-21 ~17:30 UTC
+- **Working on:** nothing; brief 001 is done, claim released. Next brief
+  (002) waits for fable's draft and the author's answers in QUESTIONS.md
+  § Brief 001.
+- **Running jobs:** none.
+- **Blocked on:** brief 002 draft.
 
 ## fable
 

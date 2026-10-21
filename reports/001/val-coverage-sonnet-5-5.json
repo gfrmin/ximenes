@@ -1,0 +1,3272 @@
+{
+  "run_id": "20261021T163552Z-coverage-anthropic-9fbf322b447040d095bd4c7ea412330d",
+  "set": "wordplay-val",
+  "run_date": "2026-10-21",
+  "backend": "anthropic",
+  "replayed_from": "runs/20261021T163216Z-coverage-anthropic-d39b8805b1694571ba724961c42d6131.jsonl",
+  "seed": 20261021,
+  "population": 300,
+  "indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241,
+    242,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248,
+    249,
+    250,
+    251,
+    252,
+    253,
+    254,
+    255,
+    256,
+    257,
+    258,
+    259,
+    260,
+    261,
+    262,
+    263,
+    264,
+    265,
+    266,
+    267,
+    268,
+    269,
+    270,
+    271,
+    272,
+    273,
+    274,
+    275,
+    276,
+    277,
+    278,
+    279,
+    280,
+    281,
+    282,
+    283,
+    284,
+    285,
+    286,
+    287,
+    288,
+    289,
+    290,
+    291,
+    292,
+    293,
+    294,
+    295,
+    296,
+    297,
+    298,
+    299
+  ],
+  "log": "runs/20261021T163552Z-coverage-anthropic-9fbf322b447040d095bd4c7ea412330d.jsonl",
+  "max_usd": 3.0,
+  "cost_usd": 0.8665024,
+  "n": 300,
+  "model": "claude-sonnet-5-5",
+  "coverage": 0.85,
+  "coverage_quick": null,
+  "coverage_hard": 0.85,
+  "n_quick": 0,
+  "verdicts": {
+    "Quarantine": 255,
+    "Reject": 45
+  },
+  "wordplay_mechanical": 23,
+  "quarantine_reasons": {
+    "synonym": 175,
+    "definition": 225,
+    "indicator": 87,
+    "double_def": 24,
+    "cryptic_def": 6,
+    "homophone": 5
+  },
+  "reject_rules": {
+    "surface:unknown_operator:last_letters": 16,
+    "surface:unknown_operator:remove_letter": 7,
+    "surface:unknown_operator:remove_letters": 5,
+    "surface:unknown_operator:middle_letters": 3,
+    "surface:unknown_operator:last_letter": 1,
+    "surface:unknown_operator:append_after": 1,
+    "surface:unknown_operator:what_could_make": 1,
+    "surface:unknown_operator:delete_outer": 1,
+    "surface:unknown_operator:reverse_middle": 1,
+    "surface:unknown_operator:spoonerism": 1,
+    "surface:unknown_operator:last_letters_of": 1,
+    "surface:unknown_operator:vacate": 1,
+    "surface:unknown_operator:delete_first_letters": 1,
+    "surface:unknown_operator:half_of": 1,
+    "surface:unknown_operator:outer_letters": 1,
+    "insert:no_position": 1,
+    "surface:unknown_operator:delete_first_last": 1,
+    "surface:unknown_operator:first_last": 1
+  },
+  "attempts": {
+    "2": 46,
+    "1": 249,
+    "3": 5
+  },
+  "mutants": 1119,
+  "mutant_false_accepts": 0,
+  "mutants_by_kind": {
+    "answer": {
+      "mutants": 255,
+      "false_accepts": 0,
+      "accepted": 0
+    },
+    "claim": {
+      "mutants": 155,
+      "false_accepts": 0,
+      "accepted": 0
+    },
+    "drop_decl": {
+      "mutants": 141,
+      "false_accepts": 0,
+      "accepted": 0
+    },
+    "extra_link": {
+      "mutants": 255,
+      "false_accepts": 0,
+      "accepted": 0
+    },
+    "oracle_claim": {
+      "mutants": 205,
+      "false_accepts": 0,
+      "accepted": 7
+    },
+    "shrink_defn": {
+      "mutants": 108,
+      "false_accepts": 0,
+      "accepted": 0
+    }
+  },
+  "items": [
+    {
+      "index": 0,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 1,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 2,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 3,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 4,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 5,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 6,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 7,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 8,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 9,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 10,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 11,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 12,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 13,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 14,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 15,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 16,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 17,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 18,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 19,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 20,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 21,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letter",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 22,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 23,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 24,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 25,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 26,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 27,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 28,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 29,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 30,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 31,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 32,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 33,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 34,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 35,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 36,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 37,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:append_after",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 38,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 39,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 40,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 41,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 42,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 43,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 44,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:what_could_make",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 45,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 46,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "cryptic_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 47,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 48,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 49,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 50,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 51,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:delete_outer",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 52,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 53,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 54,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 55,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 56,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 57,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 58,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 59,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 60,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 61,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 62,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 63,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 64,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 65,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 66,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 67,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 68,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 69,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 70,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 71,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 72,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 73,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 74,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 75,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 76,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 77,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 78,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 79,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 80,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 81,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letter",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 82,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 83,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 84,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 85,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 86,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 87,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 88,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 89,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 90,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 91,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 92,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 93,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 94,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 95,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 96,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 97,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 98,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 99,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 100,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 101,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 102,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 3
+    },
+    {
+      "index": 103,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 104,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 105,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 106,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 107,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 108,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 109,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 110,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 111,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 112,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 113,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 114,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 115,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 116,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 117,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 118,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 119,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 120,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 121,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 122,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 123,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 124,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 125,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 126,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 127,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 128,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 129,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 130,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 131,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 132,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 133,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 134,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 135,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 136,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 137,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 138,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 3
+    },
+    {
+      "index": 139,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 140,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 141,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 142,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 143,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 144,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 145,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 146,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 147,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 148,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 149,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 150,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 151,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 152,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 153,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 154,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 155,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 156,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 157,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 158,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 159,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 160,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 161,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:reverse_middle",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 162,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 163,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 164,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:spoonerism",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 165,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:middle_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 166,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 167,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 168,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 169,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 170,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters_of",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 171,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 172,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 173,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 174,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 175,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 176,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 177,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 178,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:vacate",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 179,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 180,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 181,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 182,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 183,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:middle_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 184,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 185,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 186,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 3
+    },
+    {
+      "index": 187,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 188,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 189,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 190,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 191,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 192,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "homophone",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 193,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 194,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 195,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 196,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 197,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 198,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 199,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 200,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letter",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 201,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 202,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 203,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 204,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 205,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 206,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letter",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 207,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 208,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 209,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "cryptic_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 210,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 211,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 212,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 213,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:delete_first_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 214,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 215,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 216,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 217,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letter",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 218,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 219,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 220,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 221,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:half_of",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 222,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "cryptic_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 223,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 224,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 225,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 226,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 227,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 228,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 229,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 230,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:outer_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 231,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 232,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 233,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 234,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "cryptic_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 235,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 236,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 237,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 238,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 239,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letter",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 240,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "cryptic_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 241,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 242,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 243,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 244,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 245,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 246,
+      "verdict": "Reject",
+      "rule": "insert:no_position",
+      "reasons": [],
+      "attempts": 3
+    },
+    {
+      "index": 247,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 248,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 249,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 250,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 251,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letter",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 252,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 253,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 254,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 255,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "homophone",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 256,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 257,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 258,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "homophone",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 259,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 260,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 261,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "homophone"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 262,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 263,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 3
+    },
+    {
+      "index": 264,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 265,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:last_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 266,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:delete_first_last",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 267,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 268,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 269,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 270,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 271,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 272,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 273,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:middle_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 274,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 275,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 276,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 277,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 278,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 279,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 280,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 281,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 282,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 283,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 284,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 285,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 286,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 287,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 288,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 289,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letters",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 290,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 291,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 2
+    },
+    {
+      "index": 292,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:first_last",
+      "reasons": [],
+      "attempts": 2
+    },
+    {
+      "index": 293,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 294,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "homophone"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 295,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 296,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "double_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 297,
+      "verdict": "Reject",
+      "rule": "surface:unknown_operator:remove_letter",
+      "reasons": [],
+      "attempts": 1
+    },
+    {
+      "index": 298,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "cryptic_def"
+      ],
+      "attempts": 1
+    },
+    {
+      "index": 299,
+      "verdict": "Quarantine",
+      "rule": null,
+      "reasons": [
+        "synonym",
+        "definition",
+        "indicator"
+      ],
+      "attempts": 1
+    }
+  ],
+  "note": "per-item DSL source removed (it quotes clue words; the datasets are not republished); full logs are local under runs/"
+}
