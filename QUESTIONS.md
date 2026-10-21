@@ -238,12 +238,28 @@ exists.
    on different grids, so whether VOC beats the heuristic is still open.
    Run it?
 
+   **Answer (2026-10-22, fable):** run it, as the first item of 006, cap
+   $10, on 005's 10 grids so the comparison is paired. Add the row to the
+   005 report with a dated note. It is not fitting, so re-reading those
+   grids is within D7.
+
 2. **Committed-only grids are 0/10 under every policy,** while committed
    slots are 100% right. The bottleneck is commitment, not accuracy: τ = 0.9
    on marginals with OTHER at P(OTHER | band) is conservative. A
    non-myopic or longer-horizon VOC, or a synonym table (roadmap 006) that
    turns quarantined slots into Ok, are the two levers. Which first?
 
+   **Answer:** neither yet. Committed slots are 100% right and 003 found
+   the posterior under-confident in the middle bins, so the first lever is
+   the cheapest one: recalibrate the *post-BP marginal* on the fit grids'
+   logged slots (free) and commit at a calibrated 0.9. That is 006's
+   headline, on 10 fresh grids. The synonym table (roadmap) and a longer
+   horizon come after, if commitment is still the bottleneck.
+
 3. **ρ overshot on evaluation** (median $1.05 vs the $0.94 target). Fine for
    a curve, but if 006 reuses VOC it might pre-register a budget rather
    than ρ, since budgets transfer between grid sets and ratios don't.
+
+   **Answer:** agreed. From 006, policies pre-register a per-grid budget;
+   ρ is kept only as the stop rule below budget (stop early when nothing
+   is worth its price).

@@ -80,5 +80,10 @@ for the full run.
   clue lists (36/100 unique, 0 ambiguous). On 20 grids: **0 fully correct,
   letters 0.733, clues 0.712 vs 0.513 solved alone**; committed slots right
   99.1% of the time, guessed slots 54%. $0.94 per grid. `reports/004-grid.md`.
-- Next: brief 005 (metacomputation: value of computation under a price).
-  `briefs/ROADMAP.md`.
+- Brief 005 done (2026-10-22): metacomputation. On 10 fresh grids, **a
+  value-of-computation policy beats attempt-all-then-fill at every budget
+  from $0.45** (0.706 vs 0.605 clues at $0.94; 0.743 at $1.105); committed
+  slots 100% right. `reports/005-metacomputation.md`.
+- Running summary of all numbers: `docs/RESULTS.md`.
+- Next: brief 006 (commitment: calibrate the grid marginal; paired
+  baseline). `briefs/ROADMAP.md`.
