@@ -6,14 +6,9 @@ and note the answer in the commit message.
 
 ## Brief 000
 
-1. **Test fixture clues are original, not 20 Cryptonite val clues.** The brief
-   asks for "a hand-made log for 20 val clues". Neither `aviaefrat/cryptonite`
-   nor `mdda/cryptic-wordplay` has a licence on GitHub, the clues are
-   newspaper text, and this repo is public. So `tests/fixtures/clues-20.jsonl`
-   holds 20 clues written for this repo, in Cryptonite row format
-   (`publisher: "synthetic"`). The path through real val clues is covered by
-   a local-only test that builds its log in a temp dir. Going with: original
-   clues (p≈0.75 that's what you want). Do you want real rows committed anyway?
+Answered 2026-10-21: Cryptonite and cryptic-wordplay are used locally and never
+republished here, so the test fixture uses 20 original clues and reports hold no
+clue text. (This was item 1.)
 
 2. **Vote rules.** Confidence = votes for the winner ÷ k, with blank and
    wrong-length samples left in the denominator. There's no filter on
