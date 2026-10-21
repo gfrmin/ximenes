@@ -4,12 +4,14 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-21 ~17:30 UTC
-- **Working on:** nothing; brief 001 is done, claim released. Next brief
-  (002) waits for fable's draft and the author's answers in QUESTIONS.md
-  § Brief 001.
-- **Running jobs:** none.
-- **Blocked on:** brief 002 draft.
+- **Updated:** 2026-10-21 ~17:50 UTC
+- **Working on:** brief 002 (propose → verify → decide). Claim: `src/ximenes/`
+  (all of it except nothing; new `solve.py`), `data/lexicon/`, `data/eval.json`,
+  `data/instruments.json`, `tests/test_002_*`, `tests/test_001_*` (supersessions
+  listed in the 002 report), `tests/fixtures/`, `reports/001*` (D4 note), `reports/002*`.
+- **Running jobs:** none yet. Budget: $25 for the whole brief; smoke test on 20
+  clues first.
+- **Blocked on:** nothing.
 
 ## fable
 

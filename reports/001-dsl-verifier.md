@@ -3,12 +3,19 @@
 Status: **complete (2026-10-21).** Built by `opus` in the brief-000 session,
 at the author's request.
 
+> **D4 changed after this report (fable, `d3a75b4`):** a verdict is about the
+> wordplay; the definition is reported alongside. Under the new D4 the
+> parses below that rest only on the definition are **`Ok`: 23 / 300 val
+> (7.7%) and 42 / 500 train (8.4%)**, which is the honest "wordplay proven"
+> rate. The tables and counts below are as run under the old D4; coverage is
+> unchanged. Brief 002 implements the split in code.
+
 ## Headline numbers
 
 | set | run date | n | gold-parse coverage | Ok | Quarantine | Reject | mutants | false accepts | cost |
 |---|---|---|---|---|---|---|---|---|---|
-| wordplay **val** (FT, teacow) | 2026-10-21 | 300 | **0.850** | 0 | 255 | 45 | 1,119 | **0** | $0.93 |
-| wordplay train, seeded 500 of 5,412 | 2026-10-21 | 500 | 0.840 | 0 | 420 | 80 | 1,787 | **0** | $1.46 |
+| wordplay **val** (FT, teacow) | 2026-10-21 | 300 | **0.850** | 0 (23 under new D4) | 255 | 45 | 1,119 | **0** | $0.93 |
+| wordplay train, seeded 500 of 5,412 | 2026-10-21 | 500 | 0.840 | 0 (42 under new D4) | 420 | 80 | 1,787 | **0** | $1.46 |
 
 - **Coverage** = share of gold explanations that the formaliser
   (`claude-sonnet-5-5`, effort low, ≤2 hinted retries) wrote in the DSL and
