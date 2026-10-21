@@ -154,12 +154,15 @@ def anthropic_backend() -> Instrument:
     return call
 
 
-def _with_retries(f: Any, *args: Any) -> Any:
-    """Call f, sleeping through the delays in the table between failed tries."""
+def _with_retries(f: Any, transient: Any, *args: Any) -> Any:
+    """Call f; on an error `transient(e)` accepts, sleep through the table's
+    delays and try again. Any other error, or the last try's, is raised."""
     for delay in SETTINGS["ollama"]["retry_delays_seconds"]:
         try:
             return f(*args)
-        except Exception:  # noqa: BLE001 - transport errors vary; the final try re-raises
+        except Exception as e:
+            if not transient(e):
+                raise
             time.sleep(delay)
     return f(*args)
 
@@ -170,10 +173,19 @@ def ollama_backend() -> Instrument:
     has no Ollama equivalent and is not sent."""
     import os
 
-    from ollama import Client  # optional dependency; imported only when used
+    import httpx
+    from ollama import Client, ResponseError  # optional dependency; imported only when used
+
+    retry_status = frozenset(SETTINGS["ollama"]["retry_status"])
+
+    def transient(e: Exception) -> bool:
+        if isinstance(e, ResponseError):
+            return e.status_code in retry_status
+        return isinstance(e, ConnectionError | httpx.TransportError)
 
     client = Client(
         host=SETTINGS["ollama"]["host"],
+        timeout=SETTINGS["ollama"]["timeout_seconds"],
         headers={"Authorization": "Bearer " + os.environ["OLLAMA_API_KEY"]},
     )
 
@@ -184,7 +196,7 @@ def ollama_backend() -> Instrument:
     def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
         if instrument != PROPOSE_ANSWERS:
             raise ValueError(f"ollama backend has no instrument {instrument!r}")
-        responses = [_with_retries(sample, model, inp) for _ in range(inp["k"])]
+        responses = [_with_retries(sample, transient, model, inp) for _ in range(inp["k"])]
         tokens_in = sum(r.prompt_eval_count or 0 for r in responses)
         tokens_out = sum(r.eval_count or 0 for r in responses)
         cost = {

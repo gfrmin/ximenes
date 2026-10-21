@@ -1,5 +1,5 @@
 {
-  "source": "prices: claude-api skill model table (cached 2026-10-06), USD per million tokens, first-party API; max_tokens per skill default for non-streaming requests; effort/retries chosen 2026-10-21 for brief 000; ollama: ollama.com cloud, free tier per author 2026-10-21 (price 0), retry delays chosen 2026-10-21",
+  "source": "prices: claude-api skill model table (cached 2026-10-06), USD per million tokens, first-party API; max_tokens per skill default for non-streaming requests; effort/retries chosen 2026-10-21 for brief 000; ollama: ollama.com cloud, free tier per author 2026-10-21 (price 0), retry delays chosen 2026-10-21; ollama retry_status: HTTP rate-limit and server-error codes (RFC 9110, RFC 6585); ollama timeout_seconds: chosen 2026-10-21 (client default is no timeout, which hung a run)",
   "tokens_per_price_unit": 1000000,
   "prices_usd": {
     "claude-fable-5-1": {
@@ -41,6 +41,14 @@
       16,
       32,
       64
-    ]
+    ],
+    "retry_status": [
+      429,
+      500,
+      502,
+      503,
+      504
+    ],
+    "timeout_seconds": 600
   }
 }
