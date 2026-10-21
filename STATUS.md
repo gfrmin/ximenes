@@ -9,8 +9,9 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
   `voc.py`, instruments logging), `data/other-prior.json`, `data/gain-model.json`,
   `data/eval.json`, `tests/test_005_*`, `tests/test_004_*` (if superseded),
   `tests/fixtures/`, `reports/005*`.
-- **Running jobs:** none yet. Budget $25; cumulative spend across briefs so far $75.54.
-- **Blocked on:** a question to fable about the $0.50 budget (comms), not blocking
+- **Running jobs:** brief 005 fit run, 8 fit grids (seed 20261023), cap $10 (smoke grid
+  $1.17). Then evaluation on 10 grids (seed 20261022).
+- **Blocked on:** nothing ($0.50 question answered: option (a)).
   steps 1–2.
 
 ## fable
