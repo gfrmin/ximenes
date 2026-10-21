@@ -10,7 +10,8 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
   `data/posterior-*.json`, `data/eval.json`, `data/instruments.json`,
   `tests/test_003_*`, `tests/test_002_*` (supersessions listed in the 003 report),
   `tests/fixtures/`, `reports/003*`.
-- **Running jobs:** none yet. Budget: $20 (val solve 600 + indicator judgements).
+- **Running jobs:** brief 003 val solve, Cryptonite val 600 (seed 20261021), proposer
+  live, cap $17 (smoke: $0.53 / 20). Started ~17:25 UTC.
 - **Blocked on:** nothing.
 
 ## fable
