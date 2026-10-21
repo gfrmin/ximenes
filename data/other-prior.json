@@ -1,0 +1,45 @@
+{
+ "source": "fitted by ximenes.voc.fit_other_prior on brief 003's val solve run 20261021T172307Z-solve-anthropic-3b6375173487443c80dd87654be574d0 with the committed logistic posterior (briefs/005-metacomputation.md); never on test or grids",
+ "fitted_on": "20261021T172307Z-solve-anthropic-3b6375173487443c80dd87654be574d0",
+ "model": "logistic",
+ "bands": [
+  0.0,
+  0.5,
+  0.8,
+  0.95
+ ],
+ "rows": [
+  {
+   "band": 0,
+   "lo": 0.0,
+   "n": 274,
+   "outside": 213,
+   "p_other": 0.7773722627737226,
+   "p_inside": 0.22262773722627738
+  },
+  {
+   "band": 1,
+   "lo": 0.5,
+   "n": 66,
+   "outside": 11,
+   "p_other": 0.16666666666666666,
+   "p_inside": 0.8333333333333334
+  },
+  {
+   "band": 2,
+   "lo": 0.8,
+   "n": 69,
+   "outside": 7,
+   "p_other": 0.10144927536231885,
+   "p_inside": 0.8985507246376812
+  },
+  {
+   "band": 3,
+   "lo": 0.95,
+   "n": 191,
+   "outside": 1,
+   "p_other": 0.005235602094240838,
+   "p_inside": 0.9947643979057592
+  }
+ ]
+}
