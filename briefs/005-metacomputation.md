@@ -26,17 +26,24 @@ offline with it and report the change (for the record; not the headline).
 
 ### 2. Price every move
 From the logs: dollars (tokens × price table) and wall seconds per
-instrument call. Moves, each with its price:
-- `repropose(slot)`: pattern proposal (Haiku, k = 10) + formalise/verify/
-  judge the new candidates (Sonnet + Haiku).
+instrument call. Proposals (Haiku, k = 20) are made for every slot first
+(~$0.20 per grid); that state is the vote-only floor and the zero of every
+curve. Moves, each with its price:
+- `solve(slot)`: formalise/verify/judge the slot's top-m vote candidates
+  (Sonnet + Haiku). The expensive step, so the first decision is which
+  slots are worth it at all.
+- `repropose(slot)`: pattern proposal (Haiku, k = 10) + solve the new
+  candidates.
 - `formalise_more(slot)`: formalise the next unformalised vote candidate
   (4th, 5th…) of a slot.
 - `propagate`: BP, free.
 - `submit`: terminal.
 
 ### 3. The gain model (fitted on 8 fit grids, seed 20261023)
-Solve 8 fresh grids with 004's loop, logging every `repropose` and
-`formalise_more` as an event with pre-state features (`max_marginal`,
+Solve 8 fresh grids with 004's loop, logging every `solve`, `repropose` and
+`formalise_more` as an event with pre-state features (for `solve`, only
+features known before formalising: top vote share, vote margin, slot
+length, committed crossers, pattern density, round) (`max_marginal`,
 `other_mass`, `committed_crossers / length`, `pattern_density`, `round`,
 `n_candidates`) and the outcome Δ(max marginal of the slot). Fit a small
 model of E[Δ max marginal | features] per move kind (linear or logistic on
@@ -46,8 +53,9 @@ the pre-registered features; choose by grouped CV, commit as
 its predicted Δ on that sum, propagation ignored.
 
 ### 4. Policies (same move set, same loop, same τ = 0.9)
-- **P0 attempt-all-then-fill**: round-1 solve, propagate, submit. No
-  re-proposal (Darmok's disclosed shape).
+- **P0 attempt-all-then-fill**: proposals for all, `solve` every slot in
+  number order, propagate, submit. No re-proposal (Darmok's disclosed
+  shape). Its curve starts at ~$0.20.
 - **P1 crossers-first** (004's heuristic): numbers taken from the 004 run,
   on 004's grids, stated as such; a paired run on the 10 fresh grids is an
   optional extra ($10) if the author wants it.
