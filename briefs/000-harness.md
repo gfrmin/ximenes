@@ -5,8 +5,9 @@ one proposer on 1,000 Cryptonite test clues (and on the post-cutoff set, if
 any files are present under `data/postcutoff/`).
 
 ## What is already there
-- `data/cryptonite/cryptonite-{train,val,test}.jsonl` (470,803 / 26,155 /
-  26,156 lines) with the frozen hashes in `data/cryptonite/SPLITS.sha256`.
+- `data/cryptonite/cryptonite-{train,val,test}.jsonl` (470,804 / 26,156 /
+  26,157 records; the files have no trailing newline, so `wc -l` shows one
+  fewer) with the frozen hashes in `data/cryptonite/SPLITS.sha256`.
   Fields per line, as published: `publisher, date` (ms since epoch),
   `author, number, orientation` ("across"/"down"), `clue` (lowercased, with
   the enumeration embedded, e.g. `"... turning point (9)"`), `answer`
