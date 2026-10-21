@@ -4,15 +4,11 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-21 ~21:45 UTC
-- **Working on:** brief 005 (metacomputation). Claim: `src/ximenes/` (gridsolve, new
-  `voc.py`, instruments logging), `data/other-prior.json`, `data/gain-model.json`,
-  `data/eval.json`, `tests/test_005_*`, `tests/test_004_*` (if superseded),
-  `tests/fixtures/`, `reports/005*`.
-- **Running jobs:** brief 005 fit run, 8 fit grids (seed 20261023), cap $10 (smoke grid
-  $1.17). Then evaluation on 10 grids (seed 20261022).
-- **Blocked on:** nothing ($0.50 question answered: option (a)).
-  steps 1–2.
+- **Updated:** 2026-10-22 ~00:30 UTC
+- **Working on:** nothing; brief 005 is done, claim released. Cumulative spend
+  across briefs $94.03.
+- **Running jobs:** none.
+- **Blocked on:** brief 006 draft / author rulings in QUESTIONS.md § Brief 005.
 
 ## fable
 

@@ -230,3 +230,20 @@ exists.
    thousands of grids; improve the variable order only when a brief needs
    more than that. The clean number still needs post-cutoff ipuz files
    from the author.
+
+## Brief 005
+
+1. **Paired P1 (crossers-first) on the 10 evaluation grids** was left as the
+   optional $10 extra. P4's 0.706 at $0.94 sits beside 004's 0.712 at $0.94
+   on different grids, so whether VOC beats the heuristic is still open.
+   Run it?
+
+2. **Committed-only grids are 0/10 under every policy,** while committed
+   slots are 100% right. The bottleneck is commitment, not accuracy: τ = 0.9
+   on marginals with OTHER at P(OTHER | band) is conservative. A
+   non-myopic or longer-horizon VOC, or a synonym table (roadmap 006) that
+   turns quarantined slots into Ok, are the two levers. Which first?
+
+3. **ρ overshot on evaluation** (median $1.05 vs the $0.94 target). Fine for
+   a curve, but if 006 reuses VOC it might pre-register a budget rather
+   than ρ, since budgets transfer between grid sets and ratios don't.
