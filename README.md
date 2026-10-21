@@ -43,8 +43,10 @@ setup.sh, start.sh  turnkey: fetch data + check, then open Claude Code on the ne
 
 ## Quick start
 
+Needs `uv`, `git`, `curl`, `unzip`, and Claude Code on PATH.
+
 ```bash
-./setup.sh     # venv, deps, downloads + verifies Cryptonite and the wordplay sample, runs the kit
+./setup.sh     # uv venv + deps, downloads + verifies Cryptonite and the wordplay sample, runs the kit
 ./start.sh     # opens Claude Code on the next brief not listed in briefs/DONE
 ```
 

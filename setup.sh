@@ -5,13 +5,13 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 need() { command -v "$1" >/dev/null 2>&1 || { echo "RED: need '$1' on PATH"; exit 1; }; }
-need python3; need git; need curl; need unzip
+need git; need curl; need unzip
+command -v uv >/dev/null 2>&1 || { echo "RED: need uv (https://docs.astral.sh/uv/)"; exit 1; }
 
-echo "== venv"
-[ -d .venv ] || python3 -m venv .venv
+echo "== venv (uv)"
+uv sync -q
 # shellcheck disable=SC1091
 . .venv/bin/activate
-pip install -q -e ".[dev]"
 
 echo "== data: Cryptonite (Efrat et al. 2021, official answer-disjoint split)"
 mkdir -p data/.src data/cryptonite

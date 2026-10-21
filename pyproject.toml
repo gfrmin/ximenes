@@ -6,8 +6,10 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.6", "hypothesis>=6"]
 llm = ["anthropic>=0.40"]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6", "hypothesis>=6"]
 
 [build-system]
 requires = ["setuptools>=68"]

@@ -27,6 +27,8 @@ probability (0–1) that the brief is correctly complete, with one sentence of
 reasoning.
 
 ## Style
+- `uv` manages the environment: `uv sync`, `uv run ...`, `uv add <pkg>` (never `pip`).
+  Commit `uv.lock` when it changes.
 - Python 3.11+, type hints everywhere, `dataclass(frozen=True)` for kernel
   types, no mutable state in the kernel.
 - `ruff` clean, `pytest -q` clean.
