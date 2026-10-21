@@ -1,9 +1,12 @@
 {
-  "source": "briefs/000-harness.md: n=1000 clues, k=20 samples, 10 reliability bins; seed chosen once on 2026-10-21 and frozen; workers=32 used for the brief 000 headline run; postcutoff_floor: QUESTIONS.md brief 000 item 5 answer (nothing before 2026-10-22 is post-cutoff for any model)",
+  "source": "briefs/000-harness.md: n=1000 clues, k=20 samples, 10 reliability bins; seed chosen once on 2026-10-21 and frozen; workers=32 used for the brief 000 headline run; postcutoff_floor: QUESTIONS.md brief 000 item 5 answer (nothing before 2026-10-22 is post-cutoff for any model); formalise_retries=2 and max_usd per run: briefs/001-dsl-verifier.md (cap value chosen 2026-10-21: author asked to keep spend low); train_sample=500: seeded train subsample for brief 001's secondary number (full 5,412 would cost ~$80)",
   "n": 1000,
   "k": 20,
   "bins": 10,
   "seed": 20261021,
   "workers": 32,
-  "postcutoff_floor": "2026-10-22"
+  "postcutoff_floor": "2026-10-22",
+  "formalise_retries": 2,
+  "max_usd": 10.0,
+  "train_sample": 500
 }

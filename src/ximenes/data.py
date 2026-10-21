@@ -168,4 +168,4 @@ def indicators() -> dict[str, frozenset[str]]:
 def abbreviations() -> dict[str, frozenset[str]]:
     """{phrase: abbreviations}, from data/lexicon/abbreviations.json."""
     raw = json.loads((LEXICON / "abbreviations.json").read_text())
-    return {k: frozenset(v) for k, v in raw.items() if k != "source"}
+    return {k: frozenset(v) for k, v in raw.items() if k != "source" and not k.startswith("_")}

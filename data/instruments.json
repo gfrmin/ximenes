@@ -1,5 +1,5 @@
 {
-  "source": "prices: claude-api skill model table (cached 2026-10-06), USD per million tokens, first-party API; max_tokens per skill default for non-streaming requests; effort/retries chosen 2026-10-21 for brief 000; ollama: ollama.com cloud, free tier per author 2026-10-21 (price 0), retry delays chosen 2026-10-21; ollama retry_status: HTTP rate-limit and server-error codes (RFC 9110, RFC 6585); ollama timeout_seconds: chosen 2026-10-21 (client default is no timeout, which hung a run); released: model release dates (ISO) from public announcements, checked 2026-10-21 by fable for the author (QUESTIONS.md brief 000); claude-fable-5-1 exact date not found, 2026-10-21 used as an upper bound (date known available); null blocks post-cutoff use of that model",
+  "source": "prices: claude-api skill model table (cached 2026-10-06), USD per million tokens, first-party API; max_tokens per skill default for non-streaming requests; effort/retries chosen 2026-10-21 for brief 000; ollama: ollama.com cloud, free tier per author 2026-10-21 (price 0), retry delays chosen 2026-10-21; ollama retry_status: HTTP rate-limit and server-error codes (RFC 9110, RFC 6585); ollama timeout_seconds: chosen 2026-10-21 (client default is no timeout, which hung a run); released: model release dates (ISO) from public announcements, checked 2026-10-21 by fable for the author (QUESTIONS.md brief 000); claude-fable-5-1 exact date not found, 2026-10-21 used as an upper bound (date known available); null blocks post-cutoff use of that model; formalise_gold settings chosen 2026-10-21 for brief 001 (Sonnet 5.5 per the brief, effort low to limit spend); cache_price_multipliers: claude-api skill (cache reads ~0.1x, 5-minute writes ~1.25x base input)",
   "tokens_per_price_unit": 1000000,
   "prices_usd": {
     "claude-fable-5-1": {
@@ -57,5 +57,14 @@
     "claude-sonnet-5-5": "2026-09-28",
     "claude-haiku-5-5": "2026-10-07",
     "minimax-m3.1-flash": null
+  },
+  "formalise_gold": {
+    "prompt": "formalise-v1",
+    "max_tokens": 16000,
+    "effort": "low"
+  },
+  "cache_price_multipliers": {
+    "read": 0.1,
+    "write": 1.25
   }
 }

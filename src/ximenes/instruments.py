@@ -18,6 +18,7 @@ from datetime import UTC, datetime
 from typing import Any, Protocol
 
 from .data import DATA
+from .prompts import ANSWER_ONLY_V1, FORMALISE_USER, formalise_system
 
 Json = Any
 Cost = dict[str, Json]
@@ -25,18 +26,17 @@ Cost = dict[str, Json]
 PROPOSE_ANSWERS = "propose_answers"
 SETTINGS: dict[str, Json] = json.loads((DATA / "instruments.json").read_text())
 
-PROMPTS = {
-    "answer-only-v1": (
-        "Solve this cryptic crossword clue. The numbers in brackets give the "
-        "answer's word lengths. Reply with the answer only, in capital letters, "
-        "and nothing else.\n\n{clue_text} ({enumeration})"
-    ),
-}
+PROMPTS = {"answer-only-v1": ANSWER_ONLY_V1}
+FORMALISE_GOLD = "formalise_gold"
 
 
 class Instrument(Protocol):
     def __call__(self, instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
         ...
+
+
+class BudgetExceeded(RuntimeError):
+    """A run's logged cost reached its max_usd; resume with --log and a higher cap."""
 
 
 class MissingFromLog(KeyError):
@@ -84,6 +84,23 @@ def replay_then(log: pathlib.Path, live: Instrument) -> Instrument:
     return call
 
 
+def budgeted(backend: Instrument, max_usd: float) -> Instrument:
+    """Refuse new calls once the cost spent through `backend` reaches max_usd."""
+    lock = threading.Lock()
+    spent = [0.0]  # the one mutable cell; guarded by lock
+
+    def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
+        with lock:
+            if spent[0] >= max_usd:
+                raise BudgetExceeded(f"spent ${spent[0]:.2f} of max_usd ${max_usd:.2f}")
+        output, cost = backend(instrument, model, inp)
+        with lock:
+            spent[0] += cost.get("usd") or 0.0
+        return output, cost
+
+    return call
+
+
 def logged(backend: Instrument, path: pathlib.Path) -> Instrument:
     """Append every call through `backend` to `path` as one JSON line."""
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -115,6 +132,43 @@ def usd(model: str, input_tokens: int, output_tokens: int) -> float | None:
     return (input_tokens * price["input"] + output_tokens * price["output"]) / per
 
 
+def _input_tokens(m: Any) -> int:
+    u = m.usage
+    return u.input_tokens + (u.cache_read_input_tokens or 0) + (u.cache_creation_input_tokens or 0)
+
+
+def _message_usd(model: str, m: Any) -> float:
+    """Input at the base price, cache reads and writes at their multipliers."""
+    price = SETTINGS["prices_usd"][model]
+    mult = SETTINGS["cache_price_multipliers"]
+    u = m.usage
+    tokens = (u.input_tokens * price["input"]
+              + (u.cache_read_input_tokens or 0) * price["input"] * mult["read"]
+              + (u.cache_creation_input_tokens or 0) * price["input"] * mult["write"]
+              + u.output_tokens * price["output"])
+    return tokens / SETTINGS["tokens_per_price_unit"]
+
+
+def _formalise_user(inp: Mapping[str, Json]) -> str:
+    tokens = " ".join(f"[{i}] {t}" for i, t in enumerate(inp["tokens"]))
+    previous = "".join(
+        f"Your earlier parse:\n{p['src']}\nwas rejected: {p['rule']}. {p['hint']}\n"
+        for p in inp["previous"]
+    )
+    return FORMALISE_USER.format(
+        clue=inp["clue"], tokens=tokens, answer=inp["answer"],
+        definition=inp["definition"], wordplay=inp["wordplay"],
+        previous=previous + ("Write a corrected parse.\n" if previous else ""),
+    )
+
+
+def _expression(message: Any) -> str:
+    """The reply's expression: text blocks joined, code fences dropped."""
+    text = "".join(b.text for b in message.content if b.type == "text")
+    lines = [ln for ln in text.strip().splitlines() if not ln.strip().startswith("```")]
+    return "\n".join(lines).strip()
+
+
 def _first_line(message: Any) -> str:
     text = "".join(b.text for b in message.content if b.type == "text")
     return next((ln.strip() for ln in text.splitlines() if ln.strip()), "")
@@ -137,19 +191,36 @@ def anthropic_backend() -> Instrument:
             messages=[{"role": "user", "content": prompt}],
         )
 
+    def formalise(model: str, inp: Mapping[str, Json]) -> Any:
+        return client.messages.create(
+            model=model,
+            max_tokens=inp["max_tokens"],
+            output_config={"effort": inp["effort"]},
+            system=[{"type": "text", "text": formalise_system(),
+                     "cache_control": {"type": "ephemeral"}}],
+            messages=[{"role": "user", "content": _formalise_user(inp)}],
+        )
+
     def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
-        if instrument != PROPOSE_ANSWERS:
+        if instrument == PROPOSE_ANSWERS:
+            messages = [sample(model, inp) for _ in range(inp["k"])]
+            output: Json = [_first_line(m) for m in messages]
+        elif instrument == FORMALISE_GOLD:
+            messages = [formalise(model, inp)]
+            output = _expression(messages[0])
+        else:
             raise ValueError(f"anthropic backend has no instrument {instrument!r}")
-        messages = [sample(model, inp) for _ in range(inp["k"])]
-        tokens_in = sum(m.usage.input_tokens for m in messages)
+        tokens_in = sum(_input_tokens(m) for m in messages)
         tokens_out = sum(m.usage.output_tokens for m in messages)
         cost = {
             "input_tokens": tokens_in,
             "output_tokens": tokens_out,
-            "usd": usd(model, tokens_in, tokens_out),
+            "cache_read_tokens": sum(m.usage.cache_read_input_tokens or 0 for m in messages),
+            "usd": sum(_message_usd(model, m) for m in messages)
+            if model in SETTINGS["prices_usd"] else None,
             "refusals": sum(m.stop_reason == "refusal" for m in messages),
         }
-        return [_first_line(m) for m in messages], cost
+        return output, cost
 
     return call
 
@@ -212,6 +283,32 @@ def ollama_backend() -> Instrument:
         return [next((ln.strip() for ln in ls if ln.strip()), "") for ls in lines], cost
 
     return call
+
+
+def formalise_gold(
+    clue: str,
+    answer: str,
+    definition: str,
+    wordplay: str,
+    model: str,
+    *,
+    tokens: tuple[str, ...],
+    previous: tuple[dict[str, str], ...] = (),
+    backend: Instrument,
+) -> str:
+    """DSL source for one gold explanation. `previous` holds earlier rejected
+    attempts ({src, rule, hint}) so a retry sees the verifier's hint."""
+    inp = {
+        "clue": clue,
+        "tokens": list(tokens),
+        "answer": answer,
+        "definition": definition,
+        "wordplay": wordplay,
+        "previous": list(previous),
+        **SETTINGS[FORMALISE_GOLD],
+    }
+    output, _ = backend(FORMALISE_GOLD, model, inp)
+    return str(output)
 
 
 def propose_answers(
