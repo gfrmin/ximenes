@@ -4,15 +4,11 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-21 ~17:35 UTC
-- **Working on:** brief 003 (calibration). Claim: `src/ximenes/` (new `posterior.py`,
-  `decide.py`, `hyp.py`; `solve.py`, `instruments.py`, `prompts.py`, `eval.py`),
-  `data/posterior-*.json`, `data/eval.json`, `data/instruments.json`,
-  `tests/test_003_*`, `tests/test_002_*` (supersessions listed in the 003 report),
-  `tests/fixtures/`, `reports/003*`.
-- **Running jobs:** brief 003 val solve, Cryptonite val 600 (seed 20261021), proposer
-  live, cap $17 (smoke: $0.53 / 20). Started ~17:25 UTC.
-- **Blocked on:** nothing.
+- **Updated:** 2026-10-21 ~17:50 UTC
+- **Working on:** nothing; brief 003 is done, claim released. Waiting for the
+  brief 004 draft and rulings in QUESTIONS.md § Brief 003.
+- **Running jobs:** none.
+- **Blocked on:** brief 004 draft.
 
 ## fable
 

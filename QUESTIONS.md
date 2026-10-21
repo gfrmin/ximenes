@@ -152,3 +152,23 @@ exists.
    share is a value-of-computation decision and belongs to 005, which will
    price it. The val run is 600 clues (cap $20); that is enough for a
    handful of calibration bins or a small logistic fit.
+
+## Brief 003
+
+1. **Modelling choices the brief left open, fixed before seeing val:**
+   candidate-level labels (the runner-up enters through `margin`, so
+   set answers have a probability per candidate); CV folds grouped by clue;
+   model choice by *out-of-fold* log-loss for both models; M1 cells ordered
+   by weakest-then-strongest band with PAV. The last one was a poor choice
+   (M1 answers 2.9% of test at τ = 0.9; see the report). A partial-order
+   isotonic fit would be the fix if M1 is wanted. Keep M1 as an audit table
+   only, or fix it in 004?
+
+2. **Operating point for 004/005.** At τ = 0.9 the posterior answers 37.9%
+   of test clues at 0.968; at τ = 0.5, 51.6% at 0.922. For grids, crossers
+   will add a third confirmation. Should 004 keep τ = 0.9 for "bung it in",
+   or treat P as a prior that crossers update?
+
+3. **Test has now been read once.** Any refit (new features, a fixed M1)
+   would need either a new held-out set or the post-cutoff set; re-reading
+   test would weaken this number. Which do you prefer?
