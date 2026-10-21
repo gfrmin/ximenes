@@ -43,6 +43,49 @@ Majority vote over k=20 samples, confidence = vote share, ECE with 10 bins.
   to top-1 0.700, ECE 0.175, enum-fail share 0.1075, every time, with no
   network.
 
+## Diagnostics: where the headline comes from
+
+From the headline run's local log, no extra API calls. Script:
+`reports/000/breakdown.py runs/<run-id>.json`. ±95% is a normal-approximation
+interval on top-1.
+
+| clue year | n | top-1 (±95%) | mean conf | ECE |
+|---|---|---|---|---|
+| 2000–2004 | 164 | 0.476 ± 0.076 | 0.618 | 0.142 |
+| 2005–2009 | 256 | 0.480 ± 0.061 | 0.625 | 0.151 |
+| 2010–2014 | 216 | 0.440 ± 0.066 | 0.616 | 0.177 |
+| 2015–2019 | 322 | 0.457 ± 0.054 | 0.619 | 0.163 |
+| 2020–2024 | 42 | 0.405 ± 0.148 | 0.600 | 0.214 |
+
+| publisher | n | top-1 (±95%) | mean conf | ECE |
+|---|---|---|---|---|
+| Telegraph | 411 | 0.547 ± 0.048 | 0.677 | 0.130 |
+| Times | 589 | 0.399 ± 0.040 | 0.578 | 0.179 |
+
+| type | n | top-1 (±95%) | mean conf | ECE |
+|---|---|---|---|---|
+| cryptic | 923 | 0.447 ± 0.032 | 0.614 | 0.166 |
+| quick | 77 | 0.610 ± 0.109 | 0.683 | 0.113 |
+
+| enumeration | n | top-1 (±95%) | mean conf | ECE |
+|---|---|---|---|---|
+| multi-word | 177 | 0.492 ± 0.074 | 0.578 | 0.106 |
+| single word | 823 | 0.453 ± 0.034 | 0.628 | 0.175 |
+
+- **Publisher is the biggest effect:** Telegraph 0.547 vs Times 0.399, a
+  15-point gap well outside the intervals. **This confounds the planned
+  contamination estimate:** a post-cutoff set drawn mostly from the Times
+  would score lower even with no contamination. Compare like with like:
+  match the publisher mix (and quick/cryptic) between the test sample and
+  the post-cutoff set, or report the gap per publisher.
+- **Clue year:** top-1 drifts from 0.48 (2000–2009) to 0.41 (2020–2024), but
+  the last bin has 42 clues and the drift is within noise. There's no
+  evidence that Haiku does better on older, more-reprinted clues. Opus's
+  0.918 on 2000–2004 clues (appendix) is a different matter: a stronger
+  model may remember more.
+- **Quick clues are easier** (0.61 vs 0.45) and better calibrated.
+- **Single-word answers are the worst calibrated** (ECE 0.175 vs 0.106).
+
 ## Why Haiku, not Opus or Ollama
 
 - **What the LLM does here:** propose an answer from clue text plus
