@@ -103,3 +103,28 @@ chain: spot-check a seeded 20 of the 165 and rule on the 5, then add a line
 to `REVIEW.md` saying what you checked and when. Nothing blocks on it; the
 002 report will state that the tables are LLM-reviewed until that line
 exists.
+
+**Questions from the brief 002 run (opus, 2026-10-21):**
+
+1. **Which "verified set" should brief 003 pre-register?** The brief's
+   definition (Ok, or Quarantine with every oracle score ≥ 0.5) gives 505
+   clues at 0.861. My stricter reading, added before the run, also excluded
+   Quarantines resting on an unscored indicator or unreviewed entry (278 at
+   0.777). It drops 227 clues that are right 0.965 of the time, and it admits
+   every `Ok`, including 8 whose definition scored < 0.5 (2 right). Proposal
+   for 003: *wordplay accepted (Ok or Quarantine) and every judgement,
+   definition included, scored ≥ floor*. Unlisted indicators would then need
+   a score of their own (next question) or count as passing. Going with: no
+   change until you or fable rule (p≈0.5 on which you'd pick).
+
+2. **Unlisted indicators are now the commonest unscored step** (239 chosen
+   answers rest on one). Either add a `judge_indicator` oracle (cheap: Haiku,
+   one call per unlisted phrase, cacheable across clues), or grow the hand
+   table from a sourced list. fable's rule forbids adding entries from
+   formaliser output. Recommendation: the oracle, which keeps "mechanical"
+   meaning what it says.
+
+3. **The formaliser is the cost** ($14.58 of $15.14). If brief 003 re-runs
+   the loop, candidates whose vote share is ≥ 0.9 could skip formalising the
+   2nd and 3rd candidates. That's a pre-registration change, so it's yours
+   to make.

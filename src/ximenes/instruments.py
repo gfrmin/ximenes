@@ -65,15 +65,19 @@ def read_log(path: pathlib.Path) -> tuple[dict[str, Json], ...]:
         return tuple(json.loads(line) for line in f if line.strip())
 
 
-def stub_backend(log: pathlib.Path) -> Instrument:
-    """Replay outputs from a log. Raises MissingFromLog for unseen inputs and
-    ValueError if the log holds two different outputs for one input."""
+def stub_backend(log: pathlib.Path, on_conflict: str = "raise") -> Instrument:
+    """Replay outputs from a log. Raises MissingFromLog for unseen inputs. If
+    the log holds two different outputs for one input, raise (default) or,
+    with on_conflict="first", replay the first logged one (for logs made
+    before live runs were memoized; brief 002)."""
     table: dict[str, tuple[Json, Cost]] = {}
     for r in read_log(log):
         k = call_key(r["instrument"], r["model"], r["input"])
         if k in table and table[k][0] != r["output"]:
+            if on_conflict == "first":
+                continue
             raise ValueError(f"{log}: conflicting outputs for {k}")
-        table[k] = (r["output"], r["cost"])
+        table.setdefault(k, (r["output"], r["cost"]))
 
     def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
         k = call_key(instrument, model, inp)
@@ -84,9 +88,9 @@ def stub_backend(log: pathlib.Path) -> Instrument:
     return call
 
 
-def replay_then(log: pathlib.Path, live: Instrument) -> Instrument:
+def replay_then(log: pathlib.Path, live: Instrument, on_conflict: str = "raise") -> Instrument:
     """Replay calls found in `log`; send only the rest to `live` (resume a run)."""
-    replay = stub_backend(log)
+    replay = stub_backend(log, on_conflict)
 
     def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
         try:
@@ -110,6 +114,25 @@ def budgeted(backend: Instrument, max_usd: float) -> Instrument:
         with lock:
             spent[0] += cost.get("usd") or 0.0
         return output, cost
+
+    return call
+
+
+def memoized(backend: Instrument) -> Instrument:
+    """One output per input within a run (DESIGN D6): the first call for an
+    input is made once; repeats, including concurrent ones, get its result."""
+    lock = threading.Lock()
+    keys: dict[str, threading.Lock] = {}
+    cache: dict[str, tuple[Json, Cost]] = {}
+
+    def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
+        k = call_key(instrument, model, inp)
+        with lock:
+            key_lock = keys.setdefault(k, threading.Lock())
+        with key_lock:
+            if k not in cache:
+                cache[k] = backend(instrument, model, inp)
+            return cache[k]
 
     return call
 

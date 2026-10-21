@@ -38,6 +38,7 @@ from .instruments import (
     formalise_clue,
     judge,
     logged,
+    memoized,
     propose_answers,
     read_log,
     replay_then,
@@ -272,14 +273,15 @@ def _backend(args: argparse.Namespace, log_path: pathlib.Path) -> Instrument:
     if args.backend == "stub":
         if not args.log:
             raise SystemExit("--backend stub needs --log")
-        replay = stub_backend(pathlib.Path(args.log[0]))
+        replay = stub_backend(pathlib.Path(args.log[0]), on_conflict=args.on_conflict)
         for extra in args.log[1:]:
             replay = replay_then(pathlib.Path(extra), replay)
-        return logged(replay, log_path)
+        return memoized(logged(replay, log_path))
     live: Instrument = budgeted(anthropic_backend(), args.max_usd)
     for extra in reversed(args.log or []):
         live = replay_then(pathlib.Path(extra), live)
-    return logged(live, log_path)
+    # memoized outside logged: a repeated input is neither re-asked nor re-logged
+    return memoized(logged(live, log_path))
 
 
 def cmd_solve(args: argparse.Namespace) -> dict[str, Any]:
@@ -320,6 +322,8 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--backend", choices=("anthropic", "stub"), default="anthropic")
     p.add_argument("--log", nargs="*", help="logs to replay (stub) or resume from (anthropic); "
                    "e.g. brief 000's vote log for the proposer samples")
+    p.add_argument("--on-conflict", choices=("raise", "first"), default="raise",
+                   help="stub replay of a log with conflicting outputs (pre-memoization)")
     p.add_argument("--max-usd", type=float, default=PARAMS["max_usd"])
     p.add_argument("--workers", type=int, default=PARAMS["workers"])
     p.add_argument("--runs-dir", default="runs")
