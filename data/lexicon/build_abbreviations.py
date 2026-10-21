@@ -6,6 +6,10 @@ Sources:
   abbreviations.hand.json                          hand seed (origin "hand")
   upstream/CrypticCrosswords.jl-abbreviations.json rdeits/CrypticCrosswords.jl
       corpora/abbreviations.json, MIT (c) 2019 Robin Deits (origin "deits")
+  reviewed.json                                    entries reviewed by hand (adds "review")
+
+`_origin` is per entry: {key: {VALUE: origin}}. An entry counts as mechanical
+only if its origin includes "hand" or "review" (DESIGN D4).
 
 Every change from upstream is listed in REVIEW.md. abbr() is a mechanical
 operator, so a bad value here makes an Ok verdict unsound: fixes are explicit
@@ -59,12 +63,12 @@ def _norm_key(k: str) -> str:
 def build() -> dict:
     hand = json.loads((HERE / "abbreviations.hand.json").read_text())
     up = json.loads((HERE / "upstream" / "CrypticCrosswords.jl-abbreviations.json").read_text())
-    table: dict[str, set[str]] = {}
-    origin: dict[str, set[str]] = {}
+    reviewed = json.loads((HERE / "reviewed.json").read_text())["abbreviations"]
+    origin: dict[str, dict[str, set[str]]] = {}
 
     def add(key: str, values: list[str] | tuple[str, ...], src: str) -> None:
-        table.setdefault(key, set()).update(values)
-        origin.setdefault(key, set()).add(src)
+        for v in values:
+            origin.setdefault(key, {}).setdefault(v, set()).add(src)
 
     for raw_key, raw_values in up.items():
         key = _norm_key(raw_key)
@@ -85,6 +89,11 @@ def build() -> dict:
         if k != "source":
             add(_norm_key(k), [v.upper() for v in vs if v.isalpha()], "hand")
 
+    for key, value in reviewed:
+        if value not in origin.get(key, {}):
+            raise ValueError(f"reviewed abbreviation {key}->{value} is not in any source")
+        add(key, (value,), "review")
+
     out = {
         "source": (
             "built by data/lexicon/build_abbreviations.py from abbreviations.hand.json "
@@ -92,9 +101,10 @@ def build() -> dict:
             "(MIT, (c) 2019 Robin Deits; LICENSE-CrypticCrosswords.jl.md), with the reviewed "
             "fixes listed in REVIEW.md; keys lowercased, values uppercased letters"
         ),
-        "_origin": {k: "+".join(sorted(origin[k])) for k in sorted(table)},
+        "_origin": {k: {v: "+".join(sorted(o)) for v, o in sorted(d.items())}
+                    for k, d in sorted(origin.items()) if d},
     }
-    out.update({k: sorted(table[k]) for k in sorted(table) if table[k]})
+    out.update({k: sorted(d) for k, d in sorted(origin.items()) if d})
     return out
 
 

@@ -12,9 +12,9 @@ from collections import Counter
 from dataclasses import dataclass
 
 from .clue import Clue, normalise
-from .data import abbreviations, indicators
+from .data import abbreviation_trust, abbreviations, indicator_trust
 from .dsl import OPERATORS, TOP_LEVEL, Op, Sort
-from .verdict import Ok, Provenance, Quarantine, Reason, Reject, Verdict
+from .verdict import Definition, Ok, OracleLeaf, Provenance, Quarantine, Reason, Reject, Verdict
 
 # --- Stage 1: surface -------------------------------------------------------
 
@@ -124,6 +124,8 @@ class Val:
     links: frozenset[int] = frozenset()
     definition: frozenset[int] = frozenset()
     double: frozenset[int] = frozenset()
+    leaves: tuple[OracleLeaf, ...] = ()
+    table_hits: tuple[tuple[str, str, str], ...] = ()
 
 
 def _sort_of(arg: CallNode | str) -> Sort:
@@ -235,6 +237,8 @@ def _merge(vals: tuple[Val, ...]) -> Val:
         links=frozenset().union(*(v.links for v in vals)),
         definition=frozenset().union(*(v.definition for v in vals)),
         double=frozenset().union(*(v.double for v in vals)),
+        leaves=tuple(leaf for v in vals for leaf in v.leaves),
+        table_hits=tuple(h for v in vals for h in v.table_hits),
     )
 
 
@@ -267,10 +271,34 @@ def _alternates(s: str) -> frozenset[str]:
     )
 
 
-def _abbr_ok(t: Tok, claim: str) -> bool:
-    table = abbreviations()
-    keys = {t.phrase, t.phrase.replace("’", "'").removesuffix("'s")}
-    return any(claim in table.get(k, frozenset()) for k in keys)
+def _abbr_entry(t: Tok, claim: str) -> tuple[str, bool] | None:
+    """(table key, trusted?) for the abbreviation, or None if not in the table."""
+    table, trust = abbreviations(), abbreviation_trust()
+    keys = (t.phrase, t.phrase.replace("’", "'").removesuffix("'s"))
+    hits = [(k, trust[k][claim]) for k in keys if claim in table.get(k, frozenset())]
+    return max(hits, key=lambda h: h[1]) if hits else None
+
+
+def _with(v: Val, **changes: object) -> Val:
+    return Val(**{**v.__dict__, **changes})
+
+
+def _leaves(name: str, node: CallNode, vals: tuple[Val, ...], cands: frozenset[str]
+            ) -> tuple[OracleLeaf, ...]:
+    """The judgement steps an oracle must score (DESIGN D4)."""
+    toks = [v.tok for v in vals if v.tok is not None]
+    if name == "syn":
+        return (OracleLeaf(Reason.SYNONYM, toks[0].phrase, next(iter(cands)), next(iter(cands))),)
+    if name == "homophone":
+        spoken = min(vals[1].cands)
+        return (OracleLeaf(Reason.HOMOPHONE, toks[0].phrase, spoken, next(iter(cands))),)
+    if name == "double_def":
+        return tuple(OracleLeaf(Reason.DOUBLE_DEF, t.phrase, next(iter(cands)), next(iter(cands)))
+                     for t in (toks[0], toks[1]))
+    if name == "cryptic_def":
+        return (OracleLeaf(Reason.CRYPTIC_DEF, toks[0].phrase, next(iter(cands)),
+                           next(iter(cands))),)
+    return ()
 
 
 def _eval(node: CallNode | str | Tok) -> Val:
@@ -284,23 +312,33 @@ def _eval(node: CallNode | str | Tok) -> Val:
     if node.op.indicated:
         ind = vals[0].tok
         assert ind is not None
-        if ind.phrase not in indicators().get(name, frozenset()):
-            base = Val(**{**base.__dict__, "reasons": base.reasons | {Reason.INDICATOR}})
+        trusted = indicator_trust().get(name, {}).get(ind.phrase)
+        if trusted is None:
+            base = _with(base, reasons=base.reasons | {Reason.INDICATOR})
+        else:
+            base = _with(base, table_hits=(*base.table_hits, ("indicators", name, ind.phrase)),
+                         reasons=base.reasons | (set() if trusted else {Reason.TABLE_UNREVIEWED}))
     if node.op.oracle is not None:
-        base = Val(**{**base.__dict__, "reasons": base.reasons | {node.op.oracle}})
+        base = _with(base, reasons=base.reasons | {node.op.oracle})
     cands = _OPS[name](node, vals)
     toks = [v.tok for v in vals if v.tok is not None]
+    if name == "abbr":
+        entry = _abbr_entry(toks[0], next(iter(cands)))
+        assert entry is not None
+        key, trusted = entry
+        base = _with(base, table_hits=(*base.table_hits, ("abbreviations", key, next(iter(cands)))),
+                     reasons=base.reasons | (set() if trusted else {Reason.TABLE_UNREVIEWED}))
+    base = _with(base, leaves=(*base.leaves, *_leaves(name, node, vals, cands)))
     if name == "link":
         return Val(Sort.NULL, uses=toks[0].ids, links=frozenset(toks[0].ids))
     if name == "double_duty":
         return Val(Sort.MODE, double=frozenset(toks[0].ids))
     if name in ("defn", "double_def", "cryptic_def"):
         span = (toks[0], toks[1]) if name == "double_def" else (toks[0],)
-        base = Val(**{**base.__dict__,
-                      "definition": base.definition | {i for t in span for i in t.ids}})
+        base = _with(base, definition=base.definition | {i for t in span for i in t.ids})
     if name == "andlit":
-        base = Val(**{**base.__dict__, "definition": frozenset(base.uses)})
-    return Val(**{**base.__dict__, "cands": cands})
+        base = _with(base, definition=frozenset(base.uses))
+    return _with(base, cands=cands)
 
 
 def _one(vals: tuple[Val, ...], i: int) -> frozenset[str]:
@@ -343,7 +381,7 @@ def _abbr(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
     t = v[0].tok
     assert t is not None
     c = _claim(str(n.args[1]))
-    if not _abbr_ok(t, c):
+    if _abbr_entry(t, c) is None:
         raise _Broken("abbr:not_in_table",
                       f"{t.phrase!r} -> {c} is not in the abbreviation table; "
                       "for a looser equivalence write syn(...)")
@@ -358,6 +396,43 @@ def _span_letters(v: tuple[Val, ...], i: int) -> Tok:
     t = v[i].tok
     assert t is not None
     return t
+
+
+def _middle(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
+    c = _claim(_stated(n))
+    centred = {f[k:len(f) - k] for f in v[1].cands for k in range(1, (len(f) + 1) >> 1)}
+    if c not in centred:
+        raise _Broken("middle_letters:not_centred",
+                      f"{c} is not {sorted(v[1].cands)} with equal letters stripped from both ends")
+    return frozenset({c})
+
+
+def _removals(whole: str, part: str) -> frozenset[str]:
+    return frozenset(whole[:i] + whole[i + len(part):]
+                     for i in range(len(whole) - len(part) + 1)
+                     if part and whole[i:i + len(part)] == part)
+
+
+def _remove(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
+    c = _claim(_stated(n))
+    _ind, whole, part, _res = v
+    if not any(c in _removals(w, p) for w in whole.cands for p in part.cands):
+        raise _Broken("remove:no_occurrence",
+                      f"{c} is not {sorted(whole.cands)} with one occurrence of "
+                      f"{sorted(part.cands)} deleted")
+    return frozenset({c})
+
+
+HALVES = ("first", "second")
+
+
+def _half(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
+    which = _stated(n).strip().lower()
+    if which not in HALVES:
+        raise _Broken("half:claim", "half(...) states \"first\" or \"second\"")
+    evens = [f for f in v[1].cands if f and not len(f) & 1]
+    out = frozenset(f[:len(f) >> 1] if which == HALVES[0] else f[len(f) >> 1:] for f in evens)
+    return _check_some(out, "half", "half(...) needs fodder of even length")
 
 
 def _concat(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
@@ -395,6 +470,19 @@ _OPS = {
     "alternate": lambda n, v: _check_some(
         _alternates(_span_letters(v, 1).letters), "alternate", "fodder too short"),
     "concat": _concat,
+    "first_letters": lambda n, v: frozenset(
+        {"".join(normalise(w)[:1] for w in _span_letters(v, 1).words)}),
+    "last_letters": lambda n, v: frozenset(
+        {"".join(normalise(w)[-1:] for w in _span_letters(v, 1).words)}),
+    "outer_letters": lambda n, v: _check_some(
+        frozenset(f[0] + f[-1] for f in _one(v, 1) if len(f) > 1),
+        "outer_letters", "fodder too short"),
+    "middle_letters": _middle,
+    "remove": _remove,
+    "strip_outer": lambda n, v: _check_some(
+        frozenset(f[1:-1] for f in _one(v, 1) if len(f) > 1 + 1),
+        "strip_outer", "fodder too short"),
+    "half": _half,
     "homophone": _claimed,
     "double_def": _claimed,
     "cryptic_def": _claimed,
@@ -439,6 +527,22 @@ def verify(clue: Clue, answer: str, src: str) -> Verdict:
         consumed=tuple(sorted(Counter(top.uses).items())),
         links=top.links,
         definition=top.definition,
+        table_hits=top.table_hits,
     )
+    definition = Definition(span=_definition_span(clue, tree, top))
     reasons = tuple(r for r in Reason if r in top.reasons)
-    return Quarantine(a, prov, reasons) if reasons else Ok(a, prov)
+    if reasons:
+        return Quarantine(a, prov, reasons, definition=definition, leaves=top.leaves)
+    return Ok(a, prov, definition=definition)
+
+
+def _definition_span(clue: Clue, tree: CallNode, top: Val) -> str:
+    """The declared definition words: the defn(...) span of clue(...), the whole
+    clue for andlit(...); "" for double/cryptic definitions (they are leaves)."""
+    if tree.op.name == "clue":
+        ids = sorted(top.definition)
+    elif tree.op.name == "andlit":
+        ids = [t.id for t in clue.tokens]
+    else:
+        return ""
+    return " ".join(clue.tokens[i].text for i in ids)

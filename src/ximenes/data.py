@@ -157,11 +157,32 @@ def load_wordplay_answers(split: str, root: pathlib.Path = WORDPLAY) -> frozense
 LEXICON = DATA / "lexicon"
 
 
+TRUSTED_ORIGINS = frozenset({"hand", "review"})
+
+
+def _trusted(origin: str) -> bool:
+    return bool(TRUSTED_ORIGINS & set(origin.split("+")))
+
+
+@functools.cache
+def indicator_trust() -> dict[str, dict[str, bool]]:
+    """{operator: {phrase: reviewed or hand-written?}} (DESIGN D4)."""
+    raw = json.loads((LEXICON / "indicators.json").read_text())["_origin"]
+    return {op: {p: _trusted(o) for p, o in d.items()} for op, d in raw.items()}
+
+
+@functools.cache
+def abbreviation_trust() -> dict[str, dict[str, bool]]:
+    """{phrase: {VALUE: reviewed or hand-written?}} (DESIGN D4)."""
+    raw = json.loads((LEXICON / "abbreviations.json").read_text())["_origin"]
+    return {k: {v: _trusted(o) for v, o in d.items()} for k, d in raw.items()}
+
+
 @functools.cache
 def indicators() -> dict[str, frozenset[str]]:
     """{operator: indicator phrases}, from data/lexicon/indicators.json."""
     raw = json.loads((LEXICON / "indicators.json").read_text())
-    return {op: frozenset(v) for op, v in raw.items() if op != "source"}
+    return {op: frozenset(v) for op, v in raw.items() if op != "source" and not op.startswith("_")}
 
 
 @functools.cache

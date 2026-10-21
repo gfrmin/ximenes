@@ -25,7 +25,8 @@ def test_replaying_the_formaliser_log_reproduces_coverage() -> None:
     a, b = _run(), _run()
     assert a == b
     assert a["coverage"] == pytest.approx(0.6)
-    assert a["reject_rules"] == {"surface:unknown_operator:last_letters": 1,
+    # (brief 002: the fixture's unknown operator is now spoonerism; last_letters exists)
+    assert a["reject_rules"] == {"surface:unknown_operator:spoonerism": 1,
                                  "hidden:not_found": 1}
     assert a["mutant_false_accepts"] == 0 and a["mutants"] > 0
 

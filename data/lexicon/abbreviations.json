@@ -1,700 +1,2563 @@
 {
  "source": "built by data/lexicon/build_abbreviations.py from abbreviations.hand.json (hand seed 2026-10-21) and rdeits/CrypticCrosswords.jl corpora/abbreviations.json (MIT, (c) 2019 Robin Deits; LICENSE-CrypticCrosswords.jl.md), with the reviewed fixes listed in REVIEW.md; keys lowercased, values uppercased letters",
  "_origin": {
-  "a follower": "deits",
-  "a french": "hand",
-  "about": "deits+hand",
-  "academician": "hand",
-  "account": "deits",
-  "accountant": "deits",
-  "ace": "deits",
-  "actinium": "deits",
-  "advert": "deits",
-  "after midday": "deits",
-  "afternoon": "deits",
-  "against": "deits+hand",
-  "agent": "deits",
-  "agricultural": "deits",
-  "air conditioning": "deits",
-  "alabama": "deits",
-  "alaska": "deits",
-  "albania": "deits",
-  "alien": "deits",
-  "also known as": "deits",
-  "alto": "deits",
-  "aluminium": "deits",
-  "aluminum": "deits",
-  "ambassador": "deits",
-  "america": "deits",
-  "american": "hand",
-  "american soldier": "deits",
-  "amnesty": "deits",
-  "ancient city": "deits",
-  "ancient times": "deits",
-  "and so on": "deits",
-  "anglican": "deits",
-  "anglo-saxon": "deits",
-  "answer": "deits",
-  "approximately": "deits",
-  "arabic": "deits",
-  "arbiter": "deits",
-  "argon": "deits",
-  "arizona": "deits",
-  "arkansas": "deits",
-  "army cop": "deits",
-  "around": "deits",
-  "arsenic": "deits",
-  "article": "deits",
-  "artificial intelligence": "deits",
-  "artillery": "deits",
-  "artist": "deits+hand",
-  "artists": "deits",
-  "asian": "deits",
-  "astatine": "deits",
-  "at home": "deits",
-  "attorney": "deits",
-  "australia": "deits",
-  "australian capital territory": "deits",
-  "avenue": "deits",
-  "bachelor": "deits+hand",
-  "bachelor of arts": "deits",
-  "bachelor of medicine": "deits",
-  "barium": "deits",
-  "basque nationalists": "deits",
-  "bass": "deits",
-  "batting": "deits",
-  "bearing": "deits",
-  "before midday": "deits",
-  "beginner": "deits",
-  "belgium": "deits",
-  "bend": "deits",
-  "beryllium": "deits",
-  "big": "deits",
-  "bill": "deits",
-  "bird": "deits",
-  "bishop": "deits",
-  "bismuth": "deits",
-  "blood group": "deits",
-  "bob": "deits",
-  "bolivia": "deits",
-  "bonds boss": "deits",
-  "book": "deits",
-  "books": "deits",
-  "boron": "deits",
-  "bowled": "deits",
-  "boy": "deits",
-  "brazil": "deits",
-  "bridge player": "deits",
-  "british": "deits+hand",
-  "bromine": "deits",
-  "by the day": "deits",
-  "byte": "deits",
-  "calcium": "deits",
-  "california": "deits",
-  "capone": "deits",
-  "car": "deits",
-  "carbon": "deits",
-  "carbon copy": "deits",
-  "care of": "deits",
-  "castle": "deits",
-  "catholic": "deits",
-  "caught": "deits",
-  "celsius": "deits",
-  "cent": "deits",
-  "centigrade": "deits",
-  "century": "deits",
-  "cerium": "deits",
-  "certificate": "deits",
-  "chapter": "deits",
-  "chief": "deits",
-  "chlorine": "deits",
-  "christ": "deits",
-  "chromium": "deits",
-  "chromosome": "deits",
-  "church": "deits+hand",
-  "church of england": "deits",
-  "circa": "deits",
-  "circle": "deits",
-  "circuit": "deits",
-  "city": "deits",
-  "civil engineer": "deits",
-  "clef": "deits",
-  "club": "deits",
-  "clubs": "deits",
-  "cobalt": "deits",
-  "coin": "deits",
-  "colonel": "deits",
-  "colorado": "deits",
-  "colt": "deits",
-  "common era": "deits",
-  "company": "deits",
-  "compare": "deits",
-  "compass point": "deits",
-  "computer": "deits",
-  "concerning": "deits+hand",
-  "connecticut": "deits",
-  "conservationists": "deits",
-  "conservative": "deits+hand",
-  "constable": "deits",
-  "copper": "deits+hand",
-  "court": "deits",
-  "credit": "deits",
-  "criminal": "deits",
-  "cross": "deits",
-  "cuba": "deits",
-  "current": "deits",
-  "current account": "deits",
-  "cyprus": "deits",
-  "cystic fibrosis": "deits",
-  "date": "deits",
-  "daughter": "deits",
-  "day": "deits",
-  "dead": "deits",
-  "debts": "deits",
-  "deceased": "deits",
-  "decoration": "deits",
-  "degree": "deits+hand",
-  "delaware": "deits",
-  "detective inspector": "deits",
-  "detectives": "deits",
-  "deutschmark": "deits",
-  "diamond": "deits",
-  "diamonds": "deits",
-  "diana": "deits",
-  "died": "deits",
-  "direction": "deits+hand",
-  "disc": "deits",
-  "disease": "deits",
-  "doctor": "deits+hand",
-  "doctor of divinity": "deits",
-  "dollar": "deits+hand",
-  "dram": "deits",
-  "drip": "deits",
-  "drug": "deits",
-  "dry": "deits",
-  "duck": "deits",
-  "each": "deits",
-  "east": "deits+hand",
-  "east germany": "deits",
-  "ecstasy": "deits",
-  "editor": "deits+hand",
-  "egg": "deits",
-  "electricity": "deits",
-  "eleven": "deits",
-  "elizabeth": "deits",
-  "energy": "deits",
-  "engineer": "deits",
-  "engineers": "hand",
-  "english": "deits+hand",
-  "era": "deits",
-  "escape": "deits",
-  "established": "deits",
-  "estimated time of arrival": "deits",
-  "europe": "deits",
-  "excellent": "deits",
-  "exercise": "deits",
-  "exist": "deits",
-  "extra": "deits",
-  "extra large": "deits",
-  "extra terrestrial": "deits",
-  "fahrenheit": "deits",
-  "father": "deits",
-  "female": "deits",
-  "fifty": "deits+hand",
-  "fighter plane": "deits",
-  "fine": "deits",
-  "finland": "deits",
-  "firm": "deits",
-  "first": "deits",
-  "first class": "deits",
-  "first woman": "deits",
-  "fish": "deits",
-  "five": "deits+hand",
-  "fleet": "deits",
-  "florida": "deits",
-  "fluorine": "deits",
-  "flying bomb": "deits",
-  "following": "deits",
-  "football association": "deits",
-  "football club": "deits",
-  "footnote": "deits",
-  "for example": "deits",
-  "force": "deits",
-  "former": "deits",
-  "former partner": "deits",
-  "forte": "deits",
-  "four": "deits",
-  "france": "deits",
-  "french": "deits",
-  "french art": "deits",
-  "frenchman": "deits",
-  "friday": "deits",
-  "gallium": "deits",
-  "game": "deits",
-  "gas": "deits",
-  "george": "deits",
-  "georgia": "deits",
-  "german": "deits",
-  "german submarine": "deits",
-  "germany": "deits",
-  "gold": "deits+hand",
-  "good": "deits+hand",
-  "good man": "deits",
-  "grade": "deits",
-  "graduate": "deits+hand",
-  "gram": "deits",
-  "grand": "deits+hand",
-  "grand prix": "deits",
-  "greece": "deits",
-  "greek character": "deits",
-  "greek letter": "deits",
-  "group": "deits",
-  "guevara": "deits",
-  "gunners": "deits",
-  "gym": "deits",
-  "hand": "deits",
-  "hard": "deits",
-  "hawaii": "deits",
-  "hear": "deits",
-  "heart": "deits",
-  "hearts": "deits",
-  "hectare": "deits",
-  "helium": "deits",
-  "her majesty": "deits",
-  "heroin": "deits",
-  "hexadecimal": "deits",
-  "high class": "deits",
-  "hire purchase": "deits",
-  "holy man": "deits",
-  "home counties": "deits",
-  "honour": "deits",
-  "honours": "deits",
-  "horse": "deits",
-  "hospital": "deits",
-  "hour": "deits+hand",
-  "houses of parliament": "deits",
-  "hug": "deits",
-  "hundred": "deits+hand",
-  "husband": "deits",
-  "hush": "deits",
-  "hydrogen": "deits",
-  "i am": "deits",
-  "iceland": "deits",
-  "idaho": "deits",
-  "illinois": "deits",
-  "in charge": "deits",
-  "in this matter": "deits",
-  "inch": "deits",
-  "india": "deits",
-  "indiana": "deits",
-  "information": "deits",
-  "information technology": "deits",
-  "inning": "deits",
-  "instant message": "deits",
-  "integrated circuit": "deits",
-  "intelligence": "deits",
-  "iodine": "deits",
-  "iowa": "deits",
-  "ireland": "deits",
-  "iridium": "deits",
-  "irish republican army": "deits",
-  "iron": "deits+hand",
-  "island": "deits+hand",
-  "it": "hand",
-  "italian": "hand",
-  "italy": "deits",
-  "jack": "deits",
-  "jet": "deits",
-  "jolly": "deits",
-  "journalist": "deits+hand",
-  "judge": "deits",
-  "junction": "deits",
-  "junior": "deits",
-  "kansas": "deits",
-  "kelvin": "deits",
-  "kentucky": "deits",
-  "key": "deits",
-  "kick off": "deits",
-  "kilo": "deits",
-  "king": "deits+hand",
-  "kiss": "deits",
-  "knave": "deits",
-  "knight": "deits",
-  "knock out": "deits",
-  "knot": "deits",
-  "labour": "deits+hand",
-  "lake": "deits",
-  "large": "hand",
-  "large number": "deits",
-  "last character": "deits",
-  "last month": "deits",
-  "lawrence": "deits",
-  "lawyer": "deits",
-  "lead": "deits+hand",
-  "learner": "deits+hand",
-  "left": "deits+hand",
-  "letter": "deits",
-  "liberal": "deits+hand",
-  "lieutenant": "deits",
-  "lincoln": "deits",
-  "line": "deits",
-  "lithium": "deits",
-  "litre": "deits",
-  "local area network": "deits",
-  "long playing record": "deits",
-  "long wave": "deits",
-  "los angeles": "deits",
-  "loud": "deits+hand",
-  "louisiana": "deits",
-  "love": "deits+hand",
-  "maiden": "deits",
-  "maine": "deits",
-  "malaysia": "deits",
-  "male": "deits",
-  "many": "deits",
-  "map-makers": "deits",
-  "marines": "deits",
-  "married": "deits",
-  "maryland": "deits",
-  "massachusetts": "deits",
-  "master": "deits",
-  "master of arts": "deits",
-  "master of ceremonies": "deits",
-  "master's": "deits",
-  "measure": "deits",
-  "medal": "deits",
-  "medic": "deits",
-  "megabyte": "deits",
-  "member": "deits",
-  "member of parliament": "deits",
-  "messerschmitt": "deits",
-  "michigan": "deits",
-  "midday": "deits",
-  "middle east": "deits",
-  "midfielder": "deits",
-  "military police": "deits",
-  "ministry of defence": "deits",
-  "minnesota": "deits",
-  "minute": "deits",
-  "mississippi": "deits",
-  "missouri": "deits",
-  "model": "deits",
-  "moment": "deits",
-  "monarch": "deits",
-  "monday": "deits",
-  "monsieur": "deits",
-  "montana": "deits",
-  "month": "deits",
-  "months": "deits",
-  "morninghalf day": "deits",
-  "mother": "deits",
-  "motorway": "deits",
-  "national trust": "deits",
-  "navy": "deits",
-  "nazis": "deits",
-  "nebraska": "deits",
-  "neon": "deits",
-  "nevada": "deits",
-  "never-never": "deits",
-  "new": "deits+hand",
-  "new hampshire": "deits",
-  "new jersey": "deits",
-  "new mexico": "deits",
-  "new south wales": "deits",
-  "new testament": "deits",
-  "new york": "deits",
-  "new zealand": "deits",
-  "newton": "deits",
-  "nickel": "deits",
-  "nil": "deits",
-  "nitrogen": "deits",
-  "no": "hand",
-  "no ball": "deits",
-  "no good": "deits",
-  "noon": "deits",
-  "north": "deits+hand",
-  "north carolina": "deits",
-  "north dakota": "deits",
-  "northern territory": "deits",
-  "not applicable": "deits",
-  "not out": "deits",
-  "note": "deits+hand",
-  "note well": "deits",
-  "nothing": "deits+hand",
-  "november": "deits",
-  "novice": "deits",
-  "now": "deits",
-  "number": "deits",
-  "number one": "deits",
-  "ocean": "deits",
-  "odds": "deits",
-  "of french": "hand",
-  "officer": "deits",
-  "ohio": "deits",
-  "oklahoma": "deits",
-  "old": "deits+hand",
-  "old boy": "deits",
-  "old city": "deits",
-  "old english": "deits",
-  "old person": "deits",
-  "old record": "deits",
-  "old testament": "deits",
-  "one": "deits+hand",
-  "operating system": "deits",
-  "operation": "deits",
-  "oregon": "deits",
-  "oriental": "deits",
-  "ounce": "deits",
-  "outsize": "deits",
-  "outsized": "deits",
-  "over": "deits",
-  "over the top": "deits",
-  "overdose": "deits",
-  "oxygen": "deits",
-  "page": "deits+hand",
-  "pages": "deits+hand",
-  "painters": "deits",
-  "pair": "deits",
-  "paramilitaries": "deits",
-  "parking": "deits",
-  "party": "deits+hand",
-  "pawn": "deits",
-  "peacekeepers": "deits",
-  "pencil": "deits",
-  "pennsylvania": "deits",
-  "penny": "deits+hand",
-  "performing": "deits",
-  "peru": "deits",
-  "phone company": "deits",
-  "phosphorus": "deits",
-  "physical education": "deits",
-  "physical training": "deits",
-  "piano": "deits",
-  "plane": "deits",
-  "plate": "deits",
-  "play": "deits",
-  "playing": "deits",
-  "poem": "deits",
-  "poet": "deits",
-  "point": "deits+hand",
-  "pole": "deits",
-  "policeman": "deits",
-  "policemen": "deits",
-  "politician": "deits",
-  "posh": "deits",
-  "post office": "deits",
-  "potassium": "deits",
-  "pound": "deits+hand",
-  "pounds": "deits",
-  "power": "deits",
-  "present day": "deits",
-  "priest": "deits",
-  "prime minister": "deits",
-  "princess": "deits",
-  "printers measure": "deits",
-  "prisoner of war": "deits",
-  "private": "deits",
-  "private investigator": "deits",
-  "promises": "deits",
-  "province": "deits",
-  "pub": "deits",
-  "public record office": "deits",
-  "quarter": "deits",
-  "queen": "deits+hand",
-  "queens honour": "deits",
-  "queensland": "deits",
-  "question": "deits",
-  "quiet": "deits+hand",
-  "radium": "deits",
-  "railway": "deits",
-  "record": "deits",
-  "ref": "deits",
-  "regina": "deits",
-  "republican": "deits",
-  "republicans": "deits",
-  "resistance": "deits",
-  "retired": "deits",
-  "reverend": "deits",
-  "rex": "deits",
-  "rhode island": "deits",
-  "right": "deits+hand",
-  "right reverend": "deits",
-  "ring": "deits",
-  "river": "deits+hand",
-  "road": "deits+hand",
-  "rolls royce": "deits",
-  "rook": "deits",
-  "roughly": "deits",
-  "round": "deits",
-  "royal academy": "deits",
-  "royal artillery": "deits",
-  "royal engineers": "deits",
-  "royal marines": "deits",
-  "royal navy": "deits",
-  "run": "deits",
-  "sailor": "deits+hand",
-  "sailors": "deits",
-  "saint": "deits+hand",
-  "salt": "deits",
-  "sappers": "deits",
-  "saturday": "deits",
-  "say": "deits",
-  "scholar": "deits",
-  "seaman": "deits",
-  "second": "deits+hand",
-  "second-class": "deits",
-  "secret service": "deits",
-  "see": "deits",
-  "selenium": "deits",
-  "setter": "deits",
-  "sex appeal": "deits+hand",
-  "shakespearean king": "deits",
-  "shilling": "deits",
-  "ship": "deits+hand",
-  "short time": "deits",
-  "short wave": "deits",
-  "sibling": "deits",
-  "siblings": "deits",
-  "significant other": "deits",
-  "silence": "deits",
-  "silicon": "deits",
-  "silk": "deits",
-  "silver": "deits+hand",
-  "single": "deits",
-  "six-footer": "deits",
-  "small": "hand",
-  "society": "deits",
-  "sodium": "deits",
-  "soft": "deits",
-  "softly": "deits",
-  "soldier": "deits+hand",
-  "soldiers": "deits+hand",
-  "somalia": "deits",
-  "son": "deits",
-  "soprano": "deits",
-  "south": "deits+hand",
-  "south australia": "deits",
-  "south carolina": "deits",
-  "spade": "deits",
-  "spades": "deits",
-  "spanish": "deits",
-  "sportsman": "deits",
-  "square": "deits",
-  "st": "deits",
-  "state": "deits",
-  "steamship": "hand",
-  "stone": "deits+review",
-  "street": "deits+hand",
-  "strings": "deits",
-  "student": "deits+hand",
-  "submarine": "deits",
-  "sulfur": "deits",
-  "sunday": "deits",
-  "support": "deits",
-  "sweat": "deits",
-  "switzerland": "deits",
-  "tar": "deits",
-  "tasmania": "deits",
-  "tax": "deits",
-  "teachers": "deits",
-  "team": "deits",
-  "teas": "deits",
-  "teetotal": "deits",
-  "temperature": "deits",
-  "ten": "deits+hand",
-  "tennessee": "deits",
-  "tenor": "deits",
-  "territorial army": "deits",
-  "terrorists": "deits",
-  "texas": "deits",
-  "text": "deits",
-  "thanks": "deits",
-  "that is": "deits",
-  "the french": "hand",
-  "the german": "hand",
-  "the same": "deits",
-  "the spanish": "hand",
-  "the thing": "deits",
-  "theologian": "deits",
-  "this month": "deits",
-  "thousand": "deits+hand",
-  "thursday": "deits",
-  "thus": "deits",
-  "time": "deits+hand",
-  "times": "deits",
-  "tin": "deits+hand",
-  "titanium": "deits",
-  "toilet": "deits",
-  "top class": "deits",
-  "tory": "deits",
-  "translator": "deits",
-  "trendy": "deits",
-  "tripod": "deits",
-  "tuesday": "deits",
-  "tungsten": "deits",
-  "turn": "deits",
-  "two": "deits",
-  "tyro": "deits",
-  "ulster": "deits",
-  "ulster defence association": "deits",
-  "ulster freedom fighters": "deits",
-  "ultimate": "deits",
-  "united kingdom": "deits",
-  "united nations": "deits",
-  "united states": "deits",
-  "university": "deits",
-  "unknown": "deits",
-  "upper class": "deits",
-  "uranium": "deits",
-  "utah": "deits",
-  "value added tax": "deits",
-  "vanadium": "deits",
-  "variable": "deits",
-  "vermont": "deits",
-  "versus": "deits+hand",
-  "very": "deits",
-  "very black": "deits",
-  "very loud": "deits+hand",
-  "very soft": "deits",
-  "victoria": "deits",
-  "virginia": "deits",
-  "vitamin": "deits",
-  "volt": "deits",
-  "volume": "deits",
-  "volunteers": "deits",
-  "vote": "deits",
-  "washington": "deits",
-  "water": "hand",
-  "way": "deits+hand",
-  "wednesday": "deits",
-  "week": "deits",
-  "weight": "deits",
-  "west": "hand",
-  "west virginia": "deits",
-  "western australia": "deits",
-  "whistle-blower": "deits",
-  "wicket": "deits",
-  "wide": "deits",
-  "width": "deits",
-  "wife": "deits",
-  "will": "deits",
-  "wisconsin": "deits",
-  "with": "deits",
-  "without": "deits",
-  "womens supporter": "deits",
-  "work": "deits",
-  "worker": "deits",
-  "wyoming": "deits",
-  "x": "deits",
-  "xenon": "deits",
-  "yard": "deits",
-  "year": "deits+hand",
-  "yemen": "deits",
-  "yes": "hand",
-  "yours truly": "deits",
-  "yttrium": "deits",
-  "zero": "deits",
-  "zinc": "deits"
+  "a follower": {
+   "B": "deits"
+  },
+  "a french": {
+   "UN": "hand",
+   "UNE": "hand"
+  },
+  "about": {
+   "C": "deits+hand",
+   "CA": "deits+hand",
+   "CE": "deits",
+   "RE": "deits+hand"
+  },
+  "academician": {
+   "RA": "hand"
+  },
+  "account": {
+   "AC": "deits"
+  },
+  "accountant": {
+   "CA": "deits",
+   "CPA": "deits"
+  },
+  "ace": {
+   "A": "deits",
+   "AI": "deits"
+  },
+  "actinium": {
+   "AC": "deits"
+  },
+  "advert": {
+   "AD": "deits"
+  },
+  "after midday": {
+   "PM": "deits"
+  },
+  "afternoon": {
+   "PM": "deits"
+  },
+  "against": {
+   "ANTI": "hand",
+   "CON": "hand",
+   "V": "deits+hand",
+   "VS": "deits+hand"
+  },
+  "agent": {
+   "REP": "deits"
+  },
+  "agricultural": {
+   "AG": "deits"
+  },
+  "air conditioning": {
+   "AC": "deits"
+  },
+  "alabama": {
+   "AL": "deits"
+  },
+  "alaska": {
+   "AK": "deits"
+  },
+  "albania": {
+   "AL": "deits",
+   "ALB": "deits"
+  },
+  "alien": {
+   "ET": "deits"
+  },
+  "also known as": {
+   "AKA": "deits"
+  },
+  "alto": {
+   "A": "deits"
+  },
+  "aluminium": {
+   "AL": "deits"
+  },
+  "aluminum": {
+   "AL": "deits"
+  },
+  "ambassador": {
+   "HE": "deits"
+  },
+  "america": {
+   "AM": "deits",
+   "US": "deits",
+   "USA": "deits"
+  },
+  "american": {
+   "A": "hand",
+   "US": "hand"
+  },
+  "american soldier": {
+   "GI": "deits"
+  },
+  "amnesty": {
+   "AI": "deits"
+  },
+  "ancient city": {
+   "UR": "deits"
+  },
+  "ancient times": {
+   "BC": "deits"
+  },
+  "and so on": {
+   "ETC": "deits"
+  },
+  "anglican": {
+   "CE": "deits"
+  },
+  "anglo-saxon": {
+   "AS": "deits"
+  },
+  "answer": {
+   "A": "deits"
+  },
+  "approximately": {
+   "C": "deits"
+  },
+  "arabic": {
+   "AR": "deits"
+  },
+  "arbiter": {
+   "REF": "deits"
+  },
+  "argon": {
+   "AR": "deits"
+  },
+  "arizona": {
+   "AZ": "deits"
+  },
+  "arkansas": {
+   "AR": "deits"
+  },
+  "army cop": {
+   "MP": "deits"
+  },
+  "around": {
+   "CA": "deits"
+  },
+  "arsenic": {
+   "AS": "deits"
+  },
+  "article": {
+   "A": "deits",
+   "AN": "deits",
+   "THE": "deits"
+  },
+  "artificial intelligence": {
+   "AI": "deits"
+  },
+  "artillery": {
+   "RA": "deits"
+  },
+  "artist": {
+   "RA": "deits+hand"
+  },
+  "artists": {
+   "RA": "deits"
+  },
+  "asian": {
+   "E": "deits"
+  },
+  "astatine": {
+   "AT": "deits"
+  },
+  "at home": {
+   "IN": "deits"
+  },
+  "attorney": {
+   "DA": "deits",
+   "PA": "deits"
+  },
+  "australia": {
+   "AU": "deits",
+   "AUS": "deits",
+   "OZ": "deits"
+  },
+  "australian capital territory": {
+   "ACT": "deits"
+  },
+  "avenue": {
+   "AVE": "deits"
+  },
+  "bachelor": {
+   "B": "hand",
+   "BA": "deits+hand"
+  },
+  "bachelor of arts": {
+   "BA": "deits"
+  },
+  "bachelor of medicine": {
+   "BM": "deits"
+  },
+  "barium": {
+   "BA": "deits"
+  },
+  "basque nationalists": {
+   "ETA": "deits"
+  },
+  "bass": {
+   "B": "deits"
+  },
+  "batting": {
+   "IN": "deits"
+  },
+  "bearing": {
+   "E": "deits",
+   "N": "deits",
+   "NE": "deits",
+   "NW": "deits",
+   "S": "deits",
+   "W": "deits"
+  },
+  "before midday": {
+   "AM": "deits"
+  },
+  "beginner": {
+   "L": "deits"
+  },
+  "belgium": {
+   "BE": "deits",
+   "BEL": "deits"
+  },
+  "bend": {
+   "S": "deits",
+   "SU": "deits",
+   "U": "deits"
+  },
+  "beryllium": {
+   "BE": "deits"
+  },
+  "big": {
+   "OS": "deits"
+  },
+  "bill": {
+   "AC": "deits",
+   "IOU": "deits"
+  },
+  "bird": {
+   "TIT": "deits"
+  },
+  "bishop": {
+   "B": "deits",
+   "RR": "deits"
+  },
+  "bismuth": {
+   "BI": "deits"
+  },
+  "blood group": {
+   "A": "deits",
+   "AB": "deits",
+   "O": "deits"
+  },
+  "bob": {
+   "S": "deits"
+  },
+  "bolivia": {
+   "BO": "deits",
+   "BOL": "deits"
+  },
+  "bonds boss": {
+   "M": "deits"
+  },
+  "book": {
+   "NT": "deits",
+   "OT": "deits"
+  },
+  "books": {
+   "NT": "deits",
+   "OT": "deits"
+  },
+  "boron": {
+   "B": "deits"
+  },
+  "bowled": {
+   "B": "deits"
+  },
+  "boy": {
+   "B": "deits"
+  },
+  "brazil": {
+   "BR": "deits",
+   "BRA": "deits"
+  },
+  "bridge player": {
+   "E": "deits",
+   "N": "deits",
+   "S": "deits",
+   "W": "deits"
+  },
+  "british": {
+   "B": "deits+hand",
+   "BR": "deits+hand"
+  },
+  "bromine": {
+   "BR": "deits"
+  },
+  "by the day": {
+   "PD": "deits"
+  },
+  "byte": {
+   "B": "deits"
+  },
+  "calcium": {
+   "CA": "deits"
+  },
+  "california": {
+   "CA": "deits"
+  },
+  "capone": {
+   "AL": "deits"
+  },
+  "car": {
+   "RR": "deits",
+   "T": "deits"
+  },
+  "carbon": {
+   "C": "deits"
+  },
+  "carbon copy": {
+   "CC": "deits"
+  },
+  "care of": {
+   "CO": "deits"
+  },
+  "castle": {
+   "R": "deits"
+  },
+  "catholic": {
+   "C": "deits"
+  },
+  "caught": {
+   "C": "deits",
+   "CT": "deits"
+  },
+  "celsius": {
+   "C": "deits"
+  },
+  "cent": {
+   "C": "deits"
+  },
+  "centigrade": {
+   "C": "deits"
+  },
+  "century": {
+   "C": "deits"
+  },
+  "cerium": {
+   "CE": "deits"
+  },
+  "certificate": {
+   "G": "deits",
+   "PG": "deits",
+   "R": "deits",
+   "U": "deits",
+   "X": "deits"
+  },
+  "chapter": {
+   "C": "deits",
+   "CH": "deits"
+  },
+  "chief": {
+   "CH": "deits"
+  },
+  "chlorine": {
+   "CL": "deits"
+  },
+  "christ": {
+   "X": "deits"
+  },
+  "chromium": {
+   "CR": "deits"
+  },
+  "chromosome": {
+   "XY": "deits"
+  },
+  "church": {
+   "CE": "deits+hand",
+   "CH": "deits+hand",
+   "RC": "deits"
+  },
+  "church of england": {
+   "CE": "deits"
+  },
+  "circa": {
+   "C": "deits"
+  },
+  "circle": {
+   "O": "deits"
+  },
+  "circuit": {
+   "O": "deits"
+  },
+  "city": {
+   "EC": "deits",
+   "LA": "deits",
+   "NY": "deits"
+  },
+  "civil engineer": {
+   "CE": "deits"
+  },
+  "clef": {
+   "C": "deits",
+   "F": "deits"
+  },
+  "club": {
+   "Y": "deits"
+  },
+  "clubs": {
+   "C": "deits"
+  },
+  "cobalt": {
+   "CO": "deits"
+  },
+  "coin": {
+   "D": "deits",
+   "P": "deits"
+  },
+  "colonel": {
+   "COL": "deits"
+  },
+  "colorado": {
+   "CO": "deits"
+  },
+  "colt": {
+   "C": "deits"
+  },
+  "common era": {
+   "CE": "deits"
+  },
+  "company": {
+   "CO": "deits"
+  },
+  "compare": {
+   "CF": "deits"
+  },
+  "compass point": {
+   "E": "deits",
+   "N": "deits",
+   "S": "deits",
+   "W": "deits"
+  },
+  "computer": {
+   "PC": "deits"
+  },
+  "concerning": {
+   "RE": "deits+hand"
+  },
+  "connecticut": {
+   "CT": "deits"
+  },
+  "conservationists": {
+   "NT": "deits"
+  },
+  "conservative": {
+   "C": "deits+hand",
+   "CON": "deits+hand",
+   "TORY": "hand"
+  },
+  "constable": {
+   "PC": "deits"
+  },
+  "copper": {
+   "CU": "deits+hand",
+   "D": "deits",
+   "P": "deits",
+   "PC": "deits"
+  },
+  "court": {
+   "CT": "deits"
+  },
+  "credit": {
+   "CR": "deits"
+  },
+  "criminal": {
+   "CON": "deits"
+  },
+  "cross": {
+   "X": "deits"
+  },
+  "cuba": {
+   "CU": "deits",
+   "CUB": "deits"
+  },
+  "current": {
+   "AC": "deits",
+   "AD": "deits",
+   "AMP": "deits",
+   "DC": "deits"
+  },
+  "current account": {
+   "CA": "deits"
+  },
+  "cyprus": {
+   "CY": "deits"
+  },
+  "cystic fibrosis": {
+   "CF": "deits"
+  },
+  "date": {
+   "D": "deits"
+  },
+  "daughter": {
+   "D": "deits"
+  },
+  "day": {
+   "D": "deits",
+   "FRI": "deits",
+   "MON": "deits",
+   "SAT": "deits",
+   "SUN": "deits",
+   "THU": "deits",
+   "THURS": "deits",
+   "TUE": "deits",
+   "V": "deits",
+   "WED": "deits"
+  },
+  "dead": {
+   "D": "deits",
+   "DEC": "deits",
+   "EX": "deits",
+   "OB": "deits"
+  },
+  "debts": {
+   "IOUS": "deits"
+  },
+  "deceased": {
+   "D": "deits",
+   "DEC": "deits",
+   "EX": "deits"
+  },
+  "decoration": {
+   "GC": "deits",
+   "VC": "deits"
+  },
+  "degree": {
+   "BA": "deits+hand",
+   "C": "deits",
+   "DEG": "deits",
+   "F": "deits",
+   "MA": "deits+hand"
+  },
+  "delaware": {
+   "DE": "deits"
+  },
+  "detective inspector": {
+   "DI": "deits"
+  },
+  "detectives": {
+   "CID": "deits"
+  },
+  "deutschmark": {
+   "DM": "deits"
+  },
+  "diamond": {
+   "D": "deits"
+  },
+  "diamonds": {
+   "D": "deits"
+  },
+  "diana": {
+   "DI": "deits"
+  },
+  "died": {
+   "D": "deits",
+   "DEC": "deits",
+   "EX": "deits",
+   "OB": "deits"
+  },
+  "direction": {
+   "E": "deits+hand",
+   "N": "deits+hand",
+   "S": "deits+hand",
+   "W": "deits+hand"
+  },
+  "disc": {
+   "CD": "deits",
+   "EP": "deits",
+   "LP": "deits",
+   "O": "deits"
+  },
+  "disease": {
+   "TB": "deits"
+  },
+  "doctor": {
+   "BM": "deits",
+   "DOC": "deits",
+   "DR": "deits+hand",
+   "GP": "deits+hand",
+   "MB": "deits+hand",
+   "MD": "deits+hand",
+   "MO": "deits+hand"
+  },
+  "doctor of divinity": {
+   "DD": "deits"
+  },
+  "dollar": {
+   "S": "deits+hand"
+  },
+  "dram": {
+   "DR": "deits"
+  },
+  "drip": {
+   "IV": "deits"
+  },
+  "drug": {
+   "C": "deits",
+   "E": "deits",
+   "H": "deits",
+   "X": "deits"
+  },
+  "dry": {
+   "AA": "deits",
+   "TT": "deits"
+  },
+  "duck": {
+   "O": "deits"
+  },
+  "each": {
+   "EA": "deits"
+  },
+  "east": {
+   "E": "deits+hand"
+  },
+  "east germany": {
+   "GDR": "deits"
+  },
+  "ecstasy": {
+   "EX": "deits"
+  },
+  "editor": {
+   "ED": "deits+hand"
+  },
+  "egg": {
+   "O": "deits"
+  },
+  "electricity": {
+   "AC": "deits",
+   "DC": "deits"
+  },
+  "eleven": {
+   "LL": "deits",
+   "XI": "deits"
+  },
+  "elizabeth": {
+   "E": "deits"
+  },
+  "energy": {
+   "E": "deits",
+   "J": "deits"
+  },
+  "engineer": {
+   "CE": "deits",
+   "ME": "deits",
+   "RE": "deits"
+  },
+  "engineers": {
+   "RE": "hand"
+  },
+  "english": {
+   "E": "deits+hand",
+   "ENG": "hand"
+  },
+  "era": {
+   "AD": "deits",
+   "BC": "deits",
+   "CE": "deits"
+  },
+  "escape": {
+   "ESC": "deits"
+  },
+  "established": {
+   "EST": "deits"
+  },
+  "estimated time of arrival": {
+   "ETA": "deits"
+  },
+  "europe": {
+   "EC": "deits",
+   "EU": "deits"
+  },
+  "excellent": {
+   "AI": "deits"
+  },
+  "exercise": {
+   "PE": "deits",
+   "PT": "deits"
+  },
+  "exist": {
+   "BE": "deits"
+  },
+  "extra": {
+   "W": "deits"
+  },
+  "extra large": {
+   "XL": "deits"
+  },
+  "extra terrestrial": {
+   "ET": "deits"
+  },
+  "fahrenheit": {
+   "F": "deits"
+  },
+  "father": {
+   "DA": "deits",
+   "DAD": "deits",
+   "FR": "deits",
+   "PA": "deits"
+  },
+  "female": {
+   "F": "deits"
+  },
+  "fifty": {
+   "L": "deits+hand"
+  },
+  "fighter plane": {
+   "MIG": "deits"
+  },
+  "fine": {
+   "F": "deits",
+   "OK": "deits"
+  },
+  "finland": {
+   "FI": "deits",
+   "FIN": "deits"
+  },
+  "firm": {
+   "CO": "deits"
+  },
+  "first": {
+   "IST": "deits"
+  },
+  "first class": {
+   "A": "deits",
+   "AI": "deits"
+  },
+  "first woman": {
+   "EVE": "deits"
+  },
+  "fish": {
+   "COD": "deits",
+   "EEL": "deits",
+   "LING": "deits"
+  },
+  "five": {
+   "V": "deits+hand"
+  },
+  "fleet": {
+   "RN": "deits"
+  },
+  "florida": {
+   "FL": "deits"
+  },
+  "fluorine": {
+   "F": "deits"
+  },
+  "flying bomb": {
+   "VI": "deits"
+  },
+  "following": {
+   "F": "deits"
+  },
+  "football association": {
+   "FA": "deits"
+  },
+  "football club": {
+   "FC": "deits"
+  },
+  "footnote": {
+   "PS": "deits"
+  },
+  "for example": {
+   "EG": "deits"
+  },
+  "force": {
+   "F": "deits"
+  },
+  "former": {
+   "EX": "deits"
+  },
+  "former partner": {
+   "EX": "deits"
+  },
+  "forte": {
+   "F": "deits"
+  },
+  "four": {
+   "IV": "deits"
+  },
+  "france": {
+   "F": "deits"
+  },
+  "french": {
+   "LE": "deits"
+  },
+  "french art": {
+   "ES": "deits"
+  },
+  "frenchman": {
+   "M": "deits"
+  },
+  "friday": {
+   "F": "deits",
+   "FRI": "deits"
+  },
+  "gallium": {
+   "GA": "deits"
+  },
+  "game": {
+   "RU": "deits"
+  },
+  "gas": {
+   "CO": "deits",
+   "CS": "deits",
+   "ETC": "deits",
+   "H": "deits",
+   "N": "deits",
+   "O": "deits"
+  },
+  "george": {
+   "G": "deits"
+  },
+  "georgia": {
+   "GA": "deits",
+   "GE": "deits"
+  },
+  "german": {
+   "G": "deits"
+  },
+  "german submarine": {
+   "U": "deits"
+  },
+  "germany": {
+   "D": "deits",
+   "DE": "deits",
+   "DEU": "deits",
+   "GER": "deits"
+  },
+  "gold": {
+   "AU": "deits+hand",
+   "OR": "deits+hand"
+  },
+  "good": {
+   "A": "deits",
+   "G": "hand",
+   "PI": "deits"
+  },
+  "good man": {
+   "ST": "deits"
+  },
+  "grade": {
+   "A": "deits",
+   "B": "deits",
+   "C": "deits",
+   "D": "deits",
+   "F": "deits"
+  },
+  "graduate": {
+   "BA": "deits+hand",
+   "BSC": "hand",
+   "MA": "deits+hand",
+   "MB": "deits"
+  },
+  "gram": {
+   "G": "deits"
+  },
+  "grand": {
+   "G": "deits+hand",
+   "K": "deits+hand",
+   "M": "deits"
+  },
+  "grand prix": {
+   "GP": "deits"
+  },
+  "greece": {
+   "GR": "deits",
+   "GRC": "deits",
+   "GRE": "deits"
+  },
+  "greek character": {
+   "ALPHA": "deits",
+   "BETA": "deits",
+   "CHI": "deits",
+   "DELTA": "deits",
+   "EPSILON": "deits",
+   "ETA": "deits",
+   "GAMMA": "deits",
+   "IOTA": "deits",
+   "KAPPA": "deits",
+   "LAMBDA": "deits",
+   "MU": "deits",
+   "NU": "deits",
+   "OMEGA": "deits",
+   "OMICRON": "deits",
+   "PHI": "deits",
+   "PI": "deits",
+   "PSI": "deits",
+   "RHO": "deits",
+   "SIGMA": "deits",
+   "TAU": "deits",
+   "THETA": "deits",
+   "UPSILON": "deits",
+   "XI": "deits",
+   "ZETA": "deits"
+  },
+  "greek letter": {
+   "ALPHA": "deits",
+   "BETA": "deits",
+   "CHI": "deits",
+   "DELTA": "deits",
+   "EPSILON": "deits",
+   "ETA": "deits",
+   "GAMMA": "deits",
+   "IOTA": "deits",
+   "KAPPA": "deits",
+   "LAMBDA": "deits",
+   "MU": "deits",
+   "NU": "deits",
+   "OMEGA": "deits",
+   "OMICRON": "deits",
+   "PHI": "deits",
+   "PI": "deits",
+   "PSI": "deits",
+   "RHO": "deits",
+   "SIGMA": "deits",
+   "TAU": "deits",
+   "THETA": "deits",
+   "UPSILON": "deits",
+   "XI": "deits",
+   "ZETA": "deits"
+  },
+  "group": {
+   "GP": "deits"
+  },
+  "guevara": {
+   "CHE": "deits"
+  },
+  "gunners": {
+   "RA": "deits"
+  },
+  "gym": {
+   "PE": "deits"
+  },
+  "hand": {
+   "AB": "deits",
+   "L": "deits",
+   "R": "deits"
+  },
+  "hard": {
+   "H": "deits"
+  },
+  "hawaii": {
+   "HI": "deits"
+  },
+  "hear": {
+   "T": "deits"
+  },
+  "heart": {
+   "H": "deits"
+  },
+  "hearts": {
+   "H": "deits"
+  },
+  "hectare": {
+   "HA": "deits"
+  },
+  "helium": {
+   "HE": "deits"
+  },
+  "her majesty": {
+   "HM": "deits"
+  },
+  "heroin": {
+   "H": "deits"
+  },
+  "hexadecimal": {
+   "HEX": "deits"
+  },
+  "high class": {
+   "AI": "deits",
+   "U": "deits"
+  },
+  "hire purchase": {
+   "HP": "deits"
+  },
+  "holy man": {
+   "ST": "deits"
+  },
+  "home counties": {
+   "SE": "deits"
+  },
+  "honour": {
+   "OBE": "deits"
+  },
+  "honours": {
+   "BA": "deits",
+   "MA": "deits"
+  },
+  "horse": {
+   "G": "deits",
+   "GG": "deits"
+  },
+  "hospital": {
+   "H": "deits"
+  },
+  "hour": {
+   "H": "deits+hand",
+   "HR": "deits+hand"
+  },
+  "houses of parliament": {
+   "HP": "deits"
+  },
+  "hug": {
+   "O": "deits"
+  },
+  "hundred": {
+   "C": "deits+hand"
+  },
+  "husband": {
+   "H": "deits"
+  },
+  "hush": {
+   "SH": "deits"
+  },
+  "hydrogen": {
+   "H": "deits"
+  },
+  "i am": {
+   "IM": "deits"
+  },
+  "iceland": {
+   "IS": "deits"
+  },
+  "idaho": {
+   "ID": "deits"
+  },
+  "illinois": {
+   "IL": "deits"
+  },
+  "in charge": {
+   "IC": "deits"
+  },
+  "in this matter": {
+   "RE": "deits"
+  },
+  "inch": {
+   "IN": "deits"
+  },
+  "india": {
+   "IN": "deits",
+   "IND": "deits"
+  },
+  "indiana": {
+   "IN": "deits"
+  },
+  "information": {
+   "GEN": "deits"
+  },
+  "information technology": {
+   "IT": "deits"
+  },
+  "inning": {
+   "I": "deits"
+  },
+  "instant message": {
+   "IM": "deits"
+  },
+  "integrated circuit": {
+   "IC": "deits"
+  },
+  "intelligence": {
+   "IQ": "deits"
+  },
+  "iodine": {
+   "I": "deits"
+  },
+  "iowa": {
+   "IA": "deits"
+  },
+  "ireland": {
+   "IRE": "deits"
+  },
+  "iridium": {
+   "IR": "deits"
+  },
+  "irish republican army": {
+   "IRA": "deits"
+  },
+  "iron": {
+   "FE": "deits+hand"
+  },
+  "island": {
+   "I": "deits+hand",
+   "IS": "deits+hand"
+  },
+  "it": {
+   "IT": "hand",
+   "SA": "hand"
+  },
+  "italian": {
+   "IT": "hand"
+  },
+  "italy": {
+   "IT": "deits",
+   "ITA": "deits"
+  },
+  "jack": {
+   "AB": "deits",
+   "J": "deits",
+   "TAR": "deits"
+  },
+  "jet": {
+   "MIG": "deits"
+  },
+  "jolly": {
+   "RM": "deits"
+  },
+  "journalist": {
+   "ED": "deits+hand"
+  },
+  "judge": {
+   "J": "deits"
+  },
+  "junction": {
+   "T": "deits"
+  },
+  "junior": {
+   "JR": "deits"
+  },
+  "kansas": {
+   "KS": "deits"
+  },
+  "kelvin": {
+   "K": "deits"
+  },
+  "kentucky": {
+   "KY": "deits"
+  },
+  "key": {
+   "A": "deits",
+   "B": "deits",
+   "C": "deits",
+   "D": "deits",
+   "E": "deits",
+   "F": "deits",
+   "FG": "deits",
+   "G": "deits"
+  },
+  "kick off": {
+   "KO": "deits"
+  },
+  "kilo": {
+   "K": "deits"
+  },
+  "king": {
+   "ER": "deits+hand",
+   "GR": "deits+hand",
+   "HM": "deits",
+   "HRH": "deits",
+   "K": "deits+hand",
+   "R": "deits+hand"
+  },
+  "kiss": {
+   "X": "deits"
+  },
+  "knave": {
+   "J": "deits"
+  },
+  "knight": {
+   "K": "deits",
+   "KBE": "deits",
+   "KG": "deits",
+   "KT": "deits",
+   "N": "deits"
+  },
+  "knock out": {
+   "KO": "deits"
+  },
+  "knot": {
+   "KT": "deits"
+  },
+  "labour": {
+   "LAB": "deits+hand"
+  },
+  "lake": {
+   "LLA": "deits"
+  },
+  "large": {
+   "L": "hand"
+  },
+  "large number": {
+   "C": "deits",
+   "D": "deits",
+   "K": "deits",
+   "M": "deits"
+  },
+  "last character": {
+   "Z": "deits"
+  },
+  "last month": {
+   "ULT": "deits"
+  },
+  "lawrence": {
+   "DH": "deits",
+   "TE": "deits"
+  },
+  "lawyer": {
+   "BL": "deits"
+  },
+  "lead": {
+   "PB": "deits+hand"
+  },
+  "learner": {
+   "L": "deits+hand"
+  },
+  "left": {
+   "L": "deits+hand"
+  },
+  "letter": {
+   "EF": "deits",
+   "EL": "deits",
+   "EM": "deits"
+  },
+  "liberal": {
+   "L": "deits+hand",
+   "LIB": "deits+hand"
+  },
+  "lieutenant": {
+   "LT": "deits"
+  },
+  "lincoln": {
+   "ABE": "deits"
+  },
+  "line": {
+   "L": "deits"
+  },
+  "lithium": {
+   "LI": "deits"
+  },
+  "litre": {
+   "L": "deits"
+  },
+  "local area network": {
+   "LAN": "deits"
+  },
+  "long playing record": {
+   "LP": "deits"
+  },
+  "long wave": {
+   "LW": "deits"
+  },
+  "los angeles": {
+   "LA": "deits"
+  },
+  "loud": {
+   "F": "deits+hand",
+   "FF": "deits"
+  },
+  "louisiana": {
+   "LA": "deits"
+  },
+  "love": {
+   "NIL": "hand",
+   "O": "deits+hand"
+  },
+  "maiden": {
+   "M": "deits"
+  },
+  "maine": {
+   "ME": "deits"
+  },
+  "malaysia": {
+   "MY": "deits",
+   "MYS": "deits"
+  },
+  "male": {
+   "HE": "deits",
+   "M": "deits",
+   "PA": "deits"
+  },
+  "many": {
+   "CL": "deits",
+   "XD": "deits"
+  },
+  "map-makers": {
+   "OS": "deits"
+  },
+  "marines": {
+   "RM": "deits"
+  },
+  "married": {
+   "M": "deits"
+  },
+  "maryland": {
+   "MD": "deits"
+  },
+  "massachusetts": {
+   "MA": "deits"
+  },
+  "master": {
+   "M": "deits"
+  },
+  "master of arts": {
+   "MA": "deits"
+  },
+  "master of ceremonies": {
+   "MC": "deits"
+  },
+  "master's": {
+   "MA": "deits"
+  },
+  "measure": {
+   "EM": "deits",
+   "EN": "deits"
+  },
+  "medal": {
+   "GC": "deits",
+   "OBE": "deits",
+   "OM": "deits",
+   "VC": "deits"
+  },
+  "medic": {
+   "BM": "deits",
+   "DOC": "deits",
+   "DR": "deits",
+   "GP": "deits",
+   "MB": "deits",
+   "MD": "deits",
+   "MO": "deits"
+  },
+  "megabyte": {
+   "MB": "deits"
+  },
+  "member": {
+   "MP": "deits"
+  },
+  "member of parliament": {
+   "MP": "deits"
+  },
+  "messerschmitt": {
+   "ME": "deits"
+  },
+  "michigan": {
+   "MI": "deits"
+  },
+  "midday": {
+   "N": "deits"
+  },
+  "middle east": {
+   "ME": "deits"
+  },
+  "midfielder": {
+   "L": "deits"
+  },
+  "military police": {
+   "MP": "deits"
+  },
+  "ministry of defence": {
+   "MOD": "deits"
+  },
+  "minnesota": {
+   "MN": "deits"
+  },
+  "minute": {
+   "M": "deits"
+  },
+  "mississippi": {
+   "MS": "deits"
+  },
+  "missouri": {
+   "MO": "deits"
+  },
+  "model": {
+   "T": "deits"
+  },
+  "moment": {
+   "MO": "deits"
+  },
+  "monarch": {
+   "ER": "deits",
+   "GR": "deits",
+   "K": "deits",
+   "Q": "deits",
+   "R": "deits"
+  },
+  "monday": {
+   "M": "deits",
+   "MON": "deits"
+  },
+  "monsieur": {
+   "M": "deits"
+  },
+  "montana": {
+   "MT": "deits"
+  },
+  "month": {
+   "APR": "deits",
+   "APRIL": "deits",
+   "AUG": "deits",
+   "DEC": "deits",
+   "FEB": "deits",
+   "JAN": "deits",
+   "JULY": "deits",
+   "JUNE": "deits",
+   "MAR": "deits",
+   "MARCH": "deits",
+   "MAY": "deits",
+   "NOV": "deits",
+   "OCT": "deits",
+   "SEP": "deits"
+  },
+  "months": {
+   "MOS": "deits"
+  },
+  "morninghalf day": {
+   "AM": "deits"
+  },
+  "mother": {
+   "MA": "deits"
+  },
+  "motorway": {
+   "M": "deits",
+   "MI": "deits"
+  },
+  "national trust": {
+   "NT": "deits"
+  },
+  "navy": {
+   "ABS": "deits",
+   "RN": "deits",
+   "TARS": "deits"
+  },
+  "nazis": {
+   "SS": "deits"
+  },
+  "nebraska": {
+   "NE": "deits"
+  },
+  "neon": {
+   "NE": "deits"
+  },
+  "nevada": {
+   "NV": "deits"
+  },
+  "never-never": {
+   "HP": "deits"
+  },
+  "new": {
+   "N": "deits+hand"
+  },
+  "new hampshire": {
+   "NH": "deits"
+  },
+  "new jersey": {
+   "NJ": "deits"
+  },
+  "new mexico": {
+   "NM": "deits"
+  },
+  "new south wales": {
+   "NSW": "deits"
+  },
+  "new testament": {
+   "NT": "deits"
+  },
+  "new york": {
+   "NY": "deits"
+  },
+  "new zealand": {
+   "NZ": "deits",
+   "NZL": "deits"
+  },
+  "newton": {
+   "N": "deits"
+  },
+  "nickel": {
+   "NI": "deits"
+  },
+  "nil": {
+   "O": "deits"
+  },
+  "nitrogen": {
+   "N": "deits"
+  },
+  "no": {
+   "N": "hand",
+   "NO": "hand"
+  },
+  "no ball": {
+   "NB": "deits"
+  },
+  "no good": {
+   "NG": "deits"
+  },
+  "noon": {
+   "N": "deits"
+  },
+  "north": {
+   "N": "deits+hand"
+  },
+  "north carolina": {
+   "NC": "deits"
+  },
+  "north dakota": {
+   "ND": "deits"
+  },
+  "northern territory": {
+   "NT": "deits"
+  },
+  "not applicable": {
+   "NA": "deits"
+  },
+  "not out": {
+   "NO": "deits"
+  },
+  "note": {
+   "A": "deits+hand",
+   "B": "deits+hand",
+   "C": "deits+hand",
+   "D": "deits+hand",
+   "DO": "deits+hand",
+   "DOH": "deits",
+   "E": "deits+hand",
+   "F": "deits+hand",
+   "FA": "deits+hand",
+   "G": "deits+hand",
+   "LA": "deits+hand",
+   "LAH": "deits",
+   "MI": "deits+hand",
+   "NB": "deits",
+   "RE": "deits+hand",
+   "SO": "deits+hand",
+   "SOH": "deits",
+   "TE": "deits+hand",
+   "TI": "deits+hand"
+  },
+  "note well": {
+   "NB": "deits"
+  },
+  "nothing": {
+   "LOVE": "hand",
+   "NIL": "hand",
+   "O": "deits+hand"
+  },
+  "november": {
+   "N": "deits",
+   "NOV": "deits"
+  },
+  "novice": {
+   "L": "deits"
+  },
+  "now": {
+   "AD": "deits"
+  },
+  "number": {
+   "C": "deits",
+   "D": "deits",
+   "L": "deits",
+   "M": "deits",
+   "NO": "deits",
+   "PIN": "deits",
+   "V": "deits",
+   "X": "deits"
+  },
+  "number one": {
+   "ADAM": "deits"
+  },
+  "ocean": {
+   "O": "deits"
+  },
+  "odds": {
+   "SP": "deits"
+  },
+  "of french": {
+   "DE": "hand",
+   "DU": "hand"
+  },
+  "officer": {
+   "OC": "deits"
+  },
+  "ohio": {
+   "OH": "deits"
+  },
+  "oklahoma": {
+   "OK": "deits"
+  },
+  "old": {
+   "EX": "hand",
+   "O": "deits+hand"
+  },
+  "old boy": {
+   "OB": "deits"
+  },
+  "old city": {
+   "UR": "deits"
+  },
+  "old english": {
+   "OE": "deits"
+  },
+  "old person": {
+   "OAP": "deits"
+  },
+  "old record": {
+   "EP": "deits"
+  },
+  "old testament": {
+   "OT": "deits"
+  },
+  "one": {
+   "A": "deits+hand",
+   "ACE": "deits+hand",
+   "AN": "deits+hand",
+   "I": "deits+hand"
+  },
+  "operating system": {
+   "OS": "deits"
+  },
+  "operation": {
+   "OP": "deits"
+  },
+  "oregon": {
+   "OR": "deits"
+  },
+  "oriental": {
+   "E": "deits"
+  },
+  "ounce": {
+   "OZ": "deits"
+  },
+  "outsize": {
+   "OS": "deits"
+  },
+  "outsized": {
+   "OS": "deits"
+  },
+  "over": {
+   "O": "deits"
+  },
+  "over the top": {
+   "OTT": "deits"
+  },
+  "overdose": {
+   "OD": "deits"
+  },
+  "oxygen": {
+   "O": "deits"
+  },
+  "page": {
+   "P": "deits+hand"
+  },
+  "pages": {
+   "PP": "deits+hand"
+  },
+  "painters": {
+   "RA": "deits"
+  },
+  "pair": {
+   "PR": "deits"
+  },
+  "paramilitaries": {
+   "ETA": "deits",
+   "IRA": "deits",
+   "UDA": "deits",
+   "UFF": "deits"
+  },
+  "parking": {
+   "P": "deits"
+  },
+  "party": {
+   "CON": "deits+hand",
+   "DO": "hand",
+   "LAB": "deits+hand",
+   "LIB": "deits+hand"
+  },
+  "pawn": {
+   "P": "deits"
+  },
+  "peacekeepers": {
+   "UN": "deits"
+  },
+  "pencil": {
+   "HB": "deits"
+  },
+  "pennsylvania": {
+   "PA": "deits"
+  },
+  "penny": {
+   "CU": "deits",
+   "D": "deits+hand",
+   "P": "deits+hand"
+  },
+  "performing": {
+   "ON": "deits"
+  },
+  "peru": {
+   "PE": "deits",
+   "PER": "deits"
+  },
+  "phone company": {
+   "BT": "deits"
+  },
+  "phosphorus": {
+   "P": "deits"
+  },
+  "physical education": {
+   "PE": "deits"
+  },
+  "physical training": {
+   "PT": "deits"
+  },
+  "piano": {
+   "P": "deits"
+  },
+  "plane": {
+   "MIG": "deits"
+  },
+  "plate": {
+   "LP": "deits"
+  },
+  "play": {
+   "ACT": "deits"
+  },
+  "playing": {
+   "ON": "deits"
+  },
+  "poem": {
+   "IF": "deits"
+  },
+  "poet": {
+   "TS": "deits"
+  },
+  "point": {
+   "E": "deits+hand",
+   "N": "deits+hand",
+   "S": "deits+hand",
+   "W": "deits+hand"
+  },
+  "pole": {
+   "N": "deits",
+   "S": "deits"
+  },
+  "policeman": {
+   "CID": "deits",
+   "DI": "deits",
+   "MET": "deits",
+   "PC": "deits"
+  },
+  "policemen": {
+   "CID": "deits",
+   "DI": "deits",
+   "MET": "deits",
+   "PC": "deits"
+  },
+  "politician": {
+   "MP": "deits"
+  },
+  "posh": {
+   "U": "deits"
+  },
+  "post office": {
+   "PO": "deits"
+  },
+  "potassium": {
+   "K": "deits"
+  },
+  "pound": {
+   "L": "hand",
+   "LB": "deits+hand"
+  },
+  "pounds": {
+   "L": "deits",
+   "LBS": "deits"
+  },
+  "power": {
+   "P": "deits"
+  },
+  "present day": {
+   "AD": "deits"
+  },
+  "priest": {
+   "DD": "deits",
+   "ELI": "deits",
+   "FR": "deits",
+   "PR": "deits",
+   "REV": "deits",
+   "RR": "deits"
+  },
+  "prime minister": {
+   "PM": "deits"
+  },
+  "princess": {
+   "DI": "deits"
+  },
+  "printers measure": {
+   "EM": "deits",
+   "EN": "deits"
+  },
+  "prisoner of war": {
+   "POW": "deits"
+  },
+  "private": {
+   "GI": "deits"
+  },
+  "private investigator": {
+   "PI": "deits"
+  },
+  "promises": {
+   "IOUS": "deits"
+  },
+  "province": {
+   "NI": "deits"
+  },
+  "pub": {
+   "PH": "deits"
+  },
+  "public record office": {
+   "PRO": "deits"
+  },
+  "quarter": {
+   "E": "deits",
+   "ETC": "deits",
+   "N": "deits",
+   "NE": "deits",
+   "NW": "deits",
+   "S": "deits",
+   "W": "deits"
+  },
+  "queen": {
+   "ER": "deits+hand",
+   "HM": "deits+hand",
+   "Q": "deits+hand",
+   "R": "deits+hand"
+  },
+  "queens honour": {
+   "OBE": "deits"
+  },
+  "queensland": {
+   "QLD": "deits"
+  },
+  "question": {
+   "Q": "deits",
+   "QU": "deits"
+  },
+  "quiet": {
+   "P": "deits+hand",
+   "SH": "hand"
+  },
+  "radium": {
+   "RA": "deits"
+  },
+  "railway": {
+   "BR": "deits",
+   "R": "deits",
+   "RY": "deits"
+  },
+  "record": {
+   "EP": "deits",
+   "LP": "deits"
+  },
+  "ref": {
+   "UMP": "deits"
+  },
+  "regina": {
+   "R": "deits"
+  },
+  "republican": {
+   "GOP": "deits"
+  },
+  "republicans": {
+   "GOP": "deits"
+  },
+  "resistance": {
+   "R": "deits"
+  },
+  "retired": {
+   "RET": "deits"
+  },
+  "reverend": {
+   "DD": "deits",
+   "REV": "deits",
+   "RR": "deits"
+  },
+  "rex": {
+   "R": "deits"
+  },
+  "rhode island": {
+   "RI": "deits"
+  },
+  "right": {
+   "R": "deits+hand",
+   "RT": "hand"
+  },
+  "right reverend": {
+   "RR": "deits"
+  },
+  "ring": {
+   "O": "deits"
+  },
+  "river": {
+   "DEE": "deits",
+   "EXE": "deits",
+   "PO": "deits",
+   "R": "deits+hand"
+  },
+  "road": {
+   "AI": "deits",
+   "RD": "deits+hand"
+  },
+  "rolls royce": {
+   "RR": "deits"
+  },
+  "rook": {
+   "R": "deits"
+  },
+  "roughly": {
+   "CA": "deits"
+  },
+  "round": {
+   "O": "deits"
+  },
+  "royal academy": {
+   "RA": "deits"
+  },
+  "royal artillery": {
+   "RA": "deits"
+  },
+  "royal engineers": {
+   "RE": "deits"
+  },
+  "royal marines": {
+   "RM": "deits"
+  },
+  "royal navy": {
+   "RN": "deits"
+  },
+  "run": {
+   "R": "deits"
+  },
+  "sailor": {
+   "AB": "deits+hand",
+   "HAND": "deits",
+   "JACK": "deits",
+   "OS": "hand",
+   "RN": "deits",
+   "SALT": "deits",
+   "TAR": "deits+hand"
+  },
+  "sailors": {
+   "ABS": "deits",
+   "RN": "deits"
+  },
+  "saint": {
+   "ST": "deits+hand"
+  },
+  "salt": {
+   "AB": "deits"
+  },
+  "sappers": {
+   "RE": "deits"
+  },
+  "saturday": {
+   "S": "deits"
+  },
+  "say": {
+   "EG": "deits"
+  },
+  "scholar": {
+   "BA": "deits"
+  },
+  "seaman": {
+   "AB": "deits"
+  },
+  "second": {
+   "MO": "hand",
+   "S": "deits+hand"
+  },
+  "second-class": {
+   "B": "deits"
+  },
+  "secret service": {
+   "SS": "deits"
+  },
+  "see": {
+   "CF": "deits"
+  },
+  "selenium": {
+   "SE": "deits"
+  },
+  "setter": {
+   "I": "deits",
+   "ME": "deits"
+  },
+  "sex appeal": {
+   "IT": "deits+hand",
+   "SA": "hand"
+  },
+  "shakespearean king": {
+   "LEAR": "deits"
+  },
+  "shilling": {
+   "S": "deits"
+  },
+  "ship": {
+   "SS": "deits+hand"
+  },
+  "short time": {
+   "T": "deits"
+  },
+  "short wave": {
+   "SW": "deits"
+  },
+  "sibling": {
+   "SIS": "deits"
+  },
+  "siblings": {
+   "SIS": "deits"
+  },
+  "significant other": {
+   "SO": "deits"
+  },
+  "silence": {
+   "MUM": "deits",
+   "SH": "deits"
+  },
+  "silicon": {
+   "SI": "deits"
+  },
+  "silk": {
+   "KC": "deits",
+   "QC": "deits"
+  },
+  "silver": {
+   "AG": "deits+hand"
+  },
+  "single": {
+   "I": "deits"
+  },
+  "six-footer": {
+   "ANT": "deits",
+   "BEE": "deits"
+  },
+  "small": {
+   "S": "hand"
+  },
+  "society": {
+   "S": "deits"
+  },
+  "sodium": {
+   "NA": "deits"
+  },
+  "soft": {
+   "B": "deits",
+   "P": "deits"
+  },
+  "softly": {
+   "P": "deits"
+  },
+  "soldier": {
+   "ANT": "deits",
+   "GI": "deits+hand",
+   "PTE": "hand",
+   "RE": "deits",
+   "RM": "deits"
+  },
+  "soldiers": {
+   "MEN": "deits+hand",
+   "RA": "hand",
+   "RE": "hand",
+   "TA": "hand"
+  },
+  "somalia": {
+   "SO": "deits",
+   "SOM": "deits"
+  },
+  "son": {
+   "S": "deits"
+  },
+  "soprano": {
+   "S": "deits"
+  },
+  "south": {
+   "S": "deits+hand"
+  },
+  "south australia": {
+   "SA": "deits"
+  },
+  "south carolina": {
+   "SC": "deits"
+  },
+  "spade": {
+   "S": "deits"
+  },
+  "spades": {
+   "S": "deits"
+  },
+  "spanish": {
+   "EL": "deits"
+  },
+  "sportsman": {
+   "BLUE": "deits"
+  },
+  "square": {
+   "S": "deits"
+  },
+  "state": {
+   "AK": "deits",
+   "AL": "deits",
+   "AR": "deits",
+   "AZ": "deits",
+   "CA": "deits",
+   "CO": "deits",
+   "CT": "deits",
+   "DE": "deits",
+   "FL": "deits",
+   "GA": "deits",
+   "HI": "deits",
+   "IA": "deits",
+   "ID": "deits",
+   "IL": "deits",
+   "IN": "deits",
+   "KS": "deits",
+   "KY": "deits",
+   "LA": "deits",
+   "MA": "deits",
+   "MD": "deits",
+   "ME": "deits",
+   "MI": "deits",
+   "MN": "deits",
+   "MO": "deits",
+   "MS": "deits",
+   "MT": "deits",
+   "NC": "deits",
+   "ND": "deits",
+   "NE": "deits",
+   "NH": "deits",
+   "NJ": "deits",
+   "NM": "deits",
+   "NV": "deits",
+   "NY": "deits",
+   "OH": "deits",
+   "OK": "deits",
+   "OR": "deits",
+   "PA": "deits",
+   "RI": "deits",
+   "SC": "deits",
+   "SD": "deits",
+   "TN": "deits",
+   "TX": "deits",
+   "UT": "deits",
+   "VA": "deits",
+   "VT": "deits",
+   "WA": "deits",
+   "WI": "deits",
+   "WV": "deits",
+   "WY": "deits"
+  },
+  "steamship": {
+   "SS": "hand"
+  },
+  "stone": {
+   "ST": "deits+review"
+  },
+  "street": {
+   "AVE": "deits",
+   "RD": "deits",
+   "ST": "deits+hand",
+   "WAY": "deits"
+  },
+  "strings": {
+   "A": "deits",
+   "D": "deits",
+   "E": "deits",
+   "G": "deits"
+  },
+  "student": {
+   "L": "deits+hand",
+   "NUS": "deits"
+  },
+  "submarine": {
+   "SUB": "deits",
+   "U": "deits"
+  },
+  "sulfur": {
+   "S": "deits"
+  },
+  "sunday": {
+   "S": "deits"
+  },
+  "support": {
+   "BRA": "deits"
+  },
+  "sweat": {
+   "BO": "deits"
+  },
+  "switzerland": {
+   "CH": "deits",
+   "CHE": "deits",
+   "SUI": "deits",
+   "SWI": "deits"
+  },
+  "tar": {
+   "AB": "deits"
+  },
+  "tasmania": {
+   "TAS": "deits"
+  },
+  "tax": {
+   "VAT": "deits"
+  },
+  "teachers": {
+   "NUT": "deits"
+  },
+  "team": {
+   "XI": "deits"
+  },
+  "teas": {
+   "TT": "deits"
+  },
+  "teetotal": {
+   "AA": "deits",
+   "TT": "deits"
+  },
+  "temperature": {
+   "T": "deits"
+  },
+  "ten": {
+   "IO": "deits",
+   "X": "deits+hand"
+  },
+  "tennessee": {
+   "TN": "deits"
+  },
+  "tenor": {
+   "T": "deits"
+  },
+  "territorial army": {
+   "TA": "deits"
+  },
+  "terrorists": {
+   "ETA": "deits",
+   "IRA": "deits",
+   "UDA": "deits",
+   "UFF": "deits"
+  },
+  "texas": {
+   "TX": "deits"
+  },
+  "text": {
+   "MS": "deits"
+  },
+  "thanks": {
+   "TA": "deits"
+  },
+  "that is": {
+   "IE": "deits"
+  },
+  "the french": {
+   "LA": "hand",
+   "LE": "hand",
+   "LES": "hand"
+  },
+  "the german": {
+   "DAS": "hand",
+   "DER": "hand",
+   "DIE": "hand"
+  },
+  "the same": {
+   "ID": "deits"
+  },
+  "the spanish": {
+   "EL": "hand",
+   "LA": "hand",
+   "LAS": "hand",
+   "LOS": "hand"
+  },
+  "the thing": {
+   "IT": "deits"
+  },
+  "theologian": {
+   "DD": "deits"
+  },
+  "this month": {
+   "INST": "deits"
+  },
+  "thousand": {
+   "G": "deits+hand",
+   "K": "deits+hand",
+   "M": "deits+hand"
+  },
+  "thursday": {
+   "TH": "deits",
+   "THURS": "deits"
+  },
+  "thus": {
+   "IE": "deits",
+   "SIC": "deits"
+  },
+  "time": {
+   "HR": "deits",
+   "M": "deits",
+   "S": "deits",
+   "T": "deits+hand"
+  },
+  "times": {
+   "X": "deits"
+  },
+  "tin": {
+   "SN": "deits+hand"
+  },
+  "titanium": {
+   "TI": "deits"
+  },
+  "toilet": {
+   "WC": "deits"
+  },
+  "top class": {
+   "AI": "deits"
+  },
+  "tory": {
+   "CON": "deits"
+  },
+  "translator": {
+   "TR": "deits"
+  },
+  "trendy": {
+   "IN": "deits"
+  },
+  "tripod": {
+   "Y": "deits"
+  },
+  "tuesday": {
+   "T": "deits",
+   "TUES": "deits"
+  },
+  "tungsten": {
+   "W": "deits"
+  },
+  "turn": {
+   "U": "deits"
+  },
+  "two": {
+   "DUO": "deits",
+   "II": "deits"
+  },
+  "tyro": {
+   "L": "deits"
+  },
+  "ulster": {
+   "NI": "deits"
+  },
+  "ulster defence association": {
+   "UDA": "deits"
+  },
+  "ulster freedom fighters": {
+   "UFF": "deits"
+  },
+  "ultimate": {
+   "Z": "deits"
+  },
+  "united kingdom": {
+   "GBR": "deits",
+   "UK": "deits"
+  },
+  "united nations": {
+   "UN": "deits"
+  },
+  "united states": {
+   "US": "deits",
+   "USA": "deits"
+  },
+  "university": {
+   "OU": "deits",
+   "U": "deits",
+   "UP": "deits"
+  },
+  "unknown": {
+   "X": "deits",
+   "Y": "deits",
+   "YZ": "deits",
+   "Z": "deits"
+  },
+  "upper class": {
+   "U": "deits"
+  },
+  "uranium": {
+   "U": "deits"
+  },
+  "utah": {
+   "UT": "deits"
+  },
+  "value added tax": {
+   "VAT": "deits"
+  },
+  "vanadium": {
+   "V": "deits"
+  },
+  "variable": {
+   "X": "deits",
+   "Y": "deits",
+   "YZ": "deits",
+   "Z": "deits"
+  },
+  "vermont": {
+   "VT": "deits"
+  },
+  "versus": {
+   "V": "deits+hand",
+   "VS": "deits+hand"
+  },
+  "very": {
+   "V": "deits"
+  },
+  "very black": {
+   "BB": "deits"
+  },
+  "very loud": {
+   "FF": "deits+hand"
+  },
+  "very soft": {
+   "PP": "deits"
+  },
+  "victoria": {
+   "VIC": "deits"
+  },
+  "virginia": {
+   "VA": "deits"
+  },
+  "vitamin": {
+   "A": "deits",
+   "B": "deits",
+   "BI": "deits",
+   "C": "deits",
+   "D": "deits",
+   "E": "deits"
+  },
+  "volt": {
+   "V": "deits"
+  },
+  "volume": {
+   "V": "deits"
+  },
+  "volunteers": {
+   "TA": "deits"
+  },
+  "vote": {
+   "X": "deits"
+  },
+  "washington": {
+   "WA": "deits"
+  },
+  "water": {
+   "AQ": "hand"
+  },
+  "way": {
+   "AVE": "deits+hand",
+   "RD": "deits+hand",
+   "ST": "deits+hand"
+  },
+  "wednesday": {
+   "W": "deits",
+   "WED": "deits"
+  },
+  "week": {
+   "W": "deits"
+  },
+  "weight": {
+   "G": "deits",
+   "LB": "deits",
+   "LBS": "deits"
+  },
+  "west": {
+   "W": "hand"
+  },
+  "west virginia": {
+   "WV": "deits"
+  },
+  "western australia": {
+   "WA": "deits"
+  },
+  "whistle-blower": {
+   "REF": "deits"
+  },
+  "wicket": {
+   "W": "deits"
+  },
+  "wide": {
+   "W": "deits"
+  },
+  "width": {
+   "W": "deits"
+  },
+  "wife": {
+   "W": "deits"
+  },
+  "will": {
+   "LL": "deits"
+  },
+  "wisconsin": {
+   "WI": "deits"
+  },
+  "with": {
+   "W": "deits"
+  },
+  "without": {
+   "WO": "deits"
+  },
+  "womens supporter": {
+   "BRA": "deits"
+  },
+  "work": {
+   "OP": "deits",
+   "OPUS": "deits",
+   "W": "deits"
+  },
+  "worker": {
+   "ANT": "deits",
+   "BEE": "deits"
+  },
+  "wyoming": {
+   "WY": "deits"
+  },
+  "x": {
+   "IO": "deits"
+  },
+  "xenon": {
+   "XE": "deits"
+  },
+  "yard": {
+   "Y": "deits",
+   "YD": "deits"
+  },
+  "year": {
+   "Y": "deits+hand",
+   "YR": "deits+hand"
+  },
+  "yemen": {
+   "YE": "deits",
+   "YEM": "deits"
+  },
+  "yes": {
+   "AY": "hand",
+   "AYE": "hand",
+   "Y": "hand"
+  },
+  "yours truly": {
+   "I": "deits",
+   "ME": "deits"
+  },
+  "yttrium": {
+   "Y": "deits"
+  },
+  "zero": {
+   "O": "deits"
+  },
+  "zinc": {
+   "ZN": "deits"
+  }
  },
  "a follower": [
   "B"

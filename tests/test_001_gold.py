@@ -23,7 +23,7 @@ HAVE_DATA = (WORDPLAY / "sample_teacow_val.jsonl").exists()
 def status(v: object) -> str:
     if isinstance(v, Reject):
         return f"Reject:{v.first_broken_rule}"
-    return f"{type(v).__name__}:{','.join(r.value for r in v.reasons)}"  # type: ignore[attr-defined]
+    return f"{type(v).__name__}:{','.join(r.value for r in getattr(v, 'reasons', ()))}"
 
 
 def test_fixture_examples_are_the_prompt_examples() -> None:
@@ -50,9 +50,11 @@ def test_gold_parse_has_expected_status(row: dict) -> None:
     clue = wordplay_clue(ex)
     src = re.sub(r"'#(\d+)'", lambda m: repr(clue.tokens[int(m.group(1))].text), row["src"])
     assert status(verify(clue, ex.answer, src)) == row["expected"]
-    # DSL limits name the missing operator; the rest are accepted
-    assert row["expected"].startswith("Reject:surface:unknown_operator") == \
-        (row["audit"] == "dsl_limit")
+    # (Superseded by brief 002: with the new operators, a 001 "dsl_limit" entry
+    # may now verify, so its expected status no longer has to name an unknown
+    # operator. The 001 audit class is kept as recorded.)
+    if row["audit"] != "dsl_limit":
+        assert not row["expected"].startswith("Reject")
 
 
 @pytest.mark.parametrize("raw,answer,src", FORMALISE_EXAMPLES)

@@ -55,7 +55,8 @@ OPERATORS: dict[str, Op] = {
     # --- references and declarations ---
     "tok": Op("tok", (Sort.CLAIM,), Sort.TOK, variadic=True),  # tok("a","b") = span
     "link": Op("link", (Sort.TOK,), Sort.NULL),
-    "defn": Op("defn", (Sort.TOK,), Sort.STR, oracle=Reason.DEFINITION),
+    # the definition is reported alongside the verdict, not a wordplay reason (D4)
+    "defn": Op("defn", (Sort.TOK,), Sort.STR),
     # --- leaves ---
     "lit": Op("lit", (Sort.TOK,), Sort.STR),  # the token's own letters
     "abbr": Op("abbr", (Sort.TOK, Sort.CLAIM), Sort.STR),  # table lookup
@@ -73,6 +74,19 @@ OPERATORS: dict[str, Op] = {
     "initials": Op("initials", (Sort.TOK, Sort.TOK), Sort.STR, indicated=True),
     "alternate": Op("alternate", (Sort.TOK, Sort.TOK), Sort.STR, indicated=True),
     "concat": Op("concat", (Sort.STR,), Sort.STR, variadic=True),
+    # --- brief 002: letter selection and removal (all mechanical) ---
+    "first_letters": Op("first_letters", (Sort.TOK, Sort.TOK), Sort.STR, indicated=True),
+    "last_letters": Op("last_letters", (Sort.TOK, Sort.TOK), Sort.STR, indicated=True),
+    "outer_letters": Op("outer_letters", (Sort.TOK, Sort.STR), Sort.STR, indicated=True),
+    # ind, fodder, result (a centred substring, stripped equally from both ends)
+    "middle_letters": Op("middle_letters", (Sort.TOK, Sort.STR, Sort.CLAIM), Sort.STR,
+                         indicated=True),
+    # ind, from, removed, result (one contiguous occurrence of `removed` deleted)
+    "remove": Op("remove", (Sort.TOK, Sort.STR, Sort.STR, Sort.CLAIM), Sort.STR,
+                 indicated=True),
+    "strip_outer": Op("strip_outer", (Sort.TOK, Sort.STR), Sort.STR, indicated=True),
+    # ind, fodder, "first" | "second" (even length only)
+    "half": Op("half", (Sort.TOK, Sort.STR, Sort.CLAIM), Sort.STR, indicated=True),
     # --- oracle transforms ---
     "homophone": Op("homophone", (Sort.TOK, Sort.STR, Sort.CLAIM), Sort.STR,
                     oracle=Reason.HOMOPHONE, indicated=True),
@@ -84,7 +98,7 @@ OPERATORS: dict[str, Op] = {
     # clue(defn(...), wordplay, *declarations) -> answer
     "clue": Op("clue", (Sort.STR, Sort.STR), Sort.STR, extras=_DECL),
     # whole clue is both definition and wordplay
-    "andlit": Op("andlit", (Sort.STR,), Sort.STR, oracle=Reason.DEFINITION, extras=_DECL),
+    "andlit": Op("andlit", (Sort.STR,), Sort.STR, extras=_DECL),
     "double_duty": Op("double_duty", (Sort.TOK,), Sort.MODE),
 }
 

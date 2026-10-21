@@ -31,8 +31,14 @@ GOOD = 'clue(defn(tok("listen")), anagram(tok("broken"), lit(tok("tinsel")), "LI
 
 
 def test_good_parse_is_quarantined_on_its_definition() -> None:
+    # Superseded by brief 002 (DESIGN D4 changed): the verdict is about the
+    # wordplay and the definition travels alongside, pending. Name kept so the
+    # supersession is traceable; under 001 this was Quarantine((DEFINITION,)).
+    # "broken" is an upstream (Deits) indicator, so until it is reviewed the
+    # step is Quarantine(table_unreviewed); the definition is no longer a reason.
     v = verify(clue_of(LISTEN, "listen"), "listen", GOOD)
-    assert isinstance(v, Quarantine) and v.reasons == (Reason.DEFINITION,)
+    assert isinstance(v, Quarantine) and v.reasons == (Reason.TABLE_UNREVIEWED,)
+    assert v.definition.span == "listen" and v.definition.status == "pending"
     assert v.provenance.consumed == ((0, 1), (1, 1), (2, 1), (3, 1))
 
 
