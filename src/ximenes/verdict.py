@@ -14,6 +14,7 @@ class Reason(Enum):
     HOMOPHONE = "homophone"
     CRYPTIC_DEF = "cryptic_def"
     DOUBLE_DEF = "double_def"
+    INDICATOR = "indicator"  # indicator phrase not in data/lexicon/indicators.json
     RESIDUAL = "residual"  # declared leftover tokens (only under a declared mode)
 
 

@@ -6,6 +6,7 @@ Rows are frozen dataclasses. The Cryptonite loader verifies the split against
 
 from __future__ import annotations
 
+import functools
 import hashlib
 import json
 import pathlib
@@ -151,3 +152,20 @@ def load_wordplay_answers(split: str, root: pathlib.Path = WORDPLAY) -> frozense
     """`cryptonite.{val,test}.txt`: the answer list for a Cryptonite split."""
     lines: Iterable[str] = (root / f"cryptonite.{split}.txt").read_text().splitlines()
     return frozenset(line.strip() for line in lines if line.strip())
+
+
+LEXICON = DATA / "lexicon"
+
+
+@functools.cache
+def indicators() -> dict[str, frozenset[str]]:
+    """{operator: indicator phrases}, from data/lexicon/indicators.json."""
+    raw = json.loads((LEXICON / "indicators.json").read_text())
+    return {op: frozenset(v) for op, v in raw.items() if op != "source"}
+
+
+@functools.cache
+def abbreviations() -> dict[str, frozenset[str]]:
+    """{phrase: abbreviations}, from data/lexicon/abbreviations.json."""
+    raw = json.loads((LEXICON / "abbreviations.json").read_text())
+    return {k: frozenset(v) for k, v in raw.items() if k != "source"}
