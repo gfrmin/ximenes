@@ -48,7 +48,7 @@ from .instruments import (
     replay_then,
     stub_backend,
 )
-from .mutants import mutants
+from .mutants import false_accept, mutants
 from .verdict import Reason, Reject
 from .verify import verify
 
@@ -324,14 +324,20 @@ def reject_family(rule: str) -> str:
     return m.group(0) if m else rule
 
 
-def mutation_false_accepts(results: Sequence[dict[str, Any]]) -> tuple[int, int]:
-    """(accepted mutants, mutants) over every accepted parse."""
+def mutation_trials(results: Sequence[dict[str, Any]]) -> dict[str, dict[str, int]]:
+    """Per mutant kind: {mutants, false_accepts, accepted} over every accepted
+    parse. `accepted` counts any non-Reject (the raw number); `false_accepts`
+    applies `mutants.false_accept` (oracle-claim mutants may be Quarantined)."""
     trials = [
-        not isinstance(verify(r["clue"], answer, src), Reject)
+        (kind, verify(r["clue"], answer, src))
         for r in results if not isinstance(r["verdict"], Reject)
-        for _kind, answer, src in mutants(r["clue"].tokens[0].text, r["answer"], r["src"])
+        for kind, answer, src in mutants(r["clue"].tokens[0].text, r["answer"], r["src"])
     ]
-    return sum(trials), len(trials)
+    kinds = sorted({k for k, _ in trials})
+    return {k: {"mutants": sum(1 for kk, _ in trials if kk == k),
+                "false_accepts": sum(false_accept(kk, v) for kk, v in trials if kk == k),
+                "accepted": sum(not isinstance(v, Reject) for kk, v in trials if kk == k)}
+            for k in kinds}
 
 
 def coverage_run(examples: Sequence[WordplayExample], *, model: str, backend: Instrument,
@@ -347,7 +353,7 @@ def coverage_run(examples: Sequence[WordplayExample], *, model: str, backend: In
         ok = [r for r in rs if not isinstance(r["verdict"], Reject)]
         return len(ok) / len(rs) if rs else None
 
-    false_accepts, n_mutants = mutation_false_accepts(results)
+    by_kind = mutation_trials(results)
     return {
         "n": len(results),
         "model": model,
@@ -364,8 +370,9 @@ def coverage_run(examples: Sequence[WordplayExample], *, model: str, backend: In
             reject_family(r["verdict"].first_broken_rule)
             for r in results if isinstance(r["verdict"], Reject)).most_common()),
         "attempts": dict(Counter(r["attempts"] for r in results)),
-        "mutants": n_mutants,
-        "mutant_false_accepts": false_accepts,
+        "mutants": sum(v["mutants"] for v in by_kind.values()),
+        "mutant_false_accepts": sum(v["false_accepts"] for v in by_kind.values()),
+        "mutants_by_kind": by_kind,
         "items": [
             {"answer": r["answer"], "src": r["src"], "attempts": r["attempts"],
              "verdict": type(r["verdict"]).__name__,

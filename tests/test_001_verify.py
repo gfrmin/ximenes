@@ -9,7 +9,7 @@ from hypothesis import strategies as st
 
 from ximenes.clue import Clue, Enumeration, normalise
 from ximenes.data import abbreviations
-from ximenes.mutants import mutants
+from ximenes.mutants import false_accept, mutants
 from ximenes.prompts import FORMALISE_EXAMPLES
 from ximenes.verdict import Ok, Quarantine, Reason, Reject
 from ximenes.verify import verify
@@ -254,5 +254,26 @@ def test_mutants_of_good_parses_are_all_rejected() -> None:
               for kind, a, s in mutants(clue.tokens[0].text, answer, src)
               for c in (clue,)]
     assert len(trials) >= len(_examples()) * 2
-    false_accepts = [k for k, v in trials if not isinstance(v, Reject)]
-    assert false_accepts == []
+    assert [k for k, v in trials if false_accept(k, v)] == []
+    # mechanical mutants are all Rejected outright
+    assert all(isinstance(v, Reject) for k, v in trials if k != "oracle_claim")
+
+
+# --- regressions found by the 30-Reject audit -----------------------------------
+
+
+def test_stated_answer_is_the_last_fixed_argument_not_a_trailing_link() -> None:
+    clue = clue_of(["fights", "for", "waste", "food"], "scraps")
+    src = 'double_def(tok("fights"), tok("waste", "food"), "SCRAPS", link(tok("for")))'
+    assert isinstance(verify(clue, "scraps", src), Quarantine)
+    cd = 'cryptic_def(tok("waste", "food"), "SCRAPS", link(tok("fights")), link(tok("for")))'
+    assert isinstance(verify(clue, "scraps", cd), Quarantine)
+
+
+def test_repeated_word_references_avoid_overlap() -> None:
+    clue = clue_of(["bowl", "over", "and", "over", "crazy"], "nuts")
+    src = 'clue(defn(tok("crazy")), reverse(tok("over"), syn(tok("bowl", "over"), "STUN")), ' \
+          'link(tok("and")))'
+    v = verify(clue, "nuts", src)
+    assert isinstance(v, Quarantine)
+    assert v.provenance.consumed == ((0, 1), (1, 1), (2, 1), (3, 1), (4, 1))

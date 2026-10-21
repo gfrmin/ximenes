@@ -82,8 +82,8 @@ def _lower(node: ast.expr) -> CallNode | str | Reject:
 #
 # 2 sorts: arguments match the operator table; a bare string is a Claim and
 #   may stand only where a Claim is expected (never as fodder).
-# 3 tokens: tok(...) spans are resolved to clue token ids (the k-th use of a
-#   word sequence takes its k-th occurrence), then operators are evaluated over
+# 3 tokens: tok(...) spans are resolved to clue token ids (non-overlapping
+#   where possible; see assign_occurrences), then operators are evaluated over
 #   sets of candidate strings; indicator and abbreviation tables are consulted.
 # 4 coverage (DESIGN D3): every clue token consumed exactly once, twice if
 #   declared with double_duty(...).
@@ -165,43 +165,66 @@ def _words(node: CallNode) -> tuple[str, ...]:
     return tuple(_key(w) for a in node.args for w in str(a).split())
 
 
-def _double_duty_spans(node: CallNode | str) -> frozenset[tuple[str, ...]]:
+def _tok_nodes(node: CallNode | str, declaring: bool = False
+               ) -> tuple[tuple[tuple[str, ...], bool], ...]:
+    """(words, is_declaration) for every tok(...) in preorder."""
     if isinstance(node, str):
-        return frozenset()
-    own = frozenset({_words(a) for a in node.args if isinstance(a, CallNode)
-                     and a.op.name == "tok"}) if node.op.name == "double_duty" else frozenset()
-    return own.union(*(_double_duty_spans(a) for a in node.args))
-
-
-def _resolve(node: CallNode | str, clue: Clue, seen: dict[tuple[str, ...], int],
-             double: frozenset[tuple[str, ...]] = frozenset(), declaring: bool = False
-             ) -> tuple[CallNode | str | Tok, dict[tuple[str, ...], int]]:
-    """Replace tok(...) nodes by Tok, in preorder; `seen` counts uses per span.
-    A span declared with double_duty(...) may be referenced again at its last
-    occurrence; the declaration itself names the first and counts as no use."""
-    if isinstance(node, str):
-        return node, seen
+        return ()
     if node.op.name == "tok":
-        words = _words(node)
-        tokens = clue.tokens
-        starts = [i for i in range(len(tokens) - len(words) + 1)
-                  if all(tokens[i + j].key.replace("’", "'") == w for j, w in enumerate(words))]
-        k = 0 if declaring else seen.get(words, 0)
-        if k >= len(starts) and words in double and starts:
-            k = len(starts) - 1
-        elif k >= len(starts):
-            raise _Broken(f"tok:not_found:{' '.join(words)}",
-                          f"no{' further' if k else ''} contiguous clue tokens {' '.join(words)!r}")
-        start = starts[k]
-        ids = tuple(range(start, start + len(words)))
-        if declaring:
-            return Tok(ids, tuple(tokens[i].text for i in ids)), seen
-        return Tok(ids, tuple(tokens[i].text for i in ids)), {**seen, words: k + 1}
+        return ((_words(node), declaring),)
+    return tuple(t for a in node.args
+                 for t in _tok_nodes(a, declaring or node.op.name == "double_duty"))
+
+
+def _starts(clue: Clue, words: tuple[str, ...]) -> tuple[int, ...]:
+    tokens = clue.tokens
+    return tuple(i for i in range(len(tokens) - len(words) + 1)
+                 if all(tokens[i + j].key.replace("’", "'") == w for j, w in enumerate(words)))
+
+
+def assign_occurrences(clue: Clue, node: CallNode) -> tuple[int, ...]:
+    """A start position for every tok(...) (preorder). References are matched
+    to clue positions so that no two of them overlap, if that is possible
+    (earlier references preferring earlier occurrences); otherwise each takes
+    its first occurrence and the coverage law reports the reuse. Declarations
+    (double_duty) name the first occurrence and may overlap anything."""
+    toks = _tok_nodes(node)
+    options = [_starts(clue, w) for w, _ in toks]
+    for (w, _), opts in zip(toks, options, strict=True):
+        if not opts:
+            raise _Broken(f"tok:not_found:{' '.join(w)}",
+                          f"no contiguous clue tokens {' '.join(w)!r}")
+
+    def search(i: int, used: frozenset[int]) -> tuple[int, ...] | None:
+        if i == len(toks):
+            return ()
+        words, declaring = toks[i]
+        for start in options[i][:1] if declaring else options[i]:
+            span = frozenset(range(start, start + len(words)))
+            if declaring or not span & used:
+                rest = search(i + 1, used if declaring else used | span)
+                if rest is not None:
+                    return (start, *rest)
+        return None
+
+    found = search(0, frozenset())
+    return found if found is not None else tuple(opts[0] for opts in options)
+
+
+def _resolve(node: CallNode | str, clue: Clue, starts: tuple[int, ...]
+             ) -> tuple[CallNode | str | Tok, tuple[int, ...]]:
+    """Replace tok(...) nodes by Tok in preorder, consuming `starts`."""
+    if isinstance(node, str):
+        return node, starts
+    if node.op.name == "tok":
+        start, *rest = starts
+        ids = tuple(range(start, start + len(_words(node))))
+        return Tok(ids, tuple(clue.tokens[i].text for i in ids)), tuple(rest)
     args: list[CallNode | str | Tok] = []
     for a in node.args:
-        r, seen = _resolve(a, clue, seen, double, node.op.name == "double_duty")
+        r, starts = _resolve(a, clue, starts)
         args.append(r)
-    return CallNode(node.op, tuple(args)), seen  # type: ignore[arg-type]
+    return CallNode(node.op, tuple(args)), starts  # type: ignore[arg-type]
 
 
 def _merge(vals: tuple[Val, ...]) -> Val:
@@ -213,6 +236,12 @@ def _merge(vals: tuple[Val, ...]) -> Val:
         definition=frozenset().union(*(v.definition for v in vals)),
         double=frozenset().union(*(v.double for v in vals)),
     )
+
+
+def _stated(n: CallNode) -> str:
+    """The operator's stated string: its last *fixed* argument (trailing
+    declarations may follow it)."""
+    return str(n.args[len(n.op.args) - 1])
 
 
 def _claim(s: str) -> str:
@@ -285,7 +314,7 @@ def _check_some(cands: frozenset[str], op: str, hint: str) -> frozenset[str]:
 
 
 def _anagram(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
-    c = _claim(str(n.args[-1]))
+    c = _claim(_stated(n))
     if not any(sorted(f) == sorted(c) for f in v[1].cands):
         raise _Broken("anagram:letters",
                       f"no fodder {sorted(v[1].cands)} has the letters of {c}")
@@ -293,7 +322,7 @@ def _anagram(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
 
 
 def _insert(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
-    c = _claim(str(n.args[-1]))
+    c = _claim(_stated(n))
     _ind, inner, outer, _res = v
     if not any(c in _insertions(i, o) for i in inner.cands for o in outer.cands):
         raise _Broken("insert:no_position", f"{c} is not {sorted(inner.cands)} placed "
@@ -302,7 +331,7 @@ def _insert(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
 
 
 def _hidden(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
-    c = _claim(str(n.args[-1]))
+    c = _claim(_stated(n))
     span = v[1].tok
     assert span is not None
     if c not in span.letters or c == span.letters:
@@ -322,7 +351,7 @@ def _abbr(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
 
 
 def _claimed(n: CallNode, v: tuple[Val, ...]) -> frozenset[str]:
-    return frozenset({_claim(str(n.args[-1]))})
+    return frozenset({_claim(_stated(n))})
 
 
 def _span_letters(v: tuple[Val, ...], i: int) -> Tok:
@@ -395,7 +424,7 @@ def verify(clue: Clue, answer: str, src: str) -> Verdict:
         return tree
     try:
         _typecheck(tree)
-        resolved, _ = _resolve(tree, clue, {}, _double_duty_spans(tree))
+        resolved, _ = _resolve(tree, clue, assign_occurrences(clue, tree))
         top = _eval(resolved)
         _coverage(clue, top)
         a = normalise(answer)
