@@ -1,0 +1,194 @@
+{
+ "source": "fitted by `python -m ximenes.decide fit` on val solve run 20261021T172307Z-solve-anthropic-3b6375173487443c80dd87654be574d0 (briefs/003-calibration.md); never on test",
+ "model": "binned",
+ "bands": [
+  0.0,
+  0.5,
+  0.8,
+  0.95
+ ],
+ "cells": [
+  {
+   "status": "Ok",
+   "leaf_band": 3,
+   "definition_band": 0,
+   "n": 7,
+   "correct": 3,
+   "p": 0.42857142857142855
+  },
+  {
+   "status": "Ok",
+   "leaf_band": 3,
+   "definition_band": 1,
+   "n": 2,
+   "correct": 2,
+   "p": 1.0
+  },
+  {
+   "status": "Ok",
+   "leaf_band": 3,
+   "definition_band": 2,
+   "n": 9,
+   "correct": 9,
+   "p": 1.0
+  },
+  {
+   "status": "Ok",
+   "leaf_band": 3,
+   "definition_band": 3,
+   "n": 3,
+   "correct": 3,
+   "p": 1.0
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 0,
+   "definition_band": 0,
+   "n": 73,
+   "correct": 3,
+   "p": 0.0410958904109589
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 0,
+   "definition_band": 1,
+   "n": 72,
+   "correct": 7,
+   "p": 0.09722222222222222
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 1,
+   "definition_band": 0,
+   "n": 12,
+   "correct": 4,
+   "p": 0.14596273291925466
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 0,
+   "definition_band": 2,
+   "n": 178,
+   "correct": 35,
+   "p": 0.14596273291925466
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 2,
+   "definition_band": 0,
+   "n": 20,
+   "correct": 9,
+   "p": 0.14596273291925466
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 0,
+   "definition_band": 3,
+   "n": 28,
+   "correct": 7,
+   "p": 0.14596273291925466
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 3,
+   "definition_band": 0,
+   "n": 406,
+   "correct": 39,
+   "p": 0.14596273291925466
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 1,
+   "definition_band": 1,
+   "n": 20,
+   "correct": 16,
+   "p": 0.7769784172661871
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 1,
+   "definition_band": 2,
+   "n": 51,
+   "correct": 48,
+   "p": 0.7769784172661871
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 2,
+   "definition_band": 1,
+   "n": 16,
+   "correct": 16,
+   "p": 0.7769784172661871
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 1,
+   "definition_band": 3,
+   "n": 8,
+   "correct": 8,
+   "p": 0.7769784172661871
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 3,
+   "definition_band": 1,
+   "n": 44,
+   "correct": 20,
+   "p": 0.7769784172661871
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 2,
+   "definition_band": 2,
+   "n": 65,
+   "correct": 63,
+   "p": 0.86
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 2,
+   "definition_band": 3,
+   "n": 19,
+   "correct": 19,
+   "p": 0.86
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 3,
+   "definition_band": 2,
+   "n": 59,
+   "correct": 41,
+   "p": 0.86
+  },
+  {
+   "status": "Quarantine",
+   "leaf_band": 3,
+   "definition_band": 3,
+   "n": 7,
+   "correct": 6,
+   "p": 0.86
+  },
+  {
+   "status": "none",
+   "leaf_band": 3,
+   "definition_band": 3,
+   "n": 384,
+   "correct": 10,
+   "p": 0.026041666666666668
+  }
+ ],
+ "status_rate": {
+  "none": 0.026041666666666668,
+  "Quarantine": 0.3163265306122449,
+  "Ok": 0.8095238095238095
+ },
+ "fitted_on": "20261021T172307Z-solve-anthropic-3b6375173487443c80dd87654be574d0",
+ "split": "val",
+ "n_clues": 600,
+ "n_candidates": 1483,
+ "cv_log_loss": {
+  "binned": 0.3419950175172267,
+  "logistic": 0.2048426147508027
+ },
+ "chosen": "logistic"
+}
