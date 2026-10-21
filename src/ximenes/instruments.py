@@ -19,7 +19,14 @@ from datetime import UTC, datetime
 from typing import Any, Protocol
 
 from .data import DATA
-from .prompts import ANSWER_ONLY_V1, FORMALISE_USER, formalise_system
+from .prompts import (
+    ANSWER_ONLY_V1,
+    FORMALISE_CLUE_USER,
+    FORMALISE_USER,
+    JUDGES,
+    formalise_clue_system,
+    formalise_system,
+)
 
 Json = Any
 Cost = dict[str, Json]
@@ -29,6 +36,11 @@ SETTINGS: dict[str, Json] = json.loads((DATA / "instruments.json").read_text())
 
 PROMPTS = {"answer-only-v1": ANSWER_ONLY_V1}
 FORMALISE_GOLD = "formalise_gold"
+FORMALISE_CLUE = "formalise_clue"
+JUDGE_SYNONYM = "judge_synonym"
+JUDGE_DEFINITION = "judge_definition"
+JUDGE_HOMOPHONE = "judge_homophone"
+JUDGE_INSTRUMENTS = (JUDGE_SYNONYM, JUDGE_DEFINITION, JUDGE_HOMOPHONE)
 
 
 class Instrument(Protocol):
@@ -150,6 +162,44 @@ def _message_usd(model: str, m: Any) -> float:
     return tokens / SETTINGS["tokens_per_price_unit"]
 
 
+def sample_concurrently(fn: Any, k: int, workers: int) -> list[Any]:
+    """k independent calls of fn, run concurrently, returned in sample-index
+    order (never completion order: majority voting breaks ties by index)."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    with ThreadPoolExecutor(max_workers=max(1, min(k, workers))) as pool:
+        return list(pool.map(lambda _i: fn(), range(k)))
+
+
+_SCORE = re.compile(r"\{.*\}", re.S)
+
+
+def parse_judgement(text: str) -> dict[str, Json]:
+    """{"score": float in [0, 1] | None, "reason": str} from a judge's reply.
+    An unparseable reply gives score None (logged as such, never guessed)."""
+    m = _SCORE.search(text)
+    try:
+        obj = json.loads(m.group(0)) if m else {}
+        score = float(obj["score"])
+    except (ValueError, KeyError, TypeError):
+        return {"score": None, "reason": text.strip()[:SETTINGS["judges"]["reason_chars"]]}
+    return {"score": min(1.0, max(0.0, score)),
+            "reason": str(obj.get("reason", ""))[:SETTINGS["judges"]["reason_chars"]]}
+
+
+def _formalise_clue_user(inp: Mapping[str, Json]) -> str:
+    tokens = " ".join(f"[{i}] {t}" for i, t in enumerate(inp["tokens"]))
+    previous = "".join(
+        f"Your earlier parse:\n{p['src'] or '(no parse found in your reply)'}\n"
+        f"was rejected: {p['rule']}. {p['hint']}\n"
+        for p in inp["previous"]
+    )
+    return FORMALISE_CLUE_USER.format(
+        clue=f"{inp['clue']} ({inp['enumeration']})", tokens=tokens, answer=inp["answer"],
+        previous=previous + ("Write a corrected parse.\n" if previous else ""),
+    )
+
+
 def _formalise_user(inp: Mapping[str, Json]) -> str:
     tokens = " ".join(f"[{i}] {t}" for i, t in enumerate(inp["tokens"]))
     previous = "".join(
@@ -223,13 +273,41 @@ def anthropic_backend() -> Instrument:
             messages=[{"role": "user", "content": _formalise_user(inp)}],
         )
 
+    def formalise_clue_call(model: str, inp: Mapping[str, Json]) -> Any:
+        return client.messages.create(
+            model=model,
+            max_tokens=inp["max_tokens"],
+            output_config={"effort": inp["effort"]},
+            system=[{"type": "text", "text": formalise_clue_system(),
+                     "cache_control": {"type": "ephemeral"}}],
+            messages=[{"role": "user", "content": _formalise_clue_user(inp)}],
+        )
+
+    def judge(model: str, inp: Mapping[str, Json]) -> Any:
+        system, user = JUDGES[inp["prompt"]]
+        return client.messages.create(
+            model=model,
+            max_tokens=inp["max_tokens"],
+            output_config={"effort": inp["effort"]},
+            system=system,
+            messages=[{"role": "user", "content": user.format(**inp)}],
+        )
+
     def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
         if instrument == PROPOSE_ANSWERS:
-            messages = [sample(model, inp) for _ in range(inp["k"])]
+            messages = sample_concurrently(lambda: sample(model, inp), inp["k"],
+                                           SETTINGS["concurrency"]["sample_workers"])
             output: Json = [_first_line(m) for m in messages]
         elif instrument == FORMALISE_GOLD:
             messages = [formalise(model, inp)]
             output = _expression(messages[0])
+        elif instrument == FORMALISE_CLUE:
+            messages = [formalise_clue_call(model, inp)]
+            output = _expression(messages[0])
+        elif instrument in JUDGE_INSTRUMENTS:
+            messages = [judge(model, inp)]
+            output = parse_judgement(
+                "".join(b.text for b in messages[0].content if b.type == "text"))
         else:
             raise ValueError(f"anthropic backend has no instrument {instrument!r}")
         tokens_in = sum(_input_tokens(m) for m in messages)
@@ -334,6 +412,50 @@ def formalise_gold(
     }
     output, _ = backend(FORMALISE_GOLD, model, inp)
     return str(output)
+
+
+def formalise_clue(
+    clue: str,
+    enumeration: str,
+    answer: str,
+    model: str,
+    *,
+    tokens: tuple[str, ...],
+    previous: tuple[dict[str, str], ...] = (),
+    backend: Instrument,
+) -> str:
+    """Brief 002: a DSL parse explaining how `clue` gives the candidate `answer`
+    (no gold explanation). '' when the reply holds no parse (e.g. NONE)."""
+    inp = {
+        "clue": clue,
+        "enumeration": enumeration,
+        "tokens": list(tokens),
+        "answer": answer,
+        "previous": list(previous),
+        **SETTINGS[FORMALISE_CLUE],
+    }
+    output, _ = backend(FORMALISE_CLUE, model, inp)
+    return str(output)
+
+
+def judge(
+    instrument: str, phrase: str, value: str, context: str, model: str, *, backend: Instrument
+) -> dict[str, Json]:
+    """One oracle judgement: {"score": [0, 1] | None, "reason": str}.
+    instrument: judge_synonym(phrase -> value), judge_definition(span, answer),
+    judge_homophone(spoken, heard)."""
+    if instrument not in JUDGE_INSTRUMENTS:
+        raise ValueError(f"not a judge: {instrument!r}")
+    inp = {
+        "phrase": phrase,
+        "value": value,
+        "context": context,
+        **SETTINGS["judges"]["prompts"][instrument],
+        "max_tokens": SETTINGS["judges"]["max_tokens"],
+        "effort": SETTINGS["judges"]["effort"],
+    }
+    output, _ = backend(instrument, model, inp)
+    return dict(output)
 
 
 def propose_answers(

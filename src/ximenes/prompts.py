@@ -121,3 +121,84 @@ Answer: {answer}
 Definition: {definition}
 Wordplay explanation: {wordplay}
 {previous}Parse:"""
+
+
+# --- brief 002 --------------------------------------------------------------
+# formalise-v1 above stays frozen (brief 001's logs were made with it).
+
+_NEW_OPERATORS = """  first_letters(tok(indicator), tok(...words...))  first letter of each word
+  last_letters(tok(indicator), tok(...words...))   last letter of each word
+  outer_letters(tok(indicator), A)      first and last letter of A
+  middle_letters(tok(indicator), A, "RESULT")   A with equal numbers of \
+letters stripped from both ends
+  remove(tok(indicator), A, B, "RESULT")   A with one contiguous occurrence of B deleted
+  strip_outer(tok(indicator), A)        A without its first and last letter
+  half(tok(indicator), A, "first")      first or "second" half of A (A of even length)
+"""
+
+FORMALISE_SPEC_V2 = (
+    FORMALISE_SPEC.replace(
+        "  homophone(tok(indicator), A, \"RESULT\")       RESULT sounds like A\n",
+        "  homophone(tok(indicator), A, \"RESULT\")       RESULT sounds like A\n" + _NEW_OPERATORS,
+    ).replace(
+        "the last argument of anagram/insert/hidden/homophone/double_def/cryptic_def",
+        "the last argument of anagram/insert/hidden/homophone/middle_letters/remove/"
+        "double_def/cryptic_def",
+    ).replace(
+        "(for example taking last letters, or removing a particular letter)",
+        "(for example a spoonerism)",
+    ).replace(
+        "last_letters(tok(\"ends\"), lit(tok(\"word\")))",
+        "spoonerism(tok(\"Spooner\"), lit(tok(\"word\")))",
+    )
+)
+
+
+def formalise_clue_system() -> str:
+    """Brief 002: parse a clue for a *candidate* answer, with no explanation given."""
+    shots = "\n".join(
+        f"Clue: {clue}\nAnswer: {answer}\nParse: {src}\n"
+        for clue, answer, src in FORMALISE_EXAMPLES
+    )
+    return (FORMALISE_SPEC_V2
+            .replace("You translate a cryptic crossword clue's informal wordplay "
+                     "explanation into a small formal language (a DSL)",
+                     "You explain how a cryptic crossword clue produces a given answer, "
+                     "writing the explanation in a small formal language (a DSL)")
+            + "\nFind the definition (at the start or end of the clue) and the wordplay "
+            "yourself. If you cannot make the answer work, reply NONE.\n\n" + shots)
+
+
+FORMALISE_CLUE_USER = """Clue: {clue}
+Tokens: {tokens}
+Answer: {answer}
+{previous}Parse:"""
+
+_JUDGE_TAIL = (
+    '\nReply with JSON only: {"score": <number from 0 to 1>, "reason": "<one short line>"}. '
+    "The score is your probability that the judgement holds, as a careful crossword "
+    "editor would rule."
+)
+
+JUDGES = {
+    "judge-synonym-v1": (
+        "In cryptic crosswords, a word or phrase in the clue may stand for another word "
+        "(a synonym, a looser equivalent, or a conventional crossword substitution). "
+        "Judge whether the clue phrase can fairly stand for the value, in the context of "
+        "the clue." + _JUDGE_TAIL,
+        "Clue: {context}\nClue phrase: {phrase}\nValue: {value}",
+    ),
+    "judge-definition-v1": (
+        "In cryptic crosswords, part of the clue is a definition of the answer. Judge "
+        "whether the given span is a fair definition of the answer (allowing the usual "
+        "crossword latitude: a part of speech must match, an example may define a class "
+        "if signalled)." + _JUDGE_TAIL,
+        "Clue: {context}\nDefinition span: {phrase}\nAnswer: {value}",
+    ),
+    "judge-homophone-v1": (
+        "In cryptic crosswords, a homophone indicator says one word sounds like another. "
+        "Judge whether the two sound alike in standard British pronunciation (near-"
+        "homophones that setters commonly use count, with a lower score)." + _JUDGE_TAIL,
+        "Spoken: {phrase}\nHeard: {value}",
+    ),
+}

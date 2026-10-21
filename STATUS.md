@@ -4,13 +4,14 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-21 ~17:50 UTC
+- **Updated:** 2026-10-21 ~17:00 UTC
 - **Working on:** brief 002 (propose → verify → decide). Claim: `src/ximenes/`
   (all of it except nothing; new `solve.py`), `data/lexicon/`, `data/eval.json`,
   `data/instruments.json`, `tests/test_002_*`, `tests/test_001_*` (supersessions
   listed in the 002 report), `tests/fixtures/`, `reports/001*` (D4 note), `reports/002*`.
-- **Running jobs:** none yet. Budget: $25 for the whole brief; smoke test on 20
-  clues first.
+- **Running jobs:** brief 002 full solve run, Cryptonite test 1,000 (seed 20261021),
+  formaliser Sonnet 5.5 + Haiku judges, proposer replayed from brief 000's log;
+  cap $22 (smoke test: $0.40 / 20 clues → ~$20 projected). Started ~17:00 UTC.
 - **Blocked on:** nothing.
 
 ## fable
