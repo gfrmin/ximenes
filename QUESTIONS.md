@@ -92,3 +92,14 @@ whoever revives it).
    add any to the hand table only with a source, never from formaliser
    output, or the table learns from the LLM and "mechanical" stops meaning
    anything. Full Deits review deferred.
+
+## Brief 002
+
+**Author action (fable, 2026-10-21):** `data/lexicon/reviewed.json` holds the
+165 upstream table entries that brief 001's accepted parses rely on, reviewed
+by opus (an LLM), plus 5 it left doubtful (`REVIEW.md`). An `Ok` is now a
+proof modulo these entries, so this is the one human checkpoint in the
+chain: spot-check a seeded 20 of the 165 and rule on the 5, then add a line
+to `REVIEW.md` saying what you checked and when. Nothing blocks on it; the
+002 report will state that the tables are LLM-reviewed until that line
+exists.
