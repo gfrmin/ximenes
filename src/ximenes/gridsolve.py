@@ -20,7 +20,7 @@ import pathlib
 import sys
 import uuid
 from collections import Counter
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 from typing import Any
@@ -105,7 +105,9 @@ def repropose(clue: CryptoniteClue, slot: str, pattern: str, existing: Sequence[
 
 def solve_grid(grid: Grid, clues: dict[str, CryptoniteClue], *, models: dict[str, str],
                backend: Instrument, model: dict[str, Any], workers: int,
-               score_indicators: bool = True) -> dict[str, Any]:
+               score_indicators: bool = True,
+               prior: Callable[[Sequence[float]], tuple[float, ...]] | None = None
+               ) -> dict[str, Any]:
     """The grid loop. `clues` maps slot key -> clue. Returns per-slot records."""
     slots = {slot_key(s): s for s in grid.slots}
     edges = edges_of(grid)
@@ -129,7 +131,8 @@ def solve_grid(grid: Grid, clues: dict[str, CryptoniteClue], *, models: dict[str
     def variables() -> dict[str, Var]:
         return {k: committed(commits[k][0]) if k in commits else
                 Var(tuple(h["answer"] for h in cands[k]),
-                    prior_with_other([h["posterior"] for h in cands[k]], BP["floor_other"]))
+                    (prior or (lambda ps: prior_with_other(ps, BP["floor_other"])))(
+                        [h["posterior"] for h in cands[k]]))
                 for k in slots}
 
     for rnd in range(1, BP["max_rounds"] + 1):
@@ -254,6 +257,22 @@ def score_grid(grid: Grid, result: dict[str, Any]) -> dict[str, Any]:
         "quarantined" if not any(v == "guessed" for v in cls.values()) else "guessed",
         "rounds": result["rounds"], "n_slots": len(rs),
     }
+
+
+def offline(backend: Instrument) -> Instrument:
+    """Replay only: a call missing from the logs produced nothing (no samples,
+    no parse, no score). For rescoring an old run under a changed prior."""
+    from .instruments import JUDGE_INSTRUMENTS, MissingFromLog
+
+    def call(instrument: str, model: str, inp: Any) -> tuple[Any, dict[str, Any]]:
+        try:
+            return backend(instrument, model, inp)
+        except MissingFromLog:
+            if instrument in JUDGE_INSTRUMENTS:
+                return {"score": None, "reason": "offline"}, {"usd": 0.0}
+            return ([] if instrument == "propose_pattern" else ""), {"usd": 0.0}
+
+    return call
 
 
 def load_grid(path: pathlib.Path) -> tuple[Grid, dict[str, CryptoniteClue]]:
