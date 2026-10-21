@@ -1,0 +1,36 @@
+{
+ "source": "fitted by ximenes.posterior.fit_vote on brief 003's val solve run 20261021T172307Z-solve-anthropic-3b6375173487443c80dd87654be574d0 (vote features only, for slots not yet formalised; brief 005); never on test or grids",
+ "model": "logistic",
+ "features": [
+  "vote_share",
+  "candidate_rank",
+  "is_vote_winner"
+ ],
+ "l2": 1.0,
+ "mean": [
+  0.3180714767363452,
+  0.8644639244774106,
+  0.4045853000674309
+ ],
+ "sd": [
+  0.29811803997902336,
+  0.8094840930149322,
+  0.49081160849839095
+ ],
+ "intercept": -1.4209192469447927,
+ "coef": {
+  "vote_share": 1.2750623503022986,
+  "candidate_rank": -0.3203067592836964,
+  "is_vote_winner": -0.26169718470155745
+ },
+ "fitted_on": "20261021T172307Z-solve-anthropic-3b6375173487443c80dd87654be574d0",
+ "split": "val",
+ "cv_log_loss": 0.41582967237157037,
+ "cv_by_l2": {
+  "0.01": 0.41595693379002363,
+  "0.1": 0.4159431262631863,
+  "1.0": 0.41582967237157037,
+  "10.0": 0.4159679973742374,
+  "100.0": 0.4282568482425199
+ }
+}

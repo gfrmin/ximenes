@@ -31,9 +31,13 @@ def fit_other_prior(run: dict[str, Any], model: dict[str, Any]) -> dict[str, Any
         b = band(max(ps)) if ps else 0
         counts[b][0] += 1
         counts[b][1] += int(not any(h["answer"] == item["answer"] for h in cands))
-    rows = [{"band": b, "lo": BANDS[b], "n": n, "outside": out,
-             "p_other": out / n if n else 1.0, "p_inside": 1 - out / n if n else 0.0}
-            for b, (n, out) in counts.items()]
+    rows: list[dict[str, Any]] = []
+    for b, (n, out) in sorted(counts.items()):
+        # an empty band inherits the band below it (no evidence either way);
+        # the lowest band, if empty, is all OTHER
+        p = out / n if n else (rows[-1]["p_other"] if rows else 1.0)
+        rows.append({"band": b, "lo": BANDS[b], "n": n, "outside": out,
+                     "p_other": p, "p_inside": 1 - p})
     return {"fitted_on": run["run_id"], "model": model["model"], "bands": BANDS, "rows": rows}
 
 

@@ -168,9 +168,12 @@ def _standardise(xs: list[list[float]]) -> tuple[list[float], list[float]]:
     return mean, sd
 
 
+VOTE_FEATURES = ("vote_share", "candidate_rank", "is_vote_winner")
+
+
 def fit_logistic(data: Sequence[tuple[str, dict[str, Any], dict[str, float], bool]],
-                 l2: float) -> dict[str, Any]:
-    xs = [[f[k] for k in FEATURES] for _s, _h, f, _y in data]
+                 l2: float, features: Sequence[str] = FEATURES) -> dict[str, Any]:
+    xs = [[f[k] for k in features] for _s, _h, f, _y in data]
     ys = [float(y) for *_rest, y in data]
     mean, sd = _standardise(xs)
     zs = [[1.0] + [(x - mu) / s for x, mu, s in zip(row, mean, sd, strict=True)] for row in xs]
@@ -185,8 +188,8 @@ def fit_logistic(data: Sequence[tuple[str, dict[str, Any], dict[str, float], boo
         w = [a - b for a, b in zip(w, step, strict=True)]
         if max(map(abs, step)) < P["tol"]:
             break
-    return {"model": "logistic", "features": list(FEATURES), "l2": l2, "mean": mean, "sd": sd,
-            "intercept": w[0], "coef": dict(zip(FEATURES, w[1:], strict=True))}
+    return {"model": "logistic", "features": list(features), "l2": l2, "mean": mean, "sd": sd,
+            "intercept": w[0], "coef": dict(zip(features, w[1:], strict=True))}
 
 
 def predict_logistic(model: dict[str, Any], f: dict[str, float]) -> float:
@@ -211,7 +214,7 @@ def _folds(data: Sequence[Any]) -> list[set[str]]:
 
 
 def cv_log_loss(data: Sequence[tuple[str, dict[str, Any], dict[str, float], bool]],
-                which: str, l2: float = 0.0) -> float:
+                which: str, l2: float = 0.0, features: Sequence[str] = FEATURES) -> float:
     """Out-of-fold log-loss, folds grouped by clue (a clue's candidates never
     straddle train and held-out)."""
     ps, ys = [], []
@@ -222,7 +225,7 @@ def cv_log_loss(data: Sequence[tuple[str, dict[str, Any], dict[str, float], bool
             m = fit_binned(train)
             ps += [predict_binned(m, h) for _s, h, _f, _y in test]
         else:
-            m = fit_logistic(train, l2)
+            m = fit_logistic(train, l2, features)
             ps += [predict_logistic(m, f) for _s, _h, f, _y in test]
         ys += [y for *_rest, y in test]
     return log_loss(ps, ys)
@@ -255,3 +258,18 @@ TABLES = {"binned": DATA / "posterior-binned.json", "logistic": DATA / "posterio
 
 def load(which: str) -> dict[str, Any]:
     return json.loads(pathlib.Path(TABLES[which]).read_text())
+
+
+VOTE_TABLE = DATA / "posterior-vote.json"
+
+
+def fit_vote(split: str, run: dict[str, Any]) -> dict[str, Any]:
+    """Brief 005: P(candidate correct | vote features only), for slots not yet
+    formalised. Val only (D7)."""
+    if split == "test" or run.get("set") == "test":
+        raise FitOnTest("posteriors are fitted on val only; test is scored, never fitted")
+    data = rows(run)
+    cv = {l2: cv_log_loss(data, "logistic", l2, VOTE_FEATURES) for l2 in P["l2_grid"]}
+    l2 = min(cv, key=lambda k: cv[k])
+    return {**fit_logistic(data, l2, VOTE_FEATURES), "fitted_on": run["run_id"], "split": split,
+            "cv_log_loss": cv[l2], "cv_by_l2": {str(k): v for k, v in cv.items()}}

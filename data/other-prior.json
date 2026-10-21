@@ -1,5 +1,5 @@
 {
- "source": "fitted by ximenes.voc.fit_other_prior on brief 003's val solve run 20261021T172307Z-solve-anthropic-3b6375173487443c80dd87654be574d0 with the committed logistic posterior (briefs/005-metacomputation.md); never on test or grids",
+ "source": "fitted by ximenes.voc.fit_other_prior on brief 003's val solve run 20261021T172307Z-solve-anthropic-3b6375173487443c80dd87654be574d0 with the committed logistic posterior (brief 005); empty bands inherit the band below; never on test or grids",
  "fitted_on": "20261021T172307Z-solve-anthropic-3b6375173487443c80dd87654be574d0",
  "model": "logistic",
  "bands": [
