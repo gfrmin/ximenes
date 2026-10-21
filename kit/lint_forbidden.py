@@ -19,9 +19,10 @@ def check(path: pathlib.Path) -> list[str]:
     allowed_io = path.stem in IO_ALLOWED
     for node in ast.walk(tree):
         if isinstance(node, (ast.Import, ast.ImportFrom)):
-            names = [a.name.split(".")[0] for a in node.names] if isinstance(node, ast.Import) else [
-                (node.module or "").split(".")[0]
-            ]
+            if isinstance(node, ast.Import):
+                names = [a.name.split(".")[0] for a in node.names]
+            else:
+                names = [(node.module or "").split(".")[0]]
             for n in names:
                 if n in FORBIDDEN_MODULES and not allowed_io:
                     errors.append(f"{path}:{node.lineno}: import {n}")

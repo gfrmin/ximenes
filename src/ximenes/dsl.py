@@ -51,7 +51,8 @@ OPERATORS: dict[str, Op] = {
     # --- mechanical transforms (indicator token, then fodder) ---
     "anagram": Op("anagram", (Sort.TOK, Sort.STR, Sort.STR), Sort.STR),  # ind, fodder, result
     "reverse": Op("reverse", (Sort.TOK, Sort.STR), Sort.STR),
-    "insert": Op("insert", (Sort.TOK, Sort.STR, Sort.STR, Sort.STR), Sort.STR),  # ind, inner, outer, result
+    # ind, inner, outer, result
+    "insert": Op("insert", (Sort.TOK, Sort.STR, Sort.STR, Sort.STR), Sort.STR),
     "hidden": Op("hidden", (Sort.TOK, Sort.TOK, Sort.STR), Sort.STR),  # ind, fodder span, result
     "delete_first": Op("delete_first", (Sort.TOK, Sort.STR), Sort.STR),
     "delete_last": Op("delete_last", (Sort.TOK, Sort.STR), Sort.STR),
@@ -61,7 +62,9 @@ OPERATORS: dict[str, Op] = {
     "concat": Op("concat", (Sort.STR,), Sort.STR, variadic=True),
     # --- oracle transforms ---
     "homophone": Op("homophone", (Sort.TOK, Sort.STR, Sort.STR), Sort.STR, oracle=Reason.HOMOPHONE),
-    "double_def": Op("double_def", (Sort.TOK, Sort.TOK, Sort.STR), Sort.STR, oracle=Reason.DOUBLE_DEF),
+    "double_def": Op(
+        "double_def", (Sort.TOK, Sort.TOK, Sort.STR), Sort.STR, oracle=Reason.DOUBLE_DEF
+    ),
     "cryptic_def": Op("cryptic_def", (Sort.TOK, Sort.STR), Sort.STR, oracle=Reason.CRYPTIC_DEF),
     # --- clue-level modes (explicit, never inferred) ---
     "clue": Op("clue", (Sort.STR, Sort.STR), Sort.STR),  # clue(defn(...), wordplay) -> answer

@@ -23,7 +23,7 @@ _ALLOWED = (ast.Expression, ast.Call, ast.Name, ast.Constant, ast.Load)
 @dataclass(frozen=True)
 class CallNode:
     op: Op
-    args: tuple["CallNode | str", ...]
+    args: tuple[CallNode | str, ...]
 
 
 def surface(src: str) -> CallNode | Reject:
