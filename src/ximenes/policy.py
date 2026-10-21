@@ -183,7 +183,13 @@ class GridRun:
                 gold_cells[c] = self.gold[k][i]
                 cells.setdefault(c, set()).add(sub[k][i] if sub[k] else "")
         ok = sum(len(v) == 1 and next(iter(v)) == gold_cells[c] for c, v in cells.items())
+        tops = {}
+        for k, v in vs.items():  # each slot's top candidate: marginal, right?, committed?
+            if v.words:
+                i = max(range(len(v.words)), key=lambda j: self.marg[k][j])
+                tops[k] = [self.marg[k][i], v.words[i] == self.gold[k], k in self.commits]
         self.checkpoints.append({
+            "slot_tops": tops,
             "move": move, "slot": slot, "usd": self.totals[0], "seconds": self.totals[-1],
             "clues_correct": sum(sub[k] == self.gold[k] for k in self.s) / len(self.s),
             "letters_correct": ok / len(gold_cells),
@@ -390,7 +396,7 @@ def main(argv: Sequence[str] | None = None) -> int:
            "budget_usd": args.budget_usd, "log": str(log_path), "grids": out_grids}
     runs.mkdir(parents=True, exist_ok=True)
     (runs / f"{run_id}.json").write_text(json.dumps(out, indent=1))
-    if args.policy == "fit":
+    if args.policy == "fit" and args.backend == "anthropic":  # a replay never rewrites it
         events = [e for g in out_grids for e in g["events"]]
         model = fit_gain(events, summary["seed"])
         model["rho"] = preregister_rho(events, model, {g["puzzle"]: g["proposal_usd"]

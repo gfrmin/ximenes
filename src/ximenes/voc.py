@@ -175,3 +175,45 @@ def preregister_rho(events: Sequence[dict[str, Any]], model: dict[str, Any],
     mid = len(per_grid) >> 1
     rho = per_grid[mid] if len(per_grid) & 1 else (per_grid[mid - 1] + per_grid[mid]) / (1 + 1)
     return {"rho": rho, "per_grid": per_grid, "target_spend": target}
+
+
+# --- brief 006: calibrating the post-BP marginal ---------------------------------------
+
+MARGINAL_CALIBRATION = DATA / "marginal-calibration.json"
+
+
+def fit_marginal_calibration(run: dict[str, Any]) -> dict[str, Any]:
+    """Monotone map g(marginal) by pool-adjacent-violators on each slot's top
+    candidate at its grid's final checkpoint (one row per slot). Fit-seed
+    grids only (D7)."""
+    from .posterior import _pav
+
+    if run.get("grids_seed") == VOC["eval_seed"] or run.get("grids_seed") != VOC["fit_seed"]:
+        raise FitOnEvaluation("the marginal calibration is fitted on fit-seed grids only")
+    pts = sorted((m, bool(y)) for g in run["grids"]
+                 for m, y, _c in g["checkpoints"][-1]["slot_tops"].values())
+    fitted = _pav([float(y) for _m, y in pts], [1.0] * len(pts))
+    blocks: list[dict[str, Any]] = []
+    for (m, y), p in zip(pts, fitted, strict=True):
+        if blocks and blocks[-1]["calibrated"] == p:
+            b = blocks[-1]
+            b["hi"], b["count"], b["correct"] = m, b["count"] + 1, b["correct"] + int(y)
+        else:
+            blocks.append({"lo": m, "hi": m, "count": 1, "correct": int(y), "calibrated": p})
+    return {"fit_seed": run["grids_seed"], "fitted_on": run["run_id"], "n_slots": len(pts),
+            "blocks": blocks}
+
+
+def calibrated(marginal: float, table: dict[str, Any]) -> float:
+    """g(marginal): the step function of the PAV blocks (below the first block:
+    its value; between blocks: the lower block's)."""
+    value = table["blocks"][0]["calibrated"]
+    for b in table["blocks"]:
+        if marginal >= b["lo"]:
+            value = b["calibrated"]
+    return value
+
+
+def commit_rule(marginal: float, table: dict[str, Any] | None, tau: float) -> bool:
+    """Brief 006's rule: commit if g(marginal) >= tau; table None = 005's rule."""
+    return (marginal if table is None else calibrated(marginal, table)) >= tau

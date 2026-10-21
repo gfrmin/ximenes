@@ -1,0 +1,71 @@
+{
+ "source": "fitted by ximenes.voc.fit_marginal_calibration on the fit grids' final checkpoints (seed 20261023; offline replay 20261021T233900Z-fit-stub-09dfc0ec783e4151953d2fc4fee50900 of the brief 005 fit run); briefs/006; never on evaluation grids",
+ "fit_seed": 20261023,
+ "fitted_on": "20261021T233900Z-fit-stub-09dfc0ec783e4151953d2fc4fee50900",
+ "n_slots": 234,
+ "blocks": [
+  {
+   "lo": 3.9246899334201565e-25,
+   "hi": 0.0037885435569764473,
+   "count": 22,
+   "correct": 0,
+   "calibrated": 0.0
+  },
+  {
+   "lo": 0.00607949958633169,
+   "hi": 0.009117079536841753,
+   "count": 9,
+   "correct": 1,
+   "calibrated": 0.1111111111111111
+  },
+  {
+   "lo": 0.009838985896678065,
+   "hi": 0.02613706688580279,
+   "count": 16,
+   "correct": 2,
+   "calibrated": 0.125
+  },
+  {
+   "lo": 0.029527154925377566,
+   "hi": 0.03992342185264823,
+   "count": 6,
+   "correct": 2,
+   "calibrated": 0.3333333333333333
+  },
+  {
+   "lo": 0.03995008683009752,
+   "hi": 0.07733980453442303,
+   "count": 16,
+   "correct": 9,
+   "calibrated": 0.5625
+  },
+  {
+   "lo": 0.08470367768726611,
+   "hi": 0.1276481692328531,
+   "count": 12,
+   "correct": 9,
+   "calibrated": 0.75
+  },
+  {
+   "lo": 0.129278712051608,
+   "hi": 0.5091278234526971,
+   "count": 25,
+   "correct": 19,
+   "calibrated": 0.76
+  },
+  {
+   "lo": 0.5139070950117001,
+   "hi": 0.8960070977133278,
+   "count": 57,
+   "correct": 56,
+   "calibrated": 0.9824561403508771
+  },
+  {
+   "lo": 0.8960441193013039,
+   "hi": 1.0,
+   "count": 71,
+   "correct": 71,
+   "calibrated": 1.0
+  }
+ ]
+}
