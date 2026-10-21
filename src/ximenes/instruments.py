@@ -21,6 +21,7 @@ from typing import Any, Protocol
 from .data import DATA
 from .prompts import (
     ANSWER_ONLY_V1,
+    ANSWER_PATTERN_V1,
     FORMALISE_CLUE_USER,
     FORMALISE_USER,
     JUDGES,
@@ -34,7 +35,8 @@ Cost = dict[str, Json]
 PROPOSE_ANSWERS = "propose_answers"
 SETTINGS: dict[str, Json] = json.loads((DATA / "instruments.json").read_text())
 
-PROMPTS = {"answer-only-v1": ANSWER_ONLY_V1}
+PROMPTS = {"answer-only-v1": ANSWER_ONLY_V1, "answer-pattern-v1": ANSWER_PATTERN_V1}
+PROPOSE_PATTERN = "propose_pattern"
 FORMALISE_GOLD = "formalise_gold"
 FORMALISE_CLUE = "formalise_clue"
 JUDGE_SYNONYM = "judge_synonym"
@@ -318,7 +320,7 @@ def anthropic_backend() -> Instrument:
         )
 
     def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
-        if instrument == PROPOSE_ANSWERS:
+        if instrument in (PROPOSE_ANSWERS, PROPOSE_PATTERN):
             messages = sample_concurrently(lambda: sample(model, inp), inp["k"],
                                            SETTINGS["concurrency"]["sample_workers"])
             output: Json = [_first_line(m) for m in messages]
@@ -480,6 +482,17 @@ def judge(
     }
     output, _ = backend(instrument, model, inp)
     return dict(output)
+
+
+def propose_pattern(
+    clue_text: str, enumeration: str, pattern: str, k: int, model: str, *, backend: Instrument
+) -> list[str]:
+    """Brief 004: k answer samples given the letters known from crossers
+    (pattern like "S?A?F")."""
+    inp = {"clue_text": clue_text, "enumeration": enumeration, "pattern": pattern, "k": k,
+           **SETTINGS[PROPOSE_PATTERN]}
+    output, _ = backend(PROPOSE_PATTERN, model, inp)
+    return list(output)
 
 
 def propose_answers(

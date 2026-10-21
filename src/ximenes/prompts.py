@@ -9,6 +9,13 @@ ANSWER_ONLY_V1 = (
     "and nothing else.\n\n{clue_text} ({enumeration})"
 )
 
+ANSWER_PATTERN_V1 = (
+    "Solve this cryptic crossword clue. The numbers in brackets give the "
+    "answer's word lengths. Some letters are known from crossing answers: "
+    "{pattern} (? = unknown). Reply with the answer only, in capital letters, "
+    "and nothing else.\n\n{clue_text} ({enumeration})"
+)
+
 # Examples here are also checked by tests/test_001_*.py: each must verify.
 FORMALISE_EXAMPLES: tuple[tuple[str, str, str], ...] = (
     (
