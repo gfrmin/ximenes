@@ -59,4 +59,7 @@ for the full run.
 
 ## Status
 
-Brief 000 (harness) ready to start. See `briefs/ROADMAP.md`.
+Brief 000 done (2026-10-21): the vote baseline, `claude-haiku-5-5` at effort
+low on 1,000 Cryptonite test clues, k=20: **top-1 0.460, ECE 0.159**,
+over-confident in every bin. Details in `reports/000-harness.md`.
+Next: brief 001 (verifier, gold-parse coverage). See `briefs/ROADMAP.md`.
