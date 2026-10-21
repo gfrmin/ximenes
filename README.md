@@ -72,5 +72,9 @@ for the full run.
   verified set is **505 clues at 0.861** against the vote's ≥0.9 band of 275
   at 0.858 (1.8× the coverage at the same precision). $15.54.
   `reports/002-proposer-loop.md`.
-- Next: brief 003 (calibrate on val, evaluate once on test; point / set /
-  abstain). `briefs/ROADMAP.md`.
+- Brief 003 done (2026-10-21): a posterior fitted on a 600-clue val solve
+  and read once on test. **At P ≥ 0.9 it answers 37.9% of test clues at
+  0.968 (ECE 0.027)** and beats vote share at every coverage; at brief 002's
+  coverage, 0.933 vs 0.861. $16.21. `reports/003-calibration.md`.
+- Next: brief 004 (the grid: crossers as evidence; grid reconstruction for
+  Cryptonite puzzles as the data engine). `briefs/ROADMAP.md`.

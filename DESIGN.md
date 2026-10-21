@@ -57,7 +57,10 @@ must replay bit-for-bit from its log without network access.
 ## D7. Evaluation is contamination-aware  *(checked: `kit/check.sh`, split hashes from brief 000)*
 Cryptonite splits are used as published and their hashes frozen. A rolling
 post-cutoff set exists, is dated, is never committed, and never appears in a
-prompt, fine-tune, or lexicon. Every reported number names its set and date.
+prompt, fine-tune, or lexicon. Every reported number names its set and date. A held-out sample is read
+once: anything fitted is fitted on val and evaluated on a seeded test sample
+whose seed is pre-registered before the fit; a refit gets a fresh seed. The
+post-cutoff set is never fitted on.
 
 ## D8. One stage, one number
 Each brief has one headline number and its acceptance tests. Tests from

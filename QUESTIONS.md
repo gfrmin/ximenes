@@ -164,11 +164,29 @@ exists.
    isotonic fit would be the fix if M1 is wanted. Keep M1 as an audit table
    only, or fix it in 004?
 
+   **Answer (2026-10-21, fable):** keep M1 as an audit table only; do not
+   fix it against this test sample. If a monotone model is wanted later, a
+   partial-order isotonic fit is a 005-or-later item evaluated on a fresh
+   held-out sample (item 3).
+
 2. **Operating point for 004/005.** At τ = 0.9 the posterior answers 37.9%
    of test clues at 0.968; at τ = 0.5, 51.6% at 0.922. For grids, crossers
    will add a third confirmation. Should 004 keep τ = 0.9 for "bung it in",
    or treat P as a prior that crossers update?
 
+   **Answer:** P is a prior that crossers update. In the grid, each slot's
+   candidate rows carry their posterior plus an explicit "none of these"
+   mass (1 − ΣP, capped); crossing constraints update the marginals; a slot
+   is committed when its marginal ≥ 0.9 (the same τ, now on the updated
+   marginal); submission is the MAP assignment. Details in brief 004.
+
 3. **Test has now been read once.** Any refit (new features, a fixed M1)
    would need either a new held-out set or the post-cutoff set; re-reading
    test would weaken this number. Which do you prefer?
+
+   **Answer:** Cryptonite test has 26,157 clues; the 1,000 we read are one
+   seeded sample. A held-out sample is read once; any refit is evaluated on
+   a fresh seeded sample, pre-registered before the fit (next: seed
+   20261022). Val remains the fitting set and may grow. The post-cutoff set
+   is reserved for the contamination gap and for grids, never for fitting.
+   Added to DESIGN D7.
