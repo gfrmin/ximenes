@@ -10,9 +10,11 @@ the verifier is sound by grammar and the decision layer is Bayesian.
   exist. Every non-link clue token must be consumed exactly once
   (the *coverage law*). Verdicts are `Ok` / `Quarantine` / `Reject`, never a
   bare "verified".
-- **Decide** (Bayesian): per-clue posteriors with abstention and set-valued
-  answers; later, grid belief propagation and a metacomputation policy for
-  "which clue to think about next" under a time/token price.
+- **Decide** (Bayesian search): hypotheses live in a relation with
+  provenance annotations; crossers prune them by propagation; the only
+  terminal act is *submit*. The decision problem is metacomputation: which
+  computation next, when to pay for an oracle, when to stop. See
+  `docs/GAME.md`.
 
 Named after Ximenes (D. S. Macnutt), who wrote down what makes a clue fair.
 

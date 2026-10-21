@@ -38,5 +38,5 @@ post-cutoff set is mine and the loader must refuse it outside
 - `export ANTHROPIC_API_KEY=...` (or set the brief to use the stub only on
   the first pass and let it build the harness against the 20-clue fixture).
 - Sign the charter once you've read it: `git tag -s charter-v0 -m "signed"`.
-- Decide `u_wrong ∈ {−5, −9}` now and write it in `briefs/003-*.md` before any
-  brief-002 numbers exist, so it is pre-registered.
+- Read `docs/GAME.md` and decide whether C9 is what you mean before signing;
+  it is the clause most likely to need a sitting later.

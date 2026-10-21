@@ -52,7 +52,16 @@ Each brief has one headline number and one mechanical acceptance check in
 `kit/check.sh`. Laws under `tests/laws/<brief>/` are frozen when the brief's
 PR merges and are never edited, only superseded by a later brief.
 
-## C9. Scope
+## C9. It is a puzzle, not a question
+The solution is unique and the wordplay proves it. Entering an answer is a
+reversible hypothesis; **submit** is the only terminal act, and its payoff
+is the scoring rule of the setting (all-correct, top-1, or elicited for
+assisting a human), never a tuned parameter. Probabilities are beliefs about
+oracle leaves, calibrated on validation data. A finished solve is either
+*proven* (empty oracle provenance) or *quarantined* (names the judgements it
+rests on). See `docs/GAME.md`.
+
+## C10. Scope
 In: single clues (with enumeration, orientation, optional crossers);
 later grids. Out until a sitting says otherwise: clue *setting*, UI,
 scraping beyond the eval harness, RL/distillation.
