@@ -1,0 +1,929 @@
+{
+ "reconstruction": {
+  "n": 100,
+  "seed": 20261021,
+  "outcomes": {
+   "unique": 36,
+   "multiple": 0,
+   "none": 34,
+   "limit": 30
+  },
+  "seconds_total": 358.7902540586656
+ },
+ "grid_run": "20261021T180216Z-grid-anthropic-2d9c958d01f642379a2c4ba2cc915e07",
+ "grids": [
+  {
+   "puzzle": "Times-2006-05-07-cryptic",
+   "spend_usd": 0,
+   "fully_correct": false,
+   "letters_correct": 0.9130434782608695,
+   "clues_correct": 0.9333333333333333,
+   "clues_correct_alone": 0.7,
+   "clues_correct_pure_map": 0.6666666666666666,
+   "map_other": 10,
+   "proven": false,
+   "slots_ok": 2,
+   "slots_quarantine": 27,
+   "slots_none": 1,
+   "quarantine_reasons": {
+    "cryptic_def": 6,
+    "indicator": 5,
+    "double_def": 2,
+    "synonym": 13,
+    "table_unreviewed": 3
+   },
+   "uncommitted": 17,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.43333333333333335,
+    "guessed": 0.5666666666666667
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.415929203539823,
+    "guessed": 0.584070796460177
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 13,
+    "guessed": 17
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 13,
+    "guessed": 15
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 30
+  },
+  {
+   "puzzle": "Telegraph-2003-09-04-cryptic",
+   "spend_usd": 0.9291,
+   "fully_correct": false,
+   "letters_correct": 0.9375,
+   "clues_correct": 0.9375,
+   "clues_correct_alone": 0.625,
+   "clues_correct_pure_map": 0.78125,
+   "map_other": 7,
+   "proven": false,
+   "slots_ok": 1,
+   "slots_quarantine": 31,
+   "slots_none": 0,
+   "quarantine_reasons": {
+    "synonym": 18,
+    "double_def": 7,
+    "indicator": 10,
+    "table_unreviewed": 5,
+    "cryptic_def": 3
+   },
+   "uncommitted": 13,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.59375,
+    "guessed": 0.40625
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.5848214285714286,
+    "guessed": 0.41517857142857145
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 19,
+    "guessed": 13
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 19,
+    "guessed": 11
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 32
+  },
+  {
+   "puzzle": "Times-2007-05-16-cryptic",
+   "spend_usd": 1.1069,
+   "fully_correct": false,
+   "letters_correct": 0.30246913580246915,
+   "clues_correct": 0.26666666666666666,
+   "clues_correct_alone": 0.2,
+   "clues_correct_pure_map": 0.26666666666666666,
+   "map_other": 21,
+   "proven": false,
+   "slots_ok": 0,
+   "slots_quarantine": 27,
+   "slots_none": 3,
+   "quarantine_reasons": {
+    "cryptic_def": 9,
+    "synonym": 18,
+    "indicator": 3,
+    "homophone": 1,
+    "table_unreviewed": 2
+   },
+   "uncommitted": 26,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.13333333333333333,
+    "guessed": 0.8666666666666667
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.10810810810810811,
+    "guessed": 0.8918918918918919
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 4,
+    "guessed": 26
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 4,
+    "guessed": 4
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 30
+  },
+  {
+   "puzzle": "Telegraph-2012-09-16-cryptic",
+   "spend_usd": 0.8246,
+   "fully_correct": false,
+   "letters_correct": 0.7012195121951219,
+   "clues_correct": 0.7142857142857143,
+   "clues_correct_alone": 0.5,
+   "clues_correct_pure_map": 0.5357142857142857,
+   "map_other": 11,
+   "proven": false,
+   "slots_ok": 0,
+   "slots_quarantine": 22,
+   "slots_none": 6,
+   "quarantine_reasons": {
+    "synonym": 13,
+    "cryptic_def": 5,
+    "indicator": 7,
+    "double_def": 1,
+    "table_unreviewed": 5
+   },
+   "uncommitted": 14,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.5,
+    "guessed": 0.5
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.49107142857142855,
+    "guessed": 0.5089285714285714
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 14,
+    "guessed": 14
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 13,
+    "guessed": 7
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 28
+  },
+  {
+   "puzzle": "Times-2013-02-21-cryptic",
+   "spend_usd": 1.4635,
+   "fully_correct": false,
+   "letters_correct": 0.6975308641975309,
+   "clues_correct": 0.5625,
+   "clues_correct_alone": 0.375,
+   "clues_correct_pure_map": 0.5,
+   "map_other": 16,
+   "proven": false,
+   "slots_ok": 0,
+   "slots_quarantine": 27,
+   "slots_none": 5,
+   "quarantine_reasons": {
+    "synonym": 21,
+    "indicator": 9,
+    "cryptic_def": 5,
+    "table_unreviewed": 3,
+    "homophone": 1
+   },
+   "uncommitted": 22,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.3125,
+    "guessed": 0.6875
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.36160714285714285,
+    "guessed": 0.6383928571428571
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 10,
+    "guessed": 22
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 10,
+    "guessed": 8
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 32
+  },
+  {
+   "puzzle": "Times-2014-05-06-cryptic",
+   "spend_usd": 1.1684,
+   "fully_correct": false,
+   "letters_correct": 0.7654320987654321,
+   "clues_correct": 0.7333333333333333,
+   "clues_correct_alone": 0.5,
+   "clues_correct_pure_map": 0.5,
+   "map_other": 14,
+   "proven": false,
+   "slots_ok": 1,
+   "slots_quarantine": 26,
+   "slots_none": 3,
+   "quarantine_reasons": {
+    "synonym": 20,
+    "homophone": 1,
+    "indicator": 11,
+    "cryptic_def": 3,
+    "table_unreviewed": 1,
+    "double_def": 1
+   },
+   "uncommitted": 19,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.36666666666666664,
+    "guessed": 0.6333333333333333
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.4189189189189189,
+    "guessed": 0.581081081081081
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 11,
+    "guessed": 19
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 10,
+    "guessed": 12
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 30
+  },
+  {
+   "puzzle": "Times-2004-05-11-cryptic",
+   "spend_usd": 1.0192,
+   "fully_correct": false,
+   "letters_correct": 0.6226415094339622,
+   "clues_correct": 0.5862068965517241,
+   "clues_correct_alone": 0.41379310344827586,
+   "clues_correct_pure_map": 0.3793103448275862,
+   "map_other": 18,
+   "proven": false,
+   "slots_ok": 1,
+   "slots_quarantine": 22,
+   "slots_none": 6,
+   "quarantine_reasons": {
+    "cryptic_def": 5,
+    "synonym": 11,
+    "indicator": 6,
+    "table_unreviewed": 4,
+    "double_def": 5,
+    "homophone": 1
+   },
+   "uncommitted": 23,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.20689655172413793,
+    "guessed": 0.7931034482758621
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.2420091324200913,
+    "guessed": 0.7579908675799086
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 6,
+    "guessed": 23
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 6,
+    "guessed": 11
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 29
+  },
+  {
+   "puzzle": "Times-2019-12-03-cryptic",
+   "spend_usd": 1.0502,
+   "fully_correct": false,
+   "letters_correct": 0.6265822784810127,
+   "clues_correct": 0.6,
+   "clues_correct_alone": 0.5333333333333333,
+   "clues_correct_pure_map": 0.4,
+   "map_other": 15,
+   "proven": false,
+   "slots_ok": 0,
+   "slots_quarantine": 26,
+   "slots_none": 4,
+   "quarantine_reasons": {
+    "synonym": 18,
+    "cryptic_def": 4,
+    "indicator": 6,
+    "homophone": 1,
+    "double_def": 2,
+    "table_unreviewed": 4
+   },
+   "uncommitted": 23,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.23333333333333334,
+    "guessed": 0.7666666666666667
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.26146788990825687,
+    "guessed": 0.7385321100917431
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 7,
+    "guessed": 23
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 7,
+    "guessed": 11
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 30
+  },
+  {
+   "puzzle": "Times-2006-07-06-cryptic",
+   "spend_usd": 1.072,
+   "fully_correct": false,
+   "letters_correct": 0.40789473684210525,
+   "clues_correct": 0.39285714285714285,
+   "clues_correct_alone": 0.25,
+   "clues_correct_pure_map": 0.21428571428571427,
+   "map_other": 22,
+   "proven": false,
+   "slots_ok": 1,
+   "slots_quarantine": 19,
+   "slots_none": 8,
+   "quarantine_reasons": {
+    "cryptic_def": 5,
+    "synonym": 12,
+    "indicator": 6,
+    "table_unreviewed": 5,
+    "double_def": 1
+   },
+   "uncommitted": 23,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.17857142857142858,
+    "guessed": 0.8214285714285714
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.15865384615384615,
+    "guessed": 0.8413461538461539
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 5,
+    "guessed": 23
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 5,
+    "guessed": 6
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 28
+  },
+  {
+   "puzzle": "Telegraph-2011-01-22-cryptic",
+   "spend_usd": 0.7796,
+   "fully_correct": false,
+   "letters_correct": 0.8333333333333334,
+   "clues_correct": 0.8214285714285714,
+   "clues_correct_alone": 0.6428571428571429,
+   "clues_correct_pure_map": 0.6428571428571429,
+   "map_other": 10,
+   "proven": false,
+   "slots_ok": 2,
+   "slots_quarantine": 25,
+   "slots_none": 1,
+   "quarantine_reasons": {
+    "indicator": 8,
+    "synonym": 16,
+    "table_unreviewed": 2,
+    "double_def": 5,
+    "cryptic_def": 1
+   },
+   "uncommitted": 14,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.5,
+    "guessed": 0.5
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.4722222222222222,
+    "guessed": 0.5277777777777778
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 14,
+    "guessed": 14
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 14,
+    "guessed": 9
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 28
+  },
+  {
+   "puzzle": "Times-2016-10-13-cryptic",
+   "spend_usd": 1.1187,
+   "fully_correct": false,
+   "letters_correct": 0.6851851851851852,
+   "clues_correct": 0.6666666666666666,
+   "clues_correct_alone": 0.43333333333333335,
+   "clues_correct_pure_map": 0.4666666666666667,
+   "map_other": 16,
+   "proven": false,
+   "slots_ok": 3,
+   "slots_quarantine": 22,
+   "slots_none": 5,
+   "quarantine_reasons": {
+    "cryptic_def": 8,
+    "double_def": 1,
+    "synonym": 12,
+    "indicator": 5,
+    "table_unreviewed": 1
+   },
+   "uncommitted": 20,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.3333333333333333,
+    "guessed": 0.6666666666666666
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.336283185840708,
+    "guessed": 0.6637168141592921
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 10,
+    "guessed": 20
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 10,
+    "guessed": 10
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 30
+  },
+  {
+   "puzzle": "Times-2010-08-30-cryptic",
+   "spend_usd": 0.9695,
+   "fully_correct": false,
+   "letters_correct": 0.80625,
+   "clues_correct": 0.8214285714285714,
+   "clues_correct_alone": 0.5714285714285714,
+   "clues_correct_pure_map": 0.6071428571428571,
+   "map_other": 11,
+   "proven": false,
+   "slots_ok": 0,
+   "slots_quarantine": 26,
+   "slots_none": 2,
+   "quarantine_reasons": {
+    "synonym": 19,
+    "indicator": 10,
+    "table_unreviewed": 4,
+    "cryptic_def": 4,
+    "homophone": 1
+   },
+   "uncommitted": 14,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.5,
+    "guessed": 0.5
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.41743119266055045,
+    "guessed": 0.5825688073394495
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 14,
+    "guessed": 14
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 14,
+    "guessed": 9
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 28
+  },
+  {
+   "puzzle": "Times-2008-12-10-cryptic",
+   "spend_usd": 0.9742,
+   "fully_correct": false,
+   "letters_correct": 0.8641975308641975,
+   "clues_correct": 0.8333333333333334,
+   "clues_correct_alone": 0.6333333333333333,
+   "clues_correct_pure_map": 0.6666666666666666,
+   "map_other": 10,
+   "proven": false,
+   "slots_ok": 1,
+   "slots_quarantine": 25,
+   "slots_none": 4,
+   "quarantine_reasons": {
+    "table_unreviewed": 4,
+    "synonym": 17,
+    "indicator": 12,
+    "homophone": 2,
+    "cryptic_def": 2,
+    "double_def": 4
+   },
+   "uncommitted": 16,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.4666666666666667,
+    "guessed": 0.5333333333333333
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.41818181818181815,
+    "guessed": 0.5818181818181818
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 14,
+    "guessed": 16
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 14,
+    "guessed": 11
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 30
+  },
+  {
+   "puzzle": "Times-2003-01-27-cryptic",
+   "spend_usd": 0.8691,
+   "fully_correct": false,
+   "letters_correct": 0.810126582278481,
+   "clues_correct": 0.7857142857142857,
+   "clues_correct_alone": 0.6071428571428571,
+   "clues_correct_pure_map": 0.42857142857142855,
+   "map_other": 15,
+   "proven": false,
+   "slots_ok": 2,
+   "slots_quarantine": 25,
+   "slots_none": 1,
+   "quarantine_reasons": {
+    "synonym": 18,
+    "homophone": 2,
+    "indicator": 12,
+    "double_def": 2,
+    "table_unreviewed": 2,
+    "cryptic_def": 2
+   },
+   "uncommitted": 19,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.32142857142857145,
+    "guessed": 0.6785714285714286
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.3348623853211009,
+    "guessed": 0.6651376146788991
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 9,
+    "guessed": 19
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 9,
+    "guessed": 13
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 28
+  },
+  {
+   "puzzle": "Times-2002-09-09-cryptic",
+   "spend_usd": 0.9539,
+   "fully_correct": false,
+   "letters_correct": 0.89375,
+   "clues_correct": 0.8571428571428571,
+   "clues_correct_alone": 0.5,
+   "clues_correct_pure_map": 0.75,
+   "map_other": 7,
+   "proven": false,
+   "slots_ok": 1,
+   "slots_quarantine": 26,
+   "slots_none": 1,
+   "quarantine_reasons": {
+    "double_def": 3,
+    "synonym": 13,
+    "indicator": 10,
+    "cryptic_def": 5,
+    "homophone": 1
+   },
+   "uncommitted": 15,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.4642857142857143,
+    "guessed": 0.5357142857142857
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.47685185185185186,
+    "guessed": 0.5231481481481481
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 13,
+    "guessed": 15
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 13,
+    "guessed": 11
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 28
+  },
+  {
+   "puzzle": "Telegraph-2005-09-23-cryptic",
+   "spend_usd": 0.777,
+   "fully_correct": false,
+   "letters_correct": 0.9135802469135802,
+   "clues_correct": 0.9,
+   "clues_correct_alone": 0.6333333333333333,
+   "clues_correct_pure_map": 0.7333333333333333,
+   "map_other": 8,
+   "proven": false,
+   "slots_ok": 3,
+   "slots_quarantine": 26,
+   "slots_none": 1,
+   "quarantine_reasons": {
+    "synonym": 17,
+    "indicator": 6,
+    "table_unreviewed": 5,
+    "double_def": 4,
+    "cryptic_def": 4,
+    "homophone": 1
+   },
+   "uncommitted": 13,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.5666666666666667,
+    "guessed": 0.43333333333333335
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.5818181818181818,
+    "guessed": 0.41818181818181815
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 17,
+    "guessed": 13
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 17,
+    "guessed": 10
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 30
+  },
+  {
+   "puzzle": "Times-2003-09-10-cryptic",
+   "spend_usd": 0.8956,
+   "fully_correct": false,
+   "letters_correct": 0.8395061728395061,
+   "clues_correct": 0.8214285714285714,
+   "clues_correct_alone": 0.6071428571428571,
+   "clues_correct_pure_map": 0.7857142857142857,
+   "map_other": 6,
+   "proven": false,
+   "slots_ok": 2,
+   "slots_quarantine": 24,
+   "slots_none": 2,
+   "quarantine_reasons": {
+    "synonym": 14,
+    "indicator": 5,
+    "cryptic_def": 6,
+    "table_unreviewed": 1,
+    "double_def": 1
+   },
+   "uncommitted": 13,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.5357142857142857,
+    "guessed": 0.4642857142857143
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.509009009009009,
+    "guessed": 0.49099099099099097
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 15,
+    "guessed": 13
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 15,
+    "guessed": 8
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 28
+  },
+  {
+   "puzzle": "Times-2001-03-23-cryptic",
+   "spend_usd": 0.7946,
+   "fully_correct": false,
+   "letters_correct": 0.774390243902439,
+   "clues_correct": 0.7666666666666667,
+   "clues_correct_alone": 0.6,
+   "clues_correct_pure_map": 0.6333333333333333,
+   "map_other": 10,
+   "proven": false,
+   "slots_ok": 2,
+   "slots_quarantine": 27,
+   "slots_none": 1,
+   "quarantine_reasons": {
+    "cryptic_def": 4,
+    "double_def": 5,
+    "synonym": 14,
+    "indicator": 9,
+    "homophone": 2,
+    "table_unreviewed": 2
+   },
+   "uncommitted": 21,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.3,
+    "guessed": 0.7
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.26991150442477874,
+    "guessed": 0.7300884955752213
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 9,
+    "guessed": 21
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 9,
+    "guessed": 14
+   },
+   "grid_class": "guessed",
+   "rounds": 2,
+   "n_slots": 30
+  },
+  {
+   "puzzle": "Times-2014-09-26-cryptic",
+   "spend_usd": 1.1255,
+   "fully_correct": false,
+   "letters_correct": 0.41358024691358025,
+   "clues_correct": 0.43333333333333335,
+   "clues_correct_alone": 0.36666666666666664,
+   "clues_correct_pure_map": 0.3333333333333333,
+   "map_other": 19,
+   "proven": false,
+   "slots_ok": 0,
+   "slots_quarantine": 24,
+   "slots_none": 6,
+   "quarantine_reasons": {
+    "double_def": 2,
+    "synonym": 16,
+    "indicator": 9,
+    "table_unreviewed": 6,
+    "cryptic_def": 3
+   },
+   "uncommitted": 27,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.1,
+    "guessed": 0.9
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.1,
+    "guessed": 0.9
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 3,
+    "guessed": 27
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 3,
+    "guessed": 10
+   },
+   "grid_class": "guessed",
+   "rounds": 2,
+   "n_slots": 30
+  },
+  {
+   "puzzle": "Times-2004-06-28-cryptic",
+   "spend_usd": 0.9271,
+   "fully_correct": false,
+   "letters_correct": 0.845679012345679,
+   "clues_correct": 0.8,
+   "clues_correct_alone": 0.5666666666666667,
+   "clues_correct_pure_map": 0.7,
+   "map_other": 8,
+   "proven": false,
+   "slots_ok": 0,
+   "slots_quarantine": 28,
+   "slots_none": 2,
+   "quarantine_reasons": {
+    "synonym": 19,
+    "cryptic_def": 3,
+    "double_def": 4,
+    "indicator": 5,
+    "table_unreviewed": 1,
+    "homophone": 1
+   },
+   "uncommitted": 15,
+   "classes": {
+    "proven": 0.0,
+    "quarantined": 0.5,
+    "guessed": 0.5
+   },
+   "classes_letters": {
+    "proven": 0.0,
+    "quarantined": 0.48214285714285715,
+    "guessed": 0.5178571428571429
+   },
+   "class_counts": {
+    "proven": 0,
+    "quarantined": 15,
+    "guessed": 15
+   },
+   "class_correct": {
+    "proven": 0,
+    "quarantined": 15,
+    "guessed": 9
+   },
+   "grid_class": "guessed",
+   "rounds": 3,
+   "n_slots": 30
+  }
+ ],
+ "uncommitted_why": {
+  "OTHER dominated (MAP = OTHER)": 254,
+  "best candidate below tau": 113
+ },
+ "note": "per-grid counts and rates only; layouts, clues and answers stay local (runs/grids/)"
+}

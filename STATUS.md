@@ -4,13 +4,11 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-21 ~18:00 UTC
-- **Working on:** brief 004 (grids). Claim: `src/ximenes/` (new `grid.py`, `bp.py`,
-  `gridsolve.py`; `instruments.py`, `prompts.py`, `solve.py`), `data/eval.json`,
-  `data/instruments.json`, `tests/test_004_*`, `tests/fixtures/`, `reports/004*`.
-- **Running jobs:** brief 004 grid run, 20 reconstructed grids, cap $22 (smoke grid
-  $0.72). Started ~18:45 UTC.
-- **Blocked on:** nothing.
+- **Updated:** 2026-10-21 ~21:30 UTC
+- **Working on:** nothing; brief 004 is done, claim released. Waiting for the
+  brief 005 draft and rulings in QUESTIONS.md § Brief 004.
+- **Running jobs:** none.
+- **Blocked on:** brief 005 draft.
 
 ## fable
 

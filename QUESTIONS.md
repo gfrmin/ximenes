@@ -190,3 +190,22 @@ exists.
    20261022). Val remains the fitting set and may grow. The post-cutoff set
    is reserved for the contamination gap and for grids, never for fitting.
    Added to DESIGN D7.
+
+## Brief 004
+
+1. **OTHER floor.** Guessed slots (entered over OTHER or below τ) are right
+   54.2% of the time; OTHER's mass says they should rarely be. The floor (0.05)
+   and the 1 − ΣP rule over-weight "none of these", probably because a
+   candidate's posterior is P(correct) *alone* while the grid needs a joint
+   prior. Calibrate OTHER on val grids in 005 (fresh seed, D7), or treat it
+   as part of 005's value-of-computation model?
+
+2. **Proven is out of reach with this DSL.** 0 of 589 slots are proven:
+   chosen answers are nearly always Quarantine (synonym, cryptic definition).
+   A grid "proven" in D9's sense would need most wordplay to be fully
+   mechanical. Is "quarantined with committed crossers" (99.1% accurate here)
+   the practical target, with proven reserved for the occasional slot?
+
+3. **Reconstruction coverage.** 36/100 unique, 30 hit the node limit (mostly
+   Telegraph). Worth raising the limit or improving the variable order before
+   005 needs more grids, or wait for post-cutoff ipuz files?
