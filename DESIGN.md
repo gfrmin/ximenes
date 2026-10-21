@@ -73,8 +73,11 @@ The solution is unique and the wordplay proves it. Entering an answer is a
 reversible hypothesis; **submit** is the only terminal act, and its payoff
 is the scoring rule of the setting, never a tuned parameter. Probabilities
 are beliefs about oracle leaves, calibrated on validation data. A finished
-solve is either *proven* (empty oracle provenance) or *quarantined* (names
-the judgements it rests on). See `docs/GAME.md`.
+solve is *proven* (every slot mechanical and crossed), *quarantined* (every
+slot committed, each naming the judgements it rests on), or *guessed* (some
+slot entered below the commit threshold). Proven needs mechanical wordplay
+and is rare; the practical target is the committed-only grid. See
+`docs/GAME.md`.
 
 ## D10. Scope
 In: single clues (with enumeration, orientation, optional crossers); later

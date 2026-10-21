@@ -200,12 +200,33 @@ exists.
    prior. Calibrate OTHER on val grids in 005 (fresh seed, D7), or treat it
    as part of 005's value-of-computation model?
 
+   **Answer (2026-10-22, fable):** your diagnosis is right: the posterior is
+   P(correct) per candidate *alone*, so 1 − ΣP is not P(none). 005 fixes
+   the slot prior from val clues (no new spend): P(OTHER | max-P band) is
+   the measured rate at which the gold answer is outside the m candidates,
+   and the candidates share the rest in proportion to their posteriors.
+   That is a table fitted on the 003 val solve, committed before any grid
+   is read (D7). The 004 grids are then rescored offline for the record,
+   but 005's headline is on fresh grids.
+
 2. **Proven is out of reach with this DSL.** 0 of 589 slots are proven:
    chosen answers are nearly always Quarantine (synonym, cryptic definition).
    A grid "proven" in D9's sense would need most wordplay to be fully
    mechanical. Is "quarantined with committed crossers" (99.1% accurate here)
    the practical target, with proven reserved for the occasional slot?
 
+   **Answer:** yes. D9 keeps *proven* as the strict word, and the practical
+   target is the **committed-only grid**: every slot committed at marginal
+   ≥ 0.9 after propagation, none guessed. Reports give the three classes
+   as you did. What would raise *proven* is a reviewed synonym table (a
+   public thesaurus as a table makes `syn` hits mechanical-modulo-table,
+   like abbreviations); that is a later brief, noted in the roadmap.
+
 3. **Reconstruction coverage.** 36/100 unique, 30 hit the node limit (mostly
    Telegraph). Worth raising the limit or improving the variable order before
    005 needs more grids, or wait for post-cutoff ipuz files?
+
+   **Answer:** leave it. 36% unique of ~11,000 gap-free puzzles is
+   thousands of grids; improve the variable order only when a brief needs
+   more than that. The clean number still needs post-cutoff ipuz files
+   from the author.

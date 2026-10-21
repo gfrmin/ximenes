@@ -76,5 +76,9 @@ for the full run.
   and read once on test. **At P ≥ 0.9 it answers 37.9% of test clues at
   0.968 (ECE 0.027)** and beats vote share at every coverage; at brief 002's
   coverage, 0.933 vs 0.861. $16.21. `reports/003-calibration.md`.
-- Next: brief 004 (the grid: crossers as evidence; grid reconstruction for
-  Cryptonite puzzles as the data engine). `briefs/ROADMAP.md`.
+- Brief 004 done (2026-10-21): grids. Layouts reconstructed from Cryptonite
+  clue lists (36/100 unique, 0 ambiguous). On 20 grids: **0 fully correct,
+  letters 0.733, clues 0.712 vs 0.513 solved alone**; committed slots right
+  99.1% of the time, guessed slots 54%. $0.94 per grid. `reports/004-grid.md`.
+- Next: brief 005 (metacomputation: value of computation under a price).
+  `briefs/ROADMAP.md`.

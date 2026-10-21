@@ -8,8 +8,9 @@
 | 002 | Proposer loop on real clues: new operators, table-review rule, oracle instruments, concurrent samples, fixed decision rule | top-1 vs 0.460 on the same 1,000; verified-set size and accuracy | 001 |
 | 003 | Calibrated posteriors fitted on a val solve, evaluated once on 002's test run; `judge_indicator`; point/set/abstain decision layer; `Hyp` schema named | risk–coverage on test; coverage and accuracy at P ≥ 0.9 vs vote share and the 002 rule; ECE | 002 |
 | 004 | Grid: ipuz loader; reconstruct Cryptonite layouts from numbering + answers; loopy BP over `Hyp` rows with an OTHER mass; commit at marginal ≥ 0.9; re-propose with pattern | fully-correct grid rate on 20 reconstructed grids; letters correct; proven vs quarantined; spend per grid | 003 |
-| 005 | `wald` pack: price moves in seconds/tokens; value of computation (Hay et al.) vs MRV vs Dr.Fill confidence gap vs attempt-all-first; stopping rule for submit | expected score per unit time; "price of the floor" | 004, wald amendment |
-| 006 | (deferred) Rejection-sample proven parses to distil a small proposer | — | 002, mutants at 0 |
+| 005 | Metacomputation: OTHER prior from val; price every move; gain model on fit grids; VOC policy vs attempt-all vs vote-only, score-vs-spend curves | clues correct at equal spend; committed-only grids; seconds per grid | 004 |
+| 006 | Synonym table: a public thesaurus (Moby / WordNet) as a reviewed table so `syn` hits become mechanical-modulo-table; re-measure Ok and proven rates | Ok share of val parses; proven slots per grid | 004 |
+| 007 | (deferred) Rejection-sample proven parses to distil a small proposer | — | 002, mutants at 0 |
 
 Stop rule after 001: if gold-parse coverage on val is far below ~30%, the
 sound-by-grammar verifier is not worth building on; refocus on 003 with the
