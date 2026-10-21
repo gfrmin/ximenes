@@ -25,7 +25,7 @@
    "CPA": "deits"
   },
   "ace": {
-   "A": "deits",
+   "A": "deits+review",
    "AI": "deits"
   },
   "actinium": {
@@ -85,7 +85,7 @@
   },
   "america": {
    "AM": "deits",
-   "US": "deits",
+   "US": "deits+review",
    "USA": "deits"
   },
   "american": {
@@ -174,7 +174,7 @@
    "PA": "deits"
   },
   "australia": {
-   "AU": "deits",
+   "AU": "deits+review",
    "AUS": "deits",
    "OZ": "deits"
   },
@@ -225,7 +225,7 @@
    "BEL": "deits"
   },
   "bend": {
-   "S": "deits",
+   "S": "deits+review",
    "SU": "deits",
    "U": "deits"
   },
@@ -236,14 +236,14 @@
    "OS": "deits"
   },
   "bill": {
-   "AC": "deits",
+   "AC": "deits+review",
    "IOU": "deits"
   },
   "bird": {
    "TIT": "deits"
   },
   "bishop": {
-   "B": "deits",
+   "B": "deits+review",
    "RR": "deits"
   },
   "bismuth": {
@@ -269,7 +269,7 @@
    "OT": "deits"
   },
   "books": {
-   "NT": "deits",
+   "NT": "deits+review",
    "OT": "deits"
   },
   "boron": {
@@ -287,7 +287,7 @@
   },
   "bridge player": {
    "E": "deits",
-   "N": "deits",
+   "N": "deits+review",
    "S": "deits",
    "W": "deits"
   },
@@ -324,7 +324,7 @@
    "CC": "deits"
   },
   "care of": {
-   "CO": "deits"
+   "CO": "deits+review"
   },
   "castle": {
    "R": "deits"
@@ -333,7 +333,7 @@
    "C": "deits"
   },
   "caught": {
-   "C": "deits",
+   "C": "deits+review",
    "CT": "deits"
   },
   "celsius": {
@@ -359,7 +359,7 @@
    "X": "deits"
   },
   "chapter": {
-   "C": "deits",
+   "C": "deits+review",
    "CH": "deits"
   },
   "chief": {
@@ -395,7 +395,7 @@
    "O": "deits"
   },
   "city": {
-   "EC": "deits",
+   "EC": "deits+review",
    "LA": "deits",
    "NY": "deits"
   },
@@ -432,7 +432,7 @@
    "CE": "deits"
   },
   "company": {
-   "CO": "deits"
+   "CO": "deits+review"
   },
   "compare": {
    "CF": "deits"
@@ -470,10 +470,10 @@
    "PC": "deits"
   },
   "court": {
-   "CT": "deits"
+   "CT": "deits+review"
   },
   "credit": {
-   "CR": "deits"
+   "CR": "deits+review"
   },
   "criminal": {
    "CON": "deits"
@@ -504,11 +504,11 @@
    "D": "deits"
   },
   "daughter": {
-   "D": "deits"
+   "D": "deits+review"
   },
   "day": {
-   "D": "deits",
-   "FRI": "deits",
+   "D": "deits+review",
+   "FRI": "deits+review",
    "MON": "deits",
    "SAT": "deits",
    "SUN": "deits",
@@ -565,7 +565,7 @@
    "DI": "deits"
   },
   "died": {
-   "D": "deits",
+   "D": "deits+review",
    "DEC": "deits",
    "EX": "deits",
    "OB": "deits"
@@ -608,7 +608,7 @@
   },
   "drug": {
    "C": "deits",
-   "E": "deits",
+   "E": "deits+review",
    "H": "deits",
    "X": "deits"
   },
@@ -620,7 +620,7 @@
    "O": "deits"
   },
   "each": {
-   "EA": "deits"
+   "EA": "deits+review"
   },
   "east": {
    "E": "deits+hand"
@@ -649,7 +649,7 @@
    "E": "deits"
   },
   "energy": {
-   "E": "deits",
+   "E": "deits+review",
    "J": "deits"
   },
   "engineer": {
@@ -686,7 +686,7 @@
    "AI": "deits"
   },
   "exercise": {
-   "PE": "deits",
+   "PE": "deits+review",
    "PT": "deits"
   },
   "exist": {
@@ -711,7 +711,7 @@
    "PA": "deits"
   },
   "female": {
-   "F": "deits"
+   "F": "deits+review"
   },
   "fifty": {
    "L": "deits+hand"
@@ -720,7 +720,7 @@
    "MIG": "deits"
   },
   "fine": {
-   "F": "deits",
+   "F": "deits+review",
    "OK": "deits"
   },
   "finland": {
@@ -800,7 +800,7 @@
    "ES": "deits"
   },
   "frenchman": {
-   "M": "deits"
+   "M": "deits+review"
   },
   "friday": {
    "F": "deits",
@@ -834,7 +834,7 @@
    "U": "deits"
   },
   "germany": {
-   "D": "deits",
+   "D": "deits+review",
    "DE": "deits",
    "DEU": "deits",
    "GER": "deits"
@@ -950,7 +950,7 @@
    "R": "deits"
   },
   "hard": {
-   "H": "deits"
+   "H": "deits+review"
   },
   "hawaii": {
    "HI": "deits"
@@ -1004,7 +1004,7 @@
    "GG": "deits"
   },
   "hospital": {
-   "H": "deits"
+   "H": "deits+review"
   },
   "hour": {
    "H": "deits+hand",
@@ -1020,7 +1020,7 @@
    "C": "deits+hand"
   },
   "husband": {
-   "H": "deits"
+   "H": "deits+review"
   },
   "hush": {
    "SH": "deits"
@@ -1041,7 +1041,7 @@
    "IL": "deits"
   },
   "in charge": {
-   "IC": "deits"
+   "IC": "deits+review"
   },
   "in this matter": {
    "RE": "deits"
@@ -1075,7 +1075,7 @@
    "IQ": "deits"
   },
   "iodine": {
-   "I": "deits"
+   "I": "deits+review"
   },
   "iowa": {
    "IA": "deits"
@@ -1144,7 +1144,7 @@
    "B": "deits",
    "C": "deits",
    "D": "deits",
-   "E": "deits",
+   "E": "deits+review",
    "F": "deits",
    "FG": "deits",
    "G": "deits"
@@ -1174,7 +1174,7 @@
    "KBE": "deits",
    "KG": "deits",
    "KT": "deits",
-   "N": "deits"
+   "N": "deits+review"
   },
   "knock out": {
    "KO": "deits"
@@ -1235,7 +1235,7 @@
    "ABE": "deits"
   },
   "line": {
-   "L": "deits"
+   "L": "deits+review"
   },
   "lithium": {
    "LI": "deits"
@@ -1267,10 +1267,10 @@
    "O": "deits+hand"
   },
   "maiden": {
-   "M": "deits"
+   "M": "deits+review"
   },
   "maine": {
-   "ME": "deits"
+   "ME": "deits+review"
   },
   "malaysia": {
    "MY": "deits",
@@ -1278,7 +1278,7 @@
   },
   "male": {
    "HE": "deits",
-   "M": "deits",
+   "M": "deits+review",
    "PA": "deits"
   },
   "many": {
@@ -1292,7 +1292,7 @@
    "RM": "deits"
   },
   "married": {
-   "M": "deits"
+   "M": "deits+review"
   },
   "maryland": {
    "MD": "deits"
@@ -1344,7 +1344,7 @@
    "ME": "deits"
   },
   "michigan": {
-   "MI": "deits"
+   "MI": "deits+review"
   },
   "midday": {
    "N": "deits"
@@ -1374,7 +1374,7 @@
    "MO": "deits"
   },
   "model": {
-   "T": "deits"
+   "T": "deits+review"
   },
   "moment": {
    "MO": "deits"
@@ -1419,7 +1419,7 @@
    "AM": "deits"
   },
   "mother": {
-   "MA": "deits"
+   "MA": "deits+review"
   },
   "motorway": {
    "M": "deits",
@@ -1430,7 +1430,7 @@
   },
   "navy": {
    "ABS": "deits",
-   "RN": "deits",
+   "RN": "deits+review",
    "TARS": "deits"
   },
   "nazis": {
@@ -1480,10 +1480,10 @@
    "NI": "deits"
   },
   "nil": {
-   "O": "deits"
+   "O": "deits+review"
   },
   "nitrogen": {
-   "N": "deits"
+   "N": "deits+review"
   },
   "no": {
    "N": "hand",
@@ -1592,7 +1592,7 @@
    "O": "deits+hand"
   },
   "old boy": {
-   "OB": "deits"
+   "OB": "deits+review"
   },
   "old city": {
    "UR": "deits"
@@ -1755,7 +1755,7 @@
    "PC": "deits"
   },
   "politician": {
-   "MP": "deits"
+   "MP": "deits+review"
   },
   "posh": {
    "U": "deits"
@@ -1775,7 +1775,7 @@
    "LBS": "deits"
   },
   "power": {
-   "P": "deits"
+   "P": "deits+review"
   },
   "present day": {
    "AD": "deits"
@@ -1842,7 +1842,7 @@
   },
   "question": {
    "Q": "deits",
-   "QU": "deits"
+   "QU": "deits+review"
   },
   "quiet": {
    "P": "deits+hand",
@@ -1854,7 +1854,7 @@
   "railway": {
    "BR": "deits",
    "R": "deits",
-   "RY": "deits"
+   "RY": "deits+review"
   },
   "record": {
    "EP": "deits",
@@ -1873,7 +1873,7 @@
    "GOP": "deits"
   },
   "resistance": {
-   "R": "deits"
+   "R": "deits+review"
   },
   "retired": {
    "RET": "deits"
@@ -1897,7 +1897,7 @@
    "RR": "deits"
   },
   "ring": {
-   "O": "deits"
+   "O": "deits+review"
   },
   "river": {
    "DEE": "deits",
@@ -1919,7 +1919,7 @@
    "CA": "deits"
   },
   "round": {
-   "O": "deits"
+   "O": "deits+review"
   },
   "royal academy": {
    "RA": "deits"
@@ -1937,7 +1937,7 @@
    "RN": "deits"
   },
   "run": {
-   "R": "deits"
+   "R": "deits+review"
   },
   "sailor": {
    "AB": "deits+hand",
@@ -1965,7 +1965,7 @@
    "S": "deits"
   },
   "say": {
-   "EG": "deits"
+   "EG": "deits+review"
   },
   "scholar": {
    "BA": "deits"
@@ -2053,7 +2053,7 @@
   },
   "soft": {
    "B": "deits",
-   "P": "deits"
+   "P": "deits+review"
   },
   "softly": {
    "P": "deits"
@@ -2076,10 +2076,10 @@
    "SOM": "deits"
   },
   "son": {
-   "S": "deits"
+   "S": "deits+review"
   },
   "soprano": {
-   "S": "deits"
+   "S": "deits+review"
   },
   "south": {
    "S": "deits+hand"
@@ -2252,10 +2252,10 @@
    "MS": "deits"
   },
   "thanks": {
-   "TA": "deits"
+   "TA": "deits+review"
   },
   "that is": {
-   "IE": "deits"
+   "IE": "deits+review"
   },
   "the french": {
    "LA": "hand",
@@ -2283,7 +2283,7 @@
    "DD": "deits"
   },
   "this month": {
-   "INST": "deits"
+   "INST": "deits+review"
   },
   "thousand": {
    "G": "deits+hand",
@@ -2373,12 +2373,12 @@
   },
   "university": {
    "OU": "deits",
-   "U": "deits",
+   "U": "deits+review",
    "UP": "deits"
   },
   "unknown": {
    "X": "deits",
-   "Y": "deits",
+   "Y": "deits+review",
    "YZ": "deits",
    "Z": "deits"
   },
@@ -2443,7 +2443,7 @@
    "V": "deits"
   },
   "volunteers": {
-   "TA": "deits"
+   "TA": "deits+review"
   },
   "vote": {
    "X": "deits"
@@ -2493,7 +2493,7 @@
    "W": "deits"
   },
   "wife": {
-   "W": "deits"
+   "W": "deits+review"
   },
   "will": {
    "LL": "deits"
@@ -2502,7 +2502,7 @@
    "WI": "deits"
   },
   "with": {
-   "W": "deits"
+   "W": "deits+review"
   },
   "without": {
    "WO": "deits"
@@ -2511,7 +2511,7 @@
    "BRA": "deits"
   },
   "work": {
-   "OP": "deits",
+   "OP": "deits+review",
    "OPUS": "deits",
    "W": "deits"
   },

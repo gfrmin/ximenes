@@ -50,10 +50,32 @@ concatenations of common ones, then checked by hand):
 Scan hits judged genuine and kept: e.g. USA, DAD, EVE, ACE, IOU, the month
 and day abbreviations, NE/NW (bearing), FF (loud), GG (horse).
 
+## Reviewed upstream entries (`reviewed.json`, origin `review`)
+
+2026-10-21, brief 002: every unreviewed entry that an accepted brief-001
+parse (val 300 + train 500, re-verified under brief 002's verifier) relied
+on: 170 entries, 69 abbreviations and 101 indicators. Reviewed by opus (an
+LLM, not a human setter) against standard crossword usage; the author may
+spot-check. **165 accepted** (listed in `reviewed.json`), **5 left
+unreviewed** as doubtful:
+
+| table | entry | why not |
+|---|---|---|
+| abbreviations | boy → B | not a standard abbreviation |
+| abbreviations | soldier → RE | RE is soldiers (Royal Engineers), not one soldier |
+| indicators | anagram: becomes | usually a link word |
+| indicators | insert: over | usually positional (down clues) or charade |
+| indicators | reverse: twisted | usually an anagram indicator |
+
+Entries are reviewed only when an accepted parse uses them; the rest of the
+Deits lists stays unreviewed (and gives `Quarantine(table_unreviewed)`).
+Nothing is added from formaliser output.
+
 ## indicators.json
 
-Hand seed merged with rdeits/CrypticCrosswords.jl `corpora/indicators`
-(MIT); mapping in the file's `source`. An indicator that is missing gives
-`Quarantine(indicator)`, never `Ok`, so a missing entry costs coverage of
-`Ok`, not soundness. A *wrong* entry would cost soundness: not yet reviewed
-entry by entry (open item).
+Built by `build_indicators.py` from `indicators.hand.json` (the hand seed,
+plus hand lists for brief 002's new operators written by opus from standard
+usage, not from formaliser output), rdeits/CrypticCrosswords.jl
+`corpora/indicators` (MIT; mapping in the build script) and `reviewed.json`.
+Per-entry `_origin`. A missing indicator gives `Quarantine(indicator)`; an
+unreviewed upstream one gives `Quarantine(table_unreviewed)`.
