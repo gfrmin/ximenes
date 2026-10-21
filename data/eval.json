@@ -1,5 +1,5 @@
 {
-  "source": "briefs/000-harness.md: n=1000 clues, k=20 samples, 10 reliability bins; seed chosen once on 2026-10-21 and frozen; workers=32 used for the brief 000 headline run; postcutoff_floor: QUESTIONS.md brief 000 item 5 answer (nothing before 2026-10-22 is post-cutoff for any model); formalise_retries=2 and max_usd per run: briefs/001-dsl-verifier.md (cap value chosen 2026-10-21: author asked to keep spend low); train_sample=500: seeded train subsample for brief 001's secondary number (full 5,412 would cost ~$80); brief 002 (pre-registered in briefs/002-proposer-loop.md): candidates m=3, oracle_floor 0.5, vote_high 0.9 (brief 000's high-confidence band for the comparison); posterior: bands and tau grid pre-registered in briefs/003-calibration.md; l2_grid, folds=5 (brief), newton_iters/tol/clip chosen 2026-10-21 before fitting; grid (brief 004): sizes 15 (Times/Telegraph cryptic) and 13 (Times Quick); node limit chosen 2026-10-21; sample 100, 20 eval grids with >=28 clues per briefs/004-grid.md",
+  "source": "briefs/000-harness.md: n=1000 clues, k=20 samples, 10 reliability bins; seed chosen once on 2026-10-21 and frozen; workers=32 used for the brief 000 headline run; postcutoff_floor: QUESTIONS.md brief 000 item 5 answer (nothing before 2026-10-22 is post-cutoff for any model); formalise_retries=2 and max_usd per run: briefs/001-dsl-verifier.md (cap value chosen 2026-10-21: author asked to keep spend low); train_sample=500: seeded train subsample for brief 001's secondary number (full 5,412 would cost ~$80); brief 002 (pre-registered in briefs/002-proposer-loop.md): candidates m=3, oracle_floor 0.5, vote_high 0.9 (brief 000's high-confidence band for the comparison); posterior: bands and tau grid pre-registered in briefs/003-calibration.md; l2_grid, folds=5 (brief), newton_iters/tol/clip chosen 2026-10-21 before fitting; grid (brief 004): sizes 15 (Times/Telegraph cryptic) and 13 (Times Quick); node limit chosen 2026-10-21; sample 100, 20 eval grids with >=28 clues per briefs/004-grid.md; bp (brief 004): floor_other 0.05 and tau 0.9 pre-registered in briefs/004-grid.md; damping/max_iters/tol chosen 2026-10-21; max_rounds 3 and repropose_k 10 per the brief",
   "n": 1000,
   "k": 20,
   "bins": 10,
@@ -49,5 +49,14 @@
     "reconstruct_sample": 100,
     "eval_grids": 20,
     "min_clues": 28
+  },
+  "bp": {
+    "floor_other": 0.05,
+    "damping": 0.5,
+    "max_iters": 100,
+    "tol": 1e-09,
+    "tau": 0.9,
+    "max_rounds": 3,
+    "repropose_k": 10
   }
 }

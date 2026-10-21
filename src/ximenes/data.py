@@ -190,3 +190,28 @@ def abbreviations() -> dict[str, frozenset[str]]:
     """{phrase: abbreviations}, from data/lexicon/abbreviations.json."""
     raw = json.loads((LEXICON / "abbreviations.json").read_text())
     return {k: frozenset(v) for k, v in raw.items() if k != "source" and not k.startswith("_")}
+
+
+@dataclass(frozen=True, order=True)
+class PuzzleKey:
+    publisher: str
+    sub_publisher: str
+    date: date
+    quick: bool
+
+    @property
+    def name(self) -> str:
+        return f"{self.publisher}-{self.date.isoformat()}-{'quick' if self.quick else 'cryptic'}"
+
+
+def load_puzzles(root: pathlib.Path = CRYPTONITE
+                 ) -> dict[PuzzleKey, list[tuple[str, dict[str, Any]]]]:
+    """Every Cryptonite clue, grouped by puzzle across the three splits (a
+    puzzle's clues are spread over train/val/test), as (split, raw row)."""
+    out: dict[PuzzleKey, list[tuple[str, dict[str, Any]]]] = {}
+    for split in SPLITS:
+        for r in _jsonl(verify_split(split, root)):
+            key = PuzzleKey(r["publisher"], r["sub_publisher"] or "", _ms_to_date(r["date"]),
+                            r["quick"])
+            out.setdefault(key, []).append((split, r))
+    return out
