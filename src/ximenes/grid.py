@@ -261,13 +261,17 @@ def main(argv: Sequence[str] | None = None) -> int:
     p.add_argument("--n", type=int, default=PARAMS["grid"]["reconstruct_sample"])
     p.add_argument("--seed", type=int, default=PARAMS["seed"])
     p.add_argument("--out", default="runs/grids")
+    p.add_argument("--exclude", nargs="*", default=[],
+                   help="grid directories whose puzzles must not be reused (disjoint sets, D7)")
     args = p.parse_args(argv)
     cfg = PARAMS["grid"]
     test = load_cryptonite("test")
     sampled = {(c.publisher, c.sub_publisher or "", c.date) for c in
                (test[i] for i in sample_indices(len(test), PARAMS["n"], PARAMS["seed"]))}
     puzzles = load_puzzles()
-    keys = sorted(k for k in puzzles if (k.publisher, k.sub_publisher, k.date) in sampled)
+    taken = {f.stem for d in args.exclude for f in pathlib.Path(d).glob("*.json")}
+    keys = sorted(k for k in puzzles if (k.publisher, k.sub_publisher, k.date) in sampled
+                  and k.name not in taken)
     keys = random.Random(args.seed).sample(keys, min(args.n, len(keys)))
     out_dir = pathlib.Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)

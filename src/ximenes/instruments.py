@@ -51,6 +51,9 @@ class Instrument(Protocol):
         ...
 
 
+REPLAYED_SECONDS = "_replayed_seconds"
+
+
 class BudgetExceeded(RuntimeError):
     """A run's logged cost reached its max_usd; resume with --log and a higher cap."""
 
@@ -80,7 +83,8 @@ def stub_backend(log: pathlib.Path, on_conflict: str = "raise") -> Instrument:
             if on_conflict == "first":
                 continue
             raise ValueError(f"{log}: conflicting outputs for {k}")
-        table.setdefault(k, (r["output"], r["cost"]))
+        cost = r["cost"] if "seconds" not in r else {**r["cost"], REPLAYED_SECONDS: r["seconds"]}
+        table.setdefault(k, (r["output"], cost))
 
     def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
         k = call_key(instrument, model, inp)
@@ -140,13 +144,39 @@ def memoized(backend: Instrument) -> Instrument:
     return call
 
 
+def metered(backend: Instrument) -> tuple[Instrument, list[float]]:
+    """Sum (usd, seconds) of each distinct call that passes through, replayed or
+    live: a policy's spend is what its calls cost, whoever paid for them first,
+    and a repeated call (memoized below) is counted once."""
+    lock = threading.Lock()
+    totals = [0.0, 0.0]
+    seen: set[str] = set()
+
+    def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
+        output, cost = backend(instrument, model, inp)
+        k = call_key(instrument, model, inp)
+        with lock:
+            if k not in seen:
+                seen.add(k)
+                totals[0] += cost.get("usd") or 0.0
+                totals[-1] += cost.get("seconds") or 0.0
+        return output, cost
+
+    return call, totals
+
+
 def logged(backend: Instrument, path: pathlib.Path) -> Instrument:
     """Append every call through `backend` to `path` as one JSON line."""
     path.parent.mkdir(parents=True, exist_ok=True)
     lock = threading.Lock()
 
     def call(instrument: str, model: str, inp: Mapping[str, Json]) -> tuple[Json, Cost]:
+        t0 = time.monotonic()
         output, cost = backend(instrument, model, inp)
+        # wall seconds of the call (brief 005 prices moves in seconds): measured, or the
+        # original call's when replayed; logged beside `cost`, which stays as it was
+        secs = cost.get(REPLAYED_SECONDS, time.monotonic() - t0)
+        cost = {k: v for k, v in cost.items() if k != REPLAYED_SECONDS}
         record = {
             "ts": datetime.now(UTC).isoformat(),
             "instrument": instrument,
@@ -154,11 +184,12 @@ def logged(backend: Instrument, path: pathlib.Path) -> Instrument:
             "input": dict(inp),
             "output": output,
             "cost": cost,
+            "seconds": secs,
         }
         line = json.dumps(record, ensure_ascii=False) + "\n"
         with lock, open(path, "a", encoding="utf-8") as f:
             f.write(line)
-        return output, cost
+        return output, {**cost, "seconds": secs}
 
     return call
 
