@@ -53,15 +53,21 @@ from .solve import formalise_and_verify, indicator_min, judged, min_score
 from .verdict import Reject
 from .voc import (
     GAIN_MODEL,
+    MARGINAL_CALIBRATION,
     MOVE_FEATURES,
     VOC,
     choose,
+    commit_rule,
     fit_gain,
     preregister_rho,
     slot_prior,
 )
 
 BP = PARAMS["bp"]
+
+
+class _Spent(Exception):
+    """The grid budget is used up (a policy stops and submits)."""
 
 
 @dataclass
@@ -116,9 +122,11 @@ class GridRun:
 
     def __init__(self, name: str, grid: Grid, clues: dict[str, CryptoniteClue],
                  backend: Instrument, totals: list[float], tables: Tables,
-                 models: dict[str, str], warm: Instrument | None = None) -> None:
+                 models: dict[str, str], warm: Instrument | None = None,
+                 commit_table: dict[str, Any] | None = None) -> None:
         self.name, self.grid, self.backend, self.totals = name, grid, backend, totals
         self.warm_backend = warm
+        self.commit_table = commit_table  # brief 006: None = commit on the raw marginal
         self.t, self.models = tables, models
         self.edges = edges_of(grid)
         self.crossers = {slot_key(Slot(n, o, ())): [slot_key(Slot(on, oo, ()))
@@ -166,7 +174,7 @@ class GridRun:
         for k, v in vs.items():
             if k not in self.commits and v.words:
                 best = max(range(len(v.words)), key=lambda i: self.marg[k][i])
-                if self.marg[k][best] >= BP["tau"]:
+                if commit_rule(self.marg[k][best], self.commit_table, BP["tau"]):
                     self.commits[k] = v.words[best]
         final = map_assignment(self.variables(), self.edges)
         vs = self.variables()
@@ -305,13 +313,16 @@ class GridRun:
             self.backend = saved
 
     def run(self, policy: str, gain: dict[str, Any] | None = None, rho: float = 0.0,
-            budget: float = float("inf")) -> None:
+            budget: float = float("inf"),
+            moves: Sequence[tuple[str, str]] | None = None) -> None:
         try:
-            if policy in ("attempt_all", "fit"):
+            if policy in ("attempt_all", "fit", "crossers_first"):
                 self.warm_solves()
                 for k in sorted(self.s, key=lambda k: (self.s[k].slot.number,
                                                        self.s[k].slot.orientation.value)):
                     if self.s[k].votes and k not in self.commits:
+                        if policy == "crossers_first" and self.totals[0] >= budget:
+                            raise _Spent
                         self.apply("solve", k)
             if policy == "fit":
                 for _ in range(BP["max_rounds"]):
@@ -321,6 +332,22 @@ class GridRun:
                     for kind, k, _f in moves:
                         if k not in self.commits:
                             self.apply(kind, k)
+            if policy == "crossers_first":  # brief 004's heuristic, under a budget
+                for _ in range(BP["max_rounds"]):
+                    order = sorted((m for m in self.available() if m[0] == "repropose"),
+                                   key=lambda m: -m[-1]["committed_crossers"])
+                    if not order:
+                        break
+                    for kind, k, _f in order:
+                        if self.totals[0] >= budget:
+                            raise _Spent
+                        if k not in self.commits:
+                            self.apply(kind, k)
+            if policy == "replay_moves":  # re-apply a logged move sequence (another rule)
+                for kind, k in moves or []:
+                    if k not in self.commits and any(
+                            m[:-1] == (kind, k) for m in self.available()):
+                        self.apply(kind, k)
             if policy == "voc":
                 assert gain is not None
                 while True:
@@ -330,6 +357,8 @@ class GridRun:
                     self.apply(*pick)
         except BudgetExceeded:
             self.checkpoints.append({**self.checkpoints[-1], "move": "budget_exceeded"})
+        except _Spent:
+            pass
 
 
 def score_at(checkpoints: Sequence[dict[str, Any]], budget: float) -> dict[str, Any]:
@@ -360,7 +389,13 @@ def _backend(args: argparse.Namespace, log_path: pathlib.Path
 
 def main(argv: Sequence[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="python -m ximenes.policy")
-    p.add_argument("--policy", required=True, choices=("vote", "attempt_all", "voc", "fit"))
+    p.add_argument("--policy", required=True,
+                   choices=("vote", "attempt_all", "voc", "fit", "crossers_first",
+                            "replay_moves"))
+    p.add_argument("--calibrated", action="store_true",
+                   help="brief 006: commit on the calibrated marginal")
+    p.add_argument("--moves-from", default=None,
+                   help="replay_moves: a policy run JSON whose move sequence to re-apply")
     p.add_argument("--grids", required=True)
     p.add_argument("--n", type=int, required=True)
     p.add_argument("--budget-usd", type=float, default=float("inf"))
@@ -381,6 +416,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     runs = pathlib.Path(args.runs_dir)
     log_path = runs / f"{run_id}.jsonl"
     tables = load_tables()
+    commit_table = json.loads(MARGINAL_CALIBRATION.read_text()) if args.calibrated else None
+    source_moves = {}
+    if args.moves_from:
+        src = json.loads(pathlib.Path(args.moves_from).read_text())
+        source_moves = {g["puzzle"]: [(c["move"], c["slot"]) for c in g["checkpoints"]
+                                      if c["move"] in ("solve", "formalise_more", "repropose")]
+                        for g in src["grids"]}
     models = {"proposer": SETTINGS["solve_models"]["proposer"],
               "formaliser": SETTINGS["solve_models"]["formaliser"],
               "judge": SETTINGS["judges"]["model"]}
@@ -388,11 +430,14 @@ def main(argv: Sequence[str] | None = None) -> int:
     for name in names:
         grid, clues = load_grid(grids_dir / f"{name}.json")
         backend, totals, memo = _backend(args, log_path)  # fresh meter and memo per grid
-        g = GridRun(name, grid, clues, backend, totals, tables, models, warm=memo)
-        g.run(args.policy, gain, gain["rho"]["rho"] if gain else 0.0, args.budget_usd)
+        g = GridRun(name, grid, clues, backend, totals, tables, models, warm=memo,
+                    commit_table=commit_table)
+        g.run(args.policy, gain, gain["rho"]["rho"] if gain else 0.0, args.budget_usd,
+              source_moves.get(name))
         out_grids.append({"puzzle": name, "checkpoints": g.checkpoints, "events": g.events,
                           "proposal_usd": g.checkpoints[0]["usd"]})
     out = {"run_id": run_id, "policy": args.policy, "grids_seed": summary["seed"],
+           "calibrated_commit": args.calibrated, "moves_from": args.moves_from,
            "budget_usd": args.budget_usd, "log": str(log_path), "grids": out_grids}
     runs.mkdir(parents=True, exist_ok=True)
     (runs / f"{run_id}.json").write_text(json.dumps(out, indent=1))
