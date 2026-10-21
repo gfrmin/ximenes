@@ -1,4 +1,4 @@
-"""DESIGN D2/C6: no execution, no network, no I/O surprises in the kernel."""
+"""DESIGN D2/D6: no execution, no network, no I/O surprises in the kernel."""
 
 import ast
 import pathlib

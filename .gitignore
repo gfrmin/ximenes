@@ -4,7 +4,9 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 runs/
-data/cryptonite/
+data/.src/
+data/cryptonite/*
+!data/cryptonite/SPLITS.sha256
 data/wordplay/
 data/postcutoff/*
 !data/postcutoff/.gitkeep

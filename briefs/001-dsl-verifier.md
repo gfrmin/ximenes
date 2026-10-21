@@ -1,8 +1,10 @@
 # Brief 001 — Typed DSL and non-executing verifier
 
 Headline number: **gold-parse coverage** —
-the share of Wordplay-dataset explanations (val split) that can be written in
-the DSL and accepted as `Ok` or `Quarantine` by the verifier. This is the
+the share of `data/wordplay/sample_teacow_val.jsonl` explanations (300 FT
+clues, Cryptonite-val answers) that can be written in the DSL and accepted as
+`Ok` or `Quarantine` by the verifier; report the 5,412-line train sample as a
+secondary number. This is the
 honest ceiling of a sound-by-grammar approach. Also report the
 **false-accept rate** on the mutation suite (must be 0).
 

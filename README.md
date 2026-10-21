@@ -37,17 +37,24 @@ src/ximenes/        kernel: types, DSL operator table, AST verifier, loaders, ev
 tests/              incl. the exploit-mutation suite; earlier briefs' tests are never edited
 data/lexicon/       indicator / abbreviation tables (seeded; extend from Deits & A&W)
 data/postcutoff/    private, never committed: post-cutoff clues for clean eval
-docs/               prior art, design notes
+docs/               prior art (PRIOR-ART.md), the decision-theoretic framing (GAME.md)
+setup.sh, start.sh  turnkey: fetch data + check, then open Claude Code on the next brief
 ```
 
 ## Quick start
 
 ```bash
-python -m venv .venv && . .venv/bin/activate
-pip install -e ".[dev]"
-./kit/check.sh
+./setup.sh     # venv, deps, downloads + verifies Cryptonite and the wordplay sample, runs the kit
+./start.sh     # opens Claude Code on the next brief not listed in briefs/DONE
 ```
+
+`./start.sh 001` picks a brief; anything after it is passed to `claude`
+(e.g. `./start.sh 001 --permission-mode auto`). Each brief ends by appending
+its number to `briefs/DONE`, so `./start.sh` with no argument always opens the
+next one. Set `ANTHROPIC_API_KEY` if you want the builder to run real proposer
+calls; otherwise it builds against the stub backend and tells you the command
+for the full run.
 
 ## Status
 
-Brief 000 (harness) not started. See `briefs/`.
+Brief 000 (harness) ready to start. See `briefs/ROADMAP.md`.

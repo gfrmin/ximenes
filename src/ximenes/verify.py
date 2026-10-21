@@ -1,8 +1,8 @@
-"""Non-executing verifier (DESIGN D2–C4).
+"""Non-executing verifier (DESIGN D2–D4).
 
-Stage 1 (`surface`) is complete and law-tested: parse with `ast`, accept only
+Stage 1 (`surface`) is complete and tested: parse with `ast`, accept only
 the allowlisted node types, and resolve every call to the operator table.
-Stages 2–5 are brief 001's job; their signatures are fixed here so the laws
+Stages 2–5 are brief 001's job; their signatures are fixed here so the tests
 can be written against them.
 """
 
