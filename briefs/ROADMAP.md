@@ -17,3 +17,22 @@ verdict as a weaker feature.
 
 Shared with `hkaddresses` (by design, once 003 exists): the `Hyp` kernel,
 lattice tokeniser, alias tables, Ok/Quarantine. Not shared: the grammar.
+
+## Post-cutoff protocol (fixed 2026-10-21, after brief 000's diagnostics)
+
+Brief 000 found publisher is the largest effect on top-1 (Telegraph 0.547
+vs Times 0.399 for Haiku; Quick 0.61 vs cryptic 0.45), so a contamination
+estimate must compare like with like:
+
+- The comparison set from Cryptonite test is a **stratified** sample
+  matching the post-cutoff set's publisher and quick/cryptic mix, same
+  seed; the gap is reported **per publisher**, never pooled.
+- Only Times and Telegraph rows have an in-distribution baseline
+  (Cryptonite has nothing else). Guardian and FT post-cutoff rows are still
+  useful, but as a second, uncontaminated number per model, not as a gap.
+- A gap on a weak model (Haiku) and on a strong one (Opus) are both
+  reported; only the strong model is expected to show one.
+- The Telegraph–Times difference is consistent with the Telegraph simply
+  being easier, which is the solvers' consensus; it is not evidence of
+  contamination on its own.
+
