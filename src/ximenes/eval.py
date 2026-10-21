@@ -154,6 +154,26 @@ def ece(votes: Sequence[Vote], n_bins: int) -> Fraction:
     )
 
 
+def ece_of(confidences: Sequence[float], corrects: Sequence[bool], n_bins: int
+           ) -> tuple[float, tuple[Bin, ...]]:
+    """ECE and reliability bins for any confidences (e.g. a posterior), by the
+    same function and bins as brief 000's vote-share ECE."""
+    votes = [Vote(None, Fraction(c), bool(y)) for c, y in zip(confidences, corrects, strict=True)]
+    return float(ece(votes, n_bins)), reliability(votes, n_bins)
+
+
+def risk_coverage(confidences: Sequence[float], corrects: Sequence[bool]
+                  ) -> list[tuple[float, float]]:
+    """(coverage, accuracy) answering the k most confident items, k = 1..n;
+    ties in confidence keep input order."""
+    order = sorted(range(len(confidences)), key=lambda i: -confidences[i])
+    out, right = [], 0
+    for k, i in enumerate(order, start=1):
+        right += bool(corrects[i])
+        out.append((k / len(order), right / k))
+    return out
+
+
 def top1(votes: Sequence[Vote]) -> Fraction:
     return Fraction(sum(v.correct for v in votes), len(votes)) if votes else Fraction(0)
 

@@ -1,5 +1,5 @@
 {
-  "source": "briefs/000-harness.md: n=1000 clues, k=20 samples, 10 reliability bins; seed chosen once on 2026-10-21 and frozen; workers=32 used for the brief 000 headline run; postcutoff_floor: QUESTIONS.md brief 000 item 5 answer (nothing before 2026-10-22 is post-cutoff for any model); formalise_retries=2 and max_usd per run: briefs/001-dsl-verifier.md (cap value chosen 2026-10-21: author asked to keep spend low); train_sample=500: seeded train subsample for brief 001's secondary number (full 5,412 would cost ~$80); brief 002 (pre-registered in briefs/002-proposer-loop.md): candidates m=3, oracle_floor 0.5, vote_high 0.9 (brief 000's high-confidence band for the comparison)",
+  "source": "briefs/000-harness.md: n=1000 clues, k=20 samples, 10 reliability bins; seed chosen once on 2026-10-21 and frozen; workers=32 used for the brief 000 headline run; postcutoff_floor: QUESTIONS.md brief 000 item 5 answer (nothing before 2026-10-22 is post-cutoff for any model); formalise_retries=2 and max_usd per run: briefs/001-dsl-verifier.md (cap value chosen 2026-10-21: author asked to keep spend low); train_sample=500: seeded train subsample for brief 001's secondary number (full 5,412 would cost ~$80); brief 002 (pre-registered in briefs/002-proposer-loop.md): candidates m=3, oracle_floor 0.5, vote_high 0.9 (brief 000's high-confidence band for the comparison); posterior: bands and tau grid pre-registered in briefs/003-calibration.md; l2_grid, folds=5 (brief), newton_iters/tol/clip chosen 2026-10-21 before fitting",
   "n": 1000,
   "k": 20,
   "bins": 10,
@@ -11,5 +11,32 @@
   "train_sample": 500,
   "candidates": 3,
   "oracle_floor": 0.5,
-  "vote_high": 0.9
+  "vote_high": 0.9,
+  "posterior": {
+    "bands": [
+      0.0,
+      0.5,
+      0.8,
+      0.95
+    ],
+    "l2_grid": [
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "folds": 5,
+    "newton_iters": 100,
+    "tol": 1e-10,
+    "clip": 1e-06,
+    "taus": [
+      0.5,
+      0.7,
+      0.8,
+      0.9,
+      0.95
+    ],
+    "headline_tau": 0.9
+  }
 }
