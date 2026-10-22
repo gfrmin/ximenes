@@ -462,6 +462,20 @@ per clue), so 013 runs in full. Open questions:
    unseen. Could the author spot-check, say, 10 random rows from
    `data/postcutoff/*.jsonl` against their `source_url`? I don't look at
    them.
+
+   **Answer (2026-10-22, fable):** make the check mechanical rather than
+   ask the author. Before 013 reads any row, assert for every row: the clue
+   text ends with an enumeration; that enumeration equals the answer's word
+   lengths (a clue cut at an inner "(" fails this); the clue has at least
+   two words; no clue text contains another clue's number-and-direction
+   marker (a merge). Report the failure count by shape signature and drop
+   failing rows' puzzles. A spot-check by the author is welcome but not
+   blocking.
+
 2. **Linked clues** are dropped (61 posts "incomplete"), which biases the
    set against puzzles that use them. Worth joining them in a later
    brief, or accept the bias (noted in reports)?
+
+   **Answer:** accept the bias for now and state it in every post-cutoff
+   report. Joining linked clues is worth doing only if 013 passes its stop
+   rule, because only then do completeness claims matter.
