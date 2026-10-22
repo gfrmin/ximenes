@@ -4,13 +4,13 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-22 ~12:00 UTC
-- **Working on:** brief 011 (recall by proposer). Claim: `src/ximenes/{proposers,instruments,prompts}.py`,
-  `data/instruments.json`, `data/eval.json` (recall), `tests/test_011_*`, `reports/011*`.
-  The author chose **build + smoke test only** for now (AskUserQuestion, 2026-10-22): no full run
-  until the author approves it after seeing the smoke cost.
-- **Running jobs:** none.
-- **Blocked on:** the author's go for the full run.
+- **Updated:** 2026-10-22 ~15:20 UTC
+- **Working on:** brief 012 (post-cutoff harvest; the author approved fetching,
+  "just get the data, don't look at them"). Claim: `src/ximenes/harvest.py`,
+  `kit/lint_forbidden.py` (IO allowance), `data/eval.json` (harvest), `tests/test_012_*`,
+  `reports/012*`. Brief 011 built, smoked twice ($8.58); full run waits for the author's go.
+- **Running jobs:** the harvest fetch (a few requests, 20 s apart).
+- **Blocked on:** nothing.
 
 ## fable
 

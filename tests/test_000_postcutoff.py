@@ -13,7 +13,8 @@ PKG = pathlib.Path(ximenes.__file__).parent
 
 def test_only_eval_mentions_postcutoff() -> None:
     hits = sorted(p.name for p in PKG.rglob("*.py") if "postcutoff" in p.read_text())
-    assert hits == ["eval.py"]
+    # superseded by brief 012: the harvester writes raw posts there (D8, report 012)
+    assert hits == ["eval.py", "harvest.py"]
 
 
 def test_postcutoff_needs_explicit_permission() -> None:

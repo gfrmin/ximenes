@@ -10,7 +10,7 @@ FORBIDDEN_MODULES = {
     "httpx", "anthropic", "openai", "os", "shutil",
 }
 # Modules allowed to do I/O and network, by file stem.
-IO_ALLOWED = {"instruments", "data", "eval"}
+IO_ALLOWED = {"instruments", "data", "eval", "harvest"}  # harvest: brief 012
 
 
 def check(path: pathlib.Path) -> list[str]:
