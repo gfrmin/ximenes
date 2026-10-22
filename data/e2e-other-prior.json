@@ -1,0 +1,56 @@
+{
+ "source": "fitted by `python -m ximenes.e2e refit` on brief 013's fit grids (run 20261022T101840Z-e2e-fit-anthropic-c73d9c0ba5f04393adab377f83e319fc); never on evaluation grids",
+ "fitted_on": "20261022T101840Z-e2e-fit-anthropic-c73d9c0ba5f04393adab377f83e319fc",
+ "model": "logistic",
+ "bands": [
+  0.0,
+  0.5,
+  0.8,
+  0.95
+ ],
+ "rows": [
+  {
+   "band": 0,
+   "lo": 0.0,
+   "n": 32,
+   "outside": 6,
+   "p_other": 0.1875,
+   "p_inside": 0.8125
+  },
+  {
+   "band": 1,
+   "lo": 0.5,
+   "n": 37,
+   "outside": 7,
+   "p_other": 0.1891891891891892,
+   "p_inside": 0.8108108108108107
+  },
+  {
+   "band": 2,
+   "lo": 0.8,
+   "n": 30,
+   "outside": 2,
+   "p_other": 0.06666666666666667,
+   "p_inside": 0.9333333333333333
+  },
+  {
+   "band": 3,
+   "lo": 0.95,
+   "n": 139,
+   "outside": 0,
+   "p_other": 0.0,
+   "p_inside": 1.0
+  }
+ ],
+ "fit_grids": [
+  "ft-210518-2026-08-11",
+  "ft-211782-2026-09-16",
+  "ft-212814-2026-10-19",
+  "guardian-210618-2026-08-15",
+  "guardian-211924-2026-09-21",
+  "guardian-212140-2026-09-28",
+  "independent-210276-2026-08-06",
+  "independent-210612-2026-08-17"
+ ],
+ "n_slots": 238
+}
