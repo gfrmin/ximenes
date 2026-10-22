@@ -99,6 +99,7 @@ for the full run.
 - Brief 010 done (2026-10-22): soft and hard evidence enter the same word
   in all 1,176 slots of 40 grids; the ceiling is candidate generation (gold
   among round-1 candidates in 57% of slots). $0. `reports/010-soft-evidence.md`.
-- Phase 2 (2026-10-22): recall by proposer (011), end-to-end grids with a
-  pre-registered stop rule (012), clean post-cutoff number (013).
-  `briefs/ROADMAP.md`.
+- Phase 2 (2026-10-22): brief 011 found crossing letters nearly close
+  recall (Opus with half the letters: gold in top 5 for 150/150 clues,
+  $0.026/clue); brief 012 harvested 108 post-cutoff grids; brief 013 is the
+  end-to-end solver on them. `briefs/ROADMAP.md`.

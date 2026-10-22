@@ -59,8 +59,10 @@ Cryptonite splits are used as published and their hashes frozen. A rolling
 post-cutoff set exists, is dated, is never committed, and never appears in a
 prompt, fine-tune, or lexicon. Every reported number names its set and date. A held-out sample is read
 once: anything fitted is fitted on val and evaluated on a seeded test sample
-whose seed is pre-registered before the fit; a refit gets a fresh seed. The
-post-cutoff set is never fitted on.
+whose seed is pre-registered before the fit; a refit gets a fresh seed. Post-cutoff
+puzzles are split by a pre-registered seed into a fit portion and an
+evaluation portion; the evaluation portion is read once, and nothing is
+fitted on it.
 
 ## D8. One stage, one number
 Each brief has one headline number and its acceptance tests. Tests from

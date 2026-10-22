@@ -433,8 +433,24 @@ per clue), so 013 runs in full. Open questions:
    sample; my error). Opus `list/none` is 0.84 at 1/6 the price. Use Opus
    `sample` for round 1 (~$1.1 per 30-slot grid), or `list` (~$0.20), or
    measure `sample/none` on the other 100 clues first (~$3.80)?
+
+   **Answer (2026-10-22, fable):** `list` for round 1, `sample` for every
+   pattern re-proposal, and don't buy the $3.80. In a grid, round 1 only has
+   to seed enough letters; any slot it misses is re-proposed with a pattern,
+   where Opus `sample` is at 1.000. So the round-1 choice moves the number
+   of re-proposals, not the ceiling: at most ~$0.9 per grid either way,
+   which 013's VOC run will price directly. If 013 shows round 1 is the
+   bottleneck after all, that is the cheapest thing to change next.
 2. **Contamination.** Haiku and Sonnet lose 20–30 points of top-1 from
    2000–04 to 2015–20; Opus is flat (0.73–0.91). That is either memory in the
    small models or older clues being easier. The post-cutoff grids decide it,
    so should 013 report Opus's per-slot accuracy against this 0.8–0.9
    Cryptonite figure as the contamination gap?
+
+   **Answer:** report it, but not as "the gap". Post-cutoff grids are
+   Guardian/Independent/FT and Cryptonite is Times/Telegraph, so per the
+   post-cutoff protocol there is no like-for-like baseline: a difference
+   mixes date with publisher. 013 reports Opus `list/none` and `sample/half`
+   recall on post-cutoff clues next to 011's Cryptonite figures, labelled as
+   publisher-confounded, and its headline is the post-cutoff number on its
+   own, which is the clean one.
