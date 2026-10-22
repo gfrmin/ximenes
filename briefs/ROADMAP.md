@@ -48,13 +48,13 @@ decision it informs, per dollar:
   numbers by ≤ 2 points).
 - **011 ($25) bounds 013 ($60)**: recall at `half` pattern caps per-slot
   accuracy, so 011 can stop 013 early (its own pre-registered threshold)
-  and save most of 012's cost if the answer is no. It also picks the
+  and save most of 013's cost if the answer is no. It also picks the
   proposer, where the wrong choice costs either accuracy or ~3× spend.
 - **Contamination** biases every Cryptonite number upward, more for strong
   models. It matters little for *ranking* proposers on the same clues, a
-  lot for the final claim. So: a cheap year-of-clue probe in 011, the real
-  correction (post-cutoff grids) in 013, which is the single input only the
-  author can supply.
+  lot for the final claim. So: a cheap year-of-clue probe in 011, and the
+  real correction, post-cutoff grids from 012 ($0), in place before the
+  expensive end-to-end run, so 013 is measured on clean data from the start.
 - Numbers are reported with intervals; a result inside its interval of a
   threshold is "ambiguous", and the next cheapest experiment that resolves
   it is bought only if the decision would change.
