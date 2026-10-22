@@ -32,18 +32,23 @@ def _row(day: str) -> str:
                        "sub_publisher": None})
 
 
-def test_postcutoff_filters_by_floor_and_release_date(tmp_path: pathlib.Path) -> None:
+# superseded by brief 012 (D8, report 012): knowledge cutoff + margin replaces release dates
+def test_postcutoff_filters_by_floor_and_knowledge_cutoff(tmp_path: pathlib.Path) -> None:
+    from ximenes.eval import PARAMS
+
     (tmp_path / "synthetic-1-x.jsonl").write_text(
-        "\n".join(_row(d) for d in ("2026-10-01", "2026-10-22", "2026-10-23", "2026-12-01"))
+        "\n".join(_row(d) for d in ("2026-07-31", "2026-08-01", "2026-10-23", "2026-12-01"))
     )
     kept, excluded = load_postcutoff(allow_postcutoff=True, model="m", root=tmp_path,
-                                     released={"m": "2026-01-01"})
-    assert [str(c.date) for c in kept] == ["2026-10-23", "2026-12-01"] and excluded == 2
+                                     cutoffs={"m": "2026-01-31"})
+    assert PARAMS["postcutoff_floor"] == "2026-08-01"
+    assert [str(c.date) for c in kept] == ["2026-08-01", "2026-10-23", "2026-12-01"]
+    assert excluded == 1
     kept, excluded = load_postcutoff(allow_postcutoff=True, model="m", root=tmp_path,
-                                     released={"m": "2026-11-15"})
+                                     cutoffs={"m": "2026-10-31"})  # + 31 days = 2026-12-01
     assert [str(c.date) for c in kept] == ["2026-12-01"] and excluded == 3
 
 
-def test_postcutoff_needs_a_release_date(tmp_path: pathlib.Path) -> None:
+def test_postcutoff_needs_a_knowledge_cutoff(tmp_path: pathlib.Path) -> None:
     with pytest.raises(ValueError):
-        load_postcutoff(allow_postcutoff=True, model="m", root=tmp_path, released={"m": None})
+        load_postcutoff(allow_postcutoff=True, model="m", root=tmp_path, cutoffs={"m": None})

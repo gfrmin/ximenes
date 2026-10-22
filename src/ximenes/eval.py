@@ -20,7 +20,7 @@ from collections import Counter
 from collections.abc import Mapping, Sequence
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict, dataclass
-from datetime import UTC, date, datetime
+from datetime import UTC, date, datetime, timedelta
 from fractions import Fraction
 from typing import Any
 
@@ -56,14 +56,17 @@ POSTCUTOFF = DATA / "postcutoff"
 PARAMS: dict[str, Any] = json.loads((DATA / "eval.json").read_text())
 
 
-def postcutoff_cutoff(model: str, released: Mapping[str, str | None], floor: str) -> date:
-    """Last date a row may carry and still be seen by `model` in training:
-    the later of the global floor and the model's release date. Raises if the
-    model has no release date in data/instruments.json (the author fills it)."""
-    day = released.get(model)
+def postcutoff_cutoff(model: str, cutoffs: Mapping[str, str | None], floor: str,
+                      margin_days: int) -> date:
+    """First date a row may carry and count as unseen by `model` (brief 012:
+    knowledge cutoff plus a margin, never before the global floor; this
+    replaced brief 000's release-date rule). Raises if the model has no
+    knowledge cutoff in data/instruments.json."""
+    day = cutoffs.get(model)
     if day is None:
-        raise ValueError(f"no release date for {model!r}: fill `released` in data/instruments.json")
-    return max(date.fromisoformat(floor), date.fromisoformat(day))
+        raise ValueError(f"no knowledge cutoff for {model!r}: fill `knowledge_cutoff` in "
+                         "data/instruments.json")
+    return max(date.fromisoformat(floor), date.fromisoformat(day) + timedelta(days=margin_days))
 
 
 def load_postcutoff(
@@ -71,19 +74,19 @@ def load_postcutoff(
     allow_postcutoff: bool = False,
     model: str | None = None,
     root: pathlib.Path = POSTCUTOFF,
-    released: Mapping[str, str | None] | None = None,
+    cutoffs: Mapping[str, str | None] | None = None,
 ) -> tuple[tuple[CryptoniteClue, ...], int]:
     """Rows from every `*.jsonl` under data/postcutoff/ (Cryptonite format)
-    dated after `model`'s cutoff, and the count of rows excluded by date."""
+    dated on or after `model`'s first unseen date, and the count excluded."""
     if not allow_postcutoff:
         raise PermissionError("data/postcutoff/ is opened only with allow_postcutoff=True")
     if model is None:
         raise ValueError("post-cutoff rows are filtered per model: pass model=")
-    cutoff = postcutoff_cutoff(
-        model, SETTINGS["released"] if released is None else released, PARAMS["postcutoff_floor"]
-    )
+    first = postcutoff_cutoff(
+        model, SETTINGS["knowledge_cutoff"] if cutoffs is None else cutoffs,
+        PARAMS["postcutoff_floor"], PARAMS["postcutoff_margin_days"])
     rows = tuple(c for f in sorted(root.glob("*.jsonl")) for c in read_cryptonite(f))
-    kept = tuple(c for c in rows if c.date > cutoff)
+    kept = tuple(c for c in rows if c.date >= first)
     return kept, len(rows) - len(kept)
 
 
