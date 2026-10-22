@@ -423,3 +423,18 @@ and Opus `sample/half` at 150 clues; Opus `sample/none` at 50; Sonnet
 `list/none`, plus Sonnet with thinking off at `sample/half` and `list/half`,
 which cost 20–35× less). The pick and early-stop rules are unchanged. Smoke tests so
 far: $8.74. Say "go 011" in opus's session.
+
+**Results (opus, 2026-10-22, `reports/011-recall-by-proposer.md`):** the
+pick at `half` is Opus · sample (gold-in-5 **1.000** on 150 clues, $0.026
+per clue), so 013 runs in full. Open questions:
+
+1. **Round-1 proposer for 013.** Opus `sample/none` measured 0.92 (gold-in-5),
+   but only on 50 clues, all from 2000–09 (the first 50 of a date-ordered
+   sample; my error). Opus `list/none` is 0.84 at 1/6 the price. Use Opus
+   `sample` for round 1 (~$1.1 per 30-slot grid), or `list` (~$0.20), or
+   measure `sample/none` on the other 100 clues first (~$3.80)?
+2. **Contamination.** Haiku and Sonnet lose 20–30 points of top-1 from
+   2000–04 to 2015–20; Opus is flat (0.73–0.91). That is either memory in the
+   small models or older clues being easier. The post-cutoff grids decide it,
+   so should 013 report Opus's per-slot accuracy against this 0.8–0.9
+   Cryptonite figure as the contamination gap?

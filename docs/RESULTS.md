@@ -1,7 +1,7 @@
 # Results so far (2026-10-22)
 
 One page, numbers only; each links to its report. All runs replay bit for
-bit from their logs. Total spend across briefs 000–010: **$103.18**.
+bit from their logs. Total spend across briefs 000–011: **$122.87**.
 
 ## The chain
 
@@ -18,6 +18,7 @@ bit from their logs. Total spend across briefs 000–010: **$103.18**.
 | 008 | Does a thesaurus add evidence for synonym leaves? | **Barely.** Moby + Open English WordNet attest 39–52% of synonym leaves, but on 176 held-out clues the posterior moves within noise (ECE 0.074 → 0.063; P ≥ 0.9 answers 23 → 25 clues). Nearly redundant with the Haiku judge. Half the commonest unattested "synonyms" in correct answers are missing abbreviations. $0. | `reports/008-synonym-attestation.md` |
 | 009 | Do missing abbreviations explain the synonym leaves? | **A little.** Wikipedia's crossword abbreviations (whole list, pre-project revision) turn ~9% of synonym leaves into reviewed table hits; Ok rises 0.5–1.4 points (val 8.9 → 9.7%); proven slots on 006's grids stay 0. Mutants 0 / 2,926. $0. | `reports/009-abbreviations.md` |
 | 010 | Does hard commitment cost grids? | **No, not on fixed candidates.** Round-1 records of all 40 logged grids: hard 0.557 / soft 0.557 / soft-annealed 0.558 clues; identical entries in all 1,176 slots. Gold is a candidate in only 57% of slots and every regime finds it in 97% of those: the ceiling is candidate generation. Clamping even at 006's raw threshold costs nothing offline, so 006's loss came through re-proposal after wrong commits. Appendix: gold is among the 20 vote samples for only 64–70% of clues; raising m from 3 to 5 adds 3–6 points. $0. | `reports/010-soft-evidence.md` |
+| 011 | Which proposer, and how much do crossing letters help? | 150 fresh test clues, structured output: with half the letters, **Opus sampling has gold in its top 5 for 150/150** ($0.026/clue; Haiku 0.953 at $0.007); with no letters, Opus ~0.88–0.92 vs Haiku 0.67. Pick for 013: Opus sample at `half`; early stop not triggered. Haiku and Sonnet fall 20–30 points from old to new clues, Opus is flat (contamination or difficulty: 013 decides). $19.69 incl. smoke tests. | `reports/011-recall-by-proposer.md` |
 
 ## What the chain shows
 
