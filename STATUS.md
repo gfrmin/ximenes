@@ -4,11 +4,13 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-22 ~11:00 UTC
-- **Working on:** nothing; brief 010 done (`reports/010-soft-evidence.md`).
-  Claims released. Waiting for the next brief.
+- **Updated:** 2026-10-22 ~12:00 UTC
+- **Working on:** brief 011 (recall by proposer). Claim: `src/ximenes/{proposers,instruments,prompts}.py`,
+  `data/instruments.json`, `data/eval.json` (recall), `tests/test_011_*`, `reports/011*`.
+  The author chose **build + smoke test only** for now (AskUserQuestion, 2026-10-22): no full run
+  until the author approves it after seeing the smoke cost.
 - **Running jobs:** none.
-- **Blocked on:** nothing.
+- **Blocked on:** the author's go for the full run.
 
 ## fable
 

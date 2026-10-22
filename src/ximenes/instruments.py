@@ -25,6 +25,8 @@ from .prompts import (
     FORMALISE_CLUE_USER,
     FORMALISE_USER,
     JUDGES,
+    LIST_PATTERN_V1,
+    LIST_V1,
     formalise_clue_system,
     formalise_system,
 )
@@ -35,8 +37,10 @@ Cost = dict[str, Json]
 PROPOSE_ANSWERS = "propose_answers"
 SETTINGS: dict[str, Json] = json.loads((DATA / "instruments.json").read_text())
 
-PROMPTS = {"answer-only-v1": ANSWER_ONLY_V1, "answer-pattern-v1": ANSWER_PATTERN_V1}
+PROMPTS = {"answer-only-v1": ANSWER_ONLY_V1, "answer-pattern-v1": ANSWER_PATTERN_V1,
+           "list-v1": LIST_V1, "list-pattern-v1": LIST_PATTERN_V1}
 PROPOSE_PATTERN = "propose_pattern"
+PROPOSE_LIST = "propose_list"
 FORMALISE_GOLD = "formalise_gold"
 FORMALISE_CLUE = "formalise_clue"
 JUDGE_SYNONYM = "judge_synonym"
@@ -355,6 +359,9 @@ def anthropic_backend() -> Instrument:
             messages = sample_concurrently(lambda: sample(model, inp), inp["k"],
                                            SETTINGS["concurrency"]["sample_workers"])
             output: Json = [_first_line(m) for m in messages]
+        elif instrument == PROPOSE_LIST:
+            messages = [sample(model, inp)]
+            output = "".join(b.text for b in messages[0].content if b.type == "text")
         elif instrument == FORMALISE_GOLD:
             messages = [formalise(model, inp)]
             output = _expression(messages[0])
@@ -538,3 +545,16 @@ def propose_answers(
     }
     output, _ = backend(PROPOSE_ANSWERS, model, inp)
     return list(output)
+
+
+def propose_list(clue_text: str, enumeration: str, pattern: str | None, model: str, *,
+                 backend: Instrument) -> str:
+    """Brief 011: one call asking for a ranked list of candidates (raw text;
+    parse with `ximenes.proposers.parse_list`). `pattern` None = no letters."""
+    cfg = SETTINGS[PROPOSE_LIST]
+    inp = {"clue_text": clue_text, "enumeration": enumeration,
+           **({"pattern": pattern} if pattern is not None else {}),
+           "prompt": cfg["prompts"]["none" if pattern is None else "pattern"],
+           "n": cfg["n"], "max_tokens": cfg["max_tokens"], "effort": cfg["effort"]}
+    output, _ = backend(PROPOSE_LIST, model, inp)
+    return str(output)
