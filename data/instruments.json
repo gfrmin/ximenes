@@ -1,5 +1,5 @@
 {
-  "source": "prices: claude-api skill model table (cached 2026-10-06), USD per million tokens, first-party API; max_tokens per skill default for non-streaming requests; effort/retries chosen 2026-10-21 for brief 000; ollama: ollama.com cloud, free tier per author 2026-10-21 (price 0), retry delays chosen 2026-10-21; ollama retry_status: HTTP rate-limit and server-error codes (RFC 9110, RFC 6585); ollama timeout_seconds: chosen 2026-10-21 (client default is no timeout, which hung a run); released: model release dates (ISO) from public announcements, checked 2026-10-21 by fable for the author (QUESTIONS.md brief 000); claude-fable-5-1 exact date not found, 2026-10-21 used as an upper bound (date known available); null blocks post-cutoff use of that model; formalise_gold settings chosen 2026-10-21 for brief 001 (Sonnet 5.5 per the brief, effort low to limit spend); cache_price_multipliers: claude-api skill (cache reads ~0.1x, 5-minute writes ~1.25x base input); brief 002: concurrency.sample_workers (concurrent samples per clue, comms 2026-10-21; scheduling only, so kept out of the logged input), formalise_clue settings (Sonnet, effort low), judges (Haiku 5.5 effort low per briefs/002-proposer-loop.md; max_tokens and reason_chars chosen 2026-10-21); solve_models: brief 002 (proposer fixed at Haiku 5.5 through 002-003 per QUESTIONS 000 item 3; formaliser Sonnet 5.5); brief 003: judge_indicator (Haiku 5.5, effort low, per briefs/003-calibration.md); brief 004: propose_pattern (Haiku, same settings as propose_answers, pattern of crossing letters in the prompt); brief 011: propose_list (list-v1 / list-pattern-v1, up to n=10 candidates, effort low, max_tokens as the other proposers) per briefs/011-recall-by-proposer.md",
+  "source": "prices: claude-api skill model table (cached 2026-10-06), USD per million tokens, first-party API; max_tokens per skill default for non-streaming requests; effort/retries chosen 2026-10-21 for brief 000; ollama: ollama.com cloud, free tier per author 2026-10-21 (price 0), retry delays chosen 2026-10-21; ollama retry_status: HTTP rate-limit and server-error codes (RFC 9110, RFC 6585); ollama timeout_seconds: chosen 2026-10-21 (client default is no timeout, which hung a run); released: model release dates (ISO) from public announcements, checked 2026-10-21 by fable for the author (QUESTIONS.md brief 000); claude-fable-5-1 exact date not found, 2026-10-21 used as an upper bound (date known available); null blocks post-cutoff use of that model; formalise_gold settings chosen 2026-10-21 for brief 001 (Sonnet 5.5 per the brief, effort low to limit spend); cache_price_multipliers: claude-api skill (cache reads ~0.1x, 5-minute writes ~1.25x base input); brief 002: concurrency.sample_workers (concurrent samples per clue, comms 2026-10-21; scheduling only, so kept out of the logged input), formalise_clue settings (Sonnet, effort low), judges (Haiku 5.5 effort low per briefs/002-proposer-loop.md; max_tokens and reason_chars chosen 2026-10-21); solve_models: brief 002 (proposer fixed at Haiku 5.5 through 002-003 per QUESTIONS 000 item 3; formaliser Sonnet 5.5); brief 003: judge_indicator (Haiku 5.5, effort low, per briefs/003-calibration.md); brief 004: propose_pattern (Haiku, same settings as propose_answers, pattern of crossing letters in the prompt); brief 011: propose_list (list-v1 / list-pattern-v1, up to n=10 candidates, effort low, max_tokens as the other proposers) per briefs/011-recall-by-proposer.md; formats (brief 011, comms 20261022T1450Z: fable's choice after the author asked for better extraction than the last line): structured-output JSON schemas sent as output_config.format; `answer` for sample cells, `candidates` (the prompt asks for up to n) for list cells; the first property is the extracted field",
   "tokens_per_price_unit": 1000000,
   "prices_usd": {
     "claude-fable-5-1": {
@@ -112,5 +112,34 @@
     "n": 10,
     "max_tokens": 16000,
     "effort": "low"
+  },
+  "formats": {
+    "answer": {
+      "type": "object",
+      "properties": {
+        "answer": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "answer"
+      ],
+      "additionalProperties": false
+    },
+    "candidates": {
+      "type": "object",
+      "properties": {
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "candidates"
+      ],
+      "additionalProperties": false
+    }
   }
 }

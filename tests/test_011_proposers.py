@@ -97,3 +97,16 @@ def test_replay_of_logged_run_reproduces_every_number(tmp_path: pathlib.Path) ->
     assert cell["n"] == 3 and cell["usd_per_clue"] == pytest.approx(0.001)
     assert cell["gold_in"]["1"] == pytest.approx(1 / 3)
     assert cell["gold_in"]["all"] == pytest.approx(2 / 3)  # EMU is never listed
+
+
+def test_structured_reply_extraction() -> None:
+    from types import SimpleNamespace
+
+    from ximenes.instruments import _formatted
+
+    def msg(text: str) -> SimpleNamespace:
+        return SimpleNamespace(content=[SimpleNamespace(type="text", text=text)])
+
+    assert _formatted(msg('{"answer": "LIGHTER"}'), {"format": "answer"}) == "LIGHTER"
+    assert _formatted(msg('{"candidates": ["A", "B"]}'), {"format": "candidates"}) == "A\nB"
+    assert _formatted(msg("not json"), {"format": "answer"}) == ""

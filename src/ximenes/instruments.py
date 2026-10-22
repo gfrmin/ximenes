@@ -310,6 +310,18 @@ def _answer_line(message: Any) -> str:
     return next((ln.strip() for ln in reversed(text.splitlines()) if ln.strip()), "")
 
 
+def _formatted(message: Any, inp: Mapping[str, Json]) -> str:
+    """Brief 011: a structured-output reply's answer, or its candidates one
+    per line ("" on a refusal or a reply that is not the schema's JSON)."""
+    text = "".join(b.text for b in message.content if b.type == "text")
+    try:
+        data = json.loads(text)
+    except ValueError:
+        return ""
+    value = data.get(next(iter(SETTINGS["formats"][inp["format"]]["properties"])), "")
+    return "\n".join(map(str, value)) if isinstance(value, list) else str(value)
+
+
 def anthropic_backend() -> Instrument:
     """Live backend. Needs the `llm` extra and ANTHROPIC_API_KEY (or another
     credential the SDK resolves). No sampling parameters are sent: current
@@ -320,10 +332,12 @@ def anthropic_backend() -> Instrument:
 
     def sample(model: str, inp: Mapping[str, Json]) -> Any:
         prompt = PROMPTS[inp["prompt"]].format(**inp)
+        fmt = ({"format": {"type": "json_schema", "schema": SETTINGS["formats"][inp["format"]]}}
+               if inp.get("format") else {})
         return client.messages.create(
             model=model,
             max_tokens=inp["max_tokens"],
-            output_config={"effort": inp["effort"]},
+            output_config={"effort": inp["effort"], **fmt},
             messages=[{"role": "user", "content": prompt}],
         )
 
@@ -361,10 +375,12 @@ def anthropic_backend() -> Instrument:
         if instrument in (PROPOSE_ANSWERS, PROPOSE_PATTERN):
             messages = sample_concurrently(lambda: sample(model, inp), inp["k"],
                                            SETTINGS["concurrency"]["sample_workers"])
-            output: Json = [_answer_line(m) for m in messages]
+            output: Json = [_formatted(m, inp) if inp.get("format") else _answer_line(m)
+                            for m in messages]
         elif instrument == PROPOSE_LIST:
             messages = [sample(model, inp)]
-            output = "".join(b.text for b in messages[0].content if b.type == "text")
+            output = (_formatted(messages[0], inp) if inp.get("format") else
+                      "".join(b.text for b in messages[0].content if b.type == "text"))
         elif instrument == FORMALISE_GOLD:
             messages = [formalise(model, inp)]
             output = _expression(messages[0])
@@ -526,18 +542,20 @@ def judge(
 
 
 def propose_pattern(
-    clue_text: str, enumeration: str, pattern: str, k: int, model: str, *, backend: Instrument
+    clue_text: str, enumeration: str, pattern: str, k: int, model: str, *, backend: Instrument,
+    fmt: str | None = None,
 ) -> list[str]:
     """Brief 004: k answer samples given the letters known from crossers
     (pattern like "S?A?F")."""
     inp = {"clue_text": clue_text, "enumeration": enumeration, "pattern": pattern, "k": k,
-           **SETTINGS[PROPOSE_PATTERN]}
+           **SETTINGS[PROPOSE_PATTERN], **({"format": fmt} if fmt else {})}
     output, _ = backend(PROPOSE_PATTERN, model, inp)
     return list(output)
 
 
 def propose_answers(
-    clue_text: str, enumeration: str, k: int, model: str, *, backend: Instrument
+    clue_text: str, enumeration: str, k: int, model: str, *, backend: Instrument,
+    fmt: str | None = None,
 ) -> list[str]:
     """k independent answer samples for one clue. `enumeration` as in '4,3-2'."""
     inp = {
@@ -545,19 +563,21 @@ def propose_answers(
         "enumeration": enumeration,
         "k": k,
         **SETTINGS[PROPOSE_ANSWERS],
+        **({"format": fmt} if fmt else {}),  # brief 011; absent from every earlier log
     }
     output, _ = backend(PROPOSE_ANSWERS, model, inp)
     return list(output)
 
 
 def propose_list(clue_text: str, enumeration: str, pattern: str | None, model: str, *,
-                 backend: Instrument) -> str:
+                 backend: Instrument, fmt: str | None = None) -> str:
     """Brief 011: one call asking for a ranked list of candidates (raw text;
     parse with `ximenes.proposers.parse_list`). `pattern` None = no letters."""
     cfg = SETTINGS[PROPOSE_LIST]
     inp = {"clue_text": clue_text, "enumeration": enumeration,
            **({"pattern": pattern} if pattern is not None else {}),
            "prompt": cfg["prompts"]["none" if pattern is None else "pattern"],
-           "n": cfg["n"], "max_tokens": cfg["max_tokens"], "effort": cfg["effort"]}
+           "n": cfg["n"], "max_tokens": cfg["max_tokens"], "effort": cfg["effort"],
+           **({"format": fmt} if fmt else {})}
     output, _ = backend(PROPOSE_LIST, model, inp)
     return str(output)

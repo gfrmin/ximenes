@@ -160,12 +160,14 @@ def one(c: CryptoniteClue, index: int, model: str, kind: str, pattern: str,
     gold = normalise(c.answer)
     pat = half_pattern(gold, index) if pattern == "half" else None
     enum = format_enumeration(c.enumeration)
+    fmt = CFG["formats"][kind]
     if kind == "list":
-        raw = parse_list(propose_list(c.text, enum, pat, model, backend=backend))
+        raw = parse_list(propose_list(c.text, enum, pat, model, backend=backend, fmt=fmt))
     elif pat is None:
-        raw = propose_answers(c.text, enum, CFG["k"][model], model, backend=backend)
+        raw = propose_answers(c.text, enum, CFG["k"][model], model, backend=backend, fmt=fmt)
     else:
-        raw = propose_pattern(c.text, enum, pat, CFG["k"][model], model, backend=backend)
+        raw = propose_pattern(c.text, enum, pat, CFG["k"][model], model, backend=backend,
+                              fmt=fmt)
     cands, enum_fail, pattern_fail = candidates(raw, kind, clue, pat)
     return {"index": index, "rank": rank_of(cands, gold), "n_raw": len(raw),
             "enum_fail": enum_fail, "pattern_fail": pattern_fail, "n_cands": len(cands)}
