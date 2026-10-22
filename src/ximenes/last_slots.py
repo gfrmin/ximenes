@@ -170,8 +170,16 @@ def evaluate(names: Sequence[str], policy: str, args: argparse.Namespace) -> dic
                 "stop": stop, "slots": final_slots(g), "budget": budget,
                 "fully_correct": g.checkpoints[-1]["letters_correct"] == 1}
 
+    def safe(name: str) -> dict[str, Any]:
+        """A grid that fails (API refusal, or a call missing from a replayed
+        log) is recorded as unfinished; the other grids' results are kept."""
+        try:
+            return one(name)
+        except Exception as e:  # noqa: BLE001 - recorded, never silently dropped
+            return {"puzzle": name, "unfinished": f"{type(e).__name__}: {e}"}
+
     with ThreadPoolExecutor(max_workers=max(1, min(len(names), E2E["grid_workers"]))) as pool:
-        out = list(pool.map(one, names))
+        out = list(pool.map(safe, names))
     doc = {"run_id": run_id, "policy": policy, "log": str(log_path), "grids": out,
            "params": CFG, "proposer": E2E["proposer"]}
     runs.mkdir(parents=True, exist_ok=True)
@@ -197,9 +205,12 @@ def main(argv: Sequence[str] | None = None) -> int:
             n.split("-")[0] for n in names))}))
         return 0
     doc = evaluate(names[:args.n], args.policy, args)
-    print(json.dumps({"run_id": doc["run_id"], "usd": [g["usd"] for g in doc["grids"]],
-                      "fully_correct": sum(g["fully_correct"] for g in doc["grids"]),
-                      "stops": dict(Counter(g["stop"] for g in doc["grids"]))}))
+    done = [g for g in doc["grids"] if "unfinished" not in g]
+    print(json.dumps({"run_id": doc["run_id"], "finished": len(done),
+                      "unfinished": len(doc["grids"]) - len(done),
+                      "usd": [g["usd"] for g in done],
+                      "fully_correct": sum(g["fully_correct"] for g in done),
+                      "stops": dict(Counter(g["stop"] for g in done))}))
     return 0
 
 
