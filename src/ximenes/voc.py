@@ -217,3 +217,56 @@ def calibrated(marginal: float, table: dict[str, Any]) -> float:
 def commit_rule(marginal: float, table: dict[str, Any] | None, tau: float) -> bool:
     """Brief 006's rule: commit if g(marginal) >= tau; table None = 005's rule."""
     return (marginal if table is None else calibrated(marginal, table)) >= tau
+
+
+# --- brief 007: commit-time calibration -------------------------------------------------
+
+MARGINAL_CALIBRATION_STEPS = DATA / "marginal-calibration-steps.json"
+
+
+def step_rows(run: dict[str, Any]) -> list[tuple[str, float, bool]]:
+    """(grid, raw marginal, top candidate right?) for every uncommitted slot at
+    every checkpoint: the marginal a commit decision actually sees."""
+    if run.get("grids_seed") != VOC["fit_seed"]:
+        raise FitOnEvaluation("the calibration is fitted on fit-seed grids only")
+    return [(g["puzzle"], m, bool(y)) for g in run["grids"] for cp in g["checkpoints"]
+            for m, y, committed in cp["slot_tops"].values() if not committed]
+
+
+def _blocks(pts: list[tuple[float, bool]]) -> list[dict[str, Any]]:
+    from .posterior import _pav
+
+    pts = sorted(pts)
+    fitted = _pav([float(y) for _m, y in pts], [1.0] * len(pts))
+    blocks: list[dict[str, Any]] = []
+    for (m, y), p in zip(pts, fitted, strict=True):
+        if blocks and blocks[-1]["calibrated"] == p:
+            b = blocks[-1]
+            b["hi"], b["count"], b["correct"] = m, b["count"] + 1, b["correct"] + int(y)
+        else:
+            blocks.append({"lo": m, "hi": m, "count": 1, "correct": int(y), "calibrated": p})
+    return blocks
+
+
+def fit_marginal_calibration_steps(run: dict[str, Any], folds: int) -> dict[str, Any]:
+    """PAV on commit-time marginals, with grouped (by grid) k-fold CV: per bin
+    of the held-out predictions, mean predicted vs observed."""
+    rows = step_rows(run)
+    grids = sorted({g for g, _m, _y in rows})
+    held: list[tuple[float, float, bool]] = []  # (raw, predicted, right)
+    for i in range(folds):
+        test = set(grids[i::folds])
+        table = {"blocks": _blocks([(m, y) for g, m, y in rows if g not in test])}
+        held += [(m, calibrated(m, table), y) for g, m, y in rows if g in test]
+    bins = []
+    edges = [b / PARAMS["bins"] for b in range(PARAMS["bins"] + 1)]
+    for lo, hi in zip(edges, edges[1:], strict=False):
+        sel = [(p, y) for m, p, y in held if lo <= m < hi or (hi == edges[-1] and m == hi)]
+        if sel:
+            bins.append({"lo": lo, "hi": hi, "n": len(sel),
+                         "cv_predicted": sum(p for p, _y in sel) / len(sel),
+                         "observed": sum(y for _p, y in sel) / len(sel)})
+    brier = sum((p - y) * (p - y) for _m, p, y in held) / len(held)
+    return {"fit_seed": run["grids_seed"], "fitted_on": run["run_id"], "n_rows": len(rows),
+            "n_grids": len(grids), "folds": folds, "cv_brier": brier, "cv_bins": bins,
+            "blocks": _blocks([(m, y) for _g, m, y in rows])}
