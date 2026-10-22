@@ -318,3 +318,18 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
    not the threshold: a committed slot clamps its letters. A later brief
    can test soft evidence (keep BP marginals, never clamp, re-propose on
    patterns weighted by marginal) for free on logged grids. Not now.
+
+## Brief 008
+
+1. **Abbreviations hiding as synonyms.** About half of the commonest
+   unattested "synonym" pairs among correct answers are standard
+   abbreviations missing from the table (quietly → P, lake → L, women → W,
+   councillor → CR, French → FR, turn → U, concerts → C, service → RAF).
+   Adding sourced, reviewed abbreviations would make those steps mechanical,
+   a direct lever on *proven*. Next brief? It needs a published source
+   (fable's rule), e.g. a crossword abbreviations list with a licence.
+
+2. **Thesaurus attestation is nearly redundant with the judge** (2×2: at
+   most 4 points either way). Keep it as a recorded field and stop there, or
+   test "two thesauri agree" as a *reviewed* status (D4) on a fresh sample?
+   The data says the gain would be small.

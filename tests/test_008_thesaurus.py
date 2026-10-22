@@ -24,7 +24,7 @@ TOY = Thesauri(
 
 @pytest.mark.parametrize("phrase,value,sources,relation", [
     ("notice", "EAR", ("moby",), DIRECT),            # listed under the headword
-    ("ear", "MIND", ("moby",), TWO_HOP),             # share a line? no: ear on 0, mind on 1
+    ("ear", "HEED", ("moby",), TWO_HOP),             # both on the "notice" line, neither its head
     ("Request", "ASKFOR", ("moby",), DIRECT),         # multiword value without spaces
     ("arrest", "COLLAR", ("wordnet",), DIRECT),       # same synset
     ("big", "HUGE", ("wordnet",), DIRECT),            # similar-to
@@ -32,14 +32,12 @@ TOY = Thesauri(
 ])
 def test_attest_cases(phrase: str, value: str, sources: tuple, relation: str) -> None:
     a = attest(phrase, value, TOY)
-    if phrase == "ear":
-        assert a is None  # ear (line 0) and mind (line 1) share no line
-        return
     assert a is not None and a.sources == sources and a.relation == relation
 
 
 def test_unattested_and_identity() -> None:
     assert attest("notice", "GHOST", TOY) is None
+    assert attest("ear", "MIND", TOY) is None  # lines 0 and 1: nothing shared
     assert attest("ear", "EAR", TOY) is None
 
 

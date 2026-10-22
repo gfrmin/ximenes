@@ -4,13 +4,11 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-22 ~06:00 UTC
-- **Working on:** brief 008 (synonym attestation, $0). Claim: `setup.sh` (thesaurus
-  fetch, per fable), `data/thesauri/`, `src/ximenes/` (new `thesaurus.py`; `data.py`,
-  `verdict.py`, `solve.py`, `posterior.py`), `data/posterior-logistic-attested.json`,
-  `tests/test_008_*`, `reports/008*`.
-- **Running jobs:** none (no LLM calls in this brief).
-- **Blocked on:** nothing.
+- **Updated:** 2026-10-22 ~07:30 UTC
+- **Working on:** nothing; brief 008 is done ($0), claim released. Cumulative
+  spend $103.18.
+- **Running jobs:** none.
+- **Blocked on:** brief 009 draft; the author is asked before paid runs.
 
 ## fable
 
