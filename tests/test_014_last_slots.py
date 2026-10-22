@@ -65,14 +65,13 @@ def test_stops_when_everything_is_committed() -> None:
 def test_both_policies_share_budget_and_stopping_parameters() -> None:
     docs = [json.loads(p.read_text())
             for p in sorted(pathlib.Path("runs").glob("*-last-slots-*-anthropic-*.json"))]
-    full = [d for d in docs if d["policy"] == "full" and len(d["grids"]) == CFG["eval_grids"]]
-    front = [d for d in docs if d["policy"] == "frontier"
-             and len(d["grids"]) == CFG["eval_grids"]]
-    if not (full and front):
+    arms = [[d for d in docs if d["policy"] == p and len(d["grids"]) == CFG["eval_grids"]]
+            for p in ("full", "frontier", "frontier_calibrated")]
+    if not all(arms):
         pytest.skip("no paired run here")
-    assert full[-1]["params"] == front[-1]["params"] == CFG
-    assert {g["budget"] for d in (full[-1], front[-1]) for g in d["grids"]} == {
-        CFG["budget_usd"]}
+    last = [a[-1] for a in arms]
+    assert all(d["params"] == CFG for d in last)
+    assert {g["budget"] for d in last for g in d["grids"]} == {CFG["budget_usd"]}
 
 
 def test_reserve_is_disjoint_from_013() -> None:

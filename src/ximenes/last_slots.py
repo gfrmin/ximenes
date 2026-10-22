@@ -8,7 +8,7 @@ the budget is spent, or two passes over the uncommitted slots add no new
 candidate. Evaluated on 20 fresh grids from 013's reserve.
 
     python -m ximenes.last_slots split
-    python -m ximenes.last_slots evaluate --policy full|frontier [--n N]
+    python -m ximenes.last_slots evaluate --policy full|frontier|frontier_calibrated [--n N]
 """
 
 from __future__ import annotations
@@ -31,7 +31,7 @@ from .e2e import FrontierRun, e2e_tables, final_slots, grids, split
 from .eval import PARAMS
 from .gridsolve import fits, load_grid, pattern_of
 from .instruments import SETTINGS, propose_list, propose_pattern
-from .policy import GridRun, _backend, load_tables
+from .policy import GridRun, Tables, _backend, load_tables
 from .proposers import parse_list
 
 CFG = PARAMS["last_slots"]
@@ -127,6 +127,15 @@ class PersistentFrontier(Persistent, FrontierRun):
         return len(set(new) - set(old))
 
 
+class CalibratedFrontier(PersistentFrontier):
+    """fable's third arm: the frontier baseline with priors from 013's fitted
+    vote-only posterior and OTHER table (no verifier features, no formaliser,
+    no judges): brief 005's vote domain, i.e. the top-m votes."""
+
+    def variables(self) -> dict[str, Any]:
+        return GridRun.variables(self)
+
+
 def evaluate(names: Sequence[str], policy: str, args: argparse.Namespace) -> dict[str, Any]:
     paths = {p.stem: p for p in grids()[0]}
     started = datetime.now(UTC)
@@ -147,8 +156,13 @@ def evaluate(names: Sequence[str], policy: str, args: argparse.Namespace) -> dic
             g: Any = PersistentSolver(name, grid, clues, backend, totals, tables, models,
                                       warm=memo, proposer=E2E["proposer"])
             g.run("voc", gain, gain["rho"]["rho"], budget)
-        else:
+        elif policy == "frontier":
             g = PersistentFrontier(name, grid, clues, backend, totals, load_tables(), models,
+                                   proposer=E2E["proposer"])
+            g.frontier(budget)
+        else:
+            vote_only = Tables(tables.vote, tables.vote, tables.other_vote, tables.other_vote)
+            g = CalibratedFrontier(name, grid, clues, backend, totals, vote_only, models,
                                    proposer=E2E["proposer"])
             g.frontier(budget)
         stop = g.persist(budget)
@@ -168,7 +182,8 @@ def evaluate(names: Sequence[str], policy: str, args: argparse.Namespace) -> dic
 def main(argv: Sequence[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="python -m ximenes.last_slots")
     p.add_argument("step", choices=("split", "evaluate"))
-    p.add_argument("--policy", choices=("full", "frontier"), default="full")
+    p.add_argument("--policy", choices=("full", "frontier", "frontier_calibrated"),
+                   default="full")
     p.add_argument("--n", type=int, default=None)
     p.add_argument("--backend", choices=("anthropic", "stub"), default="anthropic")
     p.add_argument("--log", nargs="*", default=[])
