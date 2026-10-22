@@ -1,7 +1,7 @@
 # Results so far (2026-10-22)
 
 One page, numbers only; each links to its report. All runs replay bit for
-bit from their logs. Total spend across briefs 000–005: **$94.03**.
+bit from their logs. Total spend across briefs 000–006: **$103.18**.
 
 ## The chain
 
@@ -13,6 +13,7 @@ bit from their logs. Total spend across briefs 000–005: **$94.03**.
 | 003 | Can the uncertainty be calibrated and used? | Posterior fitted on a 600-clue val solve, read once on test: **P ≥ 0.9 answers 37.9% of clues at 0.968, ECE 0.027**; above vote share at every coverage; 0.933 at 002's coverage. All 31 of 002's right→wrong answers get P < 0.5. | `reports/003-calibration.md` |
 | 004 | Do crossers help, and what is proven? | Grids reconstructed from Cryptonite clue lists (36/100 unique, 0 ambiguous). 20 grids: **clues 0.712 vs 0.513 solved alone**, letters 0.733, 0 fully correct. Committed slots right **99.1%**; guessed slots 54%. $0.94/grid. | `reports/004-grid.md` |
 | 005 | Which computation next, under a price? | 10 fresh grids: **VOC beats attempt-all at every budget from $0.45**; 0.706 vs 0.605 clues at $0.94; 0.743 at $1.105 where attempt-all is flat; vote-only floor 0.574. Committed slots 100% right; the bottleneck is commitment. | `reports/005-metacomputation.md` |
+| 006 | Can calibration raise commitment? | **No, as specified.** A map fitted on final-state marginals doubled commitment (56% of slots) but committed slots fell to **0.895**, below the 0.99 bar; clues 0.658. Cause: fitted where crossers had settled, applied mid-run. Paired baseline: crossers-first 0.693 vs VOC 0.706 at $0.94 on 005's grids (within noise). | `reports/006-commitment.md` |
 
 ## What the chain shows
 
@@ -24,7 +25,8 @@ bit from their logs. Total spend across briefs 000–005: **$94.03**.
 3. Crossers add 20 points of clues, and committed slots are essentially
    always right (004, 005).
 4. Choosing computations by expected gain per price beats attempting
-   everything, from the point where re-proposals start (005).
+   everything, from the point where re-proposals start (005); paired, it is
+   level with the crossers-first heuristic (006).
 
 ## What it does not show yet
 
@@ -34,5 +36,5 @@ bit from their logs. Total spend across briefs 000–005: **$94.03**.
   threshold), not accuracy, is the bottleneck (006).
 - "Proven" grids: wordplay is rarely fully mechanical while synonyms are
   oracle leaves. A reviewed synonym table is the lever (roadmap 007).
-- Whether VOC beats the crossers-first heuristic in a paired comparison
-  (006, item 1).
+- That VOC beats a good heuristic: paired, it doesn't measurably (006).
+- Calibrated commitment that keeps committed slots ≥ 0.99 (007).

@@ -85,5 +85,7 @@ for the full run.
   from $0.45** (0.706 vs 0.605 clues at $0.94; 0.743 at $1.105); committed
   slots 100% right. `reports/005-metacomputation.md`.
 - Running summary of all numbers: `docs/RESULTS.md`.
-- Next: brief 006 (commitment: calibrate the grid marginal; paired
-  baseline). `briefs/ROADMAP.md`.
+- Brief 006 done (2026-10-22), negative: a final-state calibration map
+  doubled commitment but committed slots fell to 0.895 (bar 0.99). Paired,
+  VOC and crossers-first are level at $0.94. `reports/006-commitment.md`.
+- Next: brief 007 (commit-time calibration, paired live). `briefs/ROADMAP.md`.

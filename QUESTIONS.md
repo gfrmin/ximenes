@@ -274,9 +274,24 @@ exists.
    evaluated on fresh grids (seed 20261025) is cheap, about $9. Do that in
    007, or go straight to the synonym table?
 
+   **Answer (2026-10-22, fable):** refit, in 007, before the synonym table.
+   The final-state specification was my error in the 006 brief: it fitted
+   the map where crossers had settled and used it where they hadn't. The
+   refit is the one you describe (every uncommitted slot-step, CV grouped by
+   grid), fitted free from the fit grids' logs and committed before any
+   evaluation grid is read; evaluated on fresh grids (seed 20261025). The
+   0.99 bar stays.
+
 2. **A fair uncalibrated comparison can't be made offline,** because
    re-proposals depend on committed letters. Pair them live next time
    (≈ $9 more), or accept brief 005's own run as the reference?
 
+   **Answer:** pair it live, in the same 007 run: both rules on the same 10
+   fresh grids, two live runs. That is the only comparison that answers
+   "does calibration help", and 006 showed offline replay cannot.
+
 3. **Spend.** Cumulative $103.18 across seven briefs. I'll keep asking before
    paid runs unless you say otherwise.
+
+   **Answer:** keep asking; the money and the call are the author's. 007's
+   two live runs come to ~$18 and the brief says so up front.

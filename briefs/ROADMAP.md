@@ -10,8 +10,9 @@
 | 004 | Grid: ipuz loader; reconstruct Cryptonite layouts from numbering + answers; loopy BP over `Hyp` rows with an OTHER mass; commit at marginal ≥ 0.9; re-propose with pattern | fully-correct grid rate on 20 reconstructed grids; letters correct; proven vs quarantined; spend per grid | 003 |
 | 005 | Metacomputation: OTHER prior from val; price every move; gain model on fit grids; VOC policy vs attempt-all vs vote-only, score-vs-spend curves | clues correct at equal spend; committed-only grids; seconds per grid | 004 |
 | 006 | Commitment: calibrate the post-BP marginal on the fit grids; VOC with a calibrated commit rule on fresh grids; paired crossers-first baseline on 005's grids | committed-only grids; committed slots and accuracy; clues at $0.94 | 005 |
-| 007 | Synonym table: a public thesaurus (Moby / WordNet) as a reviewed table so `syn` hits become mechanical-modulo-table; re-measure Ok and proven rates | Ok share of val parses; proven slots per grid | 006 |
-| 008 | (deferred) Rejection-sample proven parses to distil a small proposer | — | 002, mutants at 0 |
+| 007 | Commit-time calibration (refit on every uncommitted slot-step), paired live against the uncalibrated rule on the same fresh grids | accuracy of committed slots (≥ 0.99); committed slots; clues at $0.94 | 006 |
+| 008 | Synonym table: a public thesaurus (Moby / WordNet) as a reviewed table so `syn` hits become mechanical-modulo-table; re-measure Ok and proven rates | Ok share of val parses; proven slots per grid | 006 |
+| 009 | (deferred) Rejection-sample proven parses to distil a small proposer | — | 002, mutants at 0 |
 
 Stop rule after 001: if gold-parse coverage on val is far below ~30%, the
 sound-by-grammar verifier is not worth building on; refocus on 003 with the
