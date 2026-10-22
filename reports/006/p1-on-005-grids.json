@@ -1,0 +1,3917 @@
+{
+ "run": "20261022T004531Z-crossers_first-anthropic-6458db27390b41ef8dd2ecdd79d49731",
+ "grids_seed": 20261022,
+ "budget_usd": 0.94,
+ "grids": [
+  {
+   "puzzle": "Times-2006-01-30-cryptic",
+   "checkpoints": [
+    {
+     "move": "proposals",
+     "usd": 0.353112,
+     "seconds": 300.76075294194743,
+     "clues_correct": 0.5,
+     "letters_correct": 0.5,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.37648869999999995,
+     "seconds": 345.7595867649652,
+     "clues_correct": 0.5,
+     "letters_correct": 0.5,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.38500199999999996,
+     "seconds": 366.54015239694854,
+     "clues_correct": 0.5,
+     "letters_correct": 0.5,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3897571999999999,
+     "seconds": 374.92182791396044,
+     "clues_correct": 0.5,
+     "letters_correct": 0.5,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3951615999999999,
+     "seconds": 380.05375987896696,
+     "clues_correct": 0.5,
+     "letters_correct": 0.5,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4280305999999998,
+     "seconds": 434.1303274250822,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4378604999999998,
+     "seconds": 449.39179701614194,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.44847279999999984,
+     "seconds": 462.6570898910868,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.47102849999999985,
+     "seconds": 492.88708398205927,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.48431579999999985,
+     "seconds": 516.3343219570233,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4868098999999999,
+     "seconds": 521.8625273510115,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5045990999999999,
+     "seconds": 539.7502593250247,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5172132999999998,
+     "seconds": 561.0302912239567,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5358241999999999,
+     "seconds": 581.3026351120207,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5465306,
+     "seconds": 604.9209134920384,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5618711,
+     "seconds": 628.8818292000215,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5940746999999998,
+     "seconds": 661.4912265749881,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6207006999999998,
+     "seconds": 702.2073581780423,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6570776999999998,
+     "seconds": 749.2444503430161,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6936598,
+     "seconds": 807.0593265700154,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7037281000000001,
+     "seconds": 826.6512000830262,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7074683000000002,
+     "seconds": 836.9812626710045,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7372601000000002,
+     "seconds": 836.9814117940841,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7501555000000003,
+     "seconds": 861.646790149156,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7910869000000003,
+     "seconds": 932.1471970850835,
+     "clues_correct": 0.5,
+     "letters_correct": 0.4876543209876543,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8150081000000001,
+     "seconds": 982.7443276252015,
+     "clues_correct": 0.5,
+     "letters_correct": 0.4876543209876543,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8405722000000002,
+     "seconds": 1025.4690642211353,
+     "clues_correct": 0.5,
+     "letters_correct": 0.4876543209876543,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8497372000000002,
+     "seconds": 1045.5571850681445,
+     "clues_correct": 0.5,
+     "letters_correct": 0.4876543209876543,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8633600000000001,
+     "seconds": 1066.8781414360856,
+     "clues_correct": 0.5,
+     "letters_correct": 0.48148148148148145,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8906319000000003,
+     "seconds": 1124.4505208811606,
+     "clues_correct": 0.5,
+     "letters_correct": 0.48148148148148145,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8961363000000002,
+     "seconds": 1128.9607518251287,
+     "clues_correct": 0.4666666666666667,
+     "letters_correct": 0.46296296296296297,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9037962000000003,
+     "seconds": 1147.529532114102,
+     "clues_correct": 0.5,
+     "letters_correct": 0.49382716049382713,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9408103000000003,
+     "seconds": 1197.331907298183,
+     "clues_correct": 0.5333333333333333,
+     "letters_correct": 0.5308641975308642,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    }
+   ]
+  },
+  {
+   "puzzle": "Telegraph-2018-07-18-cryptic",
+   "checkpoints": [
+    {
+     "move": "proposals",
+     "usd": 0.29811350000000003,
+     "seconds": 260.9068413558998,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3051663000000001,
+     "seconds": 277.15793377289083,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3114016000000001,
+     "seconds": 291.16550438984996,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.33959760000000005,
+     "seconds": 333.51339751580963,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3492439,
+     "seconds": 355.19665365386754,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3727431,
+     "seconds": 378.9574657959165,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3895334,
+     "seconds": 404.5853363648639,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.39199999999999996,
+     "seconds": 409.7569418938947,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.42975700000000006,
+     "seconds": 479.9645593210007,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4342906000000001,
+     "seconds": 487.53515796293505,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4521418000000001,
+     "seconds": 509.3704594238661,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4701201000000001,
+     "seconds": 536.6014835178503,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4922646000000001,
+     "seconds": 563.6830701018334,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5029164000000002,
+     "seconds": 588.8380183627596,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5281184000000002,
+     "seconds": 617.0400552648352,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5472042000000003,
+     "seconds": 637.6230439108331,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5724158000000001,
+     "seconds": 673.1497876307694,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5781584000000001,
+     "seconds": 688.6164244738175,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5988765999999999,
+     "seconds": 721.6578520659241,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6174346999999998,
+     "seconds": 754.8748922499362,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6247048999999998,
+     "seconds": 776.7677128218347,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6527538999999998,
+     "seconds": 805.7760366958682,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6582936999999999,
+     "seconds": 805.7761588978465,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6810582999999999,
+     "seconds": 837.3171023238683,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6959451999999999,
+     "seconds": 869.6236967389123,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7148959999999999,
+     "seconds": 907.2990302129765,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7125,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7258032,
+     "seconds": 924.0845230888808,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.70625,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7362707999999999,
+     "seconds": 940.4833601019927,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.70625,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7419934999999999,
+     "seconds": 952.0886047390522,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.70625,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7432579999999999,
+     "seconds": 955.2673414660385,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.70625,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7524675,
+     "seconds": 974.1313947270392,
+     "clues_correct": 0.75,
+     "letters_correct": 0.7375,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7618789,
+     "seconds": 987.9203382360865,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.71875,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7803072000000001,
+     "seconds": 1011.730251932051,
+     "clues_correct": 0.75,
+     "letters_correct": 0.74375,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7828912000000001,
+     "seconds": 1018.0299650870729,
+     "clues_correct": 0.75,
+     "letters_correct": 0.74375,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8211831000000002,
+     "seconds": 1067.8050033701002,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.775,
+     "committed": 12,
+     "committed_correct": 12,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8329315000000002,
+     "seconds": 1084.4702473120997,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.79375,
+     "committed": 12,
+     "committed_correct": 12,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8348390000000001,
+     "seconds": 1089.2300717880717,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.79375,
+     "committed": 12,
+     "committed_correct": 12,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8585472000000001,
+     "seconds": 1116.3901752171223,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.8125,
+     "committed": 12,
+     "committed_correct": 12,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8697256000000002,
+     "seconds": 1140.4037228052039,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.8125,
+     "committed": 12,
+     "committed_correct": 12,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8733046000000002,
+     "seconds": 1147.5241711631534,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.8125,
+     "committed": 12,
+     "committed_correct": 12,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8923211000000002,
+     "seconds": 1172.5280110200983,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.8125,
+     "committed": 12,
+     "committed_correct": 12,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9125872000000002,
+     "seconds": 1208.8186503199977,
+     "clues_correct": 0.8214285714285714,
+     "letters_correct": 0.85,
+     "committed": 12,
+     "committed_correct": 12,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9187762000000002,
+     "seconds": 1217.218820640992,
+     "clues_correct": 0.8214285714285714,
+     "letters_correct": 0.85,
+     "committed": 12,
+     "committed_correct": 12,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9418696000000002,
+     "seconds": 1267.5229619190795,
+     "clues_correct": 0.8571428571428571,
+     "letters_correct": 0.88125,
+     "committed": 12,
+     "committed_correct": 12,
+     "committed_only_grid": false
+    }
+   ]
+  },
+  {
+   "puzzle": "Telegraph-2005-12-20-cryptic",
+   "checkpoints": [
+    {
+     "move": "proposals",
+     "usd": 0.3030805,
+     "seconds": 259.67827051499626,
+     "clues_correct": 0.8,
+     "letters_correct": 0.8,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3097884,
+     "seconds": 277.0361703160452,
+     "clues_correct": 0.8,
+     "letters_correct": 0.8,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.311078,
+     "seconds": 280.5456156579894,
+     "clues_correct": 0.8,
+     "letters_correct": 0.8,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.32328559999999995,
+     "seconds": 301.2556022729841,
+     "clues_correct": 0.8,
+     "letters_correct": 0.8,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3537325999999999,
+     "seconds": 354.452499867999,
+     "clues_correct": 0.8,
+     "letters_correct": 0.8,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.38310049999999984,
+     "seconds": 416.43473878107034,
+     "clues_correct": 0.8,
+     "letters_correct": 0.8,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4194622999999999,
+     "seconds": 472.04205171001377,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4396633999999999,
+     "seconds": 496.2156793010654,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4606039999999999,
+     "seconds": 532.5221047930536,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.46627779999999985,
+     "seconds": 538.3625839700107,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.48934089999999986,
+     "seconds": 574.5840168690775,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5037018999999999,
+     "seconds": 594.8628411760437,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5392675999999998,
+     "seconds": 656.3910438260646,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5494511999999998,
+     "seconds": 674.3845160040655,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5685066999999998,
+     "seconds": 703.5962884360342,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5790079999999996,
+     "seconds": 724.6946608950384,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6273469999999997,
+     "seconds": 774.7169822520809,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6313482999999996,
+     "seconds": 774.7170231400523,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6387184999999996,
+     "seconds": 788.3274395180051,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6518788999999998,
+     "seconds": 810.1261283140047,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6582872999999998,
+     "seconds": 816.9507790079806,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6842293999999998,
+     "seconds": 846.4711345639662,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7074175999999998,
+     "seconds": 878.5379089179332,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7238743999999998,
+     "seconds": 913.7887150059105,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7361073999999999,
+     "seconds": 945.8660134449019,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7483502999999999,
+     "seconds": 967.1088337149704,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7538567999999999,
+     "seconds": 974.3367866719491,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7765124999999999,
+     "seconds": 1012.027434509946,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7920654,
+     "seconds": 1032.243166011991,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8155252000000001,
+     "seconds": 1066.3014430829207,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8320875000000001,
+     "seconds": 1091.1667054648278,
+     "clues_correct": 0.8,
+     "letters_correct": 0.80625,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8462581000000001,
+     "seconds": 1112.3258372688433,
+     "clues_correct": 0.8333333333333334,
+     "letters_correct": 0.83125,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8666374000000001,
+     "seconds": 1142.2566894018091,
+     "clues_correct": 0.8333333333333334,
+     "letters_correct": 0.83125,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8687149000000001,
+     "seconds": 1146.6741356418352,
+     "clues_correct": 0.8333333333333334,
+     "letters_correct": 0.83125,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8709649,
+     "seconds": 1151.6867554198252,
+     "clues_correct": 0.8333333333333334,
+     "letters_correct": 0.83125,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8769853,
+     "seconds": 1159.2493852308835,
+     "clues_correct": 0.8333333333333334,
+     "letters_correct": 0.83125,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8897027,
+     "seconds": 1173.8262496349053,
+     "clues_correct": 0.8333333333333334,
+     "letters_correct": 0.84375,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9180082,
+     "seconds": 1222.0946032470092,
+     "clues_correct": 0.8666666666666667,
+     "letters_correct": 0.875,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9222187000000001,
+     "seconds": 1230.2971145129995,
+     "clues_correct": 0.8666666666666667,
+     "letters_correct": 0.875,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9474007000000001,
+     "seconds": 1269.2676440079813,
+     "clues_correct": 0.9,
+     "letters_correct": 0.91875,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    }
+   ]
+  },
+  {
+   "puzzle": "Times-2000-10-18-cryptic",
+   "checkpoints": [
+    {
+     "move": "proposals",
+     "usd": 0.30557350000000005,
+     "seconds": 268.1417829829152,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.4444444444444444,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3145553000000001,
+     "seconds": 285.02665518497815,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.4444444444444444,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3220217,
+     "seconds": 303.6102407509461,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.4444444444444444,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.324646,
+     "seconds": 310.39967036788585,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.4444444444444444,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3383494,
+     "seconds": 330.5191430298146,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.4444444444444444,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3632632,
+     "seconds": 361.8001476168283,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.4444444444444444,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3716714,
+     "seconds": 378.8059164438746,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.4444444444444444,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.40395839999999994,
+     "seconds": 439.6119394157431,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.4444444444444444,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.40858399999999984,
+     "seconds": 450.68555567378644,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.4444444444444444,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4181674999999998,
+     "seconds": 450.68562758073676,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.4444444444444444,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4279653999999998,
+     "seconds": 467.33662297565024,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.4444444444444444,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.44140049999999975,
+     "seconds": 490.12547821062617,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4609672999999997,
+     "seconds": 532.4587474984583,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.48224649999999974,
+     "seconds": 568.721318954369,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.49373719999999977,
+     "seconds": 589.1629233363783,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4957808999999998,
+     "seconds": 593.4403476113803,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5428256999999996,
+     "seconds": 673.3542966744862,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5471030999999997,
+     "seconds": 681.9940614494844,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5847300999999997,
+     "seconds": 743.8926466454286,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5940947999999998,
+     "seconds": 757.4147434664192,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5995510999999999,
+     "seconds": 771.7314737853594,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6441923999999999,
+     "seconds": 834.9762844973593,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6528124999999999,
+     "seconds": 846.8903003743617,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6675331,
+     "seconds": 876.2666976483306,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6869198999999999,
+     "seconds": 912.7601137303282,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6936258999999999,
+     "seconds": 927.6277666302631,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6986659999999999,
+     "seconds": 940.8963643533061,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7037343999999999,
+     "seconds": 945.5730741472798,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43137254901960786,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7289912999999998,
+     "seconds": 993.3381526562735,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43790849673202614,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7314452999999997,
+     "seconds": 997.4849577402929,
+     "clues_correct": 0.5172413793103449,
+     "letters_correct": 0.43790849673202614,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7465158999999998,
+     "seconds": 1025.4114355853526,
+     "clues_correct": 0.5517241379310345,
+     "letters_correct": 0.477124183006536,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7481818999999997,
+     "seconds": 1028.3723259473336,
+     "clues_correct": 0.5517241379310345,
+     "letters_correct": 0.477124183006536,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7501353999999998,
+     "seconds": 1031.4090399843408,
+     "clues_correct": 0.5517241379310345,
+     "letters_correct": 0.477124183006536,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7532468999999998,
+     "seconds": 1040.359252999362,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.5228758169934641,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7806239999999997,
+     "seconds": 1081.670953504392,
+     "clues_correct": 0.6206896551724138,
+     "letters_correct": 0.5686274509803921,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7842099999999996,
+     "seconds": 1090.3324986203806,
+     "clues_correct": 0.6206896551724138,
+     "letters_correct": 0.5686274509803921,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8042095999999995,
+     "seconds": 1119.9806646044017,
+     "clues_correct": 0.6206896551724138,
+     "letters_correct": 0.5686274509803921,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8098692999999996,
+     "seconds": 1129.8204704163945,
+     "clues_correct": 0.6551724137931034,
+     "letters_correct": 0.6078431372549019,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    }
+   ]
+  },
+  {
+   "puzzle": "Telegraph-2002-03-01-cryptic",
+   "checkpoints": [
+    {
+     "move": "proposals",
+     "usd": 0.3549764999999999,
+     "seconds": 284.1072752540931,
+     "clues_correct": 0.46875,
+     "letters_correct": 0.45,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.39087409999999995,
+     "seconds": 344.00809760711854,
+     "clues_correct": 0.46875,
+     "letters_correct": 0.45,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4253766,
+     "seconds": 344.00836615706794,
+     "clues_correct": 0.46875,
+     "letters_correct": 0.4375,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.43876180000000004,
+     "seconds": 360.2878663960728,
+     "clues_correct": 0.4375,
+     "letters_correct": 0.4125,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4420393,
+     "seconds": 365.33099829003913,
+     "clues_correct": 0.4375,
+     "letters_correct": 0.4125,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4483902,
+     "seconds": 376.1343700810685,
+     "clues_correct": 0.4375,
+     "letters_correct": 0.4125,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4658573,
+     "seconds": 415.0884470610181,
+     "clues_correct": 0.4375,
+     "letters_correct": 0.4125,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4714220999999999,
+     "seconds": 422.20271721394965,
+     "clues_correct": 0.4375,
+     "letters_correct": 0.4125,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5024911999999999,
+     "seconds": 473.9355341439368,
+     "clues_correct": 0.46875,
+     "letters_correct": 0.43125,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5305528999999999,
+     "seconds": 520.5055198608898,
+     "clues_correct": 0.46875,
+     "letters_correct": 0.43125,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5495699999999999,
+     "seconds": 550.2257387608406,
+     "clues_correct": 0.46875,
+     "letters_correct": 0.43125,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5621949,
+     "seconds": 570.7222024028888,
+     "clues_correct": 0.46875,
+     "letters_correct": 0.43125,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5691323,
+     "seconds": 579.6762713539065,
+     "clues_correct": 0.46875,
+     "letters_correct": 0.43125,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5923189000000002,
+     "seconds": 612.6425879969029,
+     "clues_correct": 0.46875,
+     "letters_correct": 0.43125,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5963531000000002,
+     "seconds": 624.2698562067817,
+     "clues_correct": 0.46875,
+     "letters_correct": 0.43125,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6101960000000002,
+     "seconds": 644.7792660017731,
+     "clues_correct": 0.5,
+     "letters_correct": 0.45,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6125667000000001,
+     "seconds": 652.9825231286814,
+     "clues_correct": 0.5,
+     "letters_correct": 0.45,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6344508000000001,
+     "seconds": 677.9320322886342,
+     "clues_correct": 0.5,
+     "letters_correct": 0.45,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6490802000000001,
+     "seconds": 698.5636956036324,
+     "clues_correct": 0.5,
+     "letters_correct": 0.45,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6663908,
+     "seconds": 725.5950862067402,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.49375,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6900018999999998,
+     "seconds": 768.1855483647087,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.49375,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7044244,
+     "seconds": 794.8470799886854,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.49375,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7268438000000002,
+     "seconds": 833.0737480345415,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.49375,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7611124000000002,
+     "seconds": 880.2378083585645,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.49375,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7823474000000002,
+     "seconds": 913.3955461724545,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.5,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8024847000000002,
+     "seconds": 936.6121192424907,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.5,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8091260000000002,
+     "seconds": 950.1841868024203,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.5,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8312611000000003,
+     "seconds": 983.442989776493,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.5,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8469172000000003,
+     "seconds": 1005.6264511594782,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.5,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8516276000000003,
+     "seconds": 1016.7372304674936,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.5,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8535368000000002,
+     "seconds": 1020.6799923804356,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.5,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8637136000000003,
+     "seconds": 1039.0440543154255,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.5,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8873510000000003,
+     "seconds": 1077.8245894524734,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.5,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8974815000000004,
+     "seconds": 1091.1124449924682,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.5,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9218266000000004,
+     "seconds": 1133.0752734675189,
+     "clues_correct": 0.53125,
+     "letters_correct": 0.5,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9443336000000004,
+     "seconds": 1173.197861380584,
+     "clues_correct": 0.5625,
+     "letters_correct": 0.525,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    }
+   ]
+  },
+  {
+   "puzzle": "Telegraph-2014-06-14-cryptic",
+   "checkpoints": [
+    {
+     "move": "proposals",
+     "usd": 0.23358700000000002,
+     "seconds": 216.40251742507098,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.2517473,
+     "seconds": 241.51197273714934,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.25493530000000003,
+     "seconds": 249.9162600301206,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.25758400000000004,
+     "seconds": 256.9363107631216,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.2786805,
+     "seconds": 290.83022111613536,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.2837207,
+     "seconds": 305.31212484510615,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.2849374,
+     "seconds": 310.3366323520313,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.2868533,
+     "seconds": 318.1528191999532,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.28943529999999995,
+     "seconds": 325.63786669896217,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3199004999999999,
+     "seconds": 372.52226500294637,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3451785999999999,
+     "seconds": 410.5355338229565,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.34850779999999987,
+     "seconds": 418.04430977092125,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3685935999999999,
+     "seconds": 445.59913629986113,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.37215959999999987,
+     "seconds": 456.45660792384297,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.37897799999999987,
+     "seconds": 463.32424634782365,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3977859999999998,
+     "seconds": 491.0513340480393,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.40073229999999976,
+     "seconds": 499.8844465170405,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4035717999999998,
+     "seconds": 511.2687271749601,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4310309999999998,
+     "seconds": 552.6699555279338,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6987179487179487,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.43423299999999976,
+     "seconds": 558.4713929079007,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6987179487179487,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4466526999999997,
+     "seconds": 585.1196294459514,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6987179487179487,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.45310179999999967,
+     "seconds": 603.6140048510279,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6987179487179487,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.47475059999999963,
+     "seconds": 630.4423582361196,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6987179487179487,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4949189999999997,
+     "seconds": 656.9679933941807,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6987179487179487,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4986267999999997,
+     "seconds": 662.2217051991611,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6987179487179487,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5457603999999995,
+     "seconds": 728.4724036650732,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6987179487179487,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5564072999999995,
+     "seconds": 728.4725655121147,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6987179487179487,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5619388999999995,
+     "seconds": 738.9582473911578,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.5679202999999995,
+     "seconds": 754.2369922761573,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.5687727999999995,
+     "seconds": 756.8749082451686,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7051282051282052,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.5897134999999996,
+     "seconds": 794.333827177179,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7115384615384616,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.6103115999999995,
+     "seconds": 824.5971473611426,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7115384615384616,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.6121305999999995,
+     "seconds": 832.4487087051384,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7115384615384616,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.6133190999999996,
+     "seconds": 835.7015205211355,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7115384615384616,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.6309775999999995,
+     "seconds": 859.5915675940341,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.7115384615384616,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.6471232999999996,
+     "seconds": 887.9502151201596,
+     "clues_correct": 0.75,
+     "letters_correct": 0.7243589743589743,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.6521272999999996,
+     "seconds": 895.281498701137,
+     "clues_correct": 0.75,
+     "letters_correct": 0.7243589743589743,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.6552842999999996,
+     "seconds": 902.1871615251293,
+     "clues_correct": 0.75,
+     "letters_correct": 0.7243589743589743,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7072272999999996,
+     "seconds": 964.900810611085,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.7692307692307693,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7099247999999996,
+     "seconds": 971.2383210890694,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.7692307692307693,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7112947999999996,
+     "seconds": 973.4073733870755,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.7692307692307693,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7243654999999998,
+     "seconds": 1003.0618012740742,
+     "clues_correct": 0.8214285714285714,
+     "letters_correct": 0.8205128205128205,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7652723999999999,
+     "seconds": 1067.2685415700544,
+     "clues_correct": 0.8571428571428571,
+     "letters_correct": 0.8846153846153846,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    }
+   ]
+  },
+  {
+   "puzzle": "Times-2014-11-18-cryptic",
+   "checkpoints": [
+    {
+     "move": "proposals",
+     "usd": 0.33643200000000006,
+     "seconds": 268.15578698995523,
+     "clues_correct": 0.3,
+     "letters_correct": 0.43209876543209874,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.35289980000000004,
+     "seconds": 298.01299074391136,
+     "clues_correct": 0.3,
+     "letters_correct": 0.43209876543209874,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3713595,
+     "seconds": 332.0292790309759,
+     "clues_correct": 0.3,
+     "letters_correct": 0.43209876543209874,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.39574709999999996,
+     "seconds": 374.83844547491753,
+     "clues_correct": 0.3,
+     "letters_correct": 0.4382716049382716,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.41682659999999994,
+     "seconds": 412.56060624984093,
+     "clues_correct": 0.3,
+     "letters_correct": 0.42592592592592593,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.42325499999999994,
+     "seconds": 418.57484290283173,
+     "clues_correct": 0.3,
+     "letters_correct": 0.42592592592592593,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.44038289999999997,
+     "seconds": 457.14021785382647,
+     "clues_correct": 0.3333333333333333,
+     "letters_correct": 0.4506172839506173,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.45469399999999993,
+     "seconds": 479.6647643467877,
+     "clues_correct": 0.3333333333333333,
+     "letters_correct": 0.4506172839506173,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.46903709999999993,
+     "seconds": 499.89034539979184,
+     "clues_correct": 0.3333333333333333,
+     "letters_correct": 0.4506172839506173,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.48832109999999995,
+     "seconds": 525.7141717158956,
+     "clues_correct": 0.3333333333333333,
+     "letters_correct": 0.4506172839506173,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4941035,
+     "seconds": 532.2962505489122,
+     "clues_correct": 0.3333333333333333,
+     "letters_correct": 0.4506172839506173,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5247020000000001,
+     "seconds": 590.935494657082,
+     "clues_correct": 0.3333333333333333,
+     "letters_correct": 0.4506172839506173,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5457915,
+     "seconds": 621.9464567120303,
+     "clues_correct": 0.3333333333333333,
+     "letters_correct": 0.4506172839506173,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5593720000000001,
+     "seconds": 646.4365040299599,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5846276,
+     "seconds": 688.0035751468968,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5869456000000001,
+     "seconds": 693.3780535398982,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5999330000000002,
+     "seconds": 710.6642654609168,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6281618,
+     "seconds": 745.7579782699468,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6631064999999999,
+     "seconds": 805.1375191809493,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6679074999999999,
+     "seconds": 814.5315261718933,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6952006999999999,
+     "seconds": 814.5316642638645,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7080475999999998,
+     "seconds": 831.361846393731,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7327245999999997,
+     "seconds": 874.7282538006548,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.48148148148148145,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7404205999999998,
+     "seconds": 891.903819469735,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.48148148148148145,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7654858999999997,
+     "seconds": 932.944749856717,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7866973999999998,
+     "seconds": 956.088203180756,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8081284999999997,
+     "seconds": 982.3298184787855,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8257788999999995,
+     "seconds": 1011.1081844247528,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8532619999999993,
+     "seconds": 1055.2005485357367,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8774969999999993,
+     "seconds": 1099.5984933666186,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.46296296296296297,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8870340999999994,
+     "seconds": 1117.7984978424502,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.46296296296296297,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9140447999999994,
+     "seconds": 1146.0821401954163,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.4691358024691358,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9326443999999994,
+     "seconds": 1177.0408898855094,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.47530864197530864,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9657592999999993,
+     "seconds": 1225.552801278478,
+     "clues_correct": 0.36666666666666664,
+     "letters_correct": 0.47530864197530864,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    }
+   ]
+  },
+  {
+   "puzzle": "Times-2018-06-06-cryptic",
+   "checkpoints": [
+    {
+     "move": "proposals",
+     "usd": 0.3402585,
+     "seconds": 277.4966136670555,
+     "clues_correct": 0.5357142857142857,
+     "letters_correct": 0.5375,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3790007000000001,
+     "seconds": 327.8903589150286,
+     "clues_correct": 0.5357142857142857,
+     "letters_correct": 0.54375,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.39925550000000004,
+     "seconds": 358.70916893699905,
+     "clues_correct": 0.5714285714285714,
+     "letters_correct": 0.5625,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.42729860000000003,
+     "seconds": 402.9486086978577,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.56875,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4599705999999999,
+     "seconds": 454.5781932687969,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.56875,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4730849999999999,
+     "seconds": 471.1502044717781,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.56875,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4914306999999999,
+     "seconds": 502.4036271178047,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.56875,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5556729,
+     "seconds": 574.7301335686352,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.56875,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5569495000000001,
+     "seconds": 577.9801835396211,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.56875,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5747708000000001,
+     "seconds": 601.6177103735972,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.56875,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.60067,
+     "seconds": 643.0733786456985,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.56875,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6133228000000001,
+     "seconds": 656.1816366157145,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6311701999999999,
+     "seconds": 685.1254151648027,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6555849999999999,
+     "seconds": 719.7615919468226,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6794315999999997,
+     "seconds": 748.9854800347821,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6903615999999998,
+     "seconds": 766.5370441518608,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6995889999999999,
+     "seconds": 777.9618933519232,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7228646999999998,
+     "seconds": 777.9620044828043,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7390451999999998,
+     "seconds": 794.3262489027111,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7802176999999997,
+     "seconds": 858.441901852726,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7903953999999996,
+     "seconds": 877.6118241587537,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8029488999999997,
+     "seconds": 900.4140600907849,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8108003999999998,
+     "seconds": 915.7836092508514,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8265293999999997,
+     "seconds": 937.3261497137719,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8325197999999997,
+     "seconds": 943.7123757018126,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8452249999999997,
+     "seconds": 964.507610371802,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8582743999999997,
+     "seconds": 986.7108812737861,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.8798428999999997,
+     "seconds": 1022.8570938017219,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.9029716999999998,
+     "seconds": 1054.367654137779,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.55625,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9152447999999999,
+     "seconds": 1080.7188898606692,
+     "clues_correct": 0.6428571428571429,
+     "letters_correct": 0.5875,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9268921999999999,
+     "seconds": 1098.6839530016296,
+     "clues_correct": 0.6428571428571429,
+     "letters_correct": 0.59375,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9364022,
+     "seconds": 1111.264463559608,
+     "clues_correct": 0.6428571428571429,
+     "letters_correct": 0.59375,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9387257,
+     "seconds": 1114.7422125406447,
+     "clues_correct": 0.6428571428571429,
+     "letters_correct": 0.59375,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9792896999999999,
+     "seconds": 1163.8907372785034,
+     "clues_correct": 0.6428571428571429,
+     "letters_correct": 0.60625,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    }
+   ]
+  },
+  {
+   "puzzle": "Telegraph-2012-09-23-cryptic",
+   "checkpoints": [
+    {
+     "move": "proposals",
+     "usd": 0.28034,
+     "seconds": 235.29184271604754,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.5987654320987654,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.295374,
+     "seconds": 256.72728039708454,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.5987654320987654,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.29757780000000006,
+     "seconds": 264.0162748650182,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.5987654320987654,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.32496120000000006,
+     "seconds": 306.1402674060082,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.5987654320987654,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3366063000000001,
+     "seconds": 320.0178707249579,
+     "clues_correct": 0.6071428571428571,
+     "letters_correct": 0.5987654320987654,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.34120730000000005,
+     "seconds": 331.86354482901515,
+     "clues_correct": 0.6428571428571429,
+     "letters_correct": 0.6172839506172839,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3633347000000001,
+     "seconds": 369.1281584131066,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6481481481481481,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.36566370000000015,
+     "seconds": 373.8782076841453,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6481481481481481,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3897108000000002,
+     "seconds": 416.7638068620581,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6481481481481481,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.40433270000000016,
+     "seconds": 435.08494397305185,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6481481481481481,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4296303000000002,
+     "seconds": 461.5863074430381,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6481481481481481,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.45379890000000017,
+     "seconds": 494.849621456,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6481481481481481,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.47828820000000016,
+     "seconds": 533.0845651521231,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6481481481481481,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.48764030000000014,
+     "seconds": 547.6111049330793,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6604938271604939,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5026494000000001,
+     "seconds": 566.6693022620166,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.6604938271604939,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5256171000000001,
+     "seconds": 566.6695079319761,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5364212000000002,
+     "seconds": 586.0064249378629,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5392064000000001,
+     "seconds": 590.5363329528482,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5596302000000001,
+     "seconds": 622.0556446678238,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5801541000000001,
+     "seconds": 651.9175988968345,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5841810000000002,
+     "seconds": 658.3711048108526,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6266376000000002,
+     "seconds": 710.0537462529028,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6507538000000002,
+     "seconds": 747.5810759970336,
+     "clues_correct": 0.6785714285714286,
+     "letters_correct": 0.6234567901234568,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6679598000000002,
+     "seconds": 767.8722652301076,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6717487000000003,
+     "seconds": 779.9531065220945,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6802714000000003,
+     "seconds": 794.6905032520881,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7069161000000003,
+     "seconds": 837.0239070449607,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7125776000000003,
+     "seconds": 849.6970830640057,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7256293000000003,
+     "seconds": 869.0007687650505,
+     "clues_correct": 0.7142857142857143,
+     "letters_correct": 0.654320987654321,
+     "committed": 12,
+     "committed_correct": 12,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7484420000000003,
+     "seconds": 906.9941827760194,
+     "clues_correct": 0.75,
+     "letters_correct": 0.6851851851851852,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7505630000000003,
+     "seconds": 910.679129170021,
+     "clues_correct": 0.75,
+     "letters_correct": 0.6851851851851852,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7646913000000004,
+     "seconds": 930.4648526750389,
+     "clues_correct": 0.75,
+     "letters_correct": 0.6851851851851852,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7935566000000004,
+     "seconds": 989.2660183371627,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.7530864197530864,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8029651000000004,
+     "seconds": 1002.7722414901364,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.7530864197530864,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8122813000000004,
+     "seconds": 1017.6624809810892,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.7530864197530864,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8237403000000004,
+     "seconds": 1030.9437574421172,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.7530864197530864,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8258513000000004,
+     "seconds": 1034.2983140641009,
+     "clues_correct": 0.7857142857142857,
+     "letters_correct": 0.7530864197530864,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8453754000000004,
+     "seconds": 1062.0039428042364,
+     "clues_correct": 0.8214285714285714,
+     "letters_correct": 0.7901234567901234,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8780511000000005,
+     "seconds": 1092.4614992893185,
+     "clues_correct": 0.8571428571428571,
+     "letters_correct": 0.8271604938271605,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8888906000000005,
+     "seconds": 1111.9334300613846,
+     "clues_correct": 0.8571428571428571,
+     "letters_correct": 0.8271604938271605,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9082919000000005,
+     "seconds": 1134.9626464144094,
+     "clues_correct": 0.8571428571428571,
+     "letters_correct": 0.8271604938271605,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9110029000000005,
+     "seconds": 1139.2884197243839,
+     "clues_correct": 0.8571428571428571,
+     "letters_correct": 0.8271604938271605,
+     "committed": 13,
+     "committed_correct": 13,
+     "committed_only_grid": false
+    }
+   ]
+  },
+  {
+   "puzzle": "Times-2015-07-08-cryptic",
+   "checkpoints": [
+    {
+     "move": "proposals",
+     "usd": 0.31755799999999995,
+     "seconds": 256.4042228119215,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.673202614379085,
+     "committed": 0,
+     "committed_correct": 0,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3213101,
+     "seconds": 266.02546136901947,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.673202614379085,
+     "committed": 1,
+     "committed_correct": 1,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3470862999999999,
+     "seconds": 297.1905765760457,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.673202614379085,
+     "committed": 2,
+     "committed_correct": 2,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.3681387999999999,
+     "seconds": 328.4702497650287,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.673202614379085,
+     "committed": 3,
+     "committed_correct": 3,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.38270369999999987,
+     "seconds": 359.7001075850567,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.673202614379085,
+     "committed": 4,
+     "committed_correct": 4,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.40038809999999986,
+     "seconds": 399.7038097761106,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.673202614379085,
+     "committed": 5,
+     "committed_correct": 5,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4041245999999999,
+     "seconds": 413.6789940990857,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.673202614379085,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.42680509999999994,
+     "seconds": 451.1482037109672,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.44837769999999993,
+     "seconds": 487.68450189300347,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.46140079999999994,
+     "seconds": 504.3418383260141,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4654673,
+     "seconds": 510.55751758097904,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.4797951,
+     "seconds": 534.3078163039754,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 6,
+     "committed_correct": 6,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.48811869999999996,
+     "seconds": 550.9634100380354,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5007436,
+     "seconds": 570.1400173730799,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.514624,
+     "seconds": 585.7592255439959,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5253227,
+     "seconds": 611.458503312082,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5501144,
+     "seconds": 639.3655496991123,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 7,
+     "committed_correct": 7,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5613577000000001,
+     "seconds": 652.2022721110843,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5773969000000001,
+     "seconds": 667.1017021860462,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5841395000000001,
+     "seconds": 676.2740144980489,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 8,
+     "committed_correct": 8,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5877255000000001,
+     "seconds": 687.200107774057,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 9,
+     "committed_correct": 9,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.5976819000000001,
+     "seconds": 707.3248317139805,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6051984000000001,
+     "seconds": 722.0485070000286,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6619794000000001,
+     "seconds": 786.2232300640317,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.6722479,
+     "seconds": 805.7475818261737,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7005651000000002,
+     "seconds": 805.7477424012613,
+     "clues_correct": 0.5862068965517241,
+     "letters_correct": 0.6601307189542484,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7140080000000003,
+     "seconds": 826.888654728129,
+     "clues_correct": 0.6206896551724138,
+     "letters_correct": 0.6797385620915033,
+     "committed": 10,
+     "committed_correct": 10,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7191872000000002,
+     "seconds": 835.4349840771174,
+     "clues_correct": 0.6206896551724138,
+     "letters_correct": 0.6797385620915033,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7442940000000003,
+     "seconds": 880.2013437011628,
+     "clues_correct": 0.6206896551724138,
+     "letters_correct": 0.6797385620915033,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "solve",
+     "usd": 0.7463093000000003,
+     "seconds": 884.3163253721432,
+     "clues_correct": 0.6206896551724138,
+     "letters_correct": 0.6797385620915033,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7496968000000003,
+     "seconds": 890.6263886271045,
+     "clues_correct": 0.6206896551724138,
+     "letters_correct": 0.6797385620915033,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7604922000000003,
+     "seconds": 908.2312062340789,
+     "clues_correct": 0.6206896551724138,
+     "letters_correct": 0.6797385620915033,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7665606000000004,
+     "seconds": 918.896772496053,
+     "clues_correct": 0.6206896551724138,
+     "letters_correct": 0.6928104575163399,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7772905000000003,
+     "seconds": 939.6411895830533,
+     "clues_correct": 0.6551724137931034,
+     "letters_correct": 0.7058823529411765,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7805420000000003,
+     "seconds": 944.341344426095,
+     "clues_correct": 0.6551724137931034,
+     "letters_correct": 0.7058823529411765,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.7975950000000003,
+     "seconds": 971.7209962341003,
+     "clues_correct": 0.6896551724137931,
+     "letters_correct": 0.7450980392156863,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8027780000000003,
+     "seconds": 982.5763830491342,
+     "clues_correct": 0.6896551724137931,
+     "letters_correct": 0.7450980392156863,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8218911000000003,
+     "seconds": 1017.3089858731837,
+     "clues_correct": 0.7241379310344828,
+     "letters_correct": 0.7581699346405228,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8638090000000005,
+     "seconds": 1064.1394841092406,
+     "clues_correct": 0.7586206896551724,
+     "letters_correct": 0.7777777777777778,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.8800105000000005,
+     "seconds": 1097.4876525381696,
+     "clues_correct": 0.7931034482758621,
+     "letters_correct": 0.8169934640522876,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9092607000000005,
+     "seconds": 1141.2484859722317,
+     "clues_correct": 0.8275862068965517,
+     "letters_correct": 0.8496732026143791,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    },
+    {
+     "move": "repropose",
+     "usd": 0.9150617000000004,
+     "seconds": 1151.8564086352126,
+     "clues_correct": 0.8275862068965517,
+     "letters_correct": 0.8496732026143791,
+     "committed": 11,
+     "committed_correct": 11,
+     "committed_only_grid": false
+    }
+   ]
+  }
+ ]
+}

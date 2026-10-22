@@ -123,6 +123,24 @@ headline above uses the new prior throughout.
 - **Replay:** two evaluation grids replayed offline under VOC give
   identical moves, spend and scores at every checkpoint.
 
+## Added in brief 006 (2026-10-22): the paired crossers-first baseline
+
+P1 (brief 004's heuristic: solve every slot in number order, then
+re-propose most-committed-crossers first, up to 3 rounds) run on these
+same 10 evaluation grids at $0.94 per grid, logged per move like P0 and P4.
+Run `crossers_first`, $0.57 of new spend (its solve calls replay P0's).
+
+| clues correct | $0.50 | $0.60 | $0.70 | $0.80 | $0.90 | $0.94 |
+|---|---|---|---|---|---|---|
+| P4 VOC | 0.602 | 0.619 | 0.637 | 0.657 | 0.692 | 0.706 |
+| **P1 crossers-first (paired)** | 0.592 | 0.599 | 0.609 | 0.651 | 0.675 | **0.693** |
+| P0 attempt-all | 0.592 | 0.599 | 0.605 | 0.609 | 0.605 | 0.605 |
+
+**VOC is ahead of the crossers-first heuristic at every budget, but only
+by 1–3 points** (0.706 vs 0.693 at $0.94). On 10 grids that is within noise:
+VOC roughly matches the heuristic and clearly beats attempt-all. P1's
+committed slots were right 89/89. Checkpoints: `reports/006/p1-on-005-grids.json`.
+
 ## Supersessions
 
 None. Brief 004's `solve_grid` default prior is unchanged, and its replay is

@@ -263,3 +263,20 @@ exists.
    **Answer:** agreed. From 006, policies pre-register a per-grid budget;
    ρ is kept only as the stop rule below budget (stop early when nothing
    is worth its price).
+
+## Brief 006
+
+1. **Refit the calibration on commit-time marginals?** The map was fitted on
+   final-state marginals (as specified) and applied mid-run; it
+   over-committed (0.895 accuracy). On the fit grids, all-step reliability
+   reaches 0.97–0.98 only from raw marginal ≈ 0.7. A refit on every
+   uncommitted step's marginal (one row per slot-step, CV grouped by grid)
+   evaluated on fresh grids (seed 20261025) is cheap, about $9. Do that in
+   007, or go straight to the synonym table?
+
+2. **A fair uncalibrated comparison can't be made offline,** because
+   re-proposals depend on committed letters. Pair them live next time
+   (≈ $9 more), or accept brief 005's own run as the reference?
+
+3. **Spend.** Cumulative $103.18 across seven briefs. I'll keep asking before
+   paid runs unless you say otherwise.

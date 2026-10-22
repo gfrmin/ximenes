@@ -171,6 +171,13 @@ class GridRun:
     def refresh(self, move: str, slot: str | None) -> None:
         vs = self.variables()
         self.marg = propagate(vs, self.edges)
+        # each slot's top candidate at this step, read before this step's commits
+        # (the marginal a commit decision sees): [marginal, right?, committed?]
+        tops = {}
+        for k, v in vs.items():
+            if v.words:
+                i = max(range(len(v.words)), key=lambda j: self.marg[k][j])
+                tops[k] = [self.marg[k][i], v.words[i] == self.gold[k], False]
         for k, v in vs.items():
             if k not in self.commits and v.words:
                 best = max(range(len(v.words)), key=lambda i: self.marg[k][i])
@@ -191,11 +198,8 @@ class GridRun:
                 gold_cells[c] = self.gold[k][i]
                 cells.setdefault(c, set()).add(sub[k][i] if sub[k] else "")
         ok = sum(len(v) == 1 and next(iter(v)) == gold_cells[c] for c, v in cells.items())
-        tops = {}
-        for k, v in vs.items():  # each slot's top candidate: marginal, right?, committed?
-            if v.words:
-                i = max(range(len(v.words)), key=lambda j: self.marg[k][j])
-                tops[k] = [self.marg[k][i], v.words[i] == self.gold[k], k in self.commits]
+        for k in tops:
+            tops[k][-1] = k in self.commits
         self.checkpoints.append({
             "slot_tops": tops,
             "move": move, "slot": slot, "usd": self.totals[0], "seconds": self.totals[-1],
@@ -376,6 +380,9 @@ def _backend(args: argparse.Namespace, log_path: pathlib.Path
         replay: Instrument = stub_backend(pathlib.Path(args.log[0]), on_conflict="first")
         for extra in args.log[1:]:
             replay = replay_then(pathlib.Path(extra), replay, on_conflict="first")
+        if args.offline:
+            from .gridsolve import offline
+            replay = offline(replay)
         inner = logged(replay, log_path)
     else:
         live: Instrument = budgeted(anthropic_backend(), args.max_usd)
@@ -394,6 +401,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                             "replay_moves"))
     p.add_argument("--calibrated", action="store_true",
                    help="brief 006: commit on the calibrated marginal")
+    p.add_argument("--offline", action="store_true",
+                   help="stub only: a call missing from the logs produces nothing")
     p.add_argument("--moves-from", default=None,
                    help="replay_moves: a policy run JSON whose move sequence to re-apply")
     p.add_argument("--grids", required=True)
