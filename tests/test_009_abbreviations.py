@@ -2,7 +2,6 @@
 reviewed abbreviation entries."""
 
 import importlib.util
-import json
 
 from ximenes.clue import Clue, Enumeration
 from ximenes.data import LEXICON, abbreviation_trust
@@ -37,7 +36,10 @@ def test_parser_reads_the_lettered_sections_only() -> None:
 
 
 def _origin(key: str, value: str) -> str:
-    return json.loads((LEXICON / "abbreviations.json").read_text())["_origin"][key][value]
+    # superseded by brief 010: origins are merged over the two abbreviation files
+    from ximenes.data import abbreviation_origins
+
+    return abbreviation_origins()[key][value]
 
 
 def _clue(words: list[str], answer: str) -> Clue:
