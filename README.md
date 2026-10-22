@@ -99,7 +99,10 @@ for the full run.
 - Brief 010 done (2026-10-22): soft and hard evidence enter the same word
   in all 1,176 slots of 40 grids; the ceiling is candidate generation (gold
   among round-1 candidates in 57% of slots). $0. `reports/010-soft-evidence.md`.
-- Phase 2 (2026-10-22): brief 011 found crossing letters nearly close
-  recall (Opus with half the letters: gold in top 5 for 150/150 clues,
-  $0.026/clue); brief 012 harvested 108 post-cutoff grids; brief 013 is the
-  end-to-end solver on them. `briefs/ROADMAP.md`.
+- **Headline (brief 013, 2026-10-22): 10 of 20 post-cutoff daily cryptics
+  (Guardian / Independent / FT, Aug–Oct 2026) solved fully correctly at
+  $0.90 per grid; 97.4% of clues; committed answers 99.2% right.** A
+  frontier-only baseline gets 7/20 and is level at equal spend.
+  `reports/013-end-to-end.md`, draft note `docs/NOTE-draft.md`.
+- Next: brief 014 (close the last slots, paired against the baseline).
+  `briefs/ROADMAP.md`.

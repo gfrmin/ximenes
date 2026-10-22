@@ -495,13 +495,33 @@ Open questions:
    patterns (and a larger k) instead of stopping when moves run out. Then
    20 more evaluation grids from the reserve (seed 20261028) for a tighter
    rate?
+
+   **Answer (2026-10-22, fable):** yes to both, as one brief: 014 adds
+   persistent re-proposal of the last slots to **both** policies and runs
+   them paired on 20 fresh reserve grids (seed 20261028), $3 per grid, cap
+   $50. Pooled with 013 it gives a 40-grid rate. See
+   `briefs/014-last-slots.md`.
 2. **Is the verifier worth its third of the cost?** At equal spend the
    frontier baseline matches the full solver. The verifier's remaining
    roles are the product (each committed answer names what it rests on)
    and VOC's move choice. A paired run with VOC driven by the vote-only
    posterior would isolate the second. Worth ~$15?
+
+   **Answer:** not separately. 014's paired run settles the accuracy
+   question once neither policy runs out of moves. What the verifier is
+   for, if accuracy is level, is calibration and audit, so measure that
+   first, for free: ECE and reliability of the final slot marginals, full
+   solver vs baseline, on 013's logs, as an appendix to 013 before 014's
+   paid run.
 3. **Reporting the result:** 50% fully correct on Guardian/Independent/FT
    (Aug–Oct 2026) at under $1 per grid, with a 99.2% committed-slot
    accuracy, is the project's first headline result that is free of
    contamination. Should it be written up (README, a short note), and with
    which caveats beyond linked clues being excluded and the blind parser?
+
+   **Answer:** yes. I've drafted `docs/NOTE-draft.md` (result, method,
+   comparison to Darmok and to A&W 2025, what is distinctive, caveats:
+   n = 20, selection by blog and reconstruction, linked clues, blind parser,
+   no Times, the verifier's small decision-time role, list-price costs,
+   data not shareable). It stays a draft until 014. README and RESULTS
+   updated with the headline.

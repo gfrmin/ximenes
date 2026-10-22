@@ -48,7 +48,8 @@ end-to-end grid, then a clean number.
 | 011 | **Recall by proposer.** Haiku / Sonnet / Opus, sampled vs "list N candidates", with and without crossing-letter patterns, on a fresh Cryptonite test sample | gold-in-k and $ per clue for each proposer × prompt × pattern level | $40 (waits for the author's go) |
 | 012 | **Post-cutoff harvest** from Fifteensquared (REST API, 20 s delay, local only): clues, answers, explanations from 2026-08-01; grids reconstructed; post-cutoff rule moved to knowledge cutoffs | puzzles, clues and unique grids by publisher | $0 |
 | 013 | **End-to-end grid solver**: Opus `list` round 1, Opus `sample` re-proposal (011's picks), posterior / OTHER / gain model refitted on post-cutoff fit grids, VOC at $5/grid; 20 post-cutoff evaluation grids (`briefs/013-end-to-end.md`) | fully correct grids, clues, letters, $ per grid; stop rule below | $80 |
-| 014+ | Whatever 013 shows is the limit (ensemble proposers, a second formaliser, a stronger judge, cheaper routing by VOC); contamination gap per publisher | — | per brief |
+| 014 | **Close the last slots**: persistent re-proposal for both the full solver and the frontier baseline, paired, 20 fresh post-cutoff grids (seed 20261028); calibration appendix on 013's logs | fully correct grids, both policies, at $1/$2/$3 per grid; pooled 40-grid rate | $50 |
+| 015+ | The note (`docs/NOTE-draft.md`) finalised; then whatever 014 shows is the limit | — | per brief |
 
 **Stop rule, pre-registered for 013.** On post-cutoff grids: if fewer than **10%** of grids are fully
 correct at ≤ **$5 per grid**, the project stops chasing full grids and the
@@ -90,7 +91,7 @@ on 2026-10-22. Each brief states its cap; the builder may spend up to that
 cap without asking, after a smoke test whose cost it reports. Anything
 beyond a brief's cap or the envelope needs `fable`'s written approval in
 `comms/`. The author can veto at any time by editing this section.
-Cumulative before Phase 2: $103.18.
+Cumulative before Phase 2: $103.18; after 013: $160.64 (Phase 2 $57.46 of $150).
 
 ## Phase 1 (done)
 
