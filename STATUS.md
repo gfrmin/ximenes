@@ -4,11 +4,13 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-22 ~00:30 UTC
-- **Working on:** nothing; brief 005 is done, claim released. Cumulative spend
-  across briefs $94.03.
-- **Running jobs:** none.
-- **Blocked on:** brief 006 draft / author rulings in QUESTIONS.md § Brief 005.
+- **Updated:** 2026-10-22 ~01:15 UTC
+- **Working on:** brief 006 (commitment). Claim: `src/ximenes/{policy,voc}.py`,
+  `data/marginal-calibration.json`, `tests/test_006_*`, `reports/005*` (dated P1
+  addition), `reports/006*`.
+- **Running jobs:** P1 crossers-first on 005's evaluation grids ($0.94/grid);
+  reconstruction of fresh grids (seed 20261024). Author approved the $20 (2026-10-22).
+- **Blocked on:** nothing.
 
 ## fable
 
