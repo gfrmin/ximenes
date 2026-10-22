@@ -5,7 +5,8 @@ reconstructions; evaluation seed **20261027**, stratified by publisher),
 the **share fully correct**, clues and letters correct, proven /
 quarantined / guessed slots, and **$ per grid**, against the
 pre-registered stop rule: **≥ 10% fully correct at ≤ $5 per grid**.
-Cap **$60**.
+Cap **$80** (raised from $60 on 2026-10-22 after the fit smoke, within the
+Phase 2 envelope; fable).
 
 ## The solver (everything from Phase 1, with 011's proposer)
 - **Round 1:** Opus 5.5 `list/none` (structured output) for every slot.
@@ -42,6 +43,17 @@ The evaluation grids are read once.
    for first: does the machinery beat "a strong model plus crossing
    letters" at equal cost? Report it in the headline table. Its calls are
    mostly in the logs already; budget the rest inside the cap.
+
+## Reading the stop rule with 20 grids (pre-registered)
+Twenty grids give a coarse rate, so report, besides the observed share:
+- the posterior for the fully-correct rate under a uniform Beta(1, 1)
+  prior, and **P(rate ≥ 0.10 | data)**;
+- per-slot accuracy with a grid-clustered bootstrap interval, and the
+  full-grid rate it implies (mean over grids of the product of per-slot
+  accuracies, using each grid's slot count).
+**Decision:** continue to 014+ if P(rate ≥ 0.10) ≥ 0.5; stop chasing full
+grids if it is < 0.2; in between, run 20 more evaluation grids from the
+reserve (seed 20261028) before deciding, if spend allows.
 
 ## Tests (tests/test_013_*.py)
 - Split is deterministic; fit and evaluation sets are disjoint; the refits
