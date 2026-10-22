@@ -49,7 +49,8 @@ end-to-end grid, then a clean number.
 | 012 | **Post-cutoff harvest** from Fifteensquared (REST API, 20 s delay, local only): clues, answers, explanations from 2026-08-01; grids reconstructed; post-cutoff rule moved to knowledge cutoffs | puzzles, clues and unique grids by publisher | $0 |
 | 013 | **End-to-end grid solver**: Opus `list` round 1, Opus `sample` re-proposal (011's picks), posterior / OTHER / gain model refitted on post-cutoff fit grids, VOC at $5/grid; 20 post-cutoff evaluation grids (`briefs/013-end-to-end.md`) | fully correct grids, clues, letters, $ per grid; stop rule below | $80 |
 | 014 | **Close the last slots**: persistent re-proposal for two paired policies (full solver; frontier + fitted vote posterior; raw frontier smoke only), 20 fresh post-cutoff grids (seed 20261028) | fully correct grids per policy at $1/$2/$3; pooled 40-grid rate; what the verifier adds over calibration | $90 |
-| 015+ | The note (`docs/NOTE-draft.md`) finalised; then whatever 014 shows is the limit | — | per brief |
+| 015 | **Recall across model families** (low priority, after 014): open-weight models on the author's `steel` box (GPU, Ollama), optionally Ollama cloud, beside Opus; brief 011's protocol on post-cutoff clues only, per-model knowledge cutoffs respected; each family alone and their union | gold-in-5 at no pattern and at half pattern per model and for the union; $ per clue | ≤ $10 |
+| 016+ | The note (`docs/NOTE-draft.md`) finalised; then whatever 014 shows is the limit | — | per brief |
 
 **Stop rule, pre-registered for 013.** On post-cutoff grids: if fewer than **10%** of grids are fully
 correct at ≤ **$5 per grid**, the project stops chasing full grids and the
