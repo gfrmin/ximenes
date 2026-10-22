@@ -11,7 +11,7 @@ On **20 Guardian, Independent and FT daily cryptics published 2 August to
 solver fills **10 grids fully correctly (50%; Beta posterior 95% interval
 about 29–71%)**, gets **97.4% of clues** right (grid-clustered 95% interval
 95.9–98.7%), at a mean **$0.90 per grid** in API calls. Answers it commits
-to are right **99.2%** of the time (488 of 492).
+to are right **99.2%** of the time (491 of 495).
 
 ## What the solver is
 - **Propose:** Claude Opus 5.5 lists candidates for every clue, then
@@ -46,7 +46,10 @@ to are right **99.2%** of the time (488 of 492).
    accepts over ~3,000 mutants), where the published verifier is shown by
    its authors to be exploitable.
 2. **Calibration and audit.** Every committed answer carries a probability
-   and the judgements it rests on. On single clues, answering only at
+   and the judgements it rests on. On the 20 grids, the solver's slot
+   marginals have ECE 0.064 (0.013 on committed slots) against the
+   frontier baseline's 0.177: the baseline is underconfident, commits 341
+   slots to the solver's 495, and so runs out of crossing letters sooner. On single clues, answering only at
    P ≥ 0.9 covers 37.9% of clues at 96.8% accuracy (ECE 0.027).
 3. **A contamination-aware protocol.** Post-cutoff puzzles defined by model
    knowledge cutoffs, a pre-registered fit/evaluation split, evaluation
