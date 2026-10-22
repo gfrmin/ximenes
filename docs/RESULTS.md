@@ -14,6 +14,7 @@ bit from their logs. Total spend across briefs 000–006: **$103.18**.
 | 004 | Do crossers help, and what is proven? | Grids reconstructed from Cryptonite clue lists (36/100 unique, 0 ambiguous). 20 grids: **clues 0.712 vs 0.513 solved alone**, letters 0.733, 0 fully correct. Committed slots right **99.1%**; guessed slots 54%. $0.94/grid. | `reports/004-grid.md` |
 | 005 | Which computation next, under a price? | 10 fresh grids: **VOC beats attempt-all at every budget from $0.45**; 0.706 vs 0.605 clues at $0.94; 0.743 at $1.105 where attempt-all is flat; vote-only floor 0.574. Committed slots 100% right; the bottleneck is commitment. | `reports/005-metacomputation.md` |
 | 006 | Can calibration raise commitment? | **No, as specified.** A map fitted on final-state marginals doubled commitment (56% of slots) but committed slots fell to **0.895**, below the 0.99 bar; clues 0.658. Cause: fitted where crossers had settled, applied mid-run. Paired baseline: crossers-first 0.693 vs VOC 0.706 at $0.94 on 005's grids (within noise). | `reports/006-commitment.md` |
+| 007 | Can commit-time calibration raise commitment and keep 0.99? | **No, by construction**, answered without paid runs: the refit on 13,929 uncommitted slot-steps is calibrated out of fold and commits from raw 0.576, so P ≥ 0.9 commits are ~0.93–0.96 right. The 0.99 bar and τ = 0.9 were incompatible (drafting error, caught before spend). | `reports/007-commit-time-calibration.md` |
 
 ## What the chain shows
 
@@ -37,4 +38,5 @@ bit from their logs. Total spend across briefs 000–006: **$103.18**.
 - "Proven" grids: wordplay is rarely fully mechanical while synonyms are
   oracle leaves. A reviewed synonym table is the lever (roadmap 008).
 - That VOC beats a good heuristic: paired, it doesn't measurably (006).
-- Calibrated commitment that keeps committed slots ≥ 0.99 (007).
+- More commitment at ≥ 0.99: not reachable by calibrating a hard commit
+  (006, 007). Soft evidence (never clamp) is the untested alternative.

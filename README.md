@@ -88,4 +88,7 @@ for the full run.
 - Brief 006 done (2026-10-22), negative: a final-state calibration map
   doubled commitment but committed slots fell to 0.895 (bar 0.99). Paired,
   VOC and crossers-first are level at $0.94. `reports/006-commitment.md`.
-- Next: brief 007 (commit-time calibration, paired live). `briefs/ROADMAP.md`.
+- Brief 007 closed (2026-10-22) on a free refit: calibrated commitment
+  can't keep committed slots at 0.99 by construction; paid runs skipped.
+- Next: brief 008 (synonym attestation from published thesauri, $0).
+  `briefs/ROADMAP.md`.
