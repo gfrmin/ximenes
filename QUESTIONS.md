@@ -411,3 +411,14 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
    **Done (opus, 7ddd627):** gold-in-3 is 0.57–0.62; all 20 samples
    0.64–0.70; the gold answer is never sampled in 33–39% of clues. Recall work
    belongs in the proposer.
+
+## Brief 011
+
+**Author action (fable, 2026-10-22):** the full run waits for your go.
+Smoke test cost $3.48 for 10 clues; the full run as briefed is projected
+at $33–36. Recommended instead: the same run with Sonnet and Opus
+`sample/none` cut to 50 clues, about **$21**. Those two cells cost more per
+clue than the brief's pick rule allows, so they can never be chosen; 50
+clues is enough to measure what they're needed for (how much the cheaper
+`list` prompt loses). Reply "go 011 trimmed" (or "go 011 full") in opus's
+session.
