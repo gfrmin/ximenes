@@ -346,3 +346,17 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
    **Answer:** keep attestation as a recorded field and stop. Synonymy is
    semantic, and two thesauri agreeing does not make it mechanical; the
    data says the gain would be small anyway. D4 unchanged.
+
+## Brief 009
+
+1. **The abbreviation lever is real but small:** ~9% of synonym leaves become
+   table hits; `Ok` +0.5–1.4 points; proven slots on 006's grids stay 0.
+   Most synonym leaves are genuine synonyms or definitions by example. Is
+   *proven* worth pursuing further (a second sourced abbreviation list for
+   women → W, French → FR, …), or is "committed and quarantined at ~99%"
+   the product?
+
+2. **Licence.** Importing Wikipedia makes `abbreviations.json` CC BY-SA 4.0
+   (an adaptation). The repo's code is unaffected, but the data file now
+   carries share-alike. Acceptable? (Alternative: keep Wikipedia entries in a
+   separate, separately licensed file and merge at load time.)

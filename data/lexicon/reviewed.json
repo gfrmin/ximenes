@@ -1,8 +1,20 @@
 {
- "source": "entries reviewed by hand (see REVIEW.md); a reviewed upstream entry counts as mechanical (DESIGN D4). 2026-10-21: the entries used by brief 001's accepted parses, reviewed by opus (an LLM) against standard crossword usage",
+ "source": "entries reviewed by hand (see REVIEW.md); a reviewed upstream entry counts as mechanical (DESIGN D4). 2026-10-21: the entries used by brief 001's accepted parses, reviewed by opus (an LLM) against standard crossword usage; 2026-10-22 (brief 009): the unreviewed abbreviation entries (mostly origin wikipedia) that accepted parses in 001/002/006 rely on, reviewed by opus (an LLM)",
  "abbreviations": [
   [
    "ace",
+   "A"
+  ],
+  [
+   "agent",
+   "REP"
+  ],
+  [
+   "aluminium",
+   "AL"
+  ],
+  [
+   "america",
    "A"
   ],
   [
@@ -10,12 +22,40 @@
    "US"
   ],
   [
+   "answer",
+   "A"
+  ],
+  [
+   "area",
+   "A"
+  ],
+  [
+   "article",
+   "AN"
+  ],
+  [
+   "article",
+   "THE"
+  ],
+  [
+   "at home",
+   "IN"
+  ],
+  [
    "australia",
    "AU"
   ],
   [
+   "bearing",
+   "NE"
+  ],
+  [
    "bend",
    "S"
+  ],
+  [
+   "bend",
+   "U"
   ],
   [
    "bill",
@@ -26,12 +66,28 @@
    "B"
   ],
   [
+   "bishop",
+   "RR"
+  ],
+  [
+   "book",
+   "B"
+  ],
+  [
    "books",
    "NT"
   ],
   [
+   "books",
+   "OT"
+  ],
+  [
    "bridge player",
    "N"
+  ],
+  [
+   "carbon",
+   "C"
   ],
   [
    "care of",
@@ -46,8 +102,28 @@
    "C"
   ],
   [
+   "charlie",
+   "C"
+  ],
+  [
+   "circle",
+   "O"
+  ],
+  [
    "city",
    "EC"
+  ],
+  [
+   "city",
+   "LA"
+  ],
+  [
+   "cold",
+   "C"
+  ],
+  [
+   "communist",
+   "RED"
   ],
   [
    "company",
@@ -62,6 +138,10 @@
    "CR"
   ],
   [
+   "criminal",
+   "CON"
+  ],
+  [
    "daughter",
    "D"
   ],
@@ -74,6 +154,18 @@
    "FRI"
   ],
   [
+   "democrat",
+   "D"
+  ],
+  [
+   "detective",
+   "DI"
+  ],
+  [
+   "detective",
+   "PI"
+  ],
+  [
    "died",
    "D"
   ],
@@ -82,16 +174,52 @@
    "E"
   ],
   [
+   "duck",
+   "O"
+  ],
+  [
+   "duke",
+   "D"
+  ],
+  [
    "each",
    "EA"
+  ],
+  [
+   "earl",
+   "E"
+  ],
+  [
+   "ecstasy",
+   "E"
+  ],
+  [
+   "egg",
+   "O"
+  ],
+  [
+   "elected",
+   "IN"
   ],
   [
    "energy",
    "E"
   ],
   [
+   "european",
+   "E"
+  ],
+  [
    "exercise",
    "PE"
+  ],
+  [
+   "father",
+   "DAD"
+  ],
+  [
+   "fellow",
+   "F"
   ],
   [
    "female",
@@ -102,20 +230,60 @@
    "F"
   ],
   [
+   "firm",
+   "CO"
+  ],
+  [
+   "following",
+   "F"
+  ],
+  [
+   "for example",
+   "EG"
+  ],
+  [
+   "former",
+   "EX"
+  ],
+  [
    "frenchman",
    "M"
+  ],
+  [
+   "friend",
+   "PAL"
   ],
   [
    "germany",
    "D"
   ],
   [
+   "good man",
+   "ST"
+  ],
+  [
+   "greek character",
+   "NU"
+  ],
+  [
    "hard",
+   "H"
+  ],
+  [
+   "hearts",
    "H"
   ],
   [
    "hospital",
    "H"
+  ],
+  [
+   "hospital department",
+   "AE"
+  ],
+  [
+   "hospital department",
+   "ENT"
   ],
   [
    "husband",
@@ -126,8 +294,20 @@
    "IC"
   ],
   [
+   "information",
+   "GEN"
+  ],
+  [
    "iodine",
    "I"
+  ],
+  [
+   "judge",
+   "J"
+  ],
+  [
+   "key",
+   "C"
   ],
   [
    "key",
@@ -138,8 +318,24 @@
    "N"
   ],
   [
+   "lake",
+   "L"
+  ],
+  [
+   "lawyer",
+   "DA"
+  ],
+  [
+   "lecturer",
+   "L"
+  ],
+  [
    "line",
    "L"
+  ],
+  [
+   "lines",
+   "LL"
   ],
   [
    "maiden",
@@ -158,8 +354,28 @@
    "M"
   ],
   [
+   "member",
+   "ARM"
+  ],
+  [
+   "member",
+   "MP"
+  ],
+  [
+   "men",
+   "OR"
+  ],
+  [
    "michigan",
    "MI"
+  ],
+  [
+   "million",
+   "M"
+  ],
+  [
+   "miners",
+   "NUM"
   ],
   [
    "model",
@@ -182,8 +398,24 @@
    "N"
   ],
   [
+   "noon",
+   "N"
+  ],
+  [
    "old boy",
    "OB"
+  ],
+  [
+   "old city",
+   "UR"
+  ],
+  [
+   "oxygen",
+   "O"
+  ],
+  [
+   "place",
+   "PL"
   ],
   [
    "politician",
@@ -194,15 +426,47 @@
    "P"
   ],
   [
+   "priest",
+   "ELI"
+  ],
+  [
+   "prisoner",
+   "CON"
+  ],
+  [
+   "question",
+   "Q"
+  ],
+  [
    "question",
    "QU"
+  ],
+  [
+   "quietly",
+   "P"
   ],
   [
    "railway",
    "RY"
   ],
   [
+   "record",
+   "EP"
+  ],
+  [
+   "republican",
+   "R"
+  ],
+  [
    "resistance",
+   "R"
+  ],
+  [
+   "revolutionary",
+   "CHE"
+  ],
+  [
+   "rex",
    "R"
   ],
   [
@@ -222,8 +486,24 @@
    "EG"
   ],
   [
+   "service",
+   "RAF"
+  ],
+  [
+   "society",
+   "S"
+  ],
+  [
    "soft",
    "P"
+  ],
+  [
+   "soldier",
+   "ANT"
+  ],
+  [
+   "soldiers",
+   "OR"
   ],
   [
    "son",
@@ -234,6 +514,38 @@
    "S"
   ],
   [
+   "spain",
+   "E"
+  ],
+  [
+   "special",
+   "S"
+  ],
+  [
+   "sunday",
+   "S"
+  ],
+  [
+   "support",
+   "BRA"
+  ],
+  [
+   "team",
+   "XI"
+  ],
+  [
+   "temperature",
+   "T"
+  ],
+  [
+   "tense",
+   "T"
+  ],
+  [
+   "terrorists",
+   "IRA"
+  ],
+  [
    "thanks",
    "TA"
   ],
@@ -242,8 +554,28 @@
    "IE"
   ],
   [
+   "theatre",
+   "REP"
+  ],
+  [
    "this month",
    "INST"
+  ],
+  [
+   "thursday",
+   "TH"
+  ],
+  [
+   "top class",
+   "AI"
+  ],
+  [
+   "turn",
+   "U"
+  ],
+  [
+   "united",
+   "U"
   ],
   [
    "university",
@@ -254,6 +586,14 @@
    "Y"
   ],
   [
+   "uranium",
+   "U"
+  ],
+  [
+   "virginia",
+   "VA"
+  ],
+  [
    "volunteers",
    "TA"
   ],
@@ -262,12 +602,28 @@
    "W"
   ],
   [
+   "will",
+   "LL"
+  ],
+  [
    "with",
    "W"
   ],
   [
    "work",
    "OP"
+  ],
+  [
+   "worker",
+   "ANT"
+  ],
+  [
+   "writing",
+   "MS"
+  ],
+  [
+   "you",
+   "U"
   ]
  ],
  "indicators": [

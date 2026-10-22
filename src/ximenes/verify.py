@@ -320,17 +320,26 @@ def _eval(node: CallNode | str | Tok) -> Val:
         else:
             base = _with(base, table_hits=(*base.table_hits, ("indicators", name, ind.phrase)),
                          reasons=base.reasons | (set() if trusted else {Reason.TABLE_UNREVIEWED}))
-    if node.op.oracle is not None:
-        base = _with(base, reasons=base.reasons | {node.op.oracle})
     cands = _OPS[name](node, vals)
     toks = [v.tok for v in vals if v.tok is not None]
+    # brief 009: a syn step whose (phrase, value) is a reviewed abbreviation-table
+    # entry is a mechanical table hit, not a judgement
+    syn_entry = _abbr_entry(toks[0], next(iter(cands))) if name == "syn" else None
+    syn_hit = syn_entry is not None and syn_entry[1]
+    if node.op.oracle is not None and not syn_hit:
+        base = _with(base, reasons=base.reasons | {node.op.oracle})
+    if syn_hit:
+        assert syn_entry is not None
+        base = _with(base, table_hits=(*base.table_hits,
+                                       ("abbreviations", syn_entry[0], next(iter(cands)))))
     if name == "abbr":
         entry = _abbr_entry(toks[0], next(iter(cands)))
         assert entry is not None
         key, trusted = entry
         base = _with(base, table_hits=(*base.table_hits, ("abbreviations", key, next(iter(cands)))),
                      reasons=base.reasons | (set() if trusted else {Reason.TABLE_UNREVIEWED}))
-    base = _with(base, leaves=(*base.leaves, *_leaves(name, node, vals, cands)))
+    if not syn_hit:
+        base = _with(base, leaves=(*base.leaves, *_leaves(name, node, vals, cands)))
     if name == "link":
         return Val(Sort.NULL, uses=toks[0].ids, links=frozenset(toks[0].ids))
     if name == "double_duty":

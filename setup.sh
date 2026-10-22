@@ -51,6 +51,15 @@ mkdir -p data/.src/thesauri
   && echo "   thesauri match data/thesauri/SOURCES.sha256" \
   || { echo "RED: thesaurus files do not match their hashes"; exit 1; }
 
+echo "== data: Wikipedia \"Crossword abbreviations\", revision 1375193762 (CC BY-SA 4.0; brief 009)"
+mkdir -p data/.src/wikipedia
+wiki=data/.src/wikipedia/crossword-abbreviations-1375193762.wiki
+[ -f "$wiki" ] || curl -fsSL -A "ximenes-setup" -o "$wiki" \
+  "https://en.wikipedia.org/w/index.php?oldid=1375193762&action=raw"
+echo "ba16dc1e423241b09f44501f6e87fcae14cb987b365beb025c8cca99eaa5cb69  $wiki" | sha256sum -c --quiet \
+  && echo "   abbreviations page matches its pinned hash" \
+  || { echo "RED: $wiki does not match its pinned hash"; exit 1; }
+
 echo "== postcutoff"
 mkdir -p data/postcutoff
 n=$(find data/postcutoff -type f ! -name .gitkeep | wc -l)

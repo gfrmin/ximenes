@@ -220,7 +220,14 @@ def test_abbr_and_syn(w: list[str], key: str) -> None:
     clue = clue_of(words, value)
     assert accepted(verify(clue, value, src))
     syn = verify(clue, value, src.replace("abbr(", "syn("))
-    assert isinstance(syn, Quarantine) and Reason.SYNONYM in syn.reasons
+    # Superseded by brief 009: syn() on a *reviewed* abbreviation entry is a
+    # mechanical table hit; otherwise it stays a synonym judgement.
+    from ximenes.data import abbreviation_trust
+
+    if abbreviation_trust()[key][value]:
+        assert isinstance(syn, Ok)
+    else:
+        assert isinstance(syn, Quarantine) and Reason.SYNONYM in syn.reasons
 
 
 @settings(max_examples=25, deadline=None)

@@ -71,6 +71,23 @@ Entries are reviewed only when an accepted parse uses them; the rest of the
 Deits lists stays unreviewed (and gives `Quarantine(table_unreviewed)`).
 Nothing is added from formaliser output.
 
+## Brief 009 (2026-10-22): Wikipedia's "Crossword abbreviations", imported whole
+
+Source: Wikipedia contributors, "Crossword abbreviations", revision
+1375193762 (2026-09-16, the last revision before this project started),
+CC BY-SA 4.0. Imported whole (621 keys, 985 values; values longer than 4
+letters dropped as for Deits), origin `wikipedia`. As an adaptation,
+`abbreviations.json` is now CC BY-SA 4.0.
+
+Reviewed: the 91 unreviewed entries that accepted parses in brief 001
+(val, train-500), brief 002 (test, chosen answers) and brief 006 (grid
+round-1 records) rely on, via `abbr(...)` or via a `syn(...)` whose pair is
+a table entry. **89 accepted** (in `reviewed.json`); **2 left doubtful**,
+the same two as in brief 002's review, pending the author's ruling:
+soldier → RE and boy → B (Wikipedia lists both). Reviewed by opus (an LLM)
+against standard usage; the author's spot-check (QUESTIONS § 002) covers
+these too.
+
 ## indicators.json
 
 Built by `build_indicators.py` from `indicators.hand.json` (the hand seed,

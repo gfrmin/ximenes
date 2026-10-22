@@ -190,17 +190,22 @@ def test_headline_run_replays_exactly() -> None:
         pytest.skip("no 1,000-clue run yet")
     test = load_cryptonite("test")
 
+    # Superseded by brief 009: the verifier now turns syn() on reviewed table
+    # entries into table hits, so some verdicts (and so retries and judge calls)
+    # differ from the 2026-10-21 run. Its headline stands for the table of that
+    # date; here we check the replay is deterministic, with calls the old run
+    # never made producing nothing (offline).
+    from ximenes.gridsolve import offline
+
     def replay() -> dict:
-        backend = memoized(stub_backend(pathlib.Path(full["log"]), on_conflict="first"))
+        backend = memoized(offline(stub_backend(pathlib.Path(full["log"]), on_conflict="first")))
         return run([test[i] for i in full["indices"]], models=full["models"], backend=backend,
                    k=20, m=full["candidates_m"], retries=2, floor=full["oracle_floor"],
                    workers=32, score_indicators=False)
 
     a, b = replay(), replay()
     assert a == b
-    for key in ("top1", "vote_top1", "verified_n", "verified_top1", "verified_lenient_n",
-                "verified_lenient_top1", "recall_candidates", "gold_parsed"):
-        assert a[key] == full[key], key
+    assert a["n"] == full["n"] and a["vote_top1"] == full["vote_top1"]
 
 
 def test_memoized_backend_answers_a_repeated_input_once() -> None:

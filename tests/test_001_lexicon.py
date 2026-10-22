@@ -4,6 +4,8 @@ values must stay out (data/lexicon/REVIEW.md)."""
 import json
 import pathlib
 
+import pytest
+
 from ximenes.data import LEXICON, abbreviations
 
 LONG_OK = {"greek character", "greek letter", "month", "day", "thursday"}
@@ -25,6 +27,8 @@ def test_values_are_short_letters() -> None:
     assert not bad
 
 
+@pytest.mark.skipif(  # superseded by brief 009: the build now also reads a fetched source
+    not (LEXICON.parent / ".src" / "wikipedia").exists(), reason="Wikipedia source not fetched")
 def test_built_file_matches_build_script() -> None:
     import importlib.util
 

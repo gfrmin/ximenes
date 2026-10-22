@@ -7,6 +7,9 @@ Sources:
   upstream/CrypticCrosswords.jl-abbreviations.json rdeits/CrypticCrosswords.jl
       corpora/abbreviations.json, MIT (c) 2019 Robin Deits (origin "deits")
   reviewed.json                                    entries reviewed by hand (adds "review")
+  ../.src/wikipedia/crossword-abbreviations-<oldid>.wiki  Wikipedia, "Crossword
+      abbreviations", revision WIKIPEDIA_OLDID (2026-09-16), CC BY-SA 4.0
+      (origin "wikipedia"; brief 009), imported whole
 
 `_origin` is per entry: {key: {VALUE: origin}}. An entry counts as mechanical
 only if its origin includes "hand" or "review" (DESIGN D4).
@@ -20,6 +23,38 @@ import json
 import pathlib
 
 HERE = pathlib.Path(__file__).parent
+
+WIKIPEDIA_OLDID = 1375193762
+WIKIPEDIA = HERE.parent / ".src" / "wikipedia" / f"crossword-abbreviations-{WIKIPEDIA_OLDID}.wiki"
+WIKIPEDIA_SHA256 = "ba16dc1e423241b09f44501f6e87fcae14cb987b365beb025c8cca99eaa5cb69"
+
+
+def parse_wikipedia(text: str) -> dict[str, set[str]]:
+    """Entries under the A-Z headings: "* Key – <small>V</small> or <small>W</small> ...".
+    Keys split on " or ", "," and "/"; values are the letter-only <small> contents."""
+    import re
+
+    out: dict[str, set[str]] = {}
+    in_list = False
+    for line in text.splitlines():
+        if line.startswith("=="):
+            in_list = bool(re.fullmatch(r"==\s*[A-Z]\s*==", line.strip()))
+            continue
+        if not in_list or not line.startswith("*"):
+            continue
+        body = re.sub(r"\[\[(?:[^|\]]*\|)?([^\]]*)\]\]", r"\1", line.lstrip("* "))
+        parts = re.split(r"\s+[–—-]\s+", body, maxsplit=1)
+        if len(parts) < 2:
+            continue
+        key, rest = parts
+        values = {v.upper() for v in re.findall(r"<small>\s*([^<]+?)\s*</small>", rest)
+                  if re.fullmatch(r"[A-Za-z]+", v.strip())}
+        for k in re.split(r"\s*(?:,|/|\bor\b)\s*", key.replace("''", "")):
+            k = re.sub(r"[^a-z' ]", "", k.lower()).strip()
+            if k and values:
+                out.setdefault(k, set()).update(values)
+    return out
+
 
 # Upstream values that are several abbreviations fused, the separator lost.
 SPLIT = {
@@ -83,6 +118,12 @@ def build() -> dict:
                   and (len(v) <= MAX_LETTERS or key in LONG_OK)]
         for k in SPLIT_KEYS.get(key, (key,)):
             add(k, values, "deits")
+    import hashlib
+
+    if hashlib.sha256(WIKIPEDIA.read_bytes()).hexdigest() != WIKIPEDIA_SHA256:
+        raise ValueError(f"{WIKIPEDIA} does not match its pinned hash (run ./setup.sh)")
+    for k, vs in parse_wikipedia(WIKIPEDIA.read_text(encoding="utf-8")).items():
+        add(_norm_key(k), sorted(v for v in vs if len(v) <= MAX_LETTERS), "wikipedia")
     for k, vs in ADD.items():
         add(k, vs, "review")
     for k, vs in hand.items():
@@ -99,7 +140,9 @@ def build() -> dict:
             "built by data/lexicon/build_abbreviations.py from abbreviations.hand.json "
             "(hand seed 2026-10-21) and rdeits/CrypticCrosswords.jl corpora/abbreviations.json "
             "(MIT, (c) 2019 Robin Deits; LICENSE-CrypticCrosswords.jl.md), with the reviewed "
-            "fixes listed in REVIEW.md; keys lowercased, values uppercased letters"
+            "fixes listed in REVIEW.md, and Wikipedia contributors, \"Crossword abbreviations\", "
+            f"revision {WIKIPEDIA_OLDID} (2026-09-16), CC BY-SA 4.0 (origin 'wikipedia'); this "
+            "table, as an adaptation, is CC BY-SA 4.0. Keys lowercased, values uppercased letters"
         ),
         "_origin": {k: {v: "+".join(sorted(o)) for v, o in sorted(d.items())}
                     for k, d in sorted(origin.items()) if d},
