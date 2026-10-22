@@ -104,5 +104,8 @@ for the full run.
   $0.90 per grid; 97.4% of clues; committed answers 99.2% right.** A
   frontier-only baseline gets 7/20 and is level at equal spend.
   `reports/013-end-to-end.md`, draft note `docs/NOTE-draft.md`.
-- Next: brief 014 (close the last slots, paired against the baseline).
-  `briefs/ROADMAP.md`.
+- **Brief 014 (2026-10-23):** on 20 fresh post-cutoff grids, paired, a
+  calibrated Opus + crossing letters + BP solver gets **8/20 fully correct
+  at ~$1 per grid**, level with the full solver's 7/20: the verifier adds no
+  accuracy once confidence is calibrated. Pooled full-solver rate 17/40.
+  `reports/014-last-slots.md`; the write-up is `docs/NOTE-draft.md`.

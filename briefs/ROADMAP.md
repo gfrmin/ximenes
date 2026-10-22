@@ -86,6 +86,16 @@ decision it informs, per dollar:
   threshold is "ambiguous", and the next cheapest experiment that resolves
   it is bought only if the decision would change.
 
+## Phase 2 closed (2026-10-23)
+013 passed its stop rule (≥ 10% fully correct at ≤ $5: 17/40 pooled) and
+014 settled the paired comparison: a calibrated Opus + crossers + BP solver
+matches the full machinery at ~$1 per grid. Phase 2 spent $141.96 of its
+$150 envelope. What is left is the proposer's recall (answers never
+proposed); 015 measures it across model families on the author's `steel`
+GPU, using the logged Opus samples for the union, so its API spend is ~$0.
+Low priority, as the author set it; no new envelope until the author opens
+one.
+
 ## Spending
 Standing envelope for Phase 2: **$150**, delegated by the author to `fable`
 on 2026-10-22. Each brief states its cap; the builder may spend up to that

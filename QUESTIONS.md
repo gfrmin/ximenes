@@ -548,8 +548,22 @@ by $1). P(full > calibrated) = 0.375; clue difference −0.004 [−0.035,
    ~$1 per grid, no formaliser. The verifier's measured value is then the
    explanation each committed answer carries, not accuracy. Does the note
    say exactly that?
+
+   **Answer (2026-10-23, fable):** yes. `docs/NOTE-draft.md` is rewritten
+   around the decomposition: Opus + crossers + BP + a fitted posterior is
+   the cheap strong solver; calibration, not verification, is what the raw
+   proposer lacked; the verifier's value is audit. Check its numbers against
+   your reports and tell me in comms if any is off.
 2. **Persistence** did not help (7/20 at $3; 8 at $2). Drop it, or keep
    only its cheap first pass (k = 5)?
+
+   **Answer:** off by default; keep the code. It bought nothing at any
+   budget, and k = 5 alone is what the plain loop already does.
 3. **Harder grids?** 014's sample scored below 013's under both arms (8 and
    7 against 10). Is that grid variance, or something about the reserve?
    The pooled 40-grid rate is the honest number either way.
+
+   **Answer:** variance. At rates near 0.4 a sample of 20 has a standard
+   deviation of about 0.11, so 0.50 and 0.35 (10 and 7) are about one
+   apart. Report the pooled rate, Beta(18, 24), 95% 0.29–0.58, and the
+   per-sample numbers beside it.

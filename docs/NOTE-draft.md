@@ -1,71 +1,73 @@
-# ximenes: calibrated, auditable cryptic crossword solving (draft note)
+# ximenes: what it takes to solve cryptic crosswords, measured on clean puzzles (draft note)
 
-*Draft, 2026-10-22. Numbers from `reports/` at commit 6c7f35b. Brief 014
-will tighten the grid rate and settle the paired comparison; until then,
-treat the comparison claims as provisional.*
+*Draft, 2026-10-23. Numbers from `reports/` 013 and 014. Every number
+replays bit for bit from its logs.*
 
 ## Result
 
-On **20 Guardian, Independent and FT daily cryptics published 2 August to
-22 October 2026** (after every model's knowledge cutoff plus a month), the
-solver fills **10 grids fully correctly (50%; Beta posterior 95% interval
-about 29–71%)**, gets **97.4% of clues** right (grid-clustered 95% interval
-95.9–98.7%), at a mean **$0.90 per grid** in API calls. Answers it commits
-to are right **99.2%** of the time (491 of 495).
+On **40 Guardian, Independent and FT daily cryptics published 2 August to
+22 October 2026** (after every model's knowledge cutoff plus a month; two
+disjoint samples of 20, each read once), the full solver fills **17 grids
+fully correctly (43%; Beta posterior 95% interval 29–58%)**. It gets 95–97%
+of clues right, and its committed answers are right 98–99% of the time.
 
-## What the solver is
-- **Propose:** Claude Opus 5.5 lists candidates for every clue, then
-  re-proposes with the crossing letters it has (structured output only).
-- **Verify:** each candidate's wordplay is written in a small typed DSL,
-  parsed (never executed), and checked: string operations must hold and
-  every clue word must be used exactly once. Steps that need judgement
-  (synonyms, definitions, homophones) are named, not proved.
-- **Decide:** a calibrated posterior per candidate (fitted on held-out
-  data), belief propagation over the grid's crossings, and a
-  value-of-computation policy that chooses which clue to work on next
-  under a cost budget.
+A much simpler solver does as well. **Claude Opus 5.5 proposing answers, the
+grid's crossing letters, belief propagation, and a posterior fitted on
+held-out grids** fills **8 of 20** of the second sample's grids fully
+correctly (95% interval 22–62%), level with the full solver's 7 on the same
+grids. It reaches its 8 by **$1 per grid**.
+
+## What each part contributes (paired, on post-cutoff grids)
+
+| step | effect | evidence |
+|---|---|---|
+| Opus as proposer, not a small model | the right answer is a candidate for most clues; with half the letters known, in the top 5 for 150 of 150 test clues | brief 011 |
+| crossing letters + belief propagation | clues right 0.78 → 0.97 from the same candidates | 013 ablation |
+| **calibration** (a posterior fitted on held-out grids) | ECE 0.177 → 0.064; committed slots 341 → 495 of ~600; without it the solver under-commits and runs out of crossing letters | 013 appendix, 014 smoke |
+| the sound-by-grammar wordplay verifier, on top of calibration | **no measurable gain**: fully correct 7 vs 8 of 20, P(full better) = 0.375; clue difference −0.004 (95% −0.035 to +0.029) | 014 |
+| choosing computations by value per dollar | beats attempting every clue, but level with a simple heuristic | 005, 006 |
+| persistent re-proposal of the last slots | no gain: the slots it works on stay hard | 014 |
 
 ## How this compares
 - **Darmok** (2026) solved the Times Crossword Championship final faster
-  than its human winner with an ensemble of frontier models. No accuracy
-  over a puzzle set or cost has been published, so there is no like-for-like
-  number. Our result is on daily, not championship, puzzles, has no time
-  limit, and is reported with its cost.
+  than its human winner, with an ensemble of frontier models. It has
+  published no accuracy over a puzzle set and no cost, so there is no
+  like-for-like number. Ours is on daily puzzles, with no time limit, and is
+  reported with its cost and an interval.
 - **Published single-clue work** (Andrews & Witteveen, ICML 2025: 32.5%
-  top-1 on Cryptonite with small open models and a Python verifier) uses
-  older models and a dataset that today's models have likely seen.
-- **A frontier-only baseline** on the same 20 grids (Opus + crossing letters
-  + belief propagation, no verifier or posterior) gets 7/20 at $0.59 per
-  grid. At equal spend the two are level (the full solver had 6/20 at
-  $0.75); the full solver's advantage is that it keeps converting spend
-  into accuracy after the baseline runs out of moves. Brief 014 tests this
-  directly with both given the same persistent re-proposal.
+  top-1 on Cryptonite, with small open models and a Python verifier its
+  authors show can be fooled) predates today's models, and uses a dataset
+  those models have likely seen.
 
 ## What is distinctive
-1. **Soundness by grammar.** The verifier admits no mutant parse (0 false
-   accepts over ~3,000 mutants), where the published verifier is shown by
-   its authors to be exploitable.
-2. **Calibration and audit.** Every committed answer carries a probability
-   and the judgements it rests on. On the 20 grids, the solver's slot
-   marginals have ECE 0.064 (0.013 on committed slots) against the
-   frontier baseline's 0.177: the baseline is underconfident, commits 341
-   slots to the solver's 495, and so runs out of crossing letters sooner. On single clues, answering only at
+1. **The decomposition itself.** On contamination-free grids, calibration,
+   not verification, is what a strong proposer was missing; crossing
+   letters do most of the work. A cheap configuration matches the full
+   machinery.
+2. **A verifier that cannot be fooled, whose value is audit.** It admits
+   none of ~3,000 mutant parses. It adds no accuracy here, but each answer
+   it verifies names the judgements it rests on (a synonym, a definition)
+   and the string operations that hold.
+3. **Calibrated, selective answers.** On single clues, answering only at
    P ≥ 0.9 covers 37.9% of clues at 96.8% accuracy (ECE 0.027).
-3. **A contamination-aware protocol.** Post-cutoff puzzles defined by model
-   knowledge cutoffs, a pre-registered fit/evaluation split, evaluation
-   grids read once, and every table committed before evaluation.
+4. **A contamination-aware protocol.** Post-cutoff puzzles defined by each
+   model's knowledge cutoff, harvested without reading their content,
+   grids reconstructed from clue lists, pre-registered fit/evaluation
+   splits and decision rules, tables committed before evaluation (checked
+   from git history), and evaluation grids read once.
 
 ## Caveats
-- **n = 20 grids.** The rate's interval is wide; 014 adds 20 more.
+- **n = 40 grids, and 20 for the simple solver.** Intervals are wide. The
+  two samples differ (the full solver 10/20 then 7/20), which is within
+  sampling noise for rates near 0.4.
 - **Selection.** Only puzzles blogged on Fifteensquared, parsed completely
-  and reconstructed uniquely; puzzles with linked clues are excluded
-  (61 posts), which biases toward simpler grids. No Times puzzles.
+  and reconstructed uniquely; puzzles with linked clues are excluded (61
+  posts), which biases toward simpler grids. No Times puzzles.
 - **Blind parser.** Rows were checked by mechanical invariants, not read.
-- **The verifier adds little at decision time** once the proposer is strong
-  (ablation: 0.975 vs 0.974 clues without its features). Its value here is
-  audit and calibration, and possibly in choosing what to compute; not raw
-  accuracy.
-- **Costs** are API list prices for the evaluation runs only, not
-  development (~$160 across all briefs).
+- **One proposer family.** Only Anthropic models were tested; the
+  remaining failures are answers never proposed, which other families may
+  propose (planned, brief 015).
+- **Costs** are API list prices for evaluation runs only, not development
+  (~$245 across all briefs).
 - **Data** cannot be shared (newspaper puzzles and blog content); the code,
   the protocol and every result's replay log can.
