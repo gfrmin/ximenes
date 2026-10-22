@@ -93,4 +93,8 @@ for the full run.
 - Brief 008 done (2026-10-22): thesaurus attestation is nearly redundant
   with the synonym judge; half the unattested "synonyms" are missing
   abbreviations. $0. `reports/008-synonym-attestation.md`.
-- Next: brief 009 (abbreviations, $0). `briefs/ROADMAP.md`.
+- Brief 009 done (2026-10-22): a sourced abbreviation list turns ~9% of
+  synonym leaves into table hits; Ok +0.5–1.4 points; proven stays rare.
+  `reports/009-abbreviations.md`.
+- Next: brief 010 (soft evidence vs hard clamping, offline, $0).
+  `briefs/ROADMAP.md`.

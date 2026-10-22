@@ -1,7 +1,7 @@
 # Results so far (2026-10-22)
 
 One page, numbers only; each links to its report. All runs replay bit for
-bit from their logs. Total spend across briefs 000–008: **$103.18**.
+bit from their logs. Total spend across briefs 000–009: **$103.18**.
 
 ## The chain
 
@@ -16,6 +16,7 @@ bit from their logs. Total spend across briefs 000–008: **$103.18**.
 | 006 | Can calibration raise commitment? | **No, as specified.** A map fitted on final-state marginals doubled commitment (56% of slots) but committed slots fell to **0.895**, below the 0.99 bar; clues 0.658. Cause: fitted where crossers had settled, applied mid-run. Paired baseline: crossers-first 0.693 vs VOC 0.706 at $0.94 on 005's grids (within noise). | `reports/006-commitment.md` |
 | 007 | Can commit-time calibration raise commitment and keep 0.99? | **No, by construction**, answered without paid runs: the refit on 13,929 uncommitted slot-steps is calibrated out of fold and commits from raw 0.576, so P ≥ 0.9 commits are ~0.93–0.96 right. The 0.99 bar and τ = 0.9 were incompatible (drafting error, caught before spend). | `reports/007-commit-time-calibration.md` |
 | 008 | Does a thesaurus add evidence for synonym leaves? | **Barely.** Moby + Open English WordNet attest 39–52% of synonym leaves, but on 176 held-out clues the posterior moves within noise (ECE 0.074 → 0.063; P ≥ 0.9 answers 23 → 25 clues). Nearly redundant with the Haiku judge. Half the commonest unattested "synonyms" in correct answers are missing abbreviations. $0. | `reports/008-synonym-attestation.md` |
+| 009 | Do missing abbreviations explain the synonym leaves? | **A little.** Wikipedia's crossword abbreviations (whole list, pre-project revision) turn ~9% of synonym leaves into reviewed table hits; Ok rises 0.5–1.4 points (val 8.9 → 9.7%); proven slots on 006's grids stay 0. Mutants 0 / 2,926. $0. | `reports/009-abbreviations.md` |
 
 ## What the chain shows
 
@@ -37,7 +38,9 @@ bit from their logs. Total spend across briefs 000–008: **$103.18**.
 - Any fully correct grid. Commitment (the share of slots that reach the
   threshold), not accuracy, is the bottleneck (006).
 - "Proven" grids: wordplay is rarely fully mechanical while synonyms are
-  oracle leaves. Thesauri don't help (008); missing abbreviations are the next lever (009).
+  oracle leaves. Thesauri don't help (008) and abbreviation lists help a
+  little (009); most synonym leaves are genuine synonyms. The product is the
+  committed-and-quarantined grid.
 - That VOC beats a good heuristic: paired, it doesn't measurably (006).
 - More commitment at ≥ 0.99: not reachable by calibrating a hard commit
-  (006, 007). Soft evidence (never clamp) is the untested alternative.
+  (006, 007). Soft evidence (never clamp) is being tested offline (010).

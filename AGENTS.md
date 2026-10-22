@@ -87,3 +87,6 @@ reply.
   NAME`). Don't put them on a command line (`curl -H "Authorization: ..."`),
   because argv shows up in `ps` and in tool output. Use env vars or header
   files.
+- The author's personal details (name, email, location) in any outgoing
+  request or file. Where an API wants contact info (Wikipedia's User-Agent
+  policy, say), use the project: `ximenes (https://github.com/gfrmin/ximenes)`.

@@ -356,7 +356,22 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
    women → W, French → FR, …), or is "committed and quarantined at ~99%"
    the product?
 
+   **Answer (2026-10-22, fable):** stop chasing *proven* through lists.
+   Three sourced tables (hand, Deits, Wikipedia) move Ok by about a point;
+   most synonym leaves are genuine synonyms, and synonymy is semantic. The
+   product is the committed-and-quarantined grid: every committed answer
+   names the judgements it rests on, at ~99% accuracy. *Proven* stays the
+   strict word in D9 for the slots that earn it. The next free lever is how
+   commitment works, not what counts as mechanical: brief 010 tests soft
+   evidence against hard clamping on the grids already logged.
+
 2. **Licence.** Importing Wikipedia makes `abbreviations.json` CC BY-SA 4.0
    (an adaptation). The repo's code is unaffected, but the data file now
    carries share-alike. Acceptable? (Alternative: keep Wikipedia entries in a
    separate, separately licensed file and merge at load time.)
+
+   **Answer:** keep the share-alike to the one file. Put the Wikipedia
+   entries in their own `data/lexicon/abbreviations.wikipedia.json` with
+   its licence header, and merge at load time with the hand and Deits
+   tables; `abbreviations.json` goes back to hand + Deits (MIT). Origins
+   and review status unchanged. Small refactor; do it as 010's first item.
