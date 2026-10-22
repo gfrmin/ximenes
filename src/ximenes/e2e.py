@@ -28,11 +28,12 @@ from datetime import UTC, datetime
 from typing import Any
 
 from . import posterior as post
+from .bp import Var, committed, prior_with_other
 from .clue import normalise
-from .data import DATA, split_clue
+from .data import DATA, format_enumeration, split_clue
 from .eval import PARAMS, postcutoff_grids
-from .gridsolve import load_grid
-from .instruments import SETTINGS
+from .gridsolve import fits, load_grid, pattern_of
+from .instruments import SETTINGS, propose_pattern
 from .policy import GridRun, Tables, _backend, load_tables
 from .voc import fit_gain, fit_other_prior, preregister_rho
 
@@ -165,6 +166,130 @@ def e2e_tables() -> tuple[Tables, dict[str, Any]]:
     return Tables(t["full"], t["vote"], t["other"], t["other_vote"]), t["gain"]
 
 
+# --- the frontier-only baseline (brief 013 item 5) ------------------------------------------
+
+
+class FrontierRun(GridRun):
+    """Opus proposes every slot and re-proposes with crossing letters; BP over
+    the proposer's own shares (OTHER at brief 004's floor) commits at tau.
+    No formaliser, no judges, no fitted posterior."""
+
+    def variables(self) -> dict[str, Var]:
+        out = {}
+        for k, s in self.s.items():
+            if k in self.commits:
+                out[k] = committed(self.commits[k])
+            else:
+                words = tuple(a for a, _sh in s.votes)
+                out[k] = Var(words, prior_with_other([sh for _a, sh in s.votes],
+                                                     PARAMS["bp"]["floor_other"]))
+        return out
+
+    def frontier(self, budget: float) -> None:
+        """Re-propose uncommitted slots whose letter pattern has grown, most
+        committed crossers first, until no such slot is left or the spend
+        reaches the budget."""
+        rp = CFG["proposer"]["repropose"]
+        while self.totals[0] < budget:
+            letters = {c: self.commits[o][i] for o in self.commits
+                       for i, c in enumerate(self.s[o].slot.cells)}
+            todo = sorted((k for k, s in self.s.items() if k not in self.commits
+                           and pattern_of(s.slot, letters).count("?")
+                           < s.seen_pattern.count("?")),
+                          key=lambda k: (-sum(o in self.commits for o in self.crossers[k]), k))
+            if not todo:
+                return
+            k = todo[0]
+            s = self.s[k]
+            pattern = pattern_of(s.slot, letters)
+            s.seen_pattern = pattern
+            samples = propose_pattern(s.clue.text, format_enumeration(s.clue.enumeration),
+                                      pattern, rp["k"], rp["model"], backend=self.backend,
+                                      fmt=rp["format"])
+            new = dict(self._votes(samples, s.clue, s.slot))
+            old = {a: sh for a, sh in s.votes if fits(a, pattern)}
+            merged = {a: (old.get(a, 0.0) + new.get(a, 0.0)) / (1 + 1) for a in {*old, *new}}
+            s.votes = sorted(merged.items(), key=lambda kv: (-kv[1], kv[0]))
+            s.moves += 1
+            self.refresh("repropose", k)
+
+
+def run_frontier(names: Sequence[str], budgets: Mapping[str, float],
+                 args: argparse.Namespace) -> dict[str, Any]:
+    paths = {p.stem: p for p in grids()[0]}
+    started = datetime.now(UTC)
+    run_id = f"{started.strftime('%Y%m%dT%H%M%SZ')}-e2e-frontier-{args.backend}-{uuid.uuid4().hex}"
+    runs = pathlib.Path(args.runs_dir)
+    log_path = runs / f"{run_id}.jsonl"
+    models = {"proposer": SETTINGS["solve_models"]["proposer"],
+              "formaliser": SETTINGS["solve_models"]["formaliser"],
+              "judge": SETTINGS["judges"]["model"]}
+
+    def one(name: str) -> dict[str, Any]:
+        grid, clues = load_grid(paths[name])
+        backend, totals, _memo = _backend(args, log_path)
+        g = FrontierRun(name, grid, clues, backend, totals, load_tables(), models,
+                        proposer=CFG["proposer"])
+        g.frontier(budgets[name])
+        return {"puzzle": name, "checkpoints": g.checkpoints, "usd": g.totals[0],
+                "budget": budgets[name], "slots": final_slots(g),
+                "fully_correct": g.checkpoints[-1]["letters_correct"] == 1}
+
+    with ThreadPoolExecutor(max_workers=max(1, min(len(names), CFG["grid_workers"]))) as pool:
+        out = list(pool.map(one, names))
+    doc = {"run_id": run_id, "policy": "frontier", "log": str(log_path), "grids": out,
+           "proposer": CFG["proposer"]}
+    runs.mkdir(parents=True, exist_ok=True)
+    (runs / f"{run_id}.json").write_text(json.dumps(doc, indent=1))
+    return doc
+
+
+# --- free ablations from the evaluation logs (brief 013 item 4) ---------------------------
+
+
+def _cells_score(sub: Mapping[str, str | None], g: GridRun) -> dict[str, Any]:
+    from .regimes import score
+
+    cells = {k: s.slot.cells for k, s in g.s.items()}
+    return score(sub, g.gold, cells)
+
+
+def ablate(ev: Mapping[str, Any], args: argparse.Namespace) -> dict[str, Any]:
+    """Rebuild each evaluation grid's final state by replaying its moves from
+    the log (no new calls), then score (a) the proposer's first candidate per
+    slot, no verifier and no BP; (b) BP over the same final candidates with
+    the vote-only posterior (no verifier features); (c) the full solver."""
+    from .bp import OTHER, map_assignment
+
+    paths = {p.stem: p for p in grids()[0]}
+    tables, gain = e2e_tables()
+    vote_only = Tables(tables.vote, tables.vote, tables.other_vote, tables.other_vote)
+    models = {"proposer": SETTINGS["solve_models"]["proposer"],
+              "formaliser": SETTINGS["solve_models"]["formaliser"],
+              "judge": SETTINGS["judges"]["model"]}
+    out = []
+    for gdoc in ev["grids"]:
+        grid, clues = load_grid(paths[gdoc["puzzle"]])
+        backend, totals, memo = _backend(args, pathlib.Path(args.runs_dir) / "ablate.jsonl")
+        g = GridRun(gdoc["puzzle"], grid, clues, backend, totals, tables, models, warm=memo,
+                    proposer=CFG["proposer"])
+        moves = [(c["move"], c["slot"]) for c in gdoc["checkpoints"]
+                 if c["move"] in ("solve", "formalise_more", "repropose")]
+        g.run("replay_moves", moves=moves)
+        first = {k: (s.votes[0][0] if s.votes else None) for k, s in g.s.items()}
+        g.t, g.commits = vote_only, {}
+        g.refresh("ablate", None)
+        vs = g.variables()
+        final = map_assignment(vs, g.edges)
+        bp = {k: (final[k] if final[k] is not OTHER else
+                  (v.words[max(range(len(v.words)), key=lambda i: g.marg[k][i])]
+                   if v.words else None)) for k, v in vs.items()}
+        full = {k: v["submitted"] for k, v in gdoc["slots"].items()}
+        out.append({"puzzle": gdoc["puzzle"], "first": _cells_score(first, g),
+                    "bp_vote_only": _cells_score(bp, g), "full": _cells_score(full, g)})
+    return {"grids": out}
+
+
 # --- runs -------------------------------------------------------------------------------
 
 
@@ -233,9 +358,11 @@ def run_grids(names: Sequence[str], policy: str, args: argparse.Namespace,
 
 def main(argv: Sequence[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="python -m ximenes.e2e")
-    p.add_argument("step", choices=("split", "fit", "refit", "evaluate"))
+    p.add_argument("step", choices=("split", "fit", "refit", "evaluate", "frontier",
+                                         "ablate"))
     p.add_argument("--n", type=int, default=None, help="first n grids of the set")
-    p.add_argument("--run", default=None, help="refit: the fit run JSON")
+    p.add_argument("--run", default=None,
+                   help="refit: the fit run JSON; frontier: the evaluation run (spend to match)")
     p.add_argument("--backend", choices=("anthropic", "stub"), default="anthropic")
     p.add_argument("--log", nargs="*", default=[])
     p.add_argument("--offline", action="store_true")
@@ -259,6 +386,22 @@ def main(argv: Sequence[str] | None = None) -> int:
                 {"source": f"fitted by `python -m ximenes.e2e refit` on brief 013's fit grids "
                            f"(run {t['fitted_on']}); never on evaluation grids", **t},
                 indent=1) + "\n")
+    elif args.step == "ablate":
+        res = ablate(json.loads(pathlib.Path(args.run).read_text()), args)
+        out_path = pathlib.Path(args.runs_dir) / "013-ablations.json"
+        out_path.write_text(json.dumps(res, indent=1))
+        mean = {m: {k: sum(g[m][k] for g in res["grids"]) / len(res["grids"])
+                    for k in ("clues", "letters")} for m in ("first", "bp_vote_only", "full")}
+        print(json.dumps(mean))
+    elif args.step == "frontier":
+        ev = json.loads(pathlib.Path(args.run).read_text())
+        spend = sorted(g["usd"] for g in ev["grids"])
+        median = (spend[(len(spend) - 1) >> 1] + spend[len(spend) >> 1]) / (1 + 1)
+        names = [g["puzzle"] for g in ev["grids"]]
+        doc = run_frontier(names, dict.fromkeys(names, median), args)
+        print(json.dumps({"run_id": doc["run_id"], "median_matched": median,
+                          "usd": [g["usd"] for g in doc["grids"]],
+                          "fully_correct": sum(g["fully_correct"] for g in doc["grids"])}))
     else:
         tables, gain = e2e_tables()
         doc = run_grids(sets["evaluation"][:args.n], "voc", args, tables, gain)

@@ -111,3 +111,27 @@ def test_tables_committed_before_the_first_evaluation_run() -> None:
     added = datetime.fromisoformat(out.stdout.split()[-1])
     assert added < first_run
     assert json.loads(pathlib.Path("data/e2e-posterior.json").read_text())["fit_grids"]
+
+
+def test_frontier_baseline_uses_no_formaliser_and_respects_budget() -> None:
+    from test_005_voc import FIX, MODELS
+
+    from ximenes.e2e import FrontierRun
+    from ximenes.gridsolve import load_grid
+    from ximenes.instruments import FORMALISE_CLUE, metered
+    from ximenes.policy import load_tables
+
+    seen: list[str] = []
+    inner = _list_fake()
+
+    def spy(instrument: str, model: str, inp: dict) -> tuple[object, dict]:
+        seen.append(instrument)
+        return inner(instrument, model, inp)
+
+    grid, clues = load_grid(FIX / "grid5" / "synthetic-grid5.json")
+    backend, totals = metered(spy)
+    g = FrontierRun("grid5", grid, clues, backend, totals, load_tables(), MODELS,
+                    proposer=CFG["proposer"])
+    g.frontier(0.08)
+    assert FORMALISE_CLUE not in seen and not any(i.startswith("judge") for i in seen)
+    assert g.checkpoints[-1]["usd"] <= 0.08 + 0.005 * 2  # at most one move past the budget
