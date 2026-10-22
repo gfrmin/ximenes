@@ -90,6 +90,22 @@ def load_postcutoff(
     return kept, len(rows) - len(kept)
 
 
+def postcutoff_grids(*, allow_postcutoff: bool = False, model: str | None = None,
+                     root: pathlib.Path = POSTCUTOFF / "grids",
+                     cutoffs: Mapping[str, str | None] | None = None) -> list[pathlib.Path]:
+    """Brief 013: paths of brief 012's reconstructed grids dated on or after
+    `model`'s first unseen date (the date is the file name's last part)."""
+    if not allow_postcutoff:
+        raise PermissionError("data/postcutoff/ is opened only with allow_postcutoff=True")
+    if model is None:
+        raise ValueError("post-cutoff grids are filtered per model: pass model=")
+    first = postcutoff_cutoff(
+        model, SETTINGS["knowledge_cutoff"] if cutoffs is None else cutoffs,
+        PARAMS["postcutoff_floor"], PARAMS["postcutoff_margin_days"])
+    return [f for f in sorted(root.glob("*.json"))
+            if date.fromisoformat(f.stem[-len("yyyy-mm-dd"):]) >= first]
+
+
 # --- scoring ---------------------------------------------------------------
 
 

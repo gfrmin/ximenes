@@ -45,6 +45,7 @@ from .instruments import (
     memoized,
     metered,
     propose_answers,
+    propose_list,
     propose_pattern,
     replay_then,
     stub_backend,
@@ -123,10 +124,12 @@ class GridRun:
     def __init__(self, name: str, grid: Grid, clues: dict[str, CryptoniteClue],
                  backend: Instrument, totals: list[float], tables: Tables,
                  models: dict[str, str], warm: Instrument | None = None,
-                 commit_table: dict[str, Any] | None = None) -> None:
+                 commit_table: dict[str, Any] | None = None,
+                 proposer: dict[str, Any] | None = None) -> None:
         self.name, self.grid, self.backend, self.totals = name, grid, backend, totals
         self.warm_backend = warm
         self.commit_table = commit_table  # brief 006: None = commit on the raw marginal
+        self.proposer = proposer  # brief 013: None = brief 005's Haiku votes
         self.t, self.models = tables, models
         self.edges = edges_of(grid)
         self.crossers = {slot_key(Slot(n, o, ())): [slot_key(Slot(on, oo, ()))
@@ -135,16 +138,41 @@ class GridRun:
         slots = {slot_key(s): s for s in grid.slots}
         self.gold = {k: normalise(clues[k].answer) for k in slots}
         with ThreadPoolExecutor(max_workers=PARAMS["workers"]) as pool:
-            samples = dict(zip(slots, pool.map(lambda k: propose_answers(
-                clues[k].text, format_enumeration(clues[k].enumeration), PARAMS["k"],
-                models["proposer"], backend=backend), slots), strict=True))
-        self.s = {k: SlotState(k, slots[k], clues[k], self._votes(samples[k], clues[k], slots[k]),
+            votes = dict(zip(slots, pool.map(lambda k: self._round1(clues[k], slots[k]), slots),
+                             strict=True))
+        self.s = {k: SlotState(k, slots[k], clues[k], votes[k],
                                seen_pattern="?" * slots[k].length) for k in slots}
         self.commits: dict[str, str] = {}
         self.marg: dict[str, list[float]] = {}
         self.events: list[dict[str, Any]] = []
         self.checkpoints: list[dict[str, Any]] = []
         self.refresh("proposals", None)
+
+    def _round1(self, clue: CryptoniteClue, slot: Slot) -> list[tuple[str, float]]:
+        enum = format_enumeration(clue.enumeration)
+        r1 = (self.proposer or {}).get("round1")
+        if r1 is None:
+            return self._votes(propose_answers(clue.text, enum, PARAMS["k"],
+                                               self.models["proposer"], backend=self.backend),
+                               clue, slot)
+        if r1["prompt"] == "list":
+            from .proposers import parse_list  # proposers -> recall -> policy: import late
+
+            return self._listed(parse_list(propose_list(
+                clue.text, enum, None, r1["model"], backend=self.backend, fmt=r1["format"])),
+                clue, slot)
+        return self._votes(propose_answers(clue.text, enum, r1["k"], r1["model"],
+                                           backend=self.backend, fmt=r1["format"]), clue, slot)
+
+    @staticmethod
+    def _listed(answers: Sequence[str], clue: CryptoniteClue, slot: Slot
+                ) -> list[tuple[str, float]]:
+        """Brief 013: a ranked list has no vote counts; each valid candidate
+        gets a position share proportional to 1 / (rank + 1), summing to 1."""
+        c = Clue(clue.text, clue.enumeration, clue.orientation)
+        valid = [a for a in answers if c.enumeration.matches(a) and len(a) == slot.length]
+        weights = [1 / (r + 1) for r in range(len(valid))]
+        return [(a, w / sum(weights)) for a, w in zip(valid, weights, strict=True)]
 
     @staticmethod
     def _votes(samples: Sequence[str], clue: CryptoniteClue, slot: Slot) -> list[tuple[str, float]]:
@@ -282,9 +310,13 @@ class GridRun:
                        for i, c in enumerate(self.s[o].slot.cells)}
             pattern = pattern_of(s.slot, letters)
             s.seen_pattern = pattern
-            samples = propose_pattern(s.clue.text, format_enumeration(s.clue.enumeration),
-                                      pattern, BP["repropose_k"], self.models["proposer"],
-                                      backend=self.backend)
+            rp = (self.proposer or {}).get("repropose")
+            samples = (propose_pattern(s.clue.text, format_enumeration(s.clue.enumeration),
+                                       pattern, BP["repropose_k"], self.models["proposer"],
+                                       backend=self.backend) if rp is None else
+                       propose_pattern(s.clue.text, format_enumeration(s.clue.enumeration),
+                                       pattern, rp["k"], rp["model"], backend=self.backend,
+                                       fmt=rp["format"]))
             known = {h["answer"] for h in s.cands}
             new = [(a, sh) for a, sh in self._votes(samples, s.clue, s.slot)
                    if fits(a, pattern) and a not in known][:PARAMS["candidates"]]
