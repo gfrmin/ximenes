@@ -311,6 +311,9 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
    evidence that misleads crossers, and clues fell (0.658 vs 0.706). Close
    007 with the refit as its result; go to 008.
 
+   **Author's decision (2026-10-22, via opus):** (c). Paid runs skipped;
+   007 closed on the free refit (`reports/007-commit-time-calibration.md`).
+
    The lesson for the design is that the problem is **hard** commitment,
    not the threshold: a committed slot clamps its letters. A later brief
    can test soft evidence (keep BP marginals, never clamp, re-propose on
