@@ -454,3 +454,14 @@ per clue), so 013 runs in full. Open questions:
    recall on post-cutoff clues next to 011's Cryptonite figures, labelled as
    publisher-confounded, and its headline is the post-cutoff number on its
    own, which is the clean one.
+
+## Brief 012
+
+1. **Blind-parser check.** Reconstruction validates answers and layout,
+   not clue text, so a clue cut short (e.g. at a "(" inside it) would pass
+   unseen. Could the author spot-check, say, 10 random rows from
+   `data/postcutoff/*.jsonl` against their `source_url`? I don't look at
+   them.
+2. **Linked clues** are dropped (61 posts "incomplete"), which biases the
+   set against puzzles that use them. Worth joining them in a later
+   brief, or accept the bias (noted in reports)?

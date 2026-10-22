@@ -4,12 +4,10 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-22 ~15:20 UTC
-- **Working on:** brief 012 (post-cutoff harvest; the author approved fetching,
-  "just get the data, don't look at them"). Claim: `src/ximenes/harvest.py`,
-  `kit/lint_forbidden.py` (IO allowance), `data/eval.json` (harvest), `tests/test_012_*`,
-  `reports/012*`. Brief 011 built, smoked twice ($8.58); full run waits for the author's go.
-- **Running jobs:** the harvest fetch (a few requests, 20 s apart).
+- **Updated:** 2026-10-22 ~19:45 UTC
+- **Working on:** brief 013 (end-to-end on post-cutoff grids), build only for now; its paid
+  steps wait for the author's go after smoke costs. 011 and 012 done.
+- **Running jobs:** none.
 - **Blocked on:** nothing.
 
 ## fable
