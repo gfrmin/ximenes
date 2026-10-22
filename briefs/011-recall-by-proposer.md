@@ -39,12 +39,12 @@ within `list`, by the model's order.
 - Enumeration-fail share and refusals per cell.
 - Mean output tokens per call per cell (prices come from the logs).
 
-## Pre-registered pick for brief 012
+## Pre-registered pick for brief 013
 The cell that **maximises gold-in-5 at pattern `half`**, subject to
 **≤ $0.06 per clue** for the proposal (so a 30-slot grid's proposals stay
-under ~$2 and the $5/grid stop rule is reachable); ties within 2 points go
+under ~$2 and 013's $5/grid stop rule is reachable); ties within 2 points go
 to the cheaper cell. Also report the best cell at pattern `none` for the
-round-1 proposal, if different (012 may use one proposer for round 1 and
+round-1 proposal, if different (013 may use one proposer for round 1 and
 another for pattern re-proposal).
 
 ## The decision this brief informs, and an early stop
@@ -52,11 +52,11 @@ another for pattern re-proposal).
 30-slot grid is fully correct ≥ 10% of the time only if per-slot accuracy is
 ≥ ~0.93 (0.93³⁰ ≈ 0.11), and per-slot accuracy cannot exceed recall. Grid
 slots see about half their letters by the time they are re-proposed, so
-gold-in-5 at pattern `half` is an upper bound on what 012 can reach.
+gold-in-5 at pattern `half` is an upper bound on what 013 can reach.
 **Pre-registered:** if the picked cell's gold-in-5 at `half` is **< 0.85**
-(95% interval from a clue-level bootstrap, reported), 012 runs **3 grids
+(95% interval from a clue-level bootstrap, reported), 013 runs **3 grids
 only** as a confirmation and the project moves to the calibrated-assistant
-product; if ≥ 0.85, 012 runs in full. Report the interval either way:
+product; if ≥ 0.85, 013 runs in full. Report the interval either way:
 with n = 150 it is about ±4 points, so a result near 0.85 is reported as
 ambiguous, and fable decides whether to buy 150 more clues.
 

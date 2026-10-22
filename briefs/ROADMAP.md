@@ -20,25 +20,22 @@ end-to-end grid, then a clean number.
 
 | # | Brief | Headline number | Cap |
 |---|---|---|---|
-| 011 | **Recall by proposer.** Haiku / Sonnet / Opus, sampled vs "list N candidates", with and without crossing-letter patterns, on a fresh Cryptonite test sample | gold-in-k and $ per clue for each proposer × prompt × pattern level | $40 |
-| 012 | **End-to-end grid solver** with the proposer 011 picks: VOC, pattern re-proposal, posterior refitted on val for the new proposer | fully correct grids, clues, letters, $ per grid on 20 fresh reconstructed grids; stop rule below | $60 |
-| 013 | **Clean number:** 012's solver, frozen, on post-cutoff grids | fully correct grids on post-cutoff puzzles; gap to 012 | ≤ $40 |
-| 014+ | Whatever 012/013 show is the limit (ensemble proposers, a second formaliser, a stronger judge, cheaper routing by VOC) | — | per brief |
+| 011 | **Recall by proposer.** Haiku / Sonnet / Opus, sampled vs "list N candidates", with and without crossing-letter patterns, on a fresh Cryptonite test sample | gold-in-k and $ per clue for each proposer × prompt × pattern level | $40 (waits for the author's go) |
+| 012 | **Post-cutoff harvest** from Fifteensquared (REST API, 20 s delay, local only): clues, answers, explanations from 2026-08-01; grids reconstructed; post-cutoff rule moved to knowledge cutoffs | puzzles, clues and unique grids by publisher | $0 |
+| 013 | **End-to-end grid solver** with the proposer 011 picks, evaluated on **post-cutoff** grids from 012 (Cryptonite reconstructed grids as a secondary, upper-bound number) | fully correct grids, clues, letters, $ per grid; stop rule below | $60 |
+| 014+ | Whatever 013 shows is the limit (ensemble proposers, a second formaliser, a stronger judge, cheaper routing by VOC); contamination gap per publisher | — | per brief |
 
-**Stop rule, pre-registered for 012.** On reconstructed Cryptonite grids
-(an upper bound, mixed splits): if fewer than **10%** of grids are fully
+**Stop rule, pre-registered for 013.** On post-cutoff grids: if fewer than **10%** of grids are fully
 correct at ≤ **$5 per grid**, the project stops chasing full grids and the
 product is the calibrated solving assistant (per-answer probability and
-evidence; brief 003's result is its core). If ≥ 10%, 013 and 014+ follow.
+evidence; brief 003's result is its core). If ≥ 10%, 014+ follow.
 
-**Post-cutoff data (013's blocker).** Cryptonite ends in 2020; strong
-models have likely seen it. The tools available to the agents decline
-newspaper crossword sites, so the agents will not scrape them. Post-cutoff
-puzzles need a source the author is entitled to use (e.g. puzzles from his
-own subscription, saved as `.puz` / ipuz / PDF into `data/postcutoff/`,
-never committed); a converter is part of 013. Until then, 012's number is
-labelled an upper bound, and 011 reports accuracy by clue year per model as
-a contamination probe.
+**Post-cutoff data.** Fifteensquared blogs Guardian, Independent and FT
+cryptics daily with every clue, its answer and a wordplay explanation;
+grids are reconstructed from the numbering (brief 004). Its robots.txt
+allows ordinary crawlers with a 20 s delay; brief 012 uses the REST API,
+keeps everything local, and never commits or republishes content. The
+newspapers' own sites stay off limits to the agents.
 
 ## How Phase 2 is chosen (informal value of information)
 Each brief is the experiment with the most expected improvement in the
@@ -49,8 +46,8 @@ decision it informs, per dollar:
   the ~0.93 needed. A cheap experiment that moves this probability a lot is
   worth more than any refinement of the decision layer (006–010 each moved
   numbers by ≤ 2 points).
-- **011 ($25) bounds 012 ($60)**: recall at `half` pattern caps per-slot
-  accuracy, so 011 can stop 012 early (its own pre-registered threshold)
+- **011 ($25) bounds 013 ($60)**: recall at `half` pattern caps per-slot
+  accuracy, so 011 can stop 013 early (its own pre-registered threshold)
   and save most of 012's cost if the answer is no. It also picks the
   proposer, where the wrong choice costs either accuracy or ~3× spend.
 - **Contamination** biases every Cryptonite number upward, more for strong
