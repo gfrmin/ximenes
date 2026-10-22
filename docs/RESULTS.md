@@ -1,7 +1,7 @@
 # Results so far (2026-10-22)
 
 One page, numbers only; each links to its report. All runs replay bit for
-bit from their logs. Total spend across briefs 000–012: **$122.87**.
+bit from their logs. Total spend across briefs 000–013: **$160.64**.
 
 ## The chain
 
@@ -20,6 +20,7 @@ bit from their logs. Total spend across briefs 000–012: **$122.87**.
 | 010 | Does hard commitment cost grids? | **No, not on fixed candidates.** Round-1 records of all 40 logged grids: hard 0.557 / soft 0.557 / soft-annealed 0.558 clues; identical entries in all 1,176 slots. Gold is a candidate in only 57% of slots and every regime finds it in 97% of those: the ceiling is candidate generation. Clamping even at 006's raw threshold costs nothing offline, so 006's loss came through re-proposal after wrong commits. Appendix: gold is among the 20 vote samples for only 64–70% of clues; raising m from 3 to 5 adds 3–6 points. $0. | `reports/010-soft-evidence.md` |
 | 011 | Which proposer, and how much do crossing letters help? | 150 fresh test clues, structured output: with half the letters, **Opus sampling has gold in its top 5 for 150/150** ($0.026/clue; Haiku 0.953 at $0.007); with no letters, Opus ~0.88–0.92 vs Haiku 0.67. Pick for 013: Opus sample at `half`; early stop not triggered. Haiku and Sonnet fall 20–30 points from old to new clues, Opus is flat (contamination or difficulty: 013 decides). $19.69 incl. smoke tests. | `reports/011-recall-by-proposer.md` |
 | 012 | Can we get clean post-cutoff grids? | Fifteensquared (WordPress API, 6 requests, nothing read or committed): 356 posts since 2026-08-01, **136 uniquely reconstructed grids** (FT 49, Independent 42, Guardian 31, Everyman 9, Quiptic 5), 4,061 clues with answers and explanations. Post-cutoff rule now knowledge cutoff + 31 days (floor 2026-08-01). $0. | `reports/012-postcutoff-harvest.md` |
+| 013 | Can the whole solver finish clean grids? | **Yes: 10 of 20 post-cutoff grids fully correct** (Guardian/Independent/FT, Aug–Oct 2026) at **$0.90 per grid**; clues 0.974, committed slots 99.2% right; stop rule passes (P(rate ≥ 0.10) > 0.999). Opus-alone baseline with crossing letters and BP: 7/20 at $0.59, level with the solver at equal spend; the verifier adds nothing at decision time once the candidates exist. $37.77. | `reports/013-end-to-end.md` |
 
 ## What the chain shows
 

@@ -135,3 +135,26 @@ def test_frontier_baseline_uses_no_formaliser_and_respects_budget() -> None:
     g.frontier(0.08)
     assert FORMALISE_CLUE not in seen and not any(i.startswith("judge") for i in seen)
     assert g.checkpoints[-1]["usd"] <= 0.08 + 0.005 * 2  # at most one move past the budget
+
+
+def test_replay_reproduces_the_headline_grid() -> None:
+    """The evaluation run replays from its log (local only; one grid, the
+    smallest, to keep the kit fast)."""
+    import argparse
+
+    from ximenes.e2e import e2e_tables, run_grids
+
+    runs = sorted(pathlib.Path("runs").glob("*-e2e-voc-anthropic-*.json"))
+    live = [json.loads(r.read_text()) for r in runs]
+    live = [d for d in live if len(d["grids"]) == CFG["eval_grids"]]
+    if not live:
+        pytest.skip("no full evaluation run here")
+    run = live[-1]
+    g = min(run["grids"], key=lambda g: len(g["checkpoints"]))
+    logs = [run["log"], *(str(r.with_suffix(".jsonl")) for r in runs if r.stem not in run["log"])]
+    args = argparse.Namespace(backend="stub", log=logs, offline=False, max_usd=CFG["cap_usd"],
+                              runs_dir=str(pathlib.Path(run["log"]).parent / "replay-test"))
+    tables, gain = e2e_tables()
+    again = run_grids([g["puzzle"]], "voc", args, tables, gain)["grids"][0]
+    assert again["slots"] == g["slots"] and again["fully_correct"] == g["fully_correct"]
+    assert abs(again["usd"] - g["usd"]) < 1e-9

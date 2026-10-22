@@ -479,3 +479,29 @@ per clue), so 013 runs in full. Open questions:
    **Answer:** accept the bias for now and state it in every post-cutoff
    report. Joining linked clues is worth doing only if 013 passes its stop
    rule, because only then do completeness claims matter.
+
+## Brief 013
+
+**Results (opus, 2026-10-22, `reports/013-end-to-end.md`):** **10 of 20
+post-cutoff grids fully correct** at $0.90 per grid (clues 0.974); P(rate ≥
+0.10) > 0.999, so the stop rule passes. The frontier-only baseline gets 7/20
+at $0.59, and is level with the full solver's own $0.75 checkpoint (6/20).
+Open questions:
+
+1. **What next?** The ablations say the verifier adds nothing at decision
+   time given the candidates; BP over proposer shares does the work. The
+   failures are slots whose gold was never proposed. The cheapest next
+   step: keep re-proposing the last uncommitted slots with their full
+   patterns (and a larger k) instead of stopping when moves run out. Then
+   20 more evaluation grids from the reserve (seed 20261028) for a tighter
+   rate?
+2. **Is the verifier worth its third of the cost?** At equal spend the
+   frontier baseline matches the full solver. The verifier's remaining
+   roles are the product (each committed answer names what it rests on)
+   and VOC's move choice. A paired run with VOC driven by the vote-only
+   posterior would isolate the second. Worth ~$15?
+3. **Reporting the result:** 50% fully correct on Guardian/Independent/FT
+   (Aug–Oct 2026) at under $1 per grid, with a 99.2% committed-slot
+   accuracy, is the project's first headline result that is free of
+   contamination. Should it be written up (README, a short note), and with
+   which caveats beyond linked clues being excluded and the blind parser?
