@@ -334,11 +334,13 @@ def anthropic_backend() -> Instrument:
         prompt = PROMPTS[inp["prompt"]].format(**inp)
         fmt = ({"format": {"type": "json_schema", "schema": SETTINGS["formats"][inp["format"]]}}
                if inp.get("format") else {})
+        think = {"thinking": {"type": inp["thinking"]}} if inp.get("thinking") else {}
         return client.messages.create(
             model=model,
             max_tokens=inp["max_tokens"],
             output_config={"effort": inp["effort"], **fmt},
             messages=[{"role": "user", "content": prompt}],
+            **think,
         )
 
     def formalise(model: str, inp: Mapping[str, Json]) -> Any:
@@ -543,19 +545,20 @@ def judge(
 
 def propose_pattern(
     clue_text: str, enumeration: str, pattern: str, k: int, model: str, *, backend: Instrument,
-    fmt: str | None = None,
+    fmt: str | None = None, thinking: str | None = None,
 ) -> list[str]:
     """Brief 004: k answer samples given the letters known from crossers
     (pattern like "S?A?F")."""
     inp = {"clue_text": clue_text, "enumeration": enumeration, "pattern": pattern, "k": k,
-           **SETTINGS[PROPOSE_PATTERN], **({"format": fmt} if fmt else {})}
+           **SETTINGS[PROPOSE_PATTERN], **({"format": fmt} if fmt else {}),
+           **({"thinking": thinking} if thinking else {})}
     output, _ = backend(PROPOSE_PATTERN, model, inp)
     return list(output)
 
 
 def propose_answers(
     clue_text: str, enumeration: str, k: int, model: str, *, backend: Instrument,
-    fmt: str | None = None,
+    fmt: str | None = None, thinking: str | None = None,
 ) -> list[str]:
     """k independent answer samples for one clue. `enumeration` as in '4,3-2'."""
     inp = {
@@ -564,13 +567,15 @@ def propose_answers(
         "k": k,
         **SETTINGS[PROPOSE_ANSWERS],
         **({"format": fmt} if fmt else {}),  # brief 011; absent from every earlier log
+        **({"thinking": thinking} if thinking else {}),
     }
     output, _ = backend(PROPOSE_ANSWERS, model, inp)
     return list(output)
 
 
 def propose_list(clue_text: str, enumeration: str, pattern: str | None, model: str, *,
-                 backend: Instrument, fmt: str | None = None) -> str:
+                 backend: Instrument, fmt: str | None = None,
+                 thinking: str | None = None) -> str:
     """Brief 011: one call asking for a ranked list of candidates (raw text;
     parse with `ximenes.proposers.parse_list`). `pattern` None = no letters."""
     cfg = SETTINGS[PROPOSE_LIST]
@@ -578,6 +583,6 @@ def propose_list(clue_text: str, enumeration: str, pattern: str | None, model: s
            **({"pattern": pattern} if pattern is not None else {}),
            "prompt": cfg["prompts"]["none" if pattern is None else "pattern"],
            "n": cfg["n"], "max_tokens": cfg["max_tokens"], "effort": cfg["effort"],
-           **({"format": fmt} if fmt else {})}
+           **({"format": fmt} if fmt else {}), **({"thinking": thinking} if thinking else {})}
     output, _ = backend(PROPOSE_LIST, model, inp)
     return str(output)
