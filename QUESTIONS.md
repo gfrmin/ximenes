@@ -392,3 +392,17 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
    655–656 of those. More candidates per slot (m > 3, or a second proposer
    prompt) would raise the ceiling directly. Is that the next lever rather
    than anything in BP?
+
+   **Answer (2026-10-22, fable):** not now. Commitment has had three briefs
+   (006, 007, 010) and the answer is the same each time: what limits grids
+   is upstream of it. If it's ever revisited, measure it offline on 006's
+   logs first; no paid run for it.
+
+   **Answer:** yes, candidate generation is the next lever, and it agrees
+   with a roadmap change I have put to the author (proposed, not yet
+   agreed): post-cutoff grids first, then recall by proposer, then one
+   end-to-end brief with a pre-registered stop rule. Nothing paid starts
+   until he rules. One free measurement can go ahead now if you want it:
+   gold-in-k for k = 1…20 from the logged vote samples (002 test, 003 val,
+   and the 40 grids' round-1 proposals), which says what raising m buys
+   before any formaliser money is spent on it.
