@@ -55,12 +55,25 @@ def _normalise(v: list[float]) -> list[float]:
 def propagate(variables: Mapping[str, Var], edges: Sequence[Edge], mode: str = "sum"
               ) -> dict[str, list[float]]:
     """Loopy BP. mode "sum": marginals; "max": max-marginals (for the MAP)."""
+    return propagate_messages(variables, edges, mode)[0]
+
+
+Messages = dict[tuple[str, str], list[float]]
+
+
+def propagate_messages(variables: Mapping[str, Var], edges: Sequence[Edge], mode: str = "sum",
+                       init: Messages | None = None) -> tuple[dict[str, list[float]], Messages]:
+    """Loopy BP returning (beliefs, final messages); `init` warm-starts the
+    messages (brief 010's annealing carries them between passes)."""
     combine = sum if mode == "sum" else max
     nbrs: dict[str, list[tuple[str, int, int]]] = {k: [] for k in variables}
     for a, i, b, j in edges:
         nbrs[a].append((b, i, j))
         nbrs[b].append((a, j, i))
-    msg = {(a, b): [1.0] * len(variables[b].domain) for a in variables for b, _i, _j in nbrs[a]}
+    msg = {(a, b): (init[(a, b)] if init and (a, b) in init
+                    and len(init[(a, b)]) == len(variables[b].domain)
+                    else [1.0] * len(variables[b].domain))
+           for a in variables for b, _i, _j in nbrs[a]}
 
     def belief_without(a: str, skip: str | None) -> list[float]:
         bel = list(variables[a].prior)
@@ -86,7 +99,7 @@ def propagate(variables: Mapping[str, Var], edges: Sequence[Edge], mode: str = "
         msg = new
         if delta < CFG["tol"]:
             break
-    return {a: _normalise(belief_without(a, None)) for a in variables}
+    return {a: _normalise(belief_without(a, None)) for a in variables}, msg
 
 
 def map_assignment(variables: Mapping[str, Var], edges: Sequence[Edge]) -> dict[str, str | None]:
@@ -110,3 +123,57 @@ def exact_marginals(variables: Mapping[str, Var], edges: Sequence[Edge]
         for a in names:
             totals[a][val[a]] += w
     return {a: _normalise(t) for a, t in totals.items()}
+
+
+# --- brief 010: hard vs soft evidence --------------------------------------------------
+
+
+def with_floor(prior: Sequence[float], floor: float) -> tuple[float, ...]:
+    """Raise OTHER (the last entry) to at least `floor`, renormalised."""
+    other = max(prior[-1], floor)
+    rest = sum(prior[:-1])
+    scale = (1 - other) / rest if rest else 0.0
+    return (*(p * scale for p in prior[:-1]), other)
+
+
+def decode(variables: Mapping[str, Var], marg: Mapping[str, list[float]]) -> dict[str, str | None]:
+    """Each slot's highest-marginal candidate (OTHER is not a word: the best
+    candidate is entered instead; None only if a slot has no candidate)."""
+    return {k: (v.words[max(range(len(v.words)), key=lambda i: marg[k][i])] if v.words else None)
+            for k, v in variables.items()}
+
+
+def hard(variables: Mapping[str, Var], edges: Sequence[Edge], tau: float
+         ) -> tuple[dict[str, str | None], frozenset[str]]:
+    """Clamp any slot whose top marginal reaches tau, repeat until no new
+    clamp, then decode. Returns (assignment, clamped slots)."""
+    vs = dict(variables)
+    clamped: set[str] = set()
+    while True:
+        marg = propagate(vs, edges)
+        new = {k for k, v in vs.items() if k not in clamped and v.words
+               and max(marg[k][:len(v.words)]) >= tau}
+        if not new:
+            return decode(vs, marg), frozenset(clamped)
+        for k in new:
+            v = vs[k]
+            vs[k] = committed(v.words[max(range(len(v.words)), key=lambda i: marg[k][i])])
+        clamped |= new
+
+
+def soft(variables: Mapping[str, Var], edges: Sequence[Edge]) -> dict[str, str | None]:
+    """Never clamp: decode the final marginals."""
+    return decode(variables, propagate(variables, edges))
+
+
+def soft_annealed(priors: Mapping[str, tuple[tuple[str, ...], tuple[float, ...]]],
+                  edges: Sequence[Edge], floors: Sequence[float]) -> dict[str, str | None]:
+    """Never clamp; one pass per OTHER floor, carrying messages from pass to
+    pass; decode after the last."""
+    msgs: Messages | None = None
+    marg: dict[str, list[float]] = {}
+    vs: dict[str, Var] = {}
+    for floor in floors:
+        vs = {k: Var(words, with_floor(p, floor)) for k, (words, p) in priors.items()}
+        marg, msgs = propagate_messages(vs, edges, "sum", msgs)
+    return decode(vs, marg)

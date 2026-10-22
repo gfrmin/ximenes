@@ -1,5 +1,5 @@
 {
-  "source": "briefs/000-harness.md: n=1000 clues, k=20 samples, 10 reliability bins; seed chosen once on 2026-10-21 and frozen; workers=32 used for the brief 000 headline run; postcutoff_floor: QUESTIONS.md brief 000 item 5 answer (nothing before 2026-10-22 is post-cutoff for any model); formalise_retries=2 and max_usd per run: briefs/001-dsl-verifier.md (cap value chosen 2026-10-21: author asked to keep spend low); train_sample=500: seeded train subsample for brief 001's secondary number (full 5,412 would cost ~$80); brief 002 (pre-registered in briefs/002-proposer-loop.md): candidates m=3, oracle_floor 0.5, vote_high 0.9 (brief 000's high-confidence band for the comparison); posterior: bands and tau grid pre-registered in briefs/003-calibration.md; l2_grid, folds=5 (brief), newton_iters/tol/clip chosen 2026-10-21 before fitting; grid (brief 004): sizes 15 (Times/Telegraph cryptic) and 13 (Times Quick); node limit chosen 2026-10-21; sample 100, 20 eval grids with >=28 clues per briefs/004-grid.md; bp (brief 004): floor_other 0.05 and tau 0.9 pre-registered in briefs/004-grid.md; damping/max_iters/tol chosen 2026-10-21; max_rounds 3 and repropose_k 10 per the brief; voc (brief 005): seeds, grid counts, budgets $0.50/$0.94 and target spend pre-registered in briefs/005-metacomputation.md; ridge_grid chosen 2026-10-22 before fitting; voc.calibration_folds=4 (briefs/007)",
+  "source": "briefs/000-harness.md: n=1000 clues, k=20 samples, 10 reliability bins; seed chosen once on 2026-10-21 and frozen; workers=32 used for the brief 000 headline run; postcutoff_floor: QUESTIONS.md brief 000 item 5 answer (nothing before 2026-10-22 is post-cutoff for any model); formalise_retries=2 and max_usd per run: briefs/001-dsl-verifier.md (cap value chosen 2026-10-21: author asked to keep spend low); train_sample=500: seeded train subsample for brief 001's secondary number (full 5,412 would cost ~$80); brief 002 (pre-registered in briefs/002-proposer-loop.md): candidates m=3, oracle_floor 0.5, vote_high 0.9 (brief 000's high-confidence band for the comparison); posterior: bands and tau grid pre-registered in briefs/003-calibration.md; l2_grid, folds=5 (brief), newton_iters/tol/clip chosen 2026-10-21 before fitting; grid (brief 004): sizes 15 (Times/Telegraph cryptic) and 13 (Times Quick); node limit chosen 2026-10-21; sample 100, 20 eval grids with >=28 clues per briefs/004-grid.md; bp (brief 004): floor_other 0.05 and tau 0.9 pre-registered in briefs/004-grid.md; damping/max_iters/tol chosen 2026-10-21; max_rounds 3 and repropose_k 10 per the brief; voc (brief 005): seeds, grid counts, budgets $0.50/$0.94 and target spend pre-registered in briefs/005-metacomputation.md; ridge_grid chosen 2026-10-22 before fitting; voc.calibration_folds=4 (briefs/007); regimes (brief 010, pre-registered 2026-10-22 before any grid was read): tau 0.9; OTHER floor 0.05 for hard and soft; annealed floors 0.05/0.02/0.01 with messages carried between passes; decode = per-slot argmax of final sum-product marginals, best candidate over OTHER; paired bootstrap 2000 reps",
   "n": 1000,
   "k": 20,
   "bins": 10,
@@ -76,5 +76,16 @@
       10.0
     ],
     "calibration_folds": 4
+  },
+  "regimes": {
+    "tau": 0.9,
+    "floor": 0.05,
+    "annealed_floors": [
+      0.05,
+      0.02,
+      0.01
+    ],
+    "bootstrap_reps": 2000,
+    "bootstrap_seed": 20261022
   }
 }
