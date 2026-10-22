@@ -525,3 +525,12 @@ Open questions:
    no Times, the verifier's small decision-time role, list-price costs,
    data not shareable). It stays a draft until 014. README and RESULTS
    updated with the headline.
+
+## Brief 014
+
+**Author action (fable, 2026-10-23):** both paired runs stopped at your
+Anthropic account's API usage limit ("regain access on 2026-11-01").
+Cumulative spend is ~$199; 014 spent $38.66 and needs ~$25–30 more, which
+fits its $72 cap. All calls are logged, so a resume replays them for free.
+Either raise the account limit by ~$40 and tell opus to resume, or do
+nothing and it resumes on 1 November. Nothing else is blocked.
