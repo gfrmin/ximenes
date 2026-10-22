@@ -158,3 +158,13 @@ def test_replay_reproduces_the_headline_grid() -> None:
     again = run_grids([g["puzzle"]], "voc", args, tables, gain)["grids"][0]
     assert again["slots"] == g["slots"] and again["fully_correct"] == g["fully_correct"]
     assert abs(again["usd"] - g["usd"]) < 1e-9
+
+
+def test_slot_confidence_is_read_at_commit_time() -> None:
+    from ximenes.e2e import slot_confidences
+
+    doc = {"grids": [{"checkpoints": [
+        {"slot_tops": {"1A": [0.5, True, False], "2D": [0.3, False, False]}},
+        {"slot_tops": {"1A": [0.93, True, True], "2D": [0.4, False, False]}},
+        {"slot_tops": {"1A": [1.0, True, True], "2D": [0.6, True, False]}}]}]}
+    assert sorted(slot_confidences(doc)) == [(0.6, True, False), (0.93, True, True)]

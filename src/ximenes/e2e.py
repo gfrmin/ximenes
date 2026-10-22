@@ -290,6 +290,38 @@ def ablate(ev: Mapping[str, Any], args: argparse.Namespace) -> dict[str, Any]:
     return {"grids": out}
 
 
+# --- calibration of the final slot marginals (014 item 4, appendix to 013) -----------------
+
+
+def slot_confidences(doc: Mapping[str, Any]) -> list[tuple[float, bool, bool]]:
+    """(marginal, top candidate right, committed) per slot: the marginal at
+    the step a slot was committed (read before that step's commits), else
+    its final top marginal."""
+    out = []
+    for g in doc["grids"]:
+        cps = g["checkpoints"]
+        for k in cps[-1]["slot_tops"]:
+            at = next((c["slot_tops"][k] for c in cps
+                       if k in c["slot_tops"] and c["slot_tops"][k][-1]), None)
+            m, right, committed = at if at is not None else cps[-1]["slot_tops"][k]
+            out.append((m, bool(right), bool(committed)))
+    return out
+
+
+def calibration(doc: Mapping[str, Any]) -> dict[str, Any]:
+    from .eval import ece_of
+
+    rows = slot_confidences(doc)
+    out = {}
+    for name, sel in (("all", rows), ("committed", [r for r in rows if r[-1]])):
+        e, bins = ece_of([m for m, _y, _c in sel], [y for _m, y, _c in sel], PARAMS["bins"])
+        out[name] = {"n": len(sel), "ece": e, "accuracy": sum(y for _m, y, _c in sel) / len(sel),
+                     "bins": [{"lo": float(b.lo), "hi": float(b.hi), "n": b.count,
+                               "mean_confidence": float(b.mean_confidence),
+                               "accuracy": float(b.accuracy)} for b in bins if b.count]}
+    return out
+
+
 # --- runs -------------------------------------------------------------------------------
 
 
@@ -359,7 +391,7 @@ def run_grids(names: Sequence[str], policy: str, args: argparse.Namespace,
 def main(argv: Sequence[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="python -m ximenes.e2e")
     p.add_argument("step", choices=("split", "fit", "refit", "evaluate", "frontier",
-                                         "ablate"))
+                                         "ablate", "calibrate"))
     p.add_argument("--n", type=int, default=None, help="first n grids of the set")
     p.add_argument("--run", default=None,
                    help="refit: the fit run JSON; frontier: the evaluation run (spend to match)")
@@ -393,6 +425,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         mean = {m: {k: sum(g[m][k] for g in res["grids"]) / len(res["grids"])
                     for k in ("clues", "letters")} for m in ("first", "bp_vote_only", "full")}
         print(json.dumps(mean))
+    elif args.step == "calibrate":
+        print(json.dumps(calibration(json.loads(pathlib.Path(args.run).read_text())), indent=1))
     elif args.step == "frontier":
         ev = json.loads(pathlib.Path(args.run).read_text())
         spend = sorted(g["usd"] for g in ev["grids"])

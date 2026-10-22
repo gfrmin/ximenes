@@ -38,7 +38,7 @@ margin.**
   pooled accuracy. With each grid's own accuracy it is 0.618: the grid's
   own share right, raised to its slot count, averaged. The observed 0.50
   lies between.
-- **Committed slots:** 492, of which 488 are right (**0.992**).
+- **Committed slots:** 495 (3 proven, 492 quarantined), of which 491 are right (**0.992**).
 - **Slot classes:**
 
 | class | slots | right |
@@ -176,6 +176,42 @@ uv run python -m ximenes.e2e evaluate --max-usd 6                # run 20261022T
 uv run python -m ximenes.e2e frontier --run runs/<evaluation run>.json --log <evaluation logs>
 uv run python -m ximenes.e2e ablate --backend stub --run runs/<evaluation run>.json --log <evaluation logs>
 ```
+
+## Appendix (2026-10-22): calibration of the final slot marginals
+
+Asked for by brief 014 item 4 (free, from 013's logs). Per slot, the
+confidence is the top candidate's BP marginal at the step it was committed
+(read before that step's commits), else its final marginal. ECE uses brief
+000's 10 bins (`eval.ece_of`). Two of the full solver's 608 slots never had
+a candidate, so they carry no marginal.
+
+| | slots | accuracy of top | **ECE** | committed | committed right | ECE (committed) |
+|---|---|---|---|---|---|---|
+| **full solver** | 606 | 0.977 | **0.064** | 495 | 0.992 | 0.013 |
+| frontier-only | 608 | 0.933 | 0.177 | 341 | 1.000 | 0.059 |
+
+Reliability (bins with slots; confidence → accuracy):
+
+| bin | full solver: n, conf, acc | frontier-only: n, conf, acc |
+|---|---|---|
+| 0.0–0.1 | 7, 0.03, 0.57 | 25, 0.04, 0.24 |
+| 0.1–0.3 | 11, 0.17, 0.55 | 29, 0.21, 0.62 |
+| 0.3–0.5 | 6, 0.42, 0.83 | 42, 0.40, 0.83 |
+| 0.5–0.7 | 21, 0.61, 0.95 | 97, 0.58, 0.97 |
+| 0.7–0.9 | 66, 0.78, 1.00 | 74, 0.79, 0.99 |
+| 0.9–1.0 | 495, 0.98, 0.99 | 341, 0.94, 1.00 |
+
+**The frontier baseline is badly underconfident.** Its proposer shares
+leave OTHER at a 5% floor, so slots that are 97–100% right sit at
+marginals 0.5–0.9 and never reach the 0.9 commit bar. It commits 341 slots
+against the full solver's 495. Fewer commits mean fewer crossing letters,
+and so fewer re-proposals with dense patterns: one reason it runs out of
+moves early. The full solver's fitted posterior is well calibrated (ECE
+0.064, and 0.013 on committed slots). This difference stands apart from
+the equal-spend accuracy result, and it is the reason the verifier and the
+fitted posterior earn their place. It also suggests a cheap fix for the
+baseline (calibrate its shares) that 014 should not make, because 014
+compares the policies as specified.
 
 ## Kit output
 
