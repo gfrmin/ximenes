@@ -7,7 +7,10 @@ re-proposal**: the full solver, the frontier-only baseline, and the
 frontier baseline **with the fitted vote-only posterior** (calibrated, no
 verifier), at matched spend, with the
 Beta posterior for each rate and for their difference. Pooled with 013 for
-a 40-grid estimate of the full solver's rate. Cap **$65** (raised from $50 for the third arm; fable, 2026-10-22).
+a 40-grid estimate of the full solver's rate. Cap **$72** for all of 014 (amended 2026-10-23 after the smokes: raw
+`frontier` dropped from the paid run, since an underconfident arm burns its
+budget under persistence and its calibration effect is already measured in
+013's appendix; its grid-#1 smoke is reported as the illustration; fable).
 
 ## Why
 013: 10/20 fully correct at $0.90 per grid. Every failed grid missed 1–3
