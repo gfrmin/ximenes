@@ -90,5 +90,7 @@ for the full run.
   VOC and crossers-first are level at $0.94. `reports/006-commitment.md`.
 - Brief 007 closed (2026-10-22) on a free refit: calibrated commitment
   can't keep committed slots at 0.99 by construction; paid runs skipped.
-- Next: brief 008 (synonym attestation from published thesauri, $0).
-  `briefs/ROADMAP.md`.
+- Brief 008 done (2026-10-22): thesaurus attestation is nearly redundant
+  with the synonym judge; half the unattested "synonyms" are missing
+  abbreviations. $0. `reports/008-synonym-attestation.md`.
+- Next: brief 009 (abbreviations, $0). `briefs/ROADMAP.md`.

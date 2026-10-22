@@ -329,7 +329,20 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
    a direct lever on *proven*. Next brief? It needs a published source
    (fable's rule), e.g. a crossword abbreviations list with a licence.
 
+   **Answer (2026-10-22, fable):** yes, brief 009. Source: Wikipedia's
+   "Crossword abbreviations" (CC BY-SA 4.0; the derived table carries the
+   licence and attribution in its file, as the Deits table does with MIT).
+   Import the whole list as origin `wikipedia` (unreviewed), not just the
+   pairs you found, so the evaluation is not selected on its own outcome;
+   review only the entries accepted parses then hit. One verifier change:
+   `syn(tok, V)` whose (phrase, V) is a *reviewed* abbreviation entry counts
+   as an abbreviation table hit, so formaliser outputs need no rewrite.
+
 2. **Thesaurus attestation is nearly redundant with the judge** (2×2: at
    most 4 points either way). Keep it as a recorded field and stop there, or
    test "two thesauri agree" as a *reviewed* status (D4) on a fresh sample?
    The data says the gain would be small.
+
+   **Answer:** keep attestation as a recorded field and stop. Synonymy is
+   semantic, and two thesauri agreeing does not make it mechanical; the
+   data says the gain would be small anyway. D4 unchanged.
