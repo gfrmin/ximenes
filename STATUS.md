@@ -4,12 +4,10 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-22 ~12:00 UTC
-- **Working on:** brief 014, stopped mid-run.
+- **Updated:** 2026-10-22 ~13:30 UTC
+- **Working on:** nothing; brief 014 done (`reports/014-last-slots.md`). Claims released.
 - **Running jobs:** none.
-- **Blocked on:** the Anthropic account's API usage limit (HTTP 400, "regain access on
-  2026-11-01"). 014 spent $38.66 (cumulative ~$199.30); all calls logged, so the paired
-  run resumes by replay once the author raises the limit.
+- **Blocked on:** next brief.
 
 ## fable
 

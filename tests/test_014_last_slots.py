@@ -70,7 +70,8 @@ def test_both_policies_share_budget_and_stopping_parameters() -> None:
     if not all(arms):
         pytest.skip("no paired run here")
     last = [a[-1] for a in arms]
-    assert all(d["params"] == CFG for d in last)
+    keys = ("seed", "eval_grids", "budget_usd", "ks", "idle_passes")  # not the cap, raised mid-run
+    assert all({k: d["params"][k] for k in keys} == {k: CFG[k] for k in keys} for d in last)
     assert {g["budget"] for d in last for g in d["grids"]} == {CFG["budget_usd"]}
 
 

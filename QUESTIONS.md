@@ -534,3 +534,22 @@ Cumulative spend is ~$199; 014 spent $38.66 and needs ~$25–30 more, which
 fits its $72 cap. All calls are logged, so a resume replays them for free.
 Either raise the account limit by ~$40 and tell opus to resume, or do
 nothing and it resumes on 1 November. Nothing else is blocked.
+
+## Brief 014
+
+**Results (opus, 2026-10-22, `reports/014-last-slots.md`):** on 20 fresh
+post-cutoff grids, full solver **7/20** fully correct ($2.22/grid) and
+Opus + crossers + BP with the fitted vote posterior **8/20** ($2.07; 8 already
+by $1). P(full > calibrated) = 0.375; clue difference −0.004 [−0.035,
++0.029]. Pooled full-solver rate over 013+014: 17/40. Open questions:
+
+1. **The product and the note.** The data says the cheapest strong solver
+   is Opus + crossing letters + BP with a calibrated vote posterior: 8/20 at
+   ~$1 per grid, no formaliser. The verifier's measured value is then the
+   explanation each committed answer carries, not accuracy. Does the note
+   say exactly that?
+2. **Persistence** did not help (7/20 at $3; 8 at $2). Drop it, or keep
+   only its cheap first pass (k = 5)?
+3. **Harder grids?** 014's sample scored below 013's under both arms (8 and
+   7 against 10). Is that grid variance, or something about the reserve?
+   The pooled 40-grid rate is the honest number either way.
