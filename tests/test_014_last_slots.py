@@ -66,7 +66,7 @@ def test_both_policies_share_budget_and_stopping_parameters() -> None:
     docs = [json.loads(p.read_text())
             for p in sorted(pathlib.Path("runs").glob("*-last-slots-*-anthropic-*.json"))]
     arms = [[d for d in docs if d["policy"] == p and len(d["grids"]) == CFG["eval_grids"]]
-            for p in ("full", "frontier", "frontier_calibrated")]
+            for p in CFG["arms"]]
     if not all(arms):
         pytest.skip("no paired run here")
     last = [a[-1] for a in arms]
