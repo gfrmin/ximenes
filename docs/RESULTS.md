@@ -1,7 +1,7 @@
 # Results so far (2026-10-22)
 
 One page, numbers only; each links to its report. All runs replay bit for
-bit from their logs. Total spend across briefs 000–009: **$103.18**.
+bit from their logs. Total spend across briefs 000–010: **$103.18**.
 
 ## The chain
 
@@ -17,6 +17,7 @@ bit from their logs. Total spend across briefs 000–009: **$103.18**.
 | 007 | Can commit-time calibration raise commitment and keep 0.99? | **No, by construction**, answered without paid runs: the refit on 13,929 uncommitted slot-steps is calibrated out of fold and commits from raw 0.576, so P ≥ 0.9 commits are ~0.93–0.96 right. The 0.99 bar and τ = 0.9 were incompatible (drafting error, caught before spend). | `reports/007-commit-time-calibration.md` |
 | 008 | Does a thesaurus add evidence for synonym leaves? | **Barely.** Moby + Open English WordNet attest 39–52% of synonym leaves, but on 176 held-out clues the posterior moves within noise (ECE 0.074 → 0.063; P ≥ 0.9 answers 23 → 25 clues). Nearly redundant with the Haiku judge. Half the commonest unattested "synonyms" in correct answers are missing abbreviations. $0. | `reports/008-synonym-attestation.md` |
 | 009 | Do missing abbreviations explain the synonym leaves? | **A little.** Wikipedia's crossword abbreviations (whole list, pre-project revision) turn ~9% of synonym leaves into reviewed table hits; Ok rises 0.5–1.4 points (val 8.9 → 9.7%); proven slots on 006's grids stay 0. Mutants 0 / 2,926. $0. | `reports/009-abbreviations.md` |
+| 010 | Does hard commitment cost grids? | **No, not on fixed candidates.** Round-1 records of all 40 logged grids: hard 0.557 / soft 0.557 / soft-annealed 0.558 clues; identical entries in all 1,176 slots. Gold is a candidate in only 57% of slots and every regime finds it in 97% of those: the ceiling is candidate generation. Clamping even at 006's raw threshold costs nothing offline, so 006's loss came through re-proposal after wrong commits. $0. | `reports/010-soft-evidence.md` |
 
 ## What the chain shows
 
@@ -43,4 +44,6 @@ bit from their logs. Total spend across briefs 000–009: **$103.18**.
   committed-and-quarantined grid.
 - That VOC beats a good heuristic: paired, it doesn't measurably (006).
 - More commitment at ≥ 0.99: not reachable by calibrating a hard commit
-  (006, 007). Soft evidence (never clamp) is being tested offline (010).
+  (006, 007). Soft evidence changes nothing on fixed candidates (010); the
+  cost of wrong commits runs through re-proposal, and the ceiling is
+  candidate generation (gold is a round-1 candidate in 57% of slots).

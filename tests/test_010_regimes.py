@@ -84,3 +84,14 @@ def test_with_floor_raises_other_only() -> None:
     assert abs(sum(p) - 1) < 1e-12 and p[-1] == 0.05
     assert abs(p[0] / p[1] - 0.6 / 0.38) < 1e-12
     assert with_floor((0.5, 0.2, 0.3), 0.05) == (0.5, 0.2, 0.3)
+
+
+def test_score_counts_a_cell_only_when_every_entry_agrees_with_gold() -> None:
+    from ximenes.regimes import score
+
+    gold = {"A": "CAT", "B": "CAB"}
+    cells = {"A": [(0, 0), (0, 1), (0, 2)], "B": [(0, 0), (1, 0), (2, 0)]}
+    assert score(gold, gold, cells) == {"clues": 1.0, "letters": 1.0, "fully_correct": True}
+    # soft decoding may disagree at a crossing: the shared cell then counts wrong
+    s = score({"A": "OAT", "B": "CAB"}, gold, cells)
+    assert s["clues"] == 0.5 and s["letters"] == 4 / 5 and not s["fully_correct"]

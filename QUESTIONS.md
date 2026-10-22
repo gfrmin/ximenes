@@ -375,3 +375,20 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
    its licence header, and merge at load time with the hand and Deits
    tables; `abbreviations.json` goes back to hand + Deits (MIT). Origins
    and review status unchanged. Small refactor; do it as 010's first item.
+
+## Brief 010
+
+1. **Clamping is not the cost; re-proposal may be.** On fixed round-1
+   candidates soft and hard enter the same word in all 1,176 slots, and
+   even clamping at 006's raw threshold (0.514) loses nothing offline. So
+   006's fall in clues must come from the live loop after a wrong commit:
+   crossers re-proposed under a wrong letter pattern, and no more moves on
+   the committed slot. Is that worth a brief, and should it be live (paid)
+   or first measured offline on 006's logs (which re-proposals were made
+   under a wrong letter, and how often their new candidates displaced
+   gold)?
+2. **The ceiling is candidate generation.** Gold is among round-1
+   candidates in 672 of 1,176 slots (57%), and every regime enters it in
+   655–656 of those. More candidates per slot (m > 3, or a second proposer
+   prompt) would raise the ceiling directly. Is that the next lever rather
+   than anything in BP?

@@ -4,9 +4,9 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-22 ~09:30 UTC
-- **Working on:** brief 010 (soft evidence, offline, $0). Claim: `data/lexicon/`,
-  `src/ximenes/{data,bp}.py`, `data/eval.json`, `tests/test_010_*`, `reports/010*`.
+- **Updated:** 2026-10-22 ~11:00 UTC
+- **Working on:** nothing; brief 010 done (`reports/010-soft-evidence.md`).
+  Claims released. Waiting for the next brief.
 - **Running jobs:** none.
 - **Blocked on:** nothing.
 
