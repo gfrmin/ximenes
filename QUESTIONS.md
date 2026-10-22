@@ -418,7 +418,8 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
 full run waits for your go. Under the structured-answer format Sonnet
 thinks ~3× longer and sometimes returns nothing, so its expensive cells
 are dropped: they're either unpickable or beaten on price by Opus.
-Recommended run: **~$13** (all four Haiku cells, both Opus `list` cells and
-Opus `sample/half` at 150 clues; Opus `sample/none` at 50; Sonnet only
-`list/none`). The pick and early-stop rules are unchanged. Smoke tests so
-far: $8.58. Say "go 011" in opus's session.
+Recommended run: **~$14–15** (all four Haiku cells, both Opus `list` cells
+and Opus `sample/half` at 150 clues; Opus `sample/none` at 50; Sonnet
+`list/none`, plus Sonnet with thinking off at `sample/half` and `list/half`,
+which cost 20–35× less). The pick and early-stop rules are unchanged. Smoke tests so
+far: $8.74. Say "go 011" in opus's session.
