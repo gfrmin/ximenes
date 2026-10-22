@@ -136,8 +136,8 @@ def year_bin(year: int) -> str:
 # --- the run ----------------------------------------------------------------------------
 
 
-def cell_name(model: str, kind: str, pattern: str) -> str:
-    return f"{model}|{kind}|{pattern}"
+def cell_name(model: str, kind: str, pattern: str, thinking: str | None = None) -> str:
+    return f"{model}|{kind}|{pattern}" + (f"|{thinking}" if thinking else "")
 
 
 def recording(backend: Instrument, sink: list[tuple[str, Cost]]) -> Instrument:
@@ -148,20 +148,20 @@ def recording(backend: Instrument, sink: list[tuple[str, Cost]]) -> Instrument:
         output, cost = backend(instrument, model, inp)
         kind = "list" if instrument == "propose_list" else "sample"
         with lock:
-            sink.append((cell_name(model, kind, "half" if "pattern" in inp else "none"), cost))
+            sink.append((cell_name(model, kind, "half" if "pattern" in inp else "none",
+                                   inp.get("thinking")), cost))
         return output, cost
 
     return call
 
 
 def one(c: CryptoniteClue, index: int, model: str, kind: str, pattern: str,
-        backend: Instrument, thinking: Mapping[str, str] | None = None) -> dict[str, Any]:
+        backend: Instrument, think: str | None = None) -> dict[str, Any]:
     clue = Clue(c.text, c.enumeration, c.orientation)
-    thinking = thinking or {}
     gold = normalise(c.answer)
     pat = half_pattern(gold, index) if pattern == "half" else None
     enum = format_enumeration(c.enumeration)
-    fmt, think = CFG["formats"][kind], thinking.get(model)
+    fmt = CFG["formats"][kind]
     if kind == "list":
         raw = parse_list(propose_list(c.text, enum, pat, model, backend=backend, fmt=fmt,
                                       thinking=think))
@@ -180,7 +180,7 @@ def summarise(rows: Mapping[str, list[dict[str, Any]]], costs: Sequence[tuple[st
               years: Mapping[int, int], publishers: Mapping[int, str]) -> dict[str, Any]:
     cells: dict[str, Any] = {}
     for name, rs in rows.items():
-        model, kind, pattern = name.split("|")
+        model, kind, pattern = name.split("|")[:len(PATTERNS) + 1]
         cs = [c for n, c in costs if n == name]
         messages = sum(CFG["k"][model] if kind == "sample" else 1 for _ in cs)
         ranks = [r["rank"] for r in rs]
@@ -228,16 +228,25 @@ def _share(xs: Sequence[bool]) -> float | None:
     return sum(xs) / len(xs) if xs else None
 
 
+def all_cells(models: Sequence[str] | None = None, thinking: Mapping[str, str] | None = None
+              ) -> list[dict[str, Any]]:
+    """Every proposer x prompt x pattern cell on every clue (as briefed)."""
+    return [{"model": m, "prompt": kind, "pattern": pat, "n": None,
+             "thinking": (thinking or {}).get(m)}
+            for m in (models or CFG["proposers"]) for kind in PROMPT_KINDS for pat in PATTERNS]
+
+
 def run(clues: Mapping[int, CryptoniteClue], backend: Instrument,
-        models: Sequence[str] | None = None, thinking: Mapping[str, str] | None = None
-        ) -> dict[str, Any]:
+        cells: Sequence[Mapping[str, Any]] | None = None) -> dict[str, Any]:
+    """Each cell on the first `n` clues of the sample (None = all)."""
     costs: list[tuple[str, Cost]] = []
     rec = recording(backend, costs)
-    tasks = [(i, m, kind, pat) for m in (models or CFG["proposers"]) for kind in PROMPT_KINDS
-             for pat in PATTERNS for i in clues]
+    order = sorted(clues)
+    tasks = [(i, c["model"], c["prompt"], c["pattern"], c["thinking"])
+             for c in (cells or all_cells()) for i in order[:c["n"]]]
     with ThreadPoolExecutor(max_workers=PARAMS["workers"]) as pool:
         out = list(pool.map(lambda t: (cell_name(*t[1:]),
-                                       one(clues[t[0]], t[0], *t[1:], rec, thinking)), tasks))
+                                       one(clues[t[0]], t[0], *t[1:-1], rec, t[-1])), tasks))
     rows: dict[str, list[dict[str, Any]]] = {}
     for name, r in out:
         rows.setdefault(name, []).append(r)
@@ -249,8 +258,10 @@ def main(argv: Sequence[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="python -m ximenes.proposers")
     p.add_argument("--n", type=int, default=None, help="first n of the sample (smoke test)")
     p.add_argument("--backend", choices=("anthropic", "stub"), default="anthropic")
-    p.add_argument("--log", default=None,
-                   help="stub: the run log to replay; anthropic: replay it, call the rest")
+    p.add_argument("--log", nargs="*", default=[],
+                   help="stub: the run logs to replay; anthropic: replay them, call the rest")
+    p.add_argument("--plan", action="store_true",
+                   help="run the pre-registered cell plan in data/eval.json (recall.cells)")
     p.add_argument("--max-usd", type=float, default=CFG["cap_usd"])
     p.add_argument("--runs-dir", default="runs")
     p.add_argument("--models", nargs="*", default=None, help="subset of proposers")
@@ -264,15 +275,15 @@ def main(argv: Sequence[str] | None = None) -> int:
     run_id = f"{started.strftime('%Y%m%dT%H%M%SZ')}-proposers-{args.backend}-{uuid.uuid4().hex}"
     runs = pathlib.Path(args.runs_dir)
     log_path = runs / f"{run_id}.jsonl"
-    base: Instrument = (stub_backend(pathlib.Path(args.log)) if args.backend == "stub"
+    base: Instrument = (stub_backend(pathlib.Path(args.log[0])) if args.backend == "stub"
                         else budgeted(anthropic_backend(), args.max_usd))
-    if args.backend == "anthropic" and args.log:
-        base = replay_then(pathlib.Path(args.log), base)
-    result = run({i: population[i] for i in indices}, logged(base, log_path), args.models,
-                 thinking)
+    for extra in (args.log[1:] if args.backend == "stub" else reversed(args.log)):
+        base = replay_then(pathlib.Path(extra), base)
+    cells = CFG["cells"] if args.plan else all_cells(args.models, thinking)
+    result = run({i: population[i] for i in indices}, logged(base, log_path), cells)
     out = {"run_id": run_id, "run_date": started.date().isoformat(), "n": len(indices),
            "indices": list(indices), "replayed_from": args.log, "log": str(log_path),
-           "models": args.models, "thinking": thinking,
+           "cells_run": cells,
            "spend_usd": sum(v["usd_per_clue"] * v["n"] for v in result["cells"].values()),
            **result}
     runs.mkdir(parents=True, exist_ok=True)

@@ -110,3 +110,15 @@ def test_structured_reply_extraction() -> None:
     assert _formatted(msg('{"answer": "LIGHTER"}'), {"format": "answer"}) == "LIGHTER"
     assert _formatted(msg('{"candidates": ["A", "B"]}'), {"format": "candidates"}) == "A\nB"
     assert _formatted(msg("not json"), {"format": "answer"}) == ""
+
+
+def test_cell_plan_limits_n_and_separates_thinking(tmp_path: pathlib.Path) -> None:
+    clues = {i: _clue(i, a) for i, a in enumerate(["CAT", "DOG", "EMU"])}
+    plan = [{"model": "claude-opus-5-5", "prompt": "sample", "pattern": "none", "n": 2,
+             "thinking": None},
+            {"model": "claude-sonnet-5-5", "prompt": "list", "pattern": "half", "n": None,
+             "thinking": "between_tools"}]
+    out = run(clues, logged(fake, tmp_path / "p.jsonl"), plan)["cells"]
+    assert out["claude-opus-5-5|sample|none"]["n"] == 2
+    assert out["claude-sonnet-5-5|list|half|between_tools"]["n"] == 3
+    assert CFG["cells"] and all(c["prompt"] in ("sample", "list") for c in CFG["cells"])
