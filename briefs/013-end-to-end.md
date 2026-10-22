@@ -35,6 +35,13 @@ The evaluation grids are read once.
    list-order decisions without the verifier; (b) the same with BP but no
    verifier features. They answer whether the verifier still earns its cost
    now that the proposer is strong.
+5. **The frontier-only baseline (the Darmok shape), paired, same 20 grids:**
+   Opus proposes every slot, re-proposes with patterns, crossers resolve by
+   BP, no formaliser, no judges, no posterior refit; spend matched to the
+   full solver's median per grid. This is the comparison a reviewer will ask
+   for first: does the machinery beat "a strong model plus crossing
+   letters" at equal cost? Report it in the headline table. Its calls are
+   mostly in the logs already; budget the rest inside the cap.
 
 ## Tests (tests/test_013_*.py)
 - Split is deterministic; fit and evaluation sets are disjoint; the refits

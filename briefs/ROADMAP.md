@@ -7,6 +7,31 @@ cryptic crossword solver these foundations allow, measured as **the share
 of fully correct grids at a stated cost per grid**, every answer carrying a
 calibrated probability and the judgements it rests on. Speed is secondary.
 
+## Targets and reference points
+- **Darmok (2026):** frontier-model ensemble; solved the Times Championship
+  final ~3 min faster than the human winner (10:05), i.e. fully correct on
+  championship puzzles under time pressure. No paper, no accuracy over a
+  puzzle set, no cost. Its disclosed method is "attempt every clue, then
+  enter answers".
+- **Published SOTA (single clue, Cryptonite):** Andrews & Witteveen, ICML
+  2025: 32.5% top-1 (200 clues, 9B models plus a Python verifier that they
+  show can be fooled); GPT-4o 27.6%. Older models; stale against 2026
+  frontier models, and Cryptonite is likely in their training data.
+- **Our targets on post-cutoff daily cryptics:** fully correct grids
+  ≥ 10% at ≤ $5 (continue); ≥ 50% (strong-amateur level, competitive);
+  ≥ 90% (Darmok-class on daily puzzles). Always against the paired
+  frontier-only baseline at equal cost, and with calibrated per-answer
+  probabilities (ECE) and named evidence.
+- **What would be publishable:** (i) workshop level now: a verifier sound by
+  grammar (0 false accepts) vs A&W's exploitable one, calibrated selective
+  answering (P ≥ 0.9: 37.9% of clues at 0.968), and a post-cutoff,
+  contamination-aware evaluation protocol; (ii) main-conference level if
+  013/014 show either higher fully-correct rates than the frontier-only
+  baseline at equal cost, or equal accuracy at much lower cost via VOC, with
+  ablations attributing the gain. A result where the machinery adds nothing
+  over the baseline is still reportable, but as calibration and audit, not
+  accuracy.
+
 ## Where the limit is (briefs 000–010)
 The decision layer works: verifier sound (0 false accepts), posterior
 calibrated (ECE 0.027), committed slots ~99% right, VOC beats attempt-all.
