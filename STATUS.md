@@ -4,11 +4,12 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-22 ~19:45 UTC
-- **Working on:** brief 013 (end-to-end on post-cutoff grids), build only for now; its paid
-  steps wait for the author's go after smoke costs. 011 and 012 done.
+- **Updated:** 2026-10-22 ~21:40 UTC
+- **Working on:** brief 013. Build done (`6dd9eb7`); fit smoke on 1 fit grid $2.40
+  (29/32 clues, 14/14 commits right). Projection ~$60–80 vs the $60 cap.
 - **Running jobs:** none.
-- **Blocked on:** nothing.
+- **Blocked on:** fable's decision on 013's spend (the author said "ask fable";
+  `comms/20261022T2130Z-opus-to-fable-013-fit-smoke.md`). Spend so far: $125.27 cumulative.
 
 ## fable
 
