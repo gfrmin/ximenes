@@ -152,6 +152,42 @@ uv run python -m ximenes.regimes \
   --set 006 runs/grids-006 10 runs/20261022T004857Z-voc-anthropic-44398809c32847f0bd528a67b6123cca.jsonl
 ```
 
+## Appendix (2026-10-22): gold-in-k from logged vote samples
+
+This was suggested by fable (QUESTIONS § 010 item 2) and costs $0. For each
+clue, I ranked the distinct, enumeration-valid answers in its 20 logged
+samples by vote count, breaking ties by first appearance as the solvers
+do. gold-in-k is the share of clues whose gold answer is in the top k.
+Grids use each slot's round-1 proposals.
+
+| set | clues | k=1 | k=2 | **k=3 (m now)** | k=5 | k=10 | k=20 (all sampled) |
+|---|---|---|---|---|---|---|---|
+| 002 test | 1,000 | 0.471 | 0.573 | **0.616** | 0.655 | 0.671 | 0.671 |
+| 003 val | 600 | 0.458 | 0.568 | **0.613** | 0.640 | 0.648 | 0.648 |
+| grids 004 | 589 | 0.411 | 0.513 | **0.559** | 0.616 | 0.628 | 0.628 |
+| grids 005 | 292 | 0.479 | 0.568 | **0.613** | 0.671 | 0.695 | 0.695 |
+| grids 006 | 295 | 0.437 | 0.529 | **0.556** | 0.590 | 0.610 | 0.610 |
+| grids, all 40 | 1,176 | 0.435 | 0.531 | **0.571** | 0.623 | 0.640 | 0.640 |
+
+**Raising m buys little.** Going from 3 to 5 formalised candidates adds 3–6
+points of recall, and formalising every distinct sample adds 4–8 points. For
+a third to a half of all clues (33–39%), the gold answer is never among
+the 20 samples. That is the gap, and only the proposer can close it, with a
+different prompt, model, temperature or more samples. Formalising more of
+the same samples won't. The grids' k=3 value (0.571) matches the
+round-1 candidate count above (672 / 1,176), which checks the replay.
+
+Built: `ximenes.recall` (pure `ranked`, `rank_of` and `curve`, plus a CLI
+that replays the logs; output `runs/010-recall.json`, local) and
+`tests/test_010_recall.py`.
+
+```bash
+uv run python -m ximenes.recall \
+  --clues test runs/20261021T172614Z-solve-anthropic-9ca8198903824c5fa126b43805226321.json \
+  --clues val runs/20261021T172307Z-solve-anthropic-3b6375173487443c80dd87654be574d0.json \
+  --grids 004 runs/grids 20 <004 logs as above> --grids 005 ... --grids 006 ...
+```
+
 ## Kit output
 
 ```
@@ -164,8 +200,8 @@ All checks passed!
 ........................................................................ [ 30%]
 ........................................................................ [ 60%]
 ........................................................................ [ 90%]
-......................                                                   [100%]
-238 passed in 17.81s
+........................                                                 [100%]
+240 passed in 17.78s
 == kit: GREEN
 ```
 
