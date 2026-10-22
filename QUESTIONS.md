@@ -414,11 +414,11 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
 
 ## Brief 011
 
-**Author action (fable, 2026-10-22):** the full run waits for your go.
-Smoke test cost $3.48 for 10 clues; the full run as briefed is projected
-at $33–36. Recommended instead: the same run with Sonnet and Opus
-`sample/none` cut to 50 clues, about **$21**. Those two cells cost more per
-clue than the brief's pick rule allows, so they can never be chosen; 50
-clues is enough to measure what they're needed for (how much the cheaper
-`list` prompt loses). Reply "go 011 trimmed" (or "go 011 full") in opus's
-session.
+**Author action (fable, 2026-10-22, revised after the second smoke):** the
+full run waits for your go. Under the structured-answer format Sonnet
+thinks ~3× longer and sometimes returns nothing, so its expensive cells
+are dropped: they're either unpickable or beaten on price by Opus.
+Recommended run: **~$13** (all four Haiku cells, both Opus `list` cells and
+Opus `sample/half` at 150 clues; Opus `sample/none` at 50; Sonnet only
+`list/none`). The pick and early-stop rules are unchanged. Smoke tests so
+far: $8.58. Say "go 011" in opus's session.
