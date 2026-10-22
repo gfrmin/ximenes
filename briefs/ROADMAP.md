@@ -1,43 +1,95 @@
-# Roadmap (briefs after 001 are sketches; each is drafted only when the
-# previous one has merged). Framing: `docs/GAME.md`.
+# Roadmap
 
-| # | Brief | Headline number | Depends on |
+Framing: `docs/GAME.md`. Results so far: `docs/RESULTS.md`.
+
+**Goal (set 2026-10-22 by fable, under the author's delegation):** the best
+cryptic crossword solver these foundations allow, measured as **the share
+of fully correct grids at a stated cost per grid**, every answer carrying a
+calibrated probability and the judgements it rests on. Speed is secondary.
+
+## Where the limit is (briefs 000–010)
+The decision layer works: verifier sound (0 false accepts), posterior
+calibrated (ECE 0.027), committed slots ~99% right, VOC beats attempt-all.
+What limits grids is **candidate generation**: the gold answer is among a
+slot's round-1 candidates in 57% of slots, and among all 20 Haiku samples
+in only 64–70% of clues. A 30-slot grid needs ~98% per slot to be fully
+correct half the time. So the next phase is the proposer, then the
+end-to-end grid, then a clean number.
+
+## Phase 2 (from 2026-10-22)
+
+| # | Brief | Headline number | Cap |
 |---|---|---|---|
-| 000 | Harness, splits, logged instruments, vote baseline | top-1 + ECE on test vs post-cutoff | — |
-| 001 | Typed DSL + non-executing verifier + coverage law | gold-parse coverage; mutant false-accept = 0 | 000 |
-| 002 | Proposer loop on real clues: new operators, table-review rule, oracle instruments, concurrent samples, fixed decision rule | top-1 vs 0.460 on the same 1,000; verified-set size and accuracy | 001 |
-| 003 | Calibrated posteriors fitted on a val solve, evaluated once on 002's test run; `judge_indicator`; point/set/abstain decision layer; `Hyp` schema named | risk–coverage on test; coverage and accuracy at P ≥ 0.9 vs vote share and the 002 rule; ECE | 002 |
-| 004 | Grid: ipuz loader; reconstruct Cryptonite layouts from numbering + answers; loopy BP over `Hyp` rows with an OTHER mass; commit at marginal ≥ 0.9; re-propose with pattern | fully-correct grid rate on 20 reconstructed grids; letters correct; proven vs quarantined; spend per grid | 003 |
-| 005 | Metacomputation: OTHER prior from val; price every move; gain model on fit grids; VOC policy vs attempt-all vs vote-only, score-vs-spend curves | clues correct at equal spend; committed-only grids; seconds per grid | 004 |
-| 006 | Commitment: calibrate the post-BP marginal on the fit grids; VOC with a calibrated commit rule on fresh grids; paired crossers-first baseline on 005's grids | committed-only grids; committed slots and accuracy; clues at $0.94 | 005 |
-| 007 | Commit-time calibration (refit on every uncommitted slot-step), paired live against the uncalibrated rule on the same fresh grids | accuracy of committed slots (≥ 0.99); committed slots; clues at $0.94 | 006 |
-| 008 | Synonym attestation: Moby + Open English WordNet as independent evidence on `syn` leaves (status unchanged under D4); posterior refit on val, scored on 006's grid records; $0 | P ≥ 0.9 coverage and accuracy with vs without attestation; attestation rate | 007 |
-| 009 | Abbreviations hiding as synonyms: Wikipedia's crossword abbreviations (CC BY-SA) as origin `wikipedia`; reviewed `syn` hits become table hits; offline rescoring; $0 | Ok share before/after (val, train); proven slots on 006's grids | 008 |
-| 010 | Soft evidence vs hard clamping, offline on 40 logged grids' round-1 candidates; Wikipedia table split into its own CC BY-SA file; $0 | clues / letters / fully-correct grids, hard vs soft vs annealed, paired | 009 |
-| 011 | (deferred) Rejection-sample proven parses to distil a small proposer | — | 002, mutants at 0 |
+| 011 | **Recall by proposer.** Haiku / Sonnet / Opus, sampled vs "list N candidates", with and without crossing-letter patterns, on a fresh Cryptonite test sample | gold-in-k and $ per clue for each proposer × prompt × pattern level | $40 |
+| 012 | **End-to-end grid solver** with the proposer 011 picks: VOC, pattern re-proposal, posterior refitted on val for the new proposer | fully correct grids, clues, letters, $ per grid on 20 fresh reconstructed grids; stop rule below | $60 |
+| 013 | **Clean number:** 012's solver, frozen, on post-cutoff grids | fully correct grids on post-cutoff puzzles; gap to 012 | ≤ $40 |
+| 014+ | Whatever 012/013 show is the limit (ensemble proposers, a second formaliser, a stronger judge, cheaper routing by VOC) | — | per brief |
 
-Stop rule after 001: if gold-parse coverage on val is far below ~30%, the
-sound-by-grammar verifier is not worth building on; refocus on 003 with the
-verdict as a weaker feature.
+**Stop rule, pre-registered for 012.** On reconstructed Cryptonite grids
+(an upper bound, mixed splits): if fewer than **10%** of grids are fully
+correct at ≤ **$5 per grid**, the project stops chasing full grids and the
+product is the calibrated solving assistant (per-answer probability and
+evidence; brief 003's result is its core). If ≥ 10%, 013 and 014+ follow.
 
-Shared with `hkaddresses` (by design, once 003 exists): the `Hyp` kernel,
-lattice tokeniser, alias tables, Ok/Quarantine. Not shared: the grammar.
+**Post-cutoff data (013's blocker).** Cryptonite ends in 2020; strong
+models have likely seen it. The tools available to the agents decline
+newspaper crossword sites, so the agents will not scrape them. Post-cutoff
+puzzles need a source the author is entitled to use (e.g. puzzles from his
+own subscription, saved as `.puz` / ipuz / PDF into `data/postcutoff/`,
+never committed); a converter is part of 013. Until then, 012's number is
+labelled an upper bound, and 011 reports accuracy by clue year per model as
+a contamination probe.
 
-## Post-cutoff protocol (fixed 2026-10-21, after brief 000's diagnostics)
+## How Phase 2 is chosen (informal value of information)
+Each brief is the experiment with the most expected improvement in the
+decision it informs, per dollar:
+- **The decision that matters most** is the stop rule: is a fully correct
+  grid reachable at ≤ $5? Prior, informally ~0.5: frontier ensembles solve
+  championship grids (Darmok), but our per-slot accuracy is 0.74, far from
+  the ~0.93 needed. A cheap experiment that moves this probability a lot is
+  worth more than any refinement of the decision layer (006–010 each moved
+  numbers by ≤ 2 points).
+- **011 ($25) bounds 012 ($60)**: recall at `half` pattern caps per-slot
+  accuracy, so 011 can stop 012 early (its own pre-registered threshold)
+  and save most of 012's cost if the answer is no. It also picks the
+  proposer, where the wrong choice costs either accuracy or ~3× spend.
+- **Contamination** biases every Cryptonite number upward, more for strong
+  models. It matters little for *ranking* proposers on the same clues, a
+  lot for the final claim. So: a cheap year-of-clue probe in 011, the real
+  correction (post-cutoff grids) in 013, which is the single input only the
+  author can supply.
+- Numbers are reported with intervals; a result inside its interval of a
+  threshold is "ambiguous", and the next cheapest experiment that resolves
+  it is bought only if the decision would change.
 
-Brief 000 found publisher is the largest effect on top-1 (Telegraph 0.547
-vs Times 0.399 for Haiku; Quick 0.61 vs cryptic 0.45), so a contamination
-estimate must compare like with like:
+## Spending
+Standing envelope for Phase 2: **$150**, delegated by the author to `fable`
+on 2026-10-22. Each brief states its cap; the builder may spend up to that
+cap without asking, after a smoke test whose cost it reports. Anything
+beyond a brief's cap or the envelope needs `fable`'s written approval in
+`comms/`. The author can veto at any time by editing this section.
+Cumulative before Phase 2: $103.18.
 
-- The comparison set from Cryptonite test is a **stratified** sample
-  matching the post-cutoff set's publisher and quick/cryptic mix, same
-  seed; the gap is reported **per publisher**, never pooled.
-- Only Times and Telegraph rows have an in-distribution baseline
-  (Cryptonite has nothing else). Guardian and FT post-cutoff rows are still
-  useful, but as a second, uncontaminated number per model, not as a gap.
-- A gap on a weak model (Haiku) and on a strong one (Opus) are both
-  reported; only the strong model is expected to show one.
-- The Telegraph–Times difference is consistent with the Telegraph simply
-  being easier, which is the solvers' consensus; it is not evidence of
-  contamination on its own.
+## Phase 1 (done)
 
+| # | Brief | Result |
+|---|---|---|
+| 000 | Harness, splits, logged instruments, vote baseline | Haiku vote top-1 0.460, ECE 0.159 |
+| 001 | Typed DSL, non-executing verifier, coverage law | coverage 0.850; 0 false accepts |
+| 002 | Propose → verify → decide | top-1 0.552; verified set 505 at 0.861 |
+| 003 | Calibrated posterior on val, read once on test | P ≥ 0.9: 37.9% at 0.968; ECE 0.027 |
+| 004 | Grids: reconstruction, BP, commit, re-propose | clues 0.712 vs 0.513 alone; 0/20 fully correct |
+| 005 | Metacomputation (VOC) | beats attempt-all from $0.45/grid |
+| 006 | Final-state calibration of commit | negative: committed accuracy 0.895 |
+| 007 | Commit-time calibration | closed on a free refit; bar and τ incompatible |
+| 008 | Thesaurus attestation | nearly redundant with the judge |
+| 009 | Wikipedia abbreviations | Ok +0.5–1.4 points |
+| 010 | Soft vs hard evidence; gold-in-k | identical; the limit is candidate generation |
+
+Deferred: distil a small proposer from proven parses (needs volume first).
+
+## Protocols carried forward
+Post-cutoff protocol (2026-10-21): compare like with like by publisher and
+quick/cryptic; report gaps per publisher; Guardian/FT rows carry no
+Cryptonite baseline. D7: fit on val, read a held-out sample once, refit
+with a fresh seed.

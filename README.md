@@ -99,5 +99,6 @@ for the full run.
 - Brief 010 done (2026-10-22): soft and hard evidence enter the same word
   in all 1,176 slots of 40 grids; the ceiling is candidate generation (gold
   among round-1 candidates in 57% of slots). $0. `reports/010-soft-evidence.md`.
-- Next: roadmap under review with the author (recall and post-cutoff grids
-  first).
+- Phase 2 (2026-10-22): recall by proposer (011), end-to-end grids with a
+  pre-registered stop rule (012), clean post-cutoff number (013).
+  `briefs/ROADMAP.md`.
