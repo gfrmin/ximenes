@@ -40,6 +40,7 @@ from .instruments import (
     propose_answers,
     propose_list,
     propose_pattern,
+    replay_then,
     stub_backend,
 )
 from .recall import curve, rank_of, ranked
@@ -241,7 +242,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="python -m ximenes.proposers")
     p.add_argument("--n", type=int, default=None, help="first n of the sample (smoke test)")
     p.add_argument("--backend", choices=("anthropic", "stub"), default="anthropic")
-    p.add_argument("--log", default=None, help="stub: the run log to replay")
+    p.add_argument("--log", default=None,
+                   help="stub: the run log to replay; anthropic: replay it, call the rest")
     p.add_argument("--max-usd", type=float, default=CFG["cap_usd"])
     p.add_argument("--runs-dir", default="runs")
     args = p.parse_args(argv)
@@ -253,6 +255,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     log_path = runs / f"{run_id}.jsonl"
     base: Instrument = (stub_backend(pathlib.Path(args.log)) if args.backend == "stub"
                         else budgeted(anthropic_backend(), args.max_usd))
+    if args.backend == "anthropic" and args.log:
+        base = replay_then(pathlib.Path(args.log), base)
     result = run({i: population[i] for i in indices}, logged(base, log_path))
     out = {"run_id": run_id, "run_date": started.date().isoformat(), "n": len(indices),
            "indices": list(indices), "replayed_from": args.log, "log": str(log_path),

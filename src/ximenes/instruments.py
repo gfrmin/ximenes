@@ -302,9 +302,12 @@ def _expression(message: Any) -> str:
     return extract_expression("".join(b.text for b in message.content if b.type == "text"))
 
 
-def _first_line(message: Any) -> str:
+def _answer_line(message: Any) -> str:
+    """The reply's last non-empty line. Brief 011: Sonnet 5.5 reasons in text
+    before answering despite "answer only"; one-line replies (Haiku, Opus,
+    every earlier brief's logs) are unchanged."""
     text = "".join(b.text for b in message.content if b.type == "text")
-    return next((ln.strip() for ln in text.splitlines() if ln.strip()), "")
+    return next((ln.strip() for ln in reversed(text.splitlines()) if ln.strip()), "")
 
 
 def anthropic_backend() -> Instrument:
@@ -358,7 +361,7 @@ def anthropic_backend() -> Instrument:
         if instrument in (PROPOSE_ANSWERS, PROPOSE_PATTERN):
             messages = sample_concurrently(lambda: sample(model, inp), inp["k"],
                                            SETTINGS["concurrency"]["sample_workers"])
-            output: Json = [_first_line(m) for m in messages]
+            output: Json = [_answer_line(m) for m in messages]
         elif instrument == PROPOSE_LIST:
             messages = [sample(model, inp)]
             output = "".join(b.text for b in messages[0].content if b.type == "text")
