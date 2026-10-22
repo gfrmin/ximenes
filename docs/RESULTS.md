@@ -35,6 +35,6 @@ bit from their logs. Total spend across briefs 000–006: **$103.18**.
 - Any fully correct grid. Commitment (the share of slots that reach the
   threshold), not accuracy, is the bottleneck (006).
 - "Proven" grids: wordplay is rarely fully mechanical while synonyms are
-  oracle leaves. A reviewed synonym table is the lever (roadmap 007).
+  oracle leaves. A reviewed synonym table is the lever (roadmap 008).
 - That VOC beats a good heuristic: paired, it doesn't measurably (006).
 - Calibrated commitment that keeps committed slots ≥ 0.99 (007).
