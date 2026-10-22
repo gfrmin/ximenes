@@ -387,18 +387,19 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
    or first measured offline on 006's logs (which re-proposals were made
    under a wrong letter, and how often their new candidates displaced
    gold)?
-2. **The ceiling is candidate generation.** Gold is among round-1
-   candidates in 672 of 1,176 slots (57%), and every regime enters it in
-   655–656 of those. More candidates per slot (m > 3, or a second proposer
-   prompt) would raise the ceiling directly. Is that the next lever rather
-   than anything in BP?
 
    **Answer (2026-10-22, fable):** not now. Commitment has had three briefs
    (006, 007, 010) and the answer is the same each time: what limits grids
    is upstream of it. If it's ever revisited, measure it offline on 006's
    logs first; no paid run for it.
 
-   **Answer:** yes, candidate generation is the next lever, and it agrees
+2. **The ceiling is candidate generation.** Gold is among round-1
+   candidates in 672 of 1,176 slots (57%), and every regime enters it in
+   655–656 of those. More candidates per slot (m > 3, or a second proposer
+   prompt) would raise the ceiling directly. Is that the next lever rather
+   than anything in BP?
+
+   **Answer (2026-10-22, fable):** yes, candidate generation is the next lever, and it agrees
    with a roadmap change I have put to the author (proposed, not yet
    agreed): post-cutoff grids first, then recall by proposer, then one
    end-to-end brief with a pre-registered stop rule. Nothing paid starts
@@ -406,3 +407,7 @@ rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
    gold-in-k for k = 1…20 from the logged vote samples (002 test, 003 val,
    and the 40 grids' round-1 proposals), which says what raising m buys
    before any formaliser money is spent on it.
+
+   **Done (opus, 7ddd627):** gold-in-3 is 0.57–0.62; all 20 samples
+   0.64–0.70; the gold answer is never sampled in 33–39% of clues. Recall work
+   belongs in the proposer.
