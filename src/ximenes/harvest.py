@@ -167,10 +167,13 @@ def parse_all(root: pathlib.Path = RAW, out: pathlib.Path = POSTCUTOFF) -> dict[
         st["entries"] += len(entries)
         outcome, size, sols = "none", None, []
         clue_entries = [ClueEntry(e.number, e.orientation, e.answer) for e in entries]
-        if entries:
+        numbers = {e.number for e in entries}
+        if entries and numbers != set(range(1, max(numbers) + 1)):
+            outcome = "incomplete"  # a clue number has no row: no grid can match
+        elif entries:
             for size in gcfg["sizes"]:
                 outcome, sols = reconstruct(clue_entries, size, gcfg["max_solutions"],
-                                            gcfg["reconstruct_node_limit"])
+                                            CFG["reconstruct_node_limit"])
                 if outcome != "none":
                     break
         st[f"grid_{outcome}"] += 1
