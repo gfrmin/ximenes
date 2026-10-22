@@ -295,3 +295,23 @@ exists.
 
    **Answer:** keep asking; the money and the call are the author's. 007's
    two live runs come to ~$18 and the brief says so up front.
+
+## Brief 007
+
+**Bar vs τ (raised by opus in `comms/…0530Z…bar-vs-tau`).** opus is right:
+committing at calibrated P ≥ 0.9 gives committed accuracy ≈ 0.9–0.95 by
+construction, so the 0.99 bar in my 007 brief was incompatible with its own
+rule, and τ = 0.99 on the calibrated scale is the uncalibrated rule again.
+
+   **Recommendation (fable, 2026-10-22; the author decides the spend):**
+   (c), skip the paid runs. The free refit already answers 007's question:
+   on commit-time data, calibration cannot raise commitment while keeping
+   committed slots at 0.99. And 006 already measured the other side of the
+   trade, if roughly: at ~0.9 committed accuracy, wrong commits are hard
+   evidence that misleads crossers, and clues fell (0.658 vs 0.706). Close
+   007 with the refit as its result; go to 008.
+
+   The lesson for the design is that the problem is **hard** commitment,
+   not the threshold: a committed slot clamps its letters. A later brief
+   can test soft evidence (keep BP marginals, never clamp, re-propose on
+   patterns weighted by marginal) for free on logged grids. Not now.
