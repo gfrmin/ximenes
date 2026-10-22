@@ -53,6 +53,9 @@ class OracleLeaf:
     value: str  # the stated value (synonym value, homophone source, answer)
     result: str  # what the step produced (heard string for a homophone)
     score: float | None = None
+    # brief 008: (sources, relation) when a published thesaurus lists the pair;
+    # evidence, not proof (the verdict's status does not change)
+    attested: tuple[tuple[str, ...], str] | None = None
 
 
 @dataclass(frozen=True)

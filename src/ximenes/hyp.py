@@ -51,7 +51,10 @@ def hyp_of(slot: str, answer: str, src: str, verdict: Verdict, *, vote_share: fl
             "consumed": [list(c) for c in verdict.provenance.consumed] if accepted else [],
             "table_hits": [list(h) for h in verdict.provenance.table_hits] if accepted else [],
             "oracle_calls": [{"reason": lf.reason.value, "phrase": lf.phrase,
-                              "value": lf.value, "score": lf.score} for lf in leaves],
+                              "value": lf.value, "score": lf.score,
+                              **({"attested": {"sources": list(lf.attested[0]),
+                                               "relation": lf.attested[1]}}
+                                 if lf.attested else {})} for lf in leaves],
         },
         scores={
             "definition": dataclasses.asdict(verdict.definition) if accepted else None,

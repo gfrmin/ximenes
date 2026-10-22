@@ -72,13 +72,38 @@ def features(h: dict[str, Any], others: Sequence[dict[str, Any]]) -> dict[str, f
     }
 
 
-def rows(run: dict[str, Any]) -> list[tuple[str, dict[str, Any], dict[str, float], bool]]:
+ATTESTED_FEATURES = (*FEATURES, "syn_attested_share", "syn_unattested_n",
+                     "min_leaf_score_unattested", "syn_none", "unattested_missing")
+
+
+def features_attested(h: dict[str, Any], others: Sequence[dict[str, Any]]) -> dict[str, float]:
+    """Brief 008: 003's features plus synonym attestation (missing = flag + 0)."""
+    syn = [c for c in h["prov"]["oracle_calls"] if c["reason"] == "synonym"]
+    unatt = [c for c in syn if not c.get("attested")]
+    scores = [c["score"] for c in unatt if c["score"] is not None]
+    return {
+        **features(h, others),
+        "syn_attested_share": (len(syn) - len(unatt)) / len(syn) if syn else 0.0,
+        "syn_unattested_n": float(len(unatt)),
+        "min_leaf_score_unattested": min(scores) if scores else 0.0,
+        "syn_none": float(not syn),
+        "unattested_missing": float(not scores),
+    }
+
+
+def _features_for(model_features: Sequence[str]):  # noqa: ANN202
+    return features_attested if "syn_attested_share" in model_features else features
+
+
+def rows(run: dict[str, Any], attested: bool = False
+         ) -> list[tuple[str, dict[str, Any], dict[str, float], bool]]:
     """(slot, hyp, features, correct) for every candidate of every clue."""
+    feat = features_attested if attested else features
     out = []
     for item in run["items"]:
         cands = item["candidates"]
         for i, h in enumerate(cands):
-            out.append((item["slot"], h, features(h, cands[:i] + cands[i + 1:]),
+            out.append((item["slot"], h, feat(h, cands[:i] + cands[i + 1:]),
                         h["answer"] == item["answer"]))
     return out
 
@@ -250,7 +275,7 @@ def fit(split: str, run: dict[str, Any]) -> dict[str, Any]:
 def posterior(model: dict[str, Any], h: dict[str, Any], others: Sequence[dict[str, Any]]) -> float:
     if model["model"] == "binned":
         return predict_binned(model, h)
-    return predict_logistic(model, features(h, others))
+    return predict_logistic(model, _features_for(model["features"])(h, others))
 
 
 TABLES = {"binned": DATA / "posterior-binned.json", "logistic": DATA / "posterior-logistic.json"}
@@ -273,3 +298,20 @@ def fit_vote(split: str, run: dict[str, Any]) -> dict[str, Any]:
     l2 = min(cv, key=lambda k: cv[k])
     return {**fit_logistic(data, l2, VOTE_FEATURES), "fitted_on": run["run_id"], "split": split,
             "cv_log_loss": cv[l2], "cv_by_l2": {str(k): v for k, v in cv.items()}}
+
+
+ATTESTED_TABLE = DATA / "posterior-logistic-attested.json"
+
+
+def fit_attested(split: str, run: dict[str, Any]) -> dict[str, Any]:
+    """Brief 008: 003's logistic plus attestation features; val only (D7)."""
+    if split != "val" or run.get("set") != "val":
+        raise FitOnTest("the attested posterior is fitted on val only")
+    data = rows(run, attested=True)
+    cv = {l2: cv_log_loss(data, "logistic", l2, ATTESTED_FEATURES) for l2 in P["l2_grid"]}
+    l2 = min(cv, key=lambda k: cv[k])
+    base = cv_log_loss(rows(run), "logistic", min(
+        P["l2_grid"], key=lambda k: cv_log_loss(rows(run), "logistic", k)))
+    return {**fit_logistic(data, l2, ATTESTED_FEATURES), "fitted_on": run["run_id"],
+            "split": split, "cv_log_loss": cv[l2], "cv_log_loss_without": base,
+            "cv_by_l2": {str(k): v for k, v in cv.items()}}

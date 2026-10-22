@@ -40,6 +40,17 @@ if [ ! -f data/wordplay/sample_teacow_val.jsonl ]; then
 fi
 echo "   $(wc -l < data/wordplay/sample_teacow_train.jsonl) train / $(wc -l < data/wordplay/sample_teacow_val.jsonl) val explanations"
 
+echo "== data: thesauri (Moby Thesaurus II, Open English WordNet 2025; brief 008)"
+mkdir -p data/.src/thesauri
+[ -f data/.src/thesauri/mthesaur.txt ] || \
+  curl -fsSL -o data/.src/thesauri/mthesaur.txt https://www.gutenberg.org/files/3202/files/mthesaur.txt
+[ -f data/.src/thesauri/english-wordnet-2025.xml.gz ] || \
+  curl -fsSL -o data/.src/thesauri/english-wordnet-2025.xml.gz \
+    https://github.com/globalwordnet/english-wordnet/releases/download/2025-edition/english-wordnet-2025.xml.gz
+(cd data/.src/thesauri && sha256sum -c --quiet ../../thesauri/SOURCES.sha256) \
+  && echo "   thesauri match data/thesauri/SOURCES.sha256" \
+  || { echo "RED: thesaurus files do not match their hashes"; exit 1; }
+
 echo "== postcutoff"
 mkdir -p data/postcutoff
 n=$(find data/postcutoff -type f ! -name .gitkeep | wc -l)

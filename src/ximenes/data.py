@@ -94,8 +94,9 @@ def read_cryptonite(path: pathlib.Path) -> tuple[CryptoniteClue, ...]:
     return tuple(map(parse_cryptonite, _jsonl(path)))
 
 
-def frozen_hashes(root: pathlib.Path = CRYPTONITE) -> dict[str, str]:
-    lines = (root / "SPLITS.sha256").read_text().splitlines()
+def frozen_hashes(root: pathlib.Path = CRYPTONITE, name: str = "SPLITS.sha256"
+                  ) -> dict[str, str]:
+    lines = (root / name).read_text().splitlines()
     pairs = (line.split() for line in lines if line.strip())
     return {name: digest for digest, name in pairs}
 
@@ -215,3 +216,80 @@ def load_puzzles(root: pathlib.Path = CRYPTONITE
                             r["quick"])
             out.setdefault(key, []).append((split, r))
     return out
+
+
+# --- brief 008: thesauri ---------------------------------------------------------------
+
+THESAURI = DATA / "thesauri"
+THESAURI_SRC = DATA / ".src" / "thesauri"
+
+
+class ThesaurusMissing(FileNotFoundError):
+    """The thesaurus sources are absent or do not match their hashes."""
+
+
+@dataclass(frozen=True)
+class Thesauri:
+    """Indexes over the two sources, keyed by letters-only lowercase forms.
+    moby: word -> ids of the Moby lines it appears on (its own headword line
+    included); moby_head: headword -> its line id. wn_synsets: lemma ->
+    synset ids; wn_similar: synset -> similar-to synsets; wn_members: synset ->
+    member lemmas."""
+
+    moby: dict[str, frozenset[int]]
+    moby_head: dict[str, int]
+    wn_synsets: dict[str, frozenset[str]]
+    wn_similar: dict[str, frozenset[str]]
+    wn_members: dict[str, frozenset[str]]
+
+
+def letters(s: str) -> str:
+    return "".join(ch for ch in s.lower() if ch.isalpha())
+
+
+@functools.cache
+def load_thesauri(root: pathlib.Path = THESAURI_SRC) -> Thesauri:
+    import gzip
+    import xml.etree.ElementTree as ET
+
+    hashes = frozen_hashes(THESAURI, "SOURCES.sha256")
+    for name, digest in hashes.items():
+        path = root / name
+        if not path.exists() or sha256(path) != digest:
+            raise ThesaurusMissing(f"{path}: missing or not matching data/thesauri/SOURCES.sha256"
+                                   " (run ./setup.sh)")
+    moby: dict[str, set[int]] = {}
+    head: dict[str, int] = {}
+    with open(root / "mthesaur.txt", encoding="latin-1") as f:
+        for i, line in enumerate(f):
+            words = [letters(w) for w in line.strip().split(",") if letters(w)]
+            if words:
+                head.setdefault(words[0], i)
+                for w in words:
+                    moby.setdefault(w, set()).add(i)
+    synsets: dict[str, set[str]] = {}
+    members: dict[str, set[str]] = {}
+    similar: dict[str, set[str]] = {}
+    with gzip.open(root / "english-wordnet-2025.xml.gz", "rb") as f:
+        entry_lemma = ""
+        synset_id = ""
+        for _event, el in ET.iterparse(f, events=("start",)):
+            tag = el.tag
+            if tag == "LexicalEntry":
+                entry_lemma = ""
+            elif tag == "Lemma":
+                entry_lemma = letters(el.get("writtenForm", ""))
+            elif tag == "Sense" and entry_lemma:
+                s = el.get("synset", "")
+                synsets.setdefault(entry_lemma, set()).add(s)
+                members.setdefault(s, set()).add(entry_lemma)
+            elif tag == "Synset":
+                synset_id = el.get("id", "")
+            elif tag == "SynsetRelation" and el.get("relType") == "similar" and synset_id:
+                similar.setdefault(synset_id, set()).add(el.get("target", ""))
+    return Thesauri(
+        {k: frozenset(v) for k, v in moby.items()}, head,
+        {k: frozenset(v) for k, v in synsets.items()},
+        {k: frozenset(v) for k, v in similar.items()},
+        {k: frozenset(v) for k, v in members.items()},
+    )
