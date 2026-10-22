@@ -76,8 +76,10 @@ Nothing is added from formaliser output.
 Source: Wikipedia contributors, "Crossword abbreviations", revision
 1375193762 (2026-09-16, the last revision before this project started),
 CC BY-SA 4.0. Imported whole (621 keys, 985 values; values longer than 4
-letters dropped as for Deits), origin `wikipedia`. As an adaptation,
-`abbreviations.json` is now CC BY-SA 4.0.
+letters dropped as for Deits), origin `wikipedia`. Since brief 010 these
+entries live in `abbreviations.wikipedia.json` (CC BY-SA 4.0, licence in its
+header) and are merged at load time; `abbreviations.json` holds hand + Deits
++ review origins only (MIT / own work). The merged table is unchanged.
 
 Reviewed: the 91 unreviewed entries that accepted parses in brief 001
 (val, train-500), brief 002 (test, chosen answers) and brief 006 (grid

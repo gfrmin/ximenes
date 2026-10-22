@@ -135,22 +135,51 @@ def build() -> dict:
             raise ValueError(f"reviewed abbreviation {key}->{value} is not in any source")
         add(key, (value,), "review")
 
+    # brief 010: share-alike stays in its own file. The main table holds every
+    # origin except "wikipedia"; the Wikipedia file holds the Wikipedia entries
+    # (and "review" for the ones only it lists). Loading merges by union.
+    main_origin: dict[str, dict[str, set[str]]] = {}
+    wiki_origin: dict[str, dict[str, set[str]]] = {}
+    for k, d in origin.items():
+        for v, o in d.items():
+            rest = o - {"wikipedia"}
+            if rest:
+                main_origin.setdefault(k, {})[v] = rest
+            if "wikipedia" in o:
+                extra = {"review"} if "review" in o and not (rest - {"review"}) else set()
+                wiki_origin.setdefault(k, {})[v] = {"wikipedia"} | extra
+                if extra and main_origin.get(k, {}).get(v) == {"review"}:
+                    del main_origin[k][v]
+    wiki = {
+        "source": (f"Wikipedia contributors, \"Crossword abbreviations\", revision "
+                   f"{WIKIPEDIA_OLDID} (2026-09-16), https://en.wikipedia.org/w/index.php?oldid="
+                   f"{WIKIPEDIA_OLDID}; parsed by data/lexicon/build_abbreviations.py "
+                   "(values over 4 letters dropped; reviewed entries per REVIEW.md)"),
+        "license": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); this file "
+                   "is an adaptation and carries the same licence",
+        "_origin": {k: {v: "+".join(sorted(o)) for v, o in sorted(d.items())}
+                    for k, d in sorted(wiki_origin.items()) if d},
+    }
+    wiki.update({k: sorted(d) for k, d in sorted(wiki_origin.items()) if d})
+    origin = {k: d for k, d in main_origin.items() if d}
+
     out = {
         "source": (
             "built by data/lexicon/build_abbreviations.py from abbreviations.hand.json "
             "(hand seed 2026-10-21) and rdeits/CrypticCrosswords.jl corpora/abbreviations.json "
             "(MIT, (c) 2019 Robin Deits; LICENSE-CrypticCrosswords.jl.md), with the reviewed "
-            "fixes listed in REVIEW.md, and Wikipedia contributors, \"Crossword abbreviations\", "
-            f"revision {WIKIPEDIA_OLDID} (2026-09-16), CC BY-SA 4.0 (origin 'wikipedia'); this "
-            "table, as an adaptation, is CC BY-SA 4.0. Keys lowercased, values uppercased letters"
+            "fixes listed in REVIEW.md. Keys lowercased, values uppercased letters. Wikipedia's "
+            "entries (CC BY-SA 4.0) are in abbreviations.wikipedia.json, merged at load time"
         ),
         "_origin": {k: {v: "+".join(sorted(o)) for v, o in sorted(d.items())}
                     for k, d in sorted(origin.items()) if d},
     }
     out.update({k: sorted(d) for k, d in sorted(origin.items()) if d})
-    return out
+    return out, wiki
 
 
 if __name__ == "__main__":
-    (HERE / "abbreviations.json").write_text(
-        json.dumps(build(), indent=1, ensure_ascii=False) + "\n")
+    main, wiki = build()
+    (HERE / "abbreviations.json").write_text(json.dumps(main, indent=1, ensure_ascii=False) + "\n")
+    (HERE / "abbreviations.wikipedia.json").write_text(
+        json.dumps(wiki, indent=1, ensure_ascii=False) + "\n")

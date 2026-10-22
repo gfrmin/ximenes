@@ -1,5 +1,5 @@
 {
- "source": "built by data/lexicon/build_abbreviations.py from abbreviations.hand.json (hand seed 2026-10-21) and rdeits/CrypticCrosswords.jl corpora/abbreviations.json (MIT, (c) 2019 Robin Deits; LICENSE-CrypticCrosswords.jl.md), with the reviewed fixes listed in REVIEW.md, and Wikipedia contributors, \"Crossword abbreviations\", revision 1375193762 (2026-09-16), CC BY-SA 4.0 (origin 'wikipedia'); this table, as an adaptation, is CC BY-SA 4.0. Keys lowercased, values uppercased letters",
+ "source": "built by data/lexicon/build_abbreviations.py from abbreviations.hand.json (hand seed 2026-10-21) and rdeits/CrypticCrosswords.jl corpora/abbreviations.json (MIT, (c) 2019 Robin Deits; LICENSE-CrypticCrosswords.jl.md), with the reviewed fixes listed in REVIEW.md. Keys lowercased, values uppercased letters. Wikipedia's entries (CC BY-SA 4.0) are in abbreviations.wikipedia.json, merged at load time",
  "_origin": {
   "a follower": {
    "B": "deits"
@@ -8,79 +8,52 @@
    "UN": "hand",
    "UNE": "hand"
   },
-  "aboard": {
-   "SS": "wikipedia"
-  },
   "about": {
-   "C": "deits+hand+wikipedia",
-   "CA": "deits+hand+wikipedia",
+   "C": "deits+hand",
+   "CA": "deits+hand",
    "CE": "deits",
-   "RE": "deits+hand+wikipedia"
-  },
-  "abstainer": {
-   "TT": "wikipedia"
-  },
-  "academic": {
-   "DD": "wikipedia",
-   "PROF": "wikipedia"
+   "RE": "deits+hand"
   },
   "academician": {
    "RA": "hand"
   },
-  "acceleration": {
-   "G": "wikipedia"
-  },
-  "accepted": {
-   "A": "wikipedia"
-  },
   "account": {
-   "AC": "deits+wikipedia"
+   "AC": "deits"
   },
   "accountant": {
-   "CA": "deits+wikipedia",
+   "CA": "deits",
    "CPA": "deits"
   },
   "ace": {
-   "A": "deits+review+wikipedia",
-   "AI": "deits+wikipedia"
+   "A": "deits+review",
+   "AI": "deits"
   },
   "actinium": {
    "AC": "deits"
   },
   "advert": {
-   "AD": "deits+wikipedia"
-  },
-  "african organisation": {
-   "ANC": "wikipedia"
+   "AD": "deits"
   },
   "after midday": {
    "PM": "deits"
   },
   "afternoon": {
-   "PM": "deits+wikipedia"
+   "PM": "deits"
   },
   "against": {
    "ANTI": "hand",
    "CON": "hand",
-   "V": "deits+hand+wikipedia",
-   "VS": "deits+hand+wikipedia"
+   "V": "deits+hand",
+   "VS": "deits+hand"
   },
   "agent": {
-   "REP": "deits+review+wikipedia"
+   "REP": "deits+review"
   },
   "agricultural": {
-   "AG": "deits+wikipedia"
+   "AG": "deits"
   },
   "air conditioning": {
-   "AC": "deits+wikipedia"
-  },
-  "airman": {
-   "AC": "wikipedia",
-   "LAC": "wikipedia",
-   "PO": "wikipedia"
-  },
-  "airmen": {
-   "RAF": "wikipedia"
+   "AC": "deits"
   },
   "alabama": {
    "AL": "deits"
@@ -93,46 +66,37 @@
    "ALB": "deits"
   },
   "alien": {
-   "ET": "deits+wikipedia"
+   "ET": "deits"
   },
   "also known as": {
-   "AKA": "deits+wikipedia"
+   "AKA": "deits"
   },
   "alto": {
    "A": "deits"
   },
   "aluminium": {
-   "AL": "deits+review+wikipedia"
+   "AL": "deits+review"
   },
   "aluminum": {
    "AL": "deits"
   },
-  "alumnus": {
-   "OB": "wikipedia",
-   "OG": "wikipedia"
-  },
   "ambassador": {
-   "HE": "deits+wikipedia"
+   "HE": "deits"
   },
   "america": {
-   "A": "review+wikipedia",
-   "AM": "deits+wikipedia",
-   "US": "deits+review+wikipedia",
-   "USA": "deits+wikipedia"
+   "AM": "deits",
+   "US": "deits+review",
+   "USA": "deits"
   },
   "american": {
    "A": "hand",
-   "GI": "wikipedia",
    "US": "hand"
-  },
-  "american ship": {
-   "USS": "wikipedia"
   },
   "american soldier": {
    "GI": "deits"
   },
   "amnesty": {
-   "AI": "deits+wikipedia"
+   "AI": "deits"
   },
   "ancient city": {
    "UR": "deits"
@@ -144,13 +108,13 @@
    "ETC": "deits"
   },
   "anglican": {
-   "CE": "deits+wikipedia"
+   "CE": "deits"
   },
   "anglo-saxon": {
    "AS": "deits"
   },
   "answer": {
-   "A": "deits+review+wikipedia"
+   "A": "deits+review"
   },
   "approximately": {
    "C": "deits"
@@ -159,13 +123,7 @@
    "AR": "deits"
   },
   "arbiter": {
-   "REF": "deits+wikipedia"
-  },
-  "archdeacon": {
-   "VEN": "wikipedia"
-  },
-  "area": {
-   "A": "review+wikipedia"
+   "REF": "deits"
   },
   "argon": {
    "AR": "deits"
@@ -177,31 +135,27 @@
    "AR": "deits"
   },
   "army cop": {
-   "MP": "deits+wikipedia"
-  },
-  "army corps": {
-   "RE": "wikipedia",
-   "REME": "wikipedia"
+   "MP": "deits"
   },
   "around": {
    "CA": "deits"
   },
   "arsenic": {
-   "AS": "deits+wikipedia"
+   "AS": "deits"
   },
   "article": {
-   "A": "deits+wikipedia",
-   "AN": "deits+review+wikipedia",
-   "THE": "deits+review+wikipedia"
+   "A": "deits",
+   "AN": "deits+review",
+   "THE": "deits+review"
   },
   "artificial intelligence": {
-   "AI": "deits+wikipedia"
+   "AI": "deits"
   },
   "artillery": {
-   "RA": "deits+wikipedia"
+   "RA": "deits"
   },
   "artist": {
-   "RA": "deits+hand+wikipedia"
+   "RA": "deits+hand"
   },
   "artists": {
    "RA": "deits"
@@ -209,61 +163,42 @@
   "asian": {
    "E": "deits"
   },
-  "asleep": {
-   "Z": "wikipedia",
-   "ZZ": "wikipedia"
-  },
   "astatine": {
    "AT": "deits"
   },
-  "at": {
-   "A": "wikipedia"
-  },
   "at home": {
-   "IN": "deits+review+wikipedia"
-  },
-  "atmosphere": {
-   "AT": "wikipedia"
+   "IN": "deits+review"
   },
   "attorney": {
-   "DA": "deits+wikipedia",
-   "PA": "deits+wikipedia"
+   "DA": "deits",
+   "PA": "deits"
   },
   "australia": {
-   "A": "wikipedia",
    "AU": "deits+review",
-   "AUS": "deits+wikipedia",
-   "OZ": "deits+wikipedia"
+   "AUS": "deits",
+   "OZ": "deits"
   },
   "australian capital territory": {
    "ACT": "deits"
   },
   "avenue": {
-   "AVE": "deits+wikipedia"
-  },
-  "award": {
-   "OM": "wikipedia"
+   "AVE": "deits"
   },
   "bachelor": {
    "B": "hand",
    "BA": "deits+hand"
   },
   "bachelor of arts": {
-   "BA": "deits+wikipedia"
+   "BA": "deits"
   },
   "bachelor of medicine": {
-   "BM": "deits+wikipedia",
-   "MB": "wikipedia"
+   "BM": "deits"
   },
   "barium": {
    "BA": "deits"
   },
-  "base": {
-   "E": "wikipedia",
-   "TEN": "wikipedia"
-  },
   "basque nationalists": {
-   "ETA": "deits+wikipedia"
+   "ETA": "deits"
   },
   "bass": {
    "B": "deits"
@@ -272,49 +207,44 @@
    "IN": "deits"
   },
   "bearing": {
-   "E": "deits+wikipedia",
-   "N": "deits+wikipedia",
-   "NE": "deits+review+wikipedia",
-   "NW": "deits+wikipedia",
-   "S": "deits+wikipedia",
-   "W": "deits+wikipedia"
+   "E": "deits",
+   "N": "deits",
+   "NE": "deits+review",
+   "NW": "deits",
+   "S": "deits",
+   "W": "deits"
   },
   "before midday": {
    "AM": "deits"
   },
   "beginner": {
-   "L": "deits+wikipedia"
+   "L": "deits"
   },
   "belgium": {
    "BE": "deits",
    "BEL": "deits"
   },
   "bend": {
-   "S": "deits+review+wikipedia",
+   "S": "deits+review",
    "SU": "deits",
-   "U": "deits+review+wikipedia"
+   "U": "deits+review"
   },
   "beryllium": {
    "BE": "deits"
-  },
-  "bible": {
-   "AV": "wikipedia"
   },
   "big": {
    "OS": "deits"
   },
   "bill": {
-   "AC": "deits+review+wikipedia",
-   "IOU": "deits+wikipedia",
-   "TAB": "wikipedia"
+   "AC": "deits+review",
+   "IOU": "deits"
   },
   "bird": {
    "TIT": "deits"
   },
   "bishop": {
-   "B": "deits+review+wikipedia",
-   "DD": "wikipedia",
-   "RR": "deits+review+wikipedia"
+   "B": "deits+review",
+   "RR": "deits+review"
   },
   "bismuth": {
    "BI": "deits"
@@ -324,11 +254,8 @@
    "AB": "deits",
    "O": "deits"
   },
-  "boat": {
-   "SS": "wikipedia"
-  },
   "bob": {
-   "S": "deits+wikipedia"
+   "S": "deits"
   },
   "bolivia": {
    "BO": "deits",
@@ -338,74 +265,57 @@
    "M": "deits"
   },
   "book": {
-   "AV": "wikipedia",
-   "B": "review+wikipedia",
-   "GEN": "wikipedia",
-   "MS": "wikipedia",
-   "NT": "deits+wikipedia",
-   "OT": "deits+wikipedia"
+   "NT": "deits",
+   "OT": "deits"
   },
   "books": {
-   "AV": "wikipedia",
-   "B": "wikipedia",
-   "GEN": "wikipedia",
-   "MS": "wikipedia",
-   "NT": "deits+review+wikipedia",
-   "OT": "deits+review+wikipedia"
+   "NT": "deits+review",
+   "OT": "deits+review"
   },
   "boron": {
    "B": "deits"
   },
   "bowled": {
-   "B": "deits+wikipedia"
+   "B": "deits"
   },
   "boy": {
-   "B": "deits+wikipedia"
+   "B": "deits"
   },
   "brazil": {
    "BR": "deits",
    "BRA": "deits"
   },
   "bridge player": {
-   "E": "deits+wikipedia",
-   "N": "deits+review+wikipedia",
-   "S": "deits+wikipedia",
-   "W": "deits+wikipedia"
+   "E": "deits",
+   "N": "deits+review",
+   "S": "deits",
+   "W": "deits"
   },
   "british": {
-   "B": "deits+hand+wikipedia",
+   "B": "deits+hand",
    "BR": "deits+hand"
-  },
-  "broadcaster": {
-   "BBC": "wikipedia"
   },
   "bromine": {
    "BR": "deits"
-  },
-  "by": {
-   "X": "wikipedia"
   },
   "by the day": {
    "PD": "deits"
   },
   "byte": {
-   "B": "deits+wikipedia"
+   "B": "deits"
   },
   "calcium": {
-   "CA": "deits+wikipedia"
+   "CA": "deits"
   },
   "california": {
-   "CA": "deits+wikipedia"
-  },
-  "cape": {
-   "C": "wikipedia"
+   "CA": "deits"
   },
   "capone": {
    "AL": "deits"
   },
   "car": {
-   "RR": "deits+wikipedia",
-   "T": "deits+wikipedia"
+   "RR": "deits",
+   "T": "deits"
   },
   "carbon": {
    "C": "deits+review"
@@ -413,15 +323,8 @@
   "carbon copy": {
    "CC": "deits"
   },
-  "cardinal": {
-   "E": "wikipedia",
-   "N": "wikipedia",
-   "RED": "wikipedia",
-   "S": "wikipedia",
-   "W": "wikipedia"
-  },
   "care of": {
-   "CO": "deits+review+wikipedia"
+   "CO": "deits+review"
   },
   "castle": {
    "R": "deits"
@@ -430,61 +333,40 @@
    "C": "deits"
   },
   "caught": {
-   "C": "deits+review+wikipedia",
-   "CT": "deits+wikipedia"
+   "C": "deits+review",
+   "CT": "deits"
   },
   "celsius": {
-   "C": "deits+wikipedia"
+   "C": "deits"
   },
   "cent": {
-   "C": "deits+wikipedia"
+   "C": "deits"
   },
   "centigrade": {
-   "C": "deits+wikipedia"
+   "C": "deits"
   },
   "century": {
-   "C": "deits+wikipedia"
+   "C": "deits"
   },
   "cerium": {
    "CE": "deits"
   },
   "certificate": {
-   "G": "deits+wikipedia",
-   "PG": "deits+wikipedia",
-   "R": "deits+wikipedia",
-   "U": "deits+wikipedia",
-   "X": "deits+wikipedia"
-  },
-  "champion": {
-   "CH": "wikipedia"
+   "G": "deits",
+   "PG": "deits",
+   "R": "deits",
+   "U": "deits",
+   "X": "deits"
   },
   "chapter": {
    "C": "deits+review",
    "CH": "deits"
   },
-  "charge": {
-   "Q": "wikipedia"
-  },
-  "charged": {
-   "ION": "wikipedia"
-  },
-  "charlie": {
-   "C": "review+wikipedia"
-  },
-  "chartered accountant": {
-   "CA": "wikipedia"
-  },
-  "check": {
-   "V": "wikipedia"
-  },
-  "checkmark": {
-   "V": "wikipedia"
-  },
   "chief": {
-   "CH": "deits+wikipedia"
+   "CH": "deits"
   },
   "chlorine": {
-   "CL": "deits+wikipedia"
+   "CL": "deits"
   },
   "christ": {
    "X": "deits"
@@ -493,31 +375,29 @@
    "CR": "deits"
   },
   "chromosome": {
-   "X": "wikipedia",
-   "XY": "deits",
-   "Y": "wikipedia"
+   "XY": "deits"
   },
   "church": {
-   "CE": "deits+hand+wikipedia",
-   "CH": "deits+hand+wikipedia",
-   "RC": "deits+wikipedia"
+   "CE": "deits+hand",
+   "CH": "deits+hand",
+   "RC": "deits"
   },
   "church of england": {
    "CE": "deits"
   },
   "circa": {
-   "C": "deits+wikipedia"
+   "C": "deits"
   },
   "circle": {
-   "O": "deits+review+wikipedia"
+   "O": "deits+review"
   },
   "circuit": {
    "O": "deits"
   },
   "city": {
-   "EC": "deits+review+wikipedia",
-   "LA": "deits+review+wikipedia",
-   "NY": "deits+wikipedia"
+   "EC": "deits+review",
+   "LA": "deits+review",
+   "NY": "deits"
   },
   "civil engineer": {
    "CE": "deits"
@@ -526,11 +406,8 @@
    "C": "deits",
    "F": "deits"
   },
-  "closed": {
-   "TO": "wikipedia"
-  },
   "club": {
-   "Y": "deits+wikipedia"
+   "Y": "deits"
   },
   "clubs": {
    "C": "deits"
@@ -539,142 +416,95 @@
    "CO": "deits"
   },
   "coin": {
-   "C": "wikipedia",
-   "D": "deits+wikipedia",
-   "P": "deits+wikipedia"
-  },
-  "cold": {
-   "C": "review+wikipedia"
-  },
-  "college": {
-   "C": "wikipedia"
+   "D": "deits",
+   "P": "deits"
   },
   "colonel": {
-   "COL": "deits+wikipedia"
+   "COL": "deits"
   },
   "colorado": {
    "CO": "deits"
   },
   "colt": {
-   "C": "deits+wikipedia"
-  },
-  "commanderinchief": {
-   "CIC": "wikipedia",
-   "CINC": "wikipedia"
-  },
-  "commercial": {
-   "AD": "wikipedia"
-  },
-  "committee": {
-   "COM": "wikipedia"
+   "C": "deits"
   },
   "common era": {
    "CE": "deits"
   },
-  "communist": {
-   "CHE": "wikipedia",
-   "RED": "review+wikipedia"
-  },
-  "companion": {
-   "CH": "wikipedia"
-  },
   "company": {
-   "CO": "deits+review+wikipedia"
+   "CO": "deits+review"
   },
   "compare": {
-   "CF": "deits+wikipedia"
+   "CF": "deits"
   },
   "compass point": {
-   "E": "deits+wikipedia",
-   "N": "deits+wikipedia",
-   "S": "deits+wikipedia",
-   "W": "deits+wikipedia"
+   "E": "deits",
+   "N": "deits",
+   "S": "deits",
+   "W": "deits"
   },
   "computer": {
-   "PC": "deits+wikipedia"
+   "PC": "deits"
   },
   "concerning": {
-   "RE": "deits+hand+wikipedia"
+   "RE": "deits+hand"
   },
   "connecticut": {
    "CT": "deits"
   },
   "conservationists": {
-   "NT": "deits+wikipedia"
+   "NT": "deits"
   },
   "conservative": {
-   "BLUE": "wikipedia",
-   "C": "deits+hand+wikipedia",
-   "CON": "deits+hand+wikipedia",
-   "TORY": "hand+wikipedia"
+   "C": "deits+hand",
+   "CON": "deits+hand",
+   "TORY": "hand"
   },
   "constable": {
-   "PC": "deits+wikipedia"
-  },
-  "constant": {
-   "C": "wikipedia",
-   "E": "wikipedia",
-   "G": "wikipedia",
-   "K": "wikipedia",
-   "PI": "wikipedia"
-  },
-  "contralto": {
-   "C": "wikipedia"
+   "PC": "deits"
   },
   "copper": {
-   "CU": "deits+hand+wikipedia",
-   "D": "deits+wikipedia",
-   "P": "deits+wikipedia",
-   "PC": "deits+wikipedia"
-  },
-  "corner": {
-   "NE": "wikipedia",
-   "NW": "wikipedia",
-   "SE": "wikipedia",
-   "SW": "wikipedia"
-  },
-  "councillor": {
-   "CL": "wikipedia",
-   "CLLR": "wikipedia",
-   "CLR": "wikipedia"
+   "CU": "deits+hand",
+   "D": "deits",
+   "P": "deits",
+   "PC": "deits"
   },
   "court": {
-   "CT": "deits+review+wikipedia"
+   "CT": "deits+review"
   },
   "credit": {
-   "CR": "deits+review+wikipedia"
+   "CR": "deits+review"
   },
   "criminal": {
-   "CON": "deits+review+wikipedia"
+   "CON": "deits+review"
   },
   "cross": {
-   "X": "deits+wikipedia"
+   "X": "deits"
   },
   "cuba": {
    "CU": "deits",
    "CUB": "deits"
   },
   "current": {
-   "AC": "deits+wikipedia",
-   "AD": "deits+wikipedia",
-   "AMP": "deits+wikipedia",
-   "DC": "deits+wikipedia",
-   "I": "wikipedia"
+   "AC": "deits",
+   "AD": "deits",
+   "AMP": "deits",
+   "DC": "deits"
   },
   "current account": {
-   "CA": "deits+wikipedia"
+   "CA": "deits"
   },
   "cyprus": {
    "CY": "deits"
   },
   "cystic fibrosis": {
-   "CF": "deits+wikipedia"
+   "CF": "deits"
   },
   "date": {
-   "D": "deits+wikipedia"
+   "D": "deits"
   },
   "daughter": {
-   "D": "deits+review+wikipedia"
+   "D": "deits+review"
   },
   "day": {
    "D": "deits+review",
@@ -689,58 +519,41 @@
    "WED": "deits"
   },
   "dead": {
-   "D": "deits+wikipedia",
-   "DEC": "deits+wikipedia",
-   "EX": "deits+wikipedia",
-   "OB": "deits+wikipedia"
+   "D": "deits",
+   "DEC": "deits",
+   "EX": "deits",
+   "OB": "deits"
   },
   "debts": {
-   "IOUS": "deits+wikipedia"
+   "IOUS": "deits"
   },
   "deceased": {
-   "D": "deits+wikipedia",
-   "DEC": "deits+wikipedia",
-   "EX": "deits+wikipedia"
+   "D": "deits",
+   "DEC": "deits",
+   "EX": "deits"
   },
   "decoration": {
-   "GC": "deits+wikipedia",
-   "MM": "wikipedia",
-   "VC": "deits+wikipedia"
+   "GC": "deits",
+   "VC": "deits"
   },
   "degree": {
-   "BA": "deits+hand+wikipedia",
-   "C": "deits+wikipedia",
-   "DEG": "deits+wikipedia",
-   "F": "deits+wikipedia",
-   "MA": "deits+hand+wikipedia"
+   "BA": "deits+hand",
+   "C": "deits",
+   "DEG": "deits",
+   "F": "deits",
+   "MA": "deits+hand"
   },
   "delaware": {
    "DE": "deits"
   },
-  "democrat": {
-   "D": "review+wikipedia"
-  },
-  "departs": {
-   "D": "wikipedia"
-  },
-  "detective": {
-   "DC": "wikipedia",
-   "DI": "review+wikipedia",
-   "DS": "wikipedia",
-   "PI": "review+wikipedia"
-  },
   "detective inspector": {
-   "DI": "deits+wikipedia"
+   "DI": "deits"
   },
   "detectives": {
-   "CID": "deits+wikipedia",
-   "YARD": "wikipedia"
+   "CID": "deits"
   },
   "deutschmark": {
-   "DM": "deits+wikipedia"
-  },
-  "dial": {
-   "O": "wikipedia"
+   "DM": "deits"
   },
   "diamond": {
    "D": "deits"
@@ -751,161 +564,105 @@
   "diana": {
    "DI": "deits"
   },
-  "dictionary": {
-   "OED": "wikipedia"
-  },
   "died": {
-   "D": "deits+review+wikipedia",
-   "DEC": "deits+wikipedia",
-   "EX": "deits+wikipedia",
-   "OB": "deits+wikipedia"
-  },
-  "dinner jacket": {
-   "DJ": "wikipedia"
+   "D": "deits+review",
+   "DEC": "deits",
+   "EX": "deits",
+   "OB": "deits"
   },
   "direction": {
-   "E": "deits+hand+wikipedia",
-   "N": "deits+hand+wikipedia",
-   "S": "deits+hand+wikipedia",
-   "W": "deits+hand+wikipedia"
-  },
-  "director": {
-   "D": "wikipedia"
+   "E": "deits+hand",
+   "N": "deits+hand",
+   "S": "deits+hand",
+   "W": "deits+hand"
   },
   "disc": {
-   "CD": "deits+wikipedia",
-   "EP": "deits+wikipedia",
-   "LP": "deits+wikipedia",
-   "O": "deits+wikipedia"
+   "CD": "deits",
+   "EP": "deits",
+   "LP": "deits",
+   "O": "deits"
   },
   "disease": {
-   "ME": "wikipedia",
-   "TB": "deits+wikipedia"
+   "TB": "deits"
   },
   "doctor": {
-   "BM": "deits+wikipedia",
-   "DOC": "deits+wikipedia",
-   "DR": "deits+hand+wikipedia",
-   "GP": "deits+hand+wikipedia",
-   "MB": "deits+hand+wikipedia",
-   "MD": "deits+hand+wikipedia",
-   "MO": "deits+hand+wikipedia",
-   "NO": "wikipedia",
-   "WHO": "wikipedia"
+   "BM": "deits",
+   "DOC": "deits",
+   "DR": "deits+hand",
+   "GP": "deits+hand",
+   "MB": "deits+hand",
+   "MD": "deits+hand",
+   "MO": "deits+hand"
   },
   "doctor of divinity": {
-   "DD": "deits+wikipedia"
+   "DD": "deits"
   },
   "dollar": {
    "S": "deits+hand"
   },
-  "donut": {
-   "O": "wikipedia"
-  },
   "dram": {
    "DR": "deits"
   },
-  "drama": {
-   "NOH": "wikipedia"
-  },
-  "drama company": {
-   "REP": "wikipedia"
-  },
   "drip": {
-   "IV": "deits+wikipedia"
+   "IV": "deits"
   },
   "drug": {
-   "C": "deits+wikipedia",
-   "E": "deits+review+wikipedia",
-   "H": "deits+wikipedia",
-   "X": "deits+wikipedia"
-  },
-  "drunk": {
-   "SOT": "wikipedia"
-  },
-  "drunkard": {
-   "SOT": "wikipedia"
+   "C": "deits",
+   "E": "deits+review",
+   "H": "deits",
+   "X": "deits"
   },
   "dry": {
-   "AA": "deits+wikipedia",
-   "TT": "deits+wikipedia"
+   "AA": "deits",
+   "TT": "deits"
   },
   "duck": {
-   "O": "deits+review+wikipedia"
-  },
-  "ducks": {
-   "OO": "wikipedia"
-  },
-  "duke": {
-   "D": "review+wikipedia"
+   "O": "deits+review"
   },
   "each": {
-   "EA": "deits+review+wikipedia"
-  },
-  "earl": {
-   "E": "review+wikipedia"
+   "EA": "deits+review"
   },
   "east": {
-   "E": "deits+hand+wikipedia"
+   "E": "deits+hand"
   },
   "east germany": {
-   "GDR": "deits+wikipedia"
-  },
-  "echo": {
-   "E": "wikipedia"
-  },
-  "economists": {
-   "LSE": "wikipedia"
+   "GDR": "deits"
   },
   "ecstasy": {
-   "E": "review+wikipedia",
-   "EX": "deits",
-   "X": "wikipedia"
+   "EX": "deits"
   },
   "editor": {
-   "ED": "deits+hand+wikipedia"
+   "ED": "deits+hand"
   },
   "egg": {
-   "O": "deits+review+wikipedia"
-  },
-  "elected": {
-   "IN": "review+wikipedia"
+   "O": "deits+review"
   },
   "electricity": {
-   "AC": "deits+wikipedia",
-   "DC": "deits+wikipedia"
+   "AC": "deits",
+   "DC": "deits"
   },
   "eleven": {
-   "II": "wikipedia",
    "LL": "deits",
-   "XI": "deits+wikipedia"
+   "XI": "deits"
   },
   "elizabeth": {
    "E": "deits"
   },
-  "end of war": {
-   "VE": "wikipedia"
-  },
   "energy": {
-   "E": "deits+review+wikipedia",
-   "J": "deits+wikipedia"
-  },
-  "engagement": {
-   "GIG": "wikipedia"
+   "E": "deits+review",
+   "J": "deits"
   },
   "engineer": {
-   "CE": "deits+wikipedia",
-   "ME": "deits+wikipedia",
-   "RE": "deits+wikipedia",
-   "REME": "wikipedia"
+   "CE": "deits",
+   "ME": "deits",
+   "RE": "deits"
   },
   "engineers": {
    "RE": "hand"
   },
   "english": {
-   "E": "deits+hand+wikipedia",
-   "EN": "wikipedia",
-   "ENG": "hand+wikipedia"
+   "E": "deits+hand",
+   "ENG": "hand"
   },
   "era": {
    "AD": "deits",
@@ -913,63 +670,57 @@
    "CE": "deits"
   },
   "escape": {
-   "ESC": "deits+wikipedia"
+   "ESC": "deits"
   },
   "established": {
-   "EST": "deits+wikipedia"
+   "EST": "deits"
   },
   "estimated time of arrival": {
-   "ETA": "deits+wikipedia"
+   "ETA": "deits"
   },
   "europe": {
-   "EC": "deits+wikipedia",
-   "EU": "deits+wikipedia"
-  },
-  "european": {
-   "E": "review+wikipedia"
+   "EC": "deits",
+   "EU": "deits"
   },
   "excellent": {
-   "AI": "deits+wikipedia"
+   "AI": "deits"
   },
   "exercise": {
-   "PE": "deits+review+wikipedia",
-   "PT": "deits+wikipedia"
+   "PE": "deits+review",
+   "PT": "deits"
   },
   "exist": {
    "BE": "deits"
   },
   "extra": {
-   "W": "deits+wikipedia"
+   "W": "deits"
   },
   "extra large": {
-   "XL": "deits+wikipedia"
+   "XL": "deits"
   },
   "extra terrestrial": {
-   "ET": "deits+wikipedia"
+   "ET": "deits"
   },
   "fahrenheit": {
-   "F": "deits+wikipedia"
+   "F": "deits"
   },
   "father": {
-   "DA": "deits+wikipedia",
-   "DAD": "deits+review+wikipedia",
-   "FR": "deits+wikipedia",
-   "PA": "deits+wikipedia"
-  },
-  "fellow": {
-   "F": "review+wikipedia"
+   "DA": "deits",
+   "DAD": "deits+review",
+   "FR": "deits",
+   "PA": "deits"
   },
   "female": {
-   "F": "deits+review+wikipedia"
+   "F": "deits+review"
   },
   "fifty": {
-   "L": "deits+hand+wikipedia"
+   "L": "deits+hand"
   },
   "fighter plane": {
-   "MIG": "deits+wikipedia"
+   "MIG": "deits"
   },
   "fine": {
-   "F": "deits+review+wikipedia",
+   "F": "deits+review",
    "OK": "deits"
   },
   "finland": {
@@ -977,7 +728,7 @@
    "FIN": "deits"
   },
   "firm": {
-   "CO": "deits+review+wikipedia"
+   "CO": "deits+review"
   },
   "first": {
    "IST": "deits"
@@ -992,19 +743,13 @@
   "fish": {
    "COD": "deits",
    "EEL": "deits",
-   "LING": "deits+wikipedia"
+   "LING": "deits"
   },
   "five": {
-   "V": "deits+hand+wikipedia"
-  },
-  "five hundred": {
-   "D": "wikipedia"
+   "V": "deits+hand"
   },
   "fleet": {
-   "RN": "deits+wikipedia"
-  },
-  "fliers": {
-   "RAF": "wikipedia"
+   "RN": "deits"
   },
   "florida": {
    "FL": "deits"
@@ -1013,33 +758,28 @@
    "F": "deits"
   },
   "flying bomb": {
-   "VI": "deits+wikipedia"
+   "VI": "deits"
   },
   "following": {
-   "F": "deits+review+wikipedia"
+   "F": "deits+review"
   },
   "football association": {
-   "FA": "deits+wikipedia"
+   "FA": "deits"
   },
   "football club": {
-   "FC": "deits+wikipedia"
+   "FC": "deits"
   },
   "footnote": {
    "PS": "deits"
   },
-  "for everyone": {
-   "U": "wikipedia"
-  },
   "for example": {
-   "EG": "deits+review+wikipedia"
+   "EG": "deits+review"
   },
   "force": {
-   "F": "deits+wikipedia",
-   "G": "wikipedia",
-   "N": "wikipedia"
+   "F": "deits"
   },
   "former": {
-   "EX": "deits+review+wikipedia"
+   "EX": "deits+review"
   },
   "former partner": {
    "EX": "deits"
@@ -1048,10 +788,10 @@
    "F": "deits"
   },
   "four": {
-   "IV": "deits+wikipedia"
+   "IV": "deits"
   },
   "france": {
-   "F": "deits+wikipedia"
+   "F": "deits"
   },
   "french": {
    "LE": "deits"
@@ -1060,73 +800,56 @@
    "ES": "deits"
   },
   "frenchman": {
-   "M": "deits+review+wikipedia"
+   "M": "deits+review"
   },
   "friday": {
    "F": "deits",
    "FRI": "deits"
   },
-  "friend": {
-   "PAL": "review+wikipedia"
-  },
   "gallium": {
    "GA": "deits"
   },
   "game": {
-   "RU": "deits+wikipedia"
-  },
-  "gang leader": {
-   "AL": "wikipedia"
-  },
-  "gangster": {
-   "AL": "wikipedia"
+   "RU": "deits"
   },
   "gas": {
    "CO": "deits",
-   "CS": "deits+wikipedia",
+   "CS": "deits",
    "ETC": "deits",
-   "H": "deits+wikipedia",
-   "N": "deits+wikipedia",
-   "O": "deits+wikipedia"
-  },
-  "genetic code": {
-   "DNA": "wikipedia",
-   "RNA": "wikipedia"
+   "H": "deits",
+   "N": "deits",
+   "O": "deits"
   },
   "george": {
    "G": "deits"
   },
   "georgia": {
-   "GA": "deits+wikipedia",
+   "GA": "deits",
    "GE": "deits"
   },
   "german": {
    "G": "deits"
   },
   "german submarine": {
-   "U": "deits+wikipedia"
+   "U": "deits"
   },
   "germany": {
-   "D": "deits+review+wikipedia",
+   "D": "deits+review",
    "DE": "deits",
    "DEU": "deits",
-   "GER": "deits+wikipedia"
-  },
-  "glasses": {
-   "OO": "wikipedia"
+   "GER": "deits"
   },
   "gold": {
-   "AU": "deits+hand+wikipedia",
-   "OR": "deits+hand+wikipedia"
+   "AU": "deits+hand",
+   "OR": "deits+hand"
   },
   "good": {
    "A": "deits",
    "G": "hand",
-   "PI": "deits+wikipedia"
+   "PI": "deits"
   },
   "good man": {
-   "S": "wikipedia",
-   "ST": "deits+review+wikipedia"
+   "ST": "deits+review"
   },
   "grade": {
    "A": "deits",
@@ -1136,22 +859,21 @@
    "F": "deits"
   },
   "graduate": {
-   "BA": "deits+hand+wikipedia",
-   "BED": "wikipedia",
+   "BA": "deits+hand",
    "BSC": "hand",
-   "MA": "deits+hand+wikipedia",
+   "MA": "deits+hand",
    "MB": "deits"
   },
   "gram": {
-   "G": "deits+wikipedia"
+   "G": "deits"
   },
   "grand": {
-   "G": "deits+hand+wikipedia",
-   "K": "deits+hand+wikipedia",
-   "M": "deits+wikipedia"
+   "G": "deits+hand",
+   "K": "deits+hand",
+   "M": "deits"
   },
   "grand prix": {
-   "GP": "deits+wikipedia"
+   "GP": "deits"
   },
   "greece": {
    "GR": "deits",
@@ -1211,44 +933,30 @@
    "ZETA": "deits"
   },
   "group": {
-   "GP": "deits+wikipedia"
-  },
-  "grunt": {
-   "GI": "wikipedia"
+   "GP": "deits"
   },
   "guevara": {
    "CHE": "deits"
   },
-  "gunmen": {
-   "RA": "wikipedia"
-  },
   "gunners": {
-   "RA": "deits+wikipedia"
+   "RA": "deits"
   },
   "gym": {
-   "PE": "deits+wikipedia",
-   "PT": "wikipedia"
-  },
-  "half day": {
-   "AM": "wikipedia"
+   "PE": "deits"
   },
   "hand": {
    "AB": "deits",
-   "E": "wikipedia",
-   "L": "deits+wikipedia",
-   "N": "wikipedia",
-   "R": "deits+wikipedia",
-   "S": "wikipedia",
-   "W": "wikipedia"
+   "L": "deits",
+   "R": "deits"
   },
   "hard": {
-   "H": "deits+review+wikipedia"
+   "H": "deits+review"
   },
   "hawaii": {
    "HI": "deits"
   },
   "hear": {
-   "T": "deits+wikipedia"
+   "T": "deits"
   },
   "heart": {
    "H": "deits"
@@ -1257,22 +965,16 @@
    "H": "deits+review"
   },
   "hectare": {
-   "HA": "deits+wikipedia"
+   "HA": "deits"
   },
   "helium": {
-   "HE": "deits+wikipedia"
-  },
-  "henry": {
-   "H": "wikipedia"
+   "HE": "deits"
   },
   "her majesty": {
    "HM": "deits"
   },
   "heroin": {
-   "H": "deits+wikipedia"
-  },
-  "hesitation": {
-   "ER": "wikipedia"
+   "H": "deits"
   },
   "hexadecimal": {
    "HEX": "deits"
@@ -1282,84 +984,61 @@
    "U": "deits"
   },
   "hire purchase": {
-   "HP": "deits+wikipedia"
-  },
-  "hole": {
-   "O": "wikipedia"
+   "HP": "deits"
   },
   "holy man": {
-   "ST": "deits+wikipedia"
-  },
-  "home": {
-   "IN": "wikipedia"
+   "ST": "deits"
   },
   "home counties": {
-   "SE": "deits+wikipedia"
+   "SE": "deits"
   },
   "honour": {
-   "A": "wikipedia",
-   "J": "wikipedia",
-   "K": "wikipedia",
-   "OBE": "deits",
-   "Q": "wikipedia"
+   "OBE": "deits"
   },
   "honours": {
-   "BA": "deits+wikipedia",
-   "MA": "deits+wikipedia"
+   "BA": "deits",
+   "MA": "deits"
   },
   "horse": {
-   "G": "deits+wikipedia",
-   "GG": "deits+wikipedia",
-   "H": "wikipedia"
+   "G": "deits",
+   "GG": "deits"
   },
   "hospital": {
-   "H": "deits+review+wikipedia",
-   "SAN": "wikipedia"
-  },
-  "hospital department": {
-   "AE": "review+wikipedia",
-   "ENT": "review+wikipedia"
+   "H": "deits+review"
   },
   "hour": {
-   "H": "deits+hand+wikipedia",
-   "HR": "deits+hand+wikipedia"
-  },
-  "house": {
-   "HO": "wikipedia"
+   "H": "deits+hand",
+   "HR": "deits+hand"
   },
   "houses of parliament": {
-   "HP": "deits+wikipedia"
+   "HP": "deits"
   },
   "hug": {
-   "O": "deits+wikipedia"
+   "O": "deits"
   },
   "hundred": {
-   "C": "deits+hand+wikipedia",
-   "TON": "wikipedia"
+   "C": "deits+hand"
   },
   "husband": {
-   "H": "deits+review+wikipedia"
+   "H": "deits+review"
   },
   "hush": {
    "SH": "deits"
   },
   "hydrogen": {
-   "H": "deits+wikipedia"
+   "H": "deits"
   },
   "i am": {
    "IM": "deits"
   },
   "iceland": {
-   "IS": "deits+wikipedia"
+   "IS": "deits"
   },
   "idaho": {
    "ID": "deits"
   },
   "illinois": {
    "IL": "deits"
-  },
-  "image": {
-   "PIC": "wikipedia"
   },
   "in charge": {
    "IC": "deits+review"
@@ -1368,11 +1047,7 @@
    "RE": "deits"
   },
   "inch": {
-   "IN": "deits+wikipedia"
-  },
-  "independent": {
-   "I": "wikipedia",
-   "IND": "wikipedia"
+   "IN": "deits"
   },
   "india": {
    "IN": "deits",
@@ -1385,13 +1060,10 @@
    "GEN": "deits+review"
   },
   "information technology": {
-   "IT": "deits+wikipedia"
+   "IT": "deits"
   },
   "inning": {
    "I": "deits"
-  },
-  "inspector": {
-   "DI": "wikipedia"
   },
   "instant message": {
    "IM": "deits"
@@ -1400,41 +1072,29 @@
    "IC": "deits"
   },
   "intelligence": {
-   "IQ": "deits+wikipedia"
-  },
-  "internet": {
-   "ISP": "wikipedia"
-  },
-  "internet provider": {
-   "ISP": "wikipedia"
+   "IQ": "deits"
   },
   "iodine": {
-   "I": "deits+review+wikipedia"
+   "I": "deits+review"
   },
   "iowa": {
    "IA": "deits"
   },
   "ireland": {
-   "IRE": "deits+wikipedia"
+   "IRE": "deits"
   },
   "iridium": {
    "IR": "deits"
   },
   "irish republican army": {
-   "IRA": "deits+wikipedia"
+   "IRA": "deits"
   },
   "iron": {
-   "FE": "deits+hand+wikipedia"
+   "FE": "deits+hand"
   },
   "island": {
-   "I": "deits+hand+wikipedia",
-   "IS": "deits+hand+wikipedia"
-  },
-  "isle of man": {
-   "IOM": "wikipedia"
-  },
-  "israel": {
-   "IL": "wikipedia"
+   "I": "deits+hand",
+   "IS": "deits+hand"
   },
   "it": {
    "IT": "hand",
@@ -1448,139 +1108,116 @@
    "ITA": "deits"
   },
   "jack": {
-   "AB": "deits+wikipedia",
-   "J": "deits+wikipedia",
-   "TAR": "deits+wikipedia"
-  },
-  "japan": {
-   "YEN": "wikipedia"
+   "AB": "deits",
+   "J": "deits",
+   "TAR": "deits"
   },
   "jet": {
-   "MIG": "deits+wikipedia"
+   "MIG": "deits"
   },
   "jolly": {
-   "RM": "deits+wikipedia"
+   "RM": "deits"
   },
   "journalist": {
-   "ED": "deits+hand+wikipedia"
+   "ED": "deits+hand"
   },
   "judge": {
-   "J": "deits+review+wikipedia",
-   "REF": "wikipedia"
+   "J": "deits+review"
   },
   "junction": {
-   "T": "deits+wikipedia"
+   "T": "deits"
   },
   "junior": {
-   "JR": "deits+wikipedia"
+   "JR": "deits"
   },
   "kansas": {
    "KS": "deits"
   },
   "kelvin": {
-   "K": "deits+wikipedia"
+   "K": "deits"
   },
   "kentucky": {
-   "KY": "deits+wikipedia"
+   "KY": "deits"
   },
   "key": {
-   "A": "deits+wikipedia",
-   "B": "deits+wikipedia",
-   "C": "deits+review+wikipedia",
-   "D": "deits+wikipedia",
-   "E": "deits+review+wikipedia",
-   "F": "deits+wikipedia",
+   "A": "deits",
+   "B": "deits",
+   "C": "deits+review",
+   "D": "deits",
+   "E": "deits+review",
+   "F": "deits",
    "FG": "deits",
-   "G": "deits+wikipedia"
+   "G": "deits"
   },
   "kick off": {
-   "KO": "deits+wikipedia"
+   "KO": "deits"
   },
   "kilo": {
-   "K": "deits+wikipedia"
+   "K": "deits"
   },
   "king": {
-   "BB": "wikipedia",
-   "CR": "wikipedia",
    "ER": "deits+hand",
-   "GR": "deits+hand+wikipedia",
-   "HM": "deits+wikipedia",
+   "GR": "deits+hand",
+   "HM": "deits",
    "HRH": "deits",
-   "K": "deits+hand+wikipedia",
-   "R": "deits+hand+wikipedia"
+   "K": "deits+hand",
+   "R": "deits+hand"
   },
   "kiss": {
-   "X": "deits+wikipedia"
+   "X": "deits"
   },
   "knave": {
-   "J": "deits+wikipedia"
+   "J": "deits"
   },
   "knight": {
-   "K": "deits+wikipedia",
-   "KBE": "deits+wikipedia",
-   "KG": "deits+wikipedia",
-   "KT": "deits+wikipedia",
-   "N": "deits+review+wikipedia"
+   "K": "deits",
+   "KBE": "deits",
+   "KG": "deits",
+   "KT": "deits",
+   "N": "deits+review"
   },
   "knock out": {
-   "KO": "deits+wikipedia"
+   "KO": "deits"
   },
   "knot": {
-   "KT": "deits+wikipedia"
+   "KT": "deits"
   },
   "labour": {
-   "LAB": "deits+hand+wikipedia"
+   "LAB": "deits+hand"
   },
   "lake": {
-   "L": "review+wikipedia",
-   "LA": "wikipedia",
    "LLA": "deits"
   },
   "large": {
-   "L": "hand+wikipedia",
-   "OS": "wikipedia"
+   "L": "hand"
   },
   "large number": {
-   "C": "deits+wikipedia",
-   "D": "deits+wikipedia",
-   "K": "deits+wikipedia",
-   "M": "deits+wikipedia"
-  },
-  "last": {
-   "Z": "wikipedia"
+   "C": "deits",
+   "D": "deits",
+   "K": "deits",
+   "M": "deits"
   },
   "last character": {
    "Z": "deits"
   },
   "last month": {
-   "ULT": "deits+wikipedia"
-  },
-  "latin": {
-   "L": "wikipedia",
-   "LAT": "wikipedia"
+   "ULT": "deits"
   },
   "lawrence": {
-   "DH": "deits+wikipedia",
-   "TE": "deits+wikipedia"
+   "DH": "deits",
+   "TE": "deits"
   },
   "lawyer": {
-   "BL": "deits",
-   "DA": "review+wikipedia"
+   "BL": "deits"
   },
   "lead": {
-   "PB": "deits+hand+wikipedia"
+   "PB": "deits+hand"
   },
   "learner": {
-   "L": "deits+hand+wikipedia"
-  },
-  "lecturer": {
-   "L": "review+wikipedia"
+   "L": "deits+hand"
   },
   "left": {
-   "L": "deits+hand+wikipedia"
-  },
-  "leg": {
-   "ON": "wikipedia"
+   "L": "deits+hand"
   },
   "letter": {
    "EF": "deits",
@@ -1588,79 +1225,49 @@
    "EM": "deits"
   },
   "liberal": {
-   "L": "deits+hand+wikipedia",
-   "LIB": "deits+hand+wikipedia"
+   "L": "deits+hand",
+   "LIB": "deits+hand"
   },
   "lieutenant": {
-   "LT": "deits+wikipedia"
+   "LT": "deits"
   },
   "lincoln": {
    "ABE": "deits"
   },
   "line": {
-   "L": "deits+review+wikipedia"
-  },
-  "lines": {
-   "BR": "wikipedia",
-   "LL": "review+wikipedia",
-   "RY": "wikipedia"
-  },
-  "literary": {
-   "LIT": "wikipedia"
-  },
-  "literature": {
-   "LIT": "wikipedia"
+   "L": "deits+review"
   },
   "lithium": {
    "LI": "deits"
   },
   "litre": {
-   "L": "deits+wikipedia"
-  },
-  "local": {
-   "PH": "wikipedia",
-   "PUB": "wikipedia"
+   "L": "deits"
   },
   "local area network": {
-   "LAN": "deits+wikipedia"
-  },
-  "london philharmonic orchestra": {
-   "LPO": "wikipedia"
-  },
-  "london police": {
-   "MET": "wikipedia"
+   "LAN": "deits"
   },
   "long playing record": {
-   "LP": "deits+wikipedia"
+   "LP": "deits"
   },
   "long wave": {
-   "LW": "deits+wikipedia"
-  },
-  "look": {
-   "LO": "wikipedia"
-  },
-  "lord": {
-   "LD": "wikipedia"
+   "LW": "deits"
   },
   "los angeles": {
-   "LA": "deits+wikipedia"
+   "LA": "deits"
   },
   "loud": {
-   "F": "deits+hand+wikipedia",
-   "FF": "deits+wikipedia"
+   "F": "deits+hand",
+   "FF": "deits"
   },
   "louisiana": {
    "LA": "deits"
   },
   "love": {
    "NIL": "hand",
-   "O": "deits+hand+wikipedia"
-  },
-  "madame": {
-   "MME": "wikipedia"
+   "O": "deits+hand"
   },
   "maiden": {
-   "M": "deits+review+wikipedia"
+   "M": "deits+review"
   },
   "maine": {
    "ME": "deits+review"
@@ -1670,12 +1277,9 @@
    "MYS": "deits"
   },
   "male": {
-   "HE": "deits+wikipedia",
-   "M": "deits+review+wikipedia",
-   "PA": "deits+wikipedia"
-  },
-  "manager": {
-   "MIC": "wikipedia"
+   "HE": "deits",
+   "M": "deits+review",
+   "PA": "deits"
   },
   "many": {
    "CL": "deits",
@@ -1684,14 +1288,11 @@
   "map-makers": {
    "OS": "deits"
   },
-  "mapmakers": {
-   "OS": "wikipedia"
-  },
   "marines": {
-   "RM": "deits+wikipedia"
+   "RM": "deits"
   },
   "married": {
-   "M": "deits+review+wikipedia"
+   "M": "deits+review"
   },
   "maryland": {
    "MD": "deits"
@@ -1700,65 +1301,47 @@
    "MA": "deits"
   },
   "master": {
-   "M": "deits+wikipedia"
+   "M": "deits"
   },
   "master of arts": {
-   "MA": "deits+wikipedia"
+   "MA": "deits"
   },
   "master of ceremonies": {
-   "MC": "deits+wikipedia"
+   "MC": "deits"
   },
   "master's": {
-   "MA": "deits+wikipedia"
+   "MA": "deits"
   },
   "measure": {
    "EM": "deits",
    "EN": "deits"
   },
   "medal": {
-   "GC": "deits+wikipedia",
-   "OBE": "deits+wikipedia",
-   "OM": "deits+wikipedia",
-   "VC": "deits+wikipedia"
+   "GC": "deits",
+   "OBE": "deits",
+   "OM": "deits",
+   "VC": "deits"
   },
   "medic": {
-   "BM": "deits+wikipedia",
-   "DOC": "deits+wikipedia",
-   "DR": "deits+wikipedia",
-   "GP": "deits+wikipedia",
-   "MB": "deits+wikipedia",
-   "MD": "deits+wikipedia",
-   "MO": "deits+wikipedia"
-  },
-  "mediterranean sea": {
-   "MED": "wikipedia"
-  },
-  "mega": {
-   "M": "wikipedia"
+   "BM": "deits",
+   "DOC": "deits",
+   "DR": "deits",
+   "GP": "deits",
+   "MB": "deits",
+   "MD": "deits",
+   "MO": "deits"
   },
   "megabyte": {
-   "MB": "deits+wikipedia"
+   "MB": "deits"
   },
   "member": {
-   "ARM": "review+wikipedia",
-   "LEG": "wikipedia",
-   "MP": "deits+review+wikipedia"
+   "MP": "deits+review"
   },
   "member of parliament": {
-   "MP": "deits+wikipedia"
-  },
-  "men": {
-   "CID": "wikipedia",
-   "DI": "wikipedia",
-   "MET": "wikipedia",
-   "OR": "review+wikipedia",
-   "PC": "wikipedia"
+   "MP": "deits"
   },
   "messerschmitt": {
-   "ME": "deits+wikipedia"
-  },
-  "metre": {
-   "M": "wikipedia"
+   "ME": "deits"
   },
   "michigan": {
    "MI": "deits+review"
@@ -1767,28 +1350,22 @@
    "N": "deits"
   },
   "middle east": {
-   "ME": "deits+wikipedia"
+   "ME": "deits"
   },
   "midfielder": {
-   "L": "deits+wikipedia"
+   "L": "deits"
   },
   "military police": {
-   "MP": "deits+wikipedia"
-  },
-  "million": {
-   "M": "review+wikipedia"
-  },
-  "miners": {
-   "NUM": "review+wikipedia"
+   "MP": "deits"
   },
   "ministry of defence": {
-   "MOD": "deits+wikipedia"
+   "MOD": "deits"
   },
   "minnesota": {
    "MN": "deits"
   },
   "minute": {
-   "M": "deits+wikipedia"
+   "M": "deits"
   },
   "mississippi": {
    "MS": "deits"
@@ -1797,25 +1374,24 @@
    "MO": "deits"
   },
   "model": {
-   "T": "deits+review+wikipedia"
+   "T": "deits+review"
   },
   "moment": {
    "MO": "deits"
   },
   "monarch": {
-   "CR": "wikipedia",
-   "ER": "deits+wikipedia",
-   "GR": "deits+wikipedia",
-   "K": "deits+wikipedia",
-   "Q": "deits+wikipedia",
-   "R": "deits+wikipedia"
+   "ER": "deits",
+   "GR": "deits",
+   "K": "deits",
+   "Q": "deits",
+   "R": "deits"
   },
   "monday": {
    "M": "deits",
    "MON": "deits"
   },
   "monsieur": {
-   "M": "deits+wikipedia"
+   "M": "deits"
   },
   "montana": {
    "MT": "deits"
@@ -1839,53 +1415,32 @@
   "months": {
    "MOS": "deits"
   },
-  "morning": {
-   "AM": "wikipedia"
-  },
   "morninghalf day": {
    "AM": "deits"
   },
   "mother": {
-   "MA": "deits+review+wikipedia"
-  },
-  "motor racing": {
-   "FI": "wikipedia"
-  },
-  "motorists": {
-   "AA": "wikipedia",
-   "RAC": "wikipedia"
+   "MA": "deits+review"
   },
   "motorway": {
-   "M": "deits+wikipedia",
-   "MI": "deits+wikipedia"
-  },
-  "murderer": {
-   "CAIN": "wikipedia"
-  },
-  "museum": {
-   "VA": "wikipedia"
-  },
-  "namely": {
-   "IE": "wikipedia",
-   "SC": "wikipedia",
-   "SS": "wikipedia"
+   "M": "deits",
+   "MI": "deits"
   },
   "national trust": {
-   "NT": "deits+wikipedia"
+   "NT": "deits"
   },
   "navy": {
-   "ABS": "deits+wikipedia",
-   "RN": "deits+review+wikipedia",
-   "TARS": "deits+wikipedia"
+   "ABS": "deits",
+   "RN": "deits+review",
+   "TARS": "deits"
   },
   "nazis": {
-   "SS": "deits+wikipedia"
+   "SS": "deits"
   },
   "nebraska": {
    "NE": "deits"
   },
   "neon": {
-   "NE": "deits+wikipedia"
+   "NE": "deits"
   },
   "nevada": {
    "NV": "deits"
@@ -1893,11 +1448,8 @@
   "never-never": {
    "HP": "deits"
   },
-  "nevernever": {
-   "HP": "wikipedia"
-  },
   "new": {
-   "N": "deits+hand+wikipedia"
+   "N": "deits+hand"
   },
   "new hampshire": {
    "NH": "deits"
@@ -1912,7 +1464,7 @@
    "NSW": "deits"
   },
   "new testament": {
-   "NT": "deits+wikipedia"
+   "NT": "deits"
   },
   "new york": {
    "NY": "deits"
@@ -1921,42 +1473,33 @@
    "NZ": "deits",
    "NZL": "deits"
   },
-  "news": {
-   "NN": "wikipedia"
-  },
-  "newspaper": {
-   "FT": "wikipedia",
-   "RAG": "wikipedia"
-  },
   "newton": {
-   "N": "deits+wikipedia"
+   "N": "deits"
   },
   "nickel": {
    "NI": "deits"
   },
   "nil": {
-   "O": "deits+review+wikipedia"
+   "O": "deits+review"
   },
   "nitrogen": {
-   "N": "deits+review+wikipedia"
+   "N": "deits+review"
   },
   "no": {
-   "N": "hand+wikipedia",
-   "NO": "hand",
-   "X": "wikipedia"
+   "N": "hand",
+   "NO": "hand"
   },
   "no ball": {
-   "NB": "deits+wikipedia"
+   "NB": "deits"
   },
   "no good": {
    "NG": "deits"
   },
   "noon": {
-   "M": "wikipedia",
-   "N": "deits+review+wikipedia"
+   "N": "deits+review"
   },
   "north": {
-   "N": "deits+hand+wikipedia"
+   "N": "deits+hand"
   },
   "north carolina": {
    "NC": "deits"
@@ -1968,7 +1511,7 @@
    "NT": "deits"
   },
   "not applicable": {
-   "NA": "deits+wikipedia"
+   "NA": "deits"
   },
   "not out": {
    "NO": "deits"
@@ -1984,11 +1527,10 @@
    "F": "deits+hand",
    "FA": "deits+hand",
    "G": "deits+hand",
-   "LA": "deits+hand+wikipedia",
+   "LA": "deits+hand",
    "LAH": "deits",
    "MI": "deits+hand",
-   "NB": "deits+wikipedia",
-   "PS": "wikipedia",
+   "NB": "deits",
    "RE": "deits+hand",
    "SO": "deits+hand",
    "SOH": "deits",
@@ -1999,13 +1541,9 @@
    "NB": "deits"
   },
   "nothing": {
-   "FA": "wikipedia",
    "LOVE": "hand",
    "NIL": "hand",
-   "O": "deits+hand+wikipedia"
-  },
-  "notice": {
-   "D": "wikipedia"
+   "O": "deits+hand"
   },
   "november": {
    "N": "deits",
@@ -2015,39 +1553,33 @@
    "L": "deits"
   },
   "now": {
-   "AD": "deits+wikipedia"
+   "AD": "deits"
   },
   "number": {
-   "C": "deits+wikipedia",
-   "D": "deits+wikipedia",
-   "L": "deits+wikipedia",
-   "M": "deits+wikipedia",
-   "NO": "deits+wikipedia",
+   "C": "deits",
+   "D": "deits",
+   "L": "deits",
+   "M": "deits",
+   "NO": "deits",
    "PIN": "deits",
-   "V": "deits+wikipedia",
-   "X": "deits+wikipedia"
+   "V": "deits",
+   "X": "deits"
   },
   "number one": {
    "ADAM": "deits"
-  },
-  "nurse": {
-   "EN": "wikipedia",
-   "RN": "wikipedia",
-   "SEN": "wikipedia"
   },
   "ocean": {
    "O": "deits"
   },
   "odds": {
-   "SP": "deits+wikipedia"
+   "SP": "deits"
   },
   "of french": {
    "DE": "hand",
    "DU": "hand"
   },
   "officer": {
-   "CO": "wikipedia",
-   "OC": "deits+wikipedia"
+   "OC": "deits"
   },
   "ohio": {
    "OH": "deits"
@@ -2057,8 +1589,7 @@
   },
   "old": {
    "EX": "hand",
-   "O": "deits+hand+wikipedia",
-   "OL": "wikipedia"
+   "O": "deits+hand"
   },
   "old boy": {
    "OB": "deits+review"
@@ -2069,126 +1600,97 @@
   "old english": {
    "OE": "deits"
   },
-  "old man": {
-   "DAD": "wikipedia",
-   "PA": "wikipedia"
-  },
   "old person": {
-   "OAP": "deits+wikipedia"
+   "OAP": "deits"
   },
   "old record": {
    "EP": "deits"
   },
   "old testament": {
-   "OT": "deits+wikipedia"
+   "OT": "deits"
   },
   "one": {
-   "A": "deits+hand+wikipedia",
-   "ACE": "deits+hand+wikipedia",
-   "AN": "deits+hand+wikipedia",
-   "I": "deits+hand+wikipedia",
-   "UNIT": "wikipedia"
+   "A": "deits+hand",
+   "ACE": "deits+hand",
+   "AN": "deits+hand",
+   "I": "deits+hand"
   },
   "operating system": {
-   "OS": "deits+wikipedia"
+   "OS": "deits"
   },
   "operation": {
-   "OP": "deits+wikipedia"
-  },
-  "order": {
-   "OM": "wikipedia"
+   "OP": "deits"
   },
   "oregon": {
    "OR": "deits"
   },
   "oriental": {
-   "E": "deits+wikipedia"
-  },
-  "other ranks": {
-   "OR": "wikipedia"
+   "E": "deits"
   },
   "ounce": {
-   "OZ": "deits+wikipedia"
-  },
-  "outside broadcasting": {
-   "OB": "wikipedia"
+   "OZ": "deits"
   },
   "outsize": {
    "OS": "deits"
   },
   "outsized": {
-   "OS": "deits+wikipedia"
-  },
-  "outstanding": {
-   "OS": "wikipedia"
+   "OS": "deits"
   },
   "over": {
-   "O": "deits+wikipedia"
+   "O": "deits"
   },
   "over the top": {
-   "OTT": "deits+wikipedia"
+   "OTT": "deits"
   },
   "overdose": {
-   "OD": "deits+wikipedia"
-  },
-  "oversize": {
-   "OS": "wikipedia"
+   "OD": "deits"
   },
   "oxygen": {
-   "O": "deits+review+wikipedia"
+   "O": "deits+review"
   },
   "page": {
-   "P": "deits+hand+wikipedia"
+   "P": "deits+hand"
   },
   "pages": {
    "PP": "deits+hand"
   },
   "painters": {
-   "RA": "deits+wikipedia"
+   "RA": "deits"
   },
   "pair": {
-   "PR": "deits+wikipedia"
-  },
-  "papers": {
-   "ID": "wikipedia"
+   "PR": "deits"
   },
   "paramilitaries": {
-   "ETA": "deits+wikipedia",
-   "IRA": "deits+wikipedia",
-   "UDA": "deits+wikipedia",
-   "UFF": "deits+wikipedia"
-  },
-  "paratrooper": {
-   "PARA": "wikipedia"
+   "ETA": "deits",
+   "IRA": "deits",
+   "UDA": "deits",
+   "UFF": "deits"
   },
   "parking": {
-   "P": "deits+wikipedia"
+   "P": "deits"
   },
   "party": {
-   "C": "wikipedia",
-   "CON": "deits+hand+wikipedia",
-   "DO": "hand+wikipedia",
-   "LAB": "deits+hand+wikipedia",
-   "LD": "wikipedia",
-   "LIB": "deits+hand+wikipedia",
-   "TORY": "wikipedia"
+   "CON": "deits+hand",
+   "DO": "hand",
+   "LAB": "deits+hand",
+   "LIB": "deits+hand"
   },
   "pawn": {
    "P": "deits"
   },
   "peacekeepers": {
-   "UN": "deits+wikipedia"
+   "UN": "deits"
   },
   "pencil": {
-   "HB": "deits+wikipedia"
+   "HB": "deits"
   },
   "pennsylvania": {
    "PA": "deits"
   },
   "penny": {
-   "CU": "deits+wikipedia",
-   "D": "deits+hand+wikipedia",
-   "P": "deits+hand+wikipedia"
+   "CU": "deits",
+   "D": "deits+hand",
+   "P": "deits+hand"
   },
   "performing": {
    "ON": "deits"
@@ -2198,43 +1700,25 @@
    "PER": "deits"
   },
   "phone company": {
-   "BT": "deits+wikipedia",
-   "EE": "wikipedia"
+   "BT": "deits"
   },
   "phosphorus": {
    "P": "deits"
   },
   "physical education": {
-   "PE": "deits+wikipedia"
+   "PE": "deits"
   },
   "physical training": {
-   "PT": "deits+wikipedia"
-  },
-  "physicists": {
-   "CERN": "wikipedia"
+   "PT": "deits"
   },
   "piano": {
-   "P": "deits+wikipedia"
-  },
-  "pig": {
-   "SOW": "wikipedia"
-  },
-  "pint": {
-   "PT": "wikipedia"
-  },
-  "place": {
-   "PL": "review+wikipedia",
-   "SET": "wikipedia",
-   "SITE": "wikipedia",
-   "SPOT": "wikipedia"
+   "P": "deits"
   },
   "plane": {
-   "MIG": "deits+wikipedia"
+   "MIG": "deits"
   },
   "plate": {
-   "L": "wikipedia",
-   "LP": "deits",
-   "P": "wikipedia"
+   "LP": "deits"
   },
   "play": {
    "ACT": "deits"
@@ -2242,31 +1726,27 @@
   "playing": {
    "ON": "deits"
   },
-  "please": {
-   "O": "wikipedia"
-  },
   "poem": {
-   "IF": "deits+wikipedia"
+   "IF": "deits"
   },
   "poet": {
-   "PO": "wikipedia",
-   "TS": "deits+wikipedia"
+   "TS": "deits"
   },
   "point": {
-   "E": "deits+hand+wikipedia",
-   "N": "deits+hand+wikipedia",
-   "S": "deits+hand+wikipedia",
-   "W": "deits+hand+wikipedia"
+   "E": "deits+hand",
+   "N": "deits+hand",
+   "S": "deits+hand",
+   "W": "deits+hand"
   },
   "pole": {
-   "N": "deits+wikipedia",
-   "S": "deits+wikipedia"
+   "N": "deits",
+   "S": "deits"
   },
   "policeman": {
-   "CID": "deits+wikipedia",
-   "DI": "deits+wikipedia",
-   "MET": "deits+wikipedia",
-   "PC": "deits+wikipedia"
+   "CID": "deits",
+   "DI": "deits",
+   "MET": "deits",
+   "PC": "deits"
   },
   "policemen": {
    "CID": "deits",
@@ -2275,45 +1755,41 @@
    "PC": "deits"
   },
   "politician": {
-   "MP": "deits+review+wikipedia"
+   "MP": "deits+review"
   },
   "posh": {
-   "U": "deits+wikipedia"
+   "U": "deits"
   },
   "post office": {
-   "PO": "deits+wikipedia"
+   "PO": "deits"
   },
   "potassium": {
-   "K": "deits+wikipedia"
+   "K": "deits"
   },
   "pound": {
-   "L": "hand+wikipedia",
-   "LB": "deits+hand+wikipedia"
+   "L": "hand",
+   "LB": "deits+hand"
   },
   "pounds": {
    "L": "deits",
    "LBS": "deits"
   },
   "power": {
-   "P": "deits+review+wikipedia"
+   "P": "deits+review"
   },
   "present day": {
    "AD": "deits"
   },
-  "presenter": {
-   "DJ": "wikipedia",
-   "MC": "wikipedia"
-  },
   "priest": {
-   "DD": "deits+wikipedia",
-   "ELI": "deits+review+wikipedia",
-   "FR": "deits+wikipedia",
-   "PR": "deits+wikipedia",
-   "REV": "deits+wikipedia",
-   "RR": "deits+wikipedia"
+   "DD": "deits",
+   "ELI": "deits+review",
+   "FR": "deits",
+   "PR": "deits",
+   "REV": "deits",
+   "RR": "deits"
   },
   "prime minister": {
-   "PM": "deits+wikipedia"
+   "PM": "deits"
   },
   "princess": {
    "DI": "deits"
@@ -2322,11 +1798,8 @@
    "EM": "deits",
    "EN": "deits"
   },
-  "prisoner": {
-   "CON": "review+wikipedia"
-  },
   "prisoner of war": {
-   "POW": "deits+wikipedia"
+   "POW": "deits"
   },
   "private": {
    "GI": "deits"
@@ -2335,39 +1808,30 @@
    "PI": "deits"
   },
   "promises": {
-   "IOUS": "deits+wikipedia"
-  },
-  "promotion": {
-   "AD": "wikipedia"
+   "IOUS": "deits"
   },
   "province": {
-   "NI": "deits+wikipedia"
+   "NI": "deits"
   },
   "pub": {
-   "PH": "deits+wikipedia"
+   "PH": "deits"
   },
   "public record office": {
    "PRO": "deits"
   },
-  "pudding": {
-   "PUD": "wikipedia"
-  },
   "quarter": {
-   "E": "deits+wikipedia",
+   "E": "deits",
    "ETC": "deits",
-   "N": "deits+wikipedia",
+   "N": "deits",
    "NE": "deits",
    "NW": "deits",
-   "S": "deits+wikipedia",
-   "W": "deits+wikipedia"
-  },
-  "quartet": {
-   "IV": "wikipedia"
+   "S": "deits",
+   "W": "deits"
   },
   "queen": {
-   "ER": "deits+hand+wikipedia",
-   "HM": "deits+hand+wikipedia",
-   "Q": "deits+hand+wikipedia",
+   "ER": "deits+hand",
+   "HM": "deits+hand",
+   "Q": "deits+hand",
    "R": "deits+hand"
   },
   "queens honour": {
@@ -2381,250 +1845,172 @@
    "QU": "deits+review"
   },
   "quiet": {
-   "P": "deits+hand+wikipedia",
-   "SH": "hand+wikipedia"
-  },
-  "quietly": {
-   "P": "review+wikipedia",
-   "SH": "wikipedia"
-  },
-  "race": {
-   "TT": "wikipedia"
+   "P": "deits+hand",
+   "SH": "hand"
   },
   "radium": {
    "RA": "deits"
   },
   "railway": {
-   "BR": "deits+wikipedia",
-   "EL": "wikipedia",
-   "R": "deits+wikipedia",
+   "BR": "deits",
+   "R": "deits",
    "RY": "deits+review"
   },
-  "rated": {
-   "X": "wikipedia"
-  },
-  "rechabite": {
-   "TT": "wikipedia"
-  },
   "record": {
-   "EP": "deits+review+wikipedia",
-   "LP": "deits+wikipedia"
+   "EP": "deits+review",
+   "LP": "deits"
   },
   "ref": {
-   "UMP": "deits+wikipedia"
+   "UMP": "deits"
   },
   "regina": {
-   "R": "deits+wikipedia"
-  },
-  "religious": {
-   "PI": "wikipedia"
-  },
-  "religious education": {
-   "RE": "wikipedia"
+   "R": "deits"
   },
   "republican": {
-   "GOP": "deits+wikipedia",
-   "R": "review+wikipedia",
-   "REP": "wikipedia"
+   "GOP": "deits"
   },
   "republicans": {
    "GOP": "deits"
   },
   "resistance": {
-   "R": "deits+review+wikipedia"
+   "R": "deits+review"
   },
   "retired": {
-   "RET": "deits+wikipedia"
+   "RET": "deits"
   },
   "reverend": {
-   "DD": "deits+wikipedia",
-   "REV": "deits+wikipedia",
-   "RR": "deits+wikipedia"
-  },
-  "revolutionary": {
-   "CHE": "review+wikipedia"
+   "DD": "deits",
+   "REV": "deits",
+   "RR": "deits"
   },
   "rex": {
-   "R": "deits+review+wikipedia"
+   "R": "deits+review"
   },
   "rhode island": {
    "RI": "deits"
   },
   "right": {
-   "R": "deits+hand+wikipedia",
+   "R": "deits+hand",
    "RT": "hand"
   },
   "right reverend": {
-   "RR": "deits+wikipedia"
+   "RR": "deits"
   },
   "ring": {
-   "O": "deits+review+wikipedia"
+   "O": "deits+review"
   },
   "river": {
-   "DEE": "deits+wikipedia",
+   "DEE": "deits",
    "EXE": "deits",
-   "MA": "wikipedia",
-   "OB": "wikipedia",
-   "PO": "deits+wikipedia",
-   "R": "deits+hand+wikipedia",
-   "URE": "wikipedia"
+   "PO": "deits",
+   "R": "deits+hand"
   },
   "road": {
-   "AI": "deits+wikipedia",
-   "RD": "deits+hand+wikipedia"
+   "AI": "deits",
+   "RD": "deits+hand"
   },
   "rolls royce": {
    "RR": "deits"
   },
-  "rollsroyce": {
-   "RR": "wikipedia"
-  },
-  "roman catholic": {
-   "RC": "wikipedia"
-  },
   "rook": {
-   "R": "deits+wikipedia"
+   "R": "deits"
   },
   "roughly": {
    "CA": "deits"
   },
   "round": {
-   "O": "deits+review+wikipedia"
+   "O": "deits+review"
   },
   "royal academy": {
-   "RA": "deits+wikipedia"
+   "RA": "deits"
   },
   "royal artillery": {
-   "RA": "deits+wikipedia"
+   "RA": "deits"
   },
   "royal engineers": {
-   "RE": "deits+wikipedia"
+   "RE": "deits"
   },
   "royal marines": {
-   "RM": "deits+wikipedia"
+   "RM": "deits"
   },
   "royal navy": {
-   "RN": "deits+wikipedia"
-  },
-  "rugby union": {
-   "RU": "wikipedia"
+   "RN": "deits"
   },
   "run": {
-   "R": "deits+review+wikipedia"
-  },
-  "rural dean": {
-   "RD": "wikipedia"
+   "R": "deits+review"
   },
   "sailor": {
-   "AB": "deits+hand+wikipedia",
-   "HAND": "deits+wikipedia",
-   "JACK": "deits+wikipedia",
-   "OS": "hand+wikipedia",
-   "RN": "deits+wikipedia",
-   "SALT": "deits+wikipedia",
-   "TAR": "deits+hand+wikipedia"
+   "AB": "deits+hand",
+   "HAND": "deits",
+   "JACK": "deits",
+   "OS": "hand",
+   "RN": "deits",
+   "SALT": "deits",
+   "TAR": "deits+hand"
   },
   "sailors": {
    "ABS": "deits",
    "RN": "deits"
   },
   "saint": {
-   "S": "wikipedia",
-   "ST": "deits+hand+wikipedia"
+   "ST": "deits+hand"
   },
   "salt": {
    "AB": "deits"
   },
-  "same": {
-   "DO": "wikipedia"
-  },
   "sappers": {
-   "RE": "deits+wikipedia"
-  },
-  "satisfactory": {
-   "S": "wikipedia"
+   "RE": "deits"
   },
   "saturday": {
    "S": "deits"
   },
   "say": {
-   "EG": "deits+review+wikipedia"
+   "EG": "deits+review"
   },
   "scholar": {
    "BA": "deits"
   },
   "seaman": {
-   "AB": "deits+wikipedia"
+   "AB": "deits"
   },
   "second": {
-   "MO": "hand+wikipedia",
-   "S": "deits+hand+wikipedia"
+   "MO": "hand",
+   "S": "deits+hand"
   },
   "second-class": {
    "B": "deits"
   },
   "secret service": {
-   "SS": "deits+wikipedia"
-  },
-  "secretary": {
-   "PA": "wikipedia"
-  },
-  "section": {
-   "OR": "wikipedia"
+   "SS": "deits"
   },
   "see": {
-   "CF": "deits",
-   "LO": "wikipedia"
+   "CF": "deits"
   },
   "selenium": {
    "SE": "deits"
   },
-  "senior service": {
-   "RN": "wikipedia"
-  },
-  "sergeant major": {
-   "SM": "wikipedia"
-  },
-  "serial": {
-   "SER": "wikipedia"
-  },
-  "series": {
-   "SER": "wikipedia"
-  },
-  "service": {
-   "RAF": "review+wikipedia"
-  },
   "setter": {
-   "I": "deits+wikipedia",
+   "I": "deits",
    "ME": "deits"
   },
-  "setter's": {
-   "MY": "wikipedia"
-  },
   "sex appeal": {
-   "IT": "deits+hand+wikipedia",
-   "SA": "hand+wikipedia"
+   "IT": "deits+hand",
+   "SA": "hand"
   },
   "shakespearean king": {
    "LEAR": "deits"
   },
   "shilling": {
-   "S": "deits+wikipedia"
+   "S": "deits"
   },
   "ship": {
-   "SS": "deits+hand+wikipedia"
-  },
-  "ship's officer": {
-   "PO": "wikipedia"
-  },
-  "shirt": {
-   "T": "wikipedia"
+   "SS": "deits+hand"
   },
   "short time": {
    "T": "deits"
   },
   "short wave": {
-   "SW": "deits+wikipedia"
+   "SW": "deits"
   },
   "sibling": {
    "SIS": "deits"
@@ -2632,13 +2018,8 @@
   "siblings": {
    "SIS": "deits"
   },
-  "side": {
-   "LEG": "wikipedia",
-   "OFF": "wikipedia",
-   "ON": "wikipedia"
-  },
   "significant other": {
-   "SO": "deits+wikipedia"
+   "SO": "deits"
   },
   "silence": {
    "MUM": "deits",
@@ -2648,14 +2029,11 @@
    "SI": "deits"
   },
   "silk": {
-   "KC": "deits+wikipedia",
-   "QC": "deits+wikipedia"
+   "KC": "deits",
+   "QC": "deits"
   },
   "silver": {
-   "AG": "deits+hand+wikipedia"
-  },
-  "singer": {
-   "RAT": "wikipedia"
+   "AG": "deits+hand"
   },
   "single": {
    "I": "deits"
@@ -2664,55 +2042,31 @@
    "ANT": "deits",
    "BEE": "deits"
   },
-  "sixth sense": {
-   "ESP": "wikipedia"
-  },
-  "sleep": {
-   "Z": "wikipedia",
-   "ZZ": "wikipedia"
-  },
   "small": {
-   "S": "hand+wikipedia"
-  },
-  "snake": {
-   "S": "wikipedia"
-  },
-  "snooze": {
-   "Z": "wikipedia",
-   "ZZ": "wikipedia"
-  },
-  "socialite": {
-   "DEB": "wikipedia"
-  },
-  "socially acceptable": {
-   "U": "wikipedia"
+   "S": "hand"
   },
   "society": {
-   "S": "deits+review+wikipedia",
-   "SOC": "wikipedia"
+   "S": "deits+review"
   },
   "sodium": {
-   "NA": "deits+wikipedia"
+   "NA": "deits"
   },
   "soft": {
    "B": "deits",
    "P": "deits+review"
   },
   "softly": {
-   "P": "deits+wikipedia"
+   "P": "deits"
   },
   "soldier": {
-   "ANT": "deits+review+wikipedia",
-   "GI": "deits+hand+wikipedia",
-   "OR": "wikipedia",
+   "ANT": "deits+review",
+   "GI": "deits+hand",
    "PTE": "hand",
-   "RE": "deits+wikipedia",
-   "RM": "deits+wikipedia",
-   "VET": "wikipedia"
+   "RE": "deits",
+   "RM": "deits"
   },
   "soldiers": {
-   "MEN": "deits+hand+wikipedia",
-   "OR": "review+wikipedia",
+   "MEN": "deits+hand",
    "RA": "hand",
    "RE": "hand",
    "TA": "hand"
@@ -2722,13 +2076,13 @@
    "SOM": "deits"
   },
   "son": {
-   "S": "deits+review+wikipedia"
+   "S": "deits+review"
   },
   "soprano": {
    "S": "deits+review"
   },
   "south": {
-   "S": "deits+hand+wikipedia"
+   "S": "deits+hand"
   },
   "south australia": {
    "SA": "deits"
@@ -2737,31 +2091,13 @@
    "SC": "deits"
   },
   "spade": {
-   "S": "deits+wikipedia"
+   "S": "deits"
   },
   "spades": {
    "S": "deits"
   },
-  "spain": {
-   "E": "review+wikipedia"
-  },
   "spanish": {
    "EL": "deits"
-  },
-  "special": {
-   "S": "review+wikipedia",
-   "SP": "wikipedia"
-  },
-  "spectacles": {
-   "OO": "wikipedia"
-  },
-  "spies": {
-   "CIA": "wikipedia",
-   "MI": "wikipedia"
-  },
-  "sport": {
-   "RL": "wikipedia",
-   "RU": "wikipedia"
   },
   "sportsman": {
    "BLUE": "deits"
@@ -2821,19 +2157,16 @@
    "WV": "deits",
    "WY": "deits"
   },
-  "steam ship": {
-   "SS": "wikipedia"
-  },
   "steamship": {
    "SS": "hand"
   },
   "stone": {
-   "ST": "deits+review+wikipedia"
+   "ST": "deits+review"
   },
   "street": {
    "AVE": "deits",
    "RD": "deits",
-   "ST": "deits+hand+wikipedia",
+   "ST": "deits+hand",
    "WAY": "deits"
   },
   "strings": {
@@ -2843,26 +2176,12 @@
    "G": "deits"
   },
   "student": {
-   "L": "deits+hand+wikipedia",
-   "NUS": "deits+wikipedia"
-  },
-  "study": {
-   "CON": "wikipedia",
-   "DEN": "wikipedia",
-   "READ": "wikipedia"
-  },
-  "stumped": {
-   "ST": "wikipedia"
+   "L": "deits+hand",
+   "NUS": "deits"
   },
   "submarine": {
-   "SUB": "deits+wikipedia",
-   "U": "deits+wikipedia"
-  },
-  "succeeded": {
-   "S": "wikipedia"
-  },
-  "suitable for all to see": {
-   "U": "wikipedia"
+   "SUB": "deits",
+   "U": "deits"
   },
   "sulfur": {
    "S": "deits"
@@ -2870,14 +2189,11 @@
   "sunday": {
    "S": "deits+review"
   },
-  "superintendent": {
-   "SUPT": "wikipedia"
-  },
   "support": {
    "BRA": "deits+review"
   },
   "sweat": {
-   "BO": "deits+wikipedia"
+   "BO": "deits"
   },
   "switzerland": {
    "CH": "deits",
@@ -2885,44 +2201,34 @@
    "SUI": "deits",
    "SWI": "deits"
   },
-  "tabloid": {
-   "RAG": "wikipedia",
-   "SUN": "wikipedia"
-  },
-  "take": {
-   "R": "wikipedia"
-  },
   "tar": {
-   "AB": "deits+wikipedia"
+   "AB": "deits"
   },
   "tasmania": {
    "TAS": "deits"
   },
   "tax": {
-   "VAT": "deits+wikipedia"
-  },
-  "teacher": {
-   "DON": "wikipedia"
+   "VAT": "deits"
   },
   "teachers": {
-   "NUT": "deits+wikipedia"
+   "NUT": "deits"
   },
   "team": {
-   "XI": "deits+review+wikipedia"
+   "XI": "deits+review"
   },
   "teas": {
    "TT": "deits"
   },
   "teetotal": {
-   "AA": "deits+wikipedia",
-   "TT": "deits+wikipedia"
+   "AA": "deits",
+   "TT": "deits"
   },
   "temperature": {
    "T": "deits+review"
   },
   "ten": {
-   "IO": "deits+wikipedia",
-   "X": "deits+hand+wikipedia"
+   "IO": "deits",
+   "X": "deits+hand"
   },
   "tennessee": {
    "TN": "deits"
@@ -2930,18 +2236,14 @@
   "tenor": {
    "T": "deits"
   },
-  "tense": {
-   "PT": "wikipedia",
-   "T": "review+wikipedia"
-  },
   "territorial army": {
-   "TA": "deits+wikipedia"
+   "TA": "deits"
   },
   "terrorists": {
-   "ETA": "deits+wikipedia",
-   "IRA": "deits+review+wikipedia",
-   "UDA": "deits+wikipedia",
-   "UFF": "deits+wikipedia"
+   "ETA": "deits",
+   "IRA": "deits+review",
+   "UDA": "deits",
+   "UFF": "deits"
   },
   "texas": {
    "TX": "deits"
@@ -2950,12 +2252,10 @@
    "MS": "deits"
   },
   "thanks": {
-   "TA": "deits+review+wikipedia"
+   "TA": "deits+review"
   },
   "that is": {
-   "IE": "deits+review+wikipedia",
-   "SC": "wikipedia",
-   "SS": "wikipedia"
+   "IE": "deits+review"
   },
   "the french": {
    "LA": "hand",
@@ -2979,40 +2279,33 @@
   "the thing": {
    "IT": "deits"
   },
-  "theatre": {
-   "REP": "review+wikipedia"
-  },
   "theologian": {
-   "DD": "deits+wikipedia"
+   "DD": "deits"
   },
   "this month": {
-   "INST": "deits+review+wikipedia"
+   "INST": "deits+review"
   },
   "thousand": {
-   "G": "deits+hand+wikipedia",
-   "K": "deits+hand+wikipedia",
-   "M": "deits+hand+wikipedia"
+   "G": "deits+hand",
+   "K": "deits+hand",
+   "M": "deits+hand"
   },
   "thursday": {
    "TH": "deits+review",
    "THURS": "deits"
   },
   "thus": {
-   "IE": "deits+wikipedia",
-   "SIC": "deits+wikipedia",
-   "SO": "wikipedia"
+   "IE": "deits",
+   "SIC": "deits"
   },
   "time": {
-   "AGE": "wikipedia",
    "HR": "deits",
-   "M": "deits+wikipedia",
-   "S": "deits+wikipedia",
-   "T": "deits+hand+wikipedia"
+   "M": "deits",
+   "S": "deits",
+   "T": "deits+hand"
   },
   "times": {
-   "BY": "wikipedia",
-   "TT": "wikipedia",
-   "X": "deits+wikipedia"
+   "X": "deits"
   },
   "tin": {
    "SN": "deits+hand"
@@ -3021,32 +2314,29 @@
    "TI": "deits"
   },
   "toilet": {
-   "WC": "deits+wikipedia"
+   "WC": "deits"
   },
   "top class": {
    "AI": "deits+review"
   },
   "tory": {
-   "CON": "deits+wikipedia"
+   "CON": "deits"
   },
   "translator": {
    "TR": "deits"
   },
   "trendy": {
-   "IN": "deits+wikipedia"
+   "IN": "deits"
   },
   "tripod": {
-   "Y": "deits+wikipedia"
-  },
-  "troop": {
-   "RM": "wikipedia"
+   "Y": "deits"
   },
   "tuesday": {
    "T": "deits",
    "TUES": "deits"
   },
   "tungsten": {
-   "W": "deits+wikipedia"
+   "W": "deits"
   },
   "turn": {
    "U": "deits+review"
@@ -3056,52 +2346,41 @@
    "II": "deits"
   },
   "tyro": {
-   "L": "deits+wikipedia"
+   "L": "deits"
   },
   "ulster": {
-   "NI": "deits+wikipedia"
+   "NI": "deits"
   },
   "ulster defence association": {
-   "UDA": "deits+wikipedia"
+   "UDA": "deits"
   },
   "ulster freedom fighters": {
-   "UFF": "deits+wikipedia"
+   "UFF": "deits"
   },
   "ultimate": {
-   "Z": "deits+wikipedia"
-  },
-  "united": {
-   "U": "review+wikipedia"
+   "Z": "deits"
   },
   "united kingdom": {
    "GBR": "deits",
    "UK": "deits"
   },
   "united nations": {
-   "UN": "deits+wikipedia"
+   "UN": "deits"
   },
   "united states": {
    "US": "deits",
    "USA": "deits"
   },
   "university": {
-   "OU": "deits+wikipedia",
-   "U": "deits+review+wikipedia",
-   "UP": "deits+wikipedia"
+   "OU": "deits",
+   "U": "deits+review",
+   "UP": "deits"
   },
   "unknown": {
-   "X": "deits+wikipedia",
-   "Y": "deits+review+wikipedia",
+   "X": "deits",
+   "Y": "deits+review",
    "YZ": "deits",
-   "Z": "deits+wikipedia"
-  },
-  "up": {
-   "N": "wikipedia",
-   "U": "wikipedia"
-  },
-  "upper": {
-   "N": "wikipedia",
-   "U": "wikipedia"
+   "Z": "deits"
   },
   "upper class": {
    "U": "deits"
@@ -3113,32 +2392,26 @@
    "UT": "deits"
   },
   "value added tax": {
-   "VAT": "deits+wikipedia"
+   "VAT": "deits"
   },
   "vanadium": {
    "V": "deits"
   },
   "variable": {
-   "X": "deits+wikipedia",
-   "Y": "deits+wikipedia",
+   "X": "deits",
+   "Y": "deits",
    "YZ": "deits",
-   "Z": "deits+wikipedia"
+   "Z": "deits"
   },
   "vermont": {
    "VT": "deits"
   },
-  "vermouth": {
-   "IT": "wikipedia"
-  },
-  "version": {
-   "V": "wikipedia"
-  },
   "versus": {
-   "V": "deits+hand+wikipedia",
-   "VS": "deits+hand+wikipedia"
+   "V": "deits+hand",
+   "VS": "deits+hand"
   },
   "very": {
-   "V": "deits+wikipedia"
+   "V": "deits"
   },
   "very black": {
    "BB": "deits"
@@ -3149,17 +2422,11 @@
   "very soft": {
    "PP": "deits"
   },
-  "vessel": {
-   "SS": "wikipedia"
-  },
   "victoria": {
    "VIC": "deits"
   },
   "virginia": {
    "VA": "deits+review"
-  },
-  "viscount": {
-   "VIS": "wikipedia"
   },
   "vitamin": {
    "A": "deits",
@@ -3176,10 +2443,10 @@
    "V": "deits"
   },
   "volunteers": {
-   "TA": "deits+review+wikipedia"
+   "TA": "deits+review"
   },
   "vote": {
-   "X": "deits+wikipedia"
+   "X": "deits"
   },
   "washington": {
    "WA": "deits"
@@ -3188,9 +2455,9 @@
    "AQ": "hand"
   },
   "way": {
-   "AVE": "deits+hand+wikipedia",
-   "RD": "deits+hand+wikipedia",
-   "ST": "deits+hand+wikipedia"
+   "AVE": "deits+hand",
+   "RD": "deits+hand",
+   "ST": "deits+hand"
   },
   "wednesday": {
    "W": "deits",
@@ -3199,12 +2466,9 @@
   "week": {
    "W": "deits"
   },
-  "weekend": {
-   "SS": "wikipedia"
-  },
   "weight": {
-   "G": "deits+wikipedia",
-   "LB": "deits+wikipedia",
+   "G": "deits",
+   "LB": "deits",
    "LBS": "deits"
   },
   "west": {
@@ -3216,29 +2480,20 @@
   "western australia": {
    "WA": "deits"
   },
-  "westminster": {
-   "HP": "wikipedia"
-  },
-  "wheel": {
-   "O": "wikipedia"
-  },
   "whistle-blower": {
    "REF": "deits"
-  },
-  "whistleblower": {
-   "REF": "wikipedia"
   },
   "wicket": {
    "W": "deits"
   },
   "wide": {
-   "W": "deits+wikipedia"
+   "W": "deits"
   },
   "width": {
    "W": "deits"
   },
   "wife": {
-   "W": "deits+review+wikipedia"
+   "W": "deits+review"
   },
   "will": {
    "LL": "deits+review"
@@ -3247,74 +2502,58 @@
    "WI": "deits"
   },
   "with": {
-   "W": "deits+review+wikipedia"
+   "W": "deits+review"
   },
   "without": {
-   "WO": "deits+wikipedia"
+   "WO": "deits"
   },
   "womens supporter": {
    "BRA": "deits"
   },
   "work": {
-   "OP": "deits+review+wikipedia",
-   "OPUS": "deits+wikipedia",
-   "W": "deits+wikipedia"
+   "OP": "deits+review",
+   "OPUS": "deits",
+   "W": "deits"
   },
   "worker": {
-   "ANT": "deits+review+wikipedia",
-   "ARM": "wikipedia",
-   "BEE": "deits+wikipedia",
-   "HAND": "wikipedia"
-  },
-  "workers": {
-   "TU": "wikipedia"
-  },
-  "writing": {
-   "MS": "review+wikipedia"
+   "ANT": "deits+review",
+   "BEE": "deits"
   },
   "wyoming": {
    "WY": "deits"
   },
   "x": {
-   "IO": "deits+wikipedia"
+   "IO": "deits"
   },
   "xenon": {
    "XE": "deits"
   },
   "yard": {
-   "Y": "deits+wikipedia",
-   "YD": "deits+wikipedia"
+   "Y": "deits",
+   "YD": "deits"
   },
   "year": {
-   "Y": "deits+hand+wikipedia",
-   "YR": "deits+hand+wikipedia"
+   "Y": "deits+hand",
+   "YR": "deits+hand"
   },
   "yemen": {
    "YE": "deits",
    "YEM": "deits"
   },
-  "yen": {
-   "Y": "wikipedia"
-  },
   "yes": {
    "AY": "hand",
    "AYE": "hand",
-   "Y": "hand+wikipedia"
-  },
-  "you": {
-   "U": "review+wikipedia"
+   "Y": "hand"
   },
   "yours truly": {
-   "I": "deits+wikipedia",
-   "ID": "wikipedia",
+   "I": "deits",
    "ME": "deits"
   },
   "yttrium": {
    "Y": "deits"
   },
   "zero": {
-   "O": "deits+wikipedia",
-   "Z": "wikipedia"
+   "O": "deits"
   },
   "zinc": {
    "ZN": "deits"
@@ -3327,30 +2566,14 @@
   "UN",
   "UNE"
  ],
- "aboard": [
-  "SS"
- ],
  "about": [
   "C",
   "CA",
   "CE",
   "RE"
  ],
- "abstainer": [
-  "TT"
- ],
- "academic": [
-  "DD",
-  "PROF"
- ],
  "academician": [
   "RA"
- ],
- "acceleration": [
-  "G"
- ],
- "accepted": [
-  "A"
  ],
  "account": [
   "AC"
@@ -3368,9 +2591,6 @@
  ],
  "advert": [
   "AD"
- ],
- "african organisation": [
-  "ANC"
  ],
  "after midday": [
   "PM"
@@ -3392,14 +2612,6 @@
  ],
  "air conditioning": [
   "AC"
- ],
- "airman": [
-  "AC",
-  "LAC",
-  "PO"
- ],
- "airmen": [
-  "RAF"
  ],
  "alabama": [
   "AL"
@@ -3426,26 +2638,17 @@
  "aluminum": [
   "AL"
  ],
- "alumnus": [
-  "OB",
-  "OG"
- ],
  "ambassador": [
   "HE"
  ],
  "america": [
-  "A",
   "AM",
   "US",
   "USA"
  ],
  "american": [
   "A",
-  "GI",
   "US"
- ],
- "american ship": [
-  "USS"
  ],
  "american soldier": [
   "GI"
@@ -3480,12 +2683,6 @@
  "arbiter": [
   "REF"
  ],
- "archdeacon": [
-  "VEN"
- ],
- "area": [
-  "A"
- ],
  "argon": [
   "AR"
  ],
@@ -3497,10 +2694,6 @@
  ],
  "army cop": [
   "MP"
- ],
- "army corps": [
-  "RE",
-  "REME"
  ],
  "around": [
   "CA"
@@ -3528,28 +2721,17 @@
  "asian": [
   "E"
  ],
- "asleep": [
-  "Z",
-  "ZZ"
- ],
  "astatine": [
   "AT"
  ],
- "at": [
-  "A"
- ],
  "at home": [
   "IN"
- ],
- "atmosphere": [
-  "AT"
  ],
  "attorney": [
   "DA",
   "PA"
  ],
  "australia": [
-  "A",
   "AU",
   "AUS",
   "OZ"
@@ -3560,9 +2742,6 @@
  "avenue": [
   "AVE"
  ],
- "award": [
-  "OM"
- ],
  "bachelor": [
   "B",
   "BA"
@@ -3571,15 +2750,10 @@
   "BA"
  ],
  "bachelor of medicine": [
-  "BM",
-  "MB"
+  "BM"
  ],
  "barium": [
   "BA"
- ],
- "base": [
-  "E",
-  "TEN"
  ],
  "basque nationalists": [
   "ETA"
@@ -3616,23 +2790,18 @@
  "beryllium": [
   "BE"
  ],
- "bible": [
-  "AV"
- ],
  "big": [
   "OS"
  ],
  "bill": [
   "AC",
-  "IOU",
-  "TAB"
+  "IOU"
  ],
  "bird": [
   "TIT"
  ],
  "bishop": [
   "B",
-  "DD",
   "RR"
  ],
  "bismuth": [
@@ -3642,9 +2811,6 @@
   "A",
   "AB",
   "O"
- ],
- "boat": [
-  "SS"
  ],
  "bob": [
   "S"
@@ -3657,18 +2823,10 @@
   "M"
  ],
  "book": [
-  "AV",
-  "B",
-  "GEN",
-  "MS",
   "NT",
   "OT"
  ],
  "books": [
-  "AV",
-  "B",
-  "GEN",
-  "MS",
   "NT",
   "OT"
  ],
@@ -3695,14 +2853,8 @@
   "B",
   "BR"
  ],
- "broadcaster": [
-  "BBC"
- ],
  "bromine": [
   "BR"
- ],
- "by": [
-  "X"
  ],
  "by the day": [
   "PD"
@@ -3716,9 +2868,6 @@
  "california": [
   "CA"
  ],
- "cape": [
-  "C"
- ],
  "capone": [
   "AL"
  ],
@@ -3731,13 +2880,6 @@
  ],
  "carbon copy": [
   "CC"
- ],
- "cardinal": [
-  "E",
-  "N",
-  "RED",
-  "S",
-  "W"
  ],
  "care of": [
   "CO"
@@ -3774,30 +2916,9 @@
   "U",
   "X"
  ],
- "champion": [
-  "CH"
- ],
  "chapter": [
   "C",
   "CH"
- ],
- "charge": [
-  "Q"
- ],
- "charged": [
-  "ION"
- ],
- "charlie": [
-  "C"
- ],
- "chartered accountant": [
-  "CA"
- ],
- "check": [
-  "V"
- ],
- "checkmark": [
-  "V"
  ],
  "chief": [
   "CH"
@@ -3812,9 +2933,7 @@
   "CR"
  ],
  "chromosome": [
-  "X",
-  "XY",
-  "Y"
+  "XY"
  ],
  "church": [
   "CE",
@@ -3845,9 +2964,6 @@
   "C",
   "F"
  ],
- "closed": [
-  "TO"
- ],
  "club": [
   "Y"
  ],
@@ -3858,15 +2974,8 @@
   "CO"
  ],
  "coin": [
-  "C",
   "D",
   "P"
- ],
- "cold": [
-  "C"
- ],
- "college": [
-  "C"
  ],
  "colonel": [
   "COL"
@@ -3877,25 +2986,8 @@
  "colt": [
   "C"
  ],
- "commanderinchief": [
-  "CIC",
-  "CINC"
- ],
- "commercial": [
-  "AD"
- ],
- "committee": [
-  "COM"
- ],
  "common era": [
   "CE"
- ],
- "communist": [
-  "CHE",
-  "RED"
- ],
- "companion": [
-  "CH"
  ],
  "company": [
   "CO"
@@ -3922,7 +3014,6 @@
   "NT"
  ],
  "conservative": [
-  "BLUE",
   "C",
   "CON",
   "TORY"
@@ -3930,32 +3021,11 @@
  "constable": [
   "PC"
  ],
- "constant": [
-  "C",
-  "E",
-  "G",
-  "K",
-  "PI"
- ],
- "contralto": [
-  "C"
- ],
  "copper": [
   "CU",
   "D",
   "P",
   "PC"
- ],
- "corner": [
-  "NE",
-  "NW",
-  "SE",
-  "SW"
- ],
- "councillor": [
-  "CL",
-  "CLLR",
-  "CLR"
  ],
  "court": [
   "CT"
@@ -3977,8 +3047,7 @@
   "AC",
   "AD",
   "AMP",
-  "DC",
-  "I"
+  "DC"
  ],
  "current account": [
   "CA"
@@ -4023,7 +3092,6 @@
  ],
  "decoration": [
   "GC",
-  "MM",
   "VC"
  ],
  "degree": [
@@ -4036,30 +3104,14 @@
  "delaware": [
   "DE"
  ],
- "democrat": [
-  "D"
- ],
- "departs": [
-  "D"
- ],
- "detective": [
-  "DC",
-  "DI",
-  "DS",
-  "PI"
- ],
  "detective inspector": [
   "DI"
  ],
  "detectives": [
-  "CID",
-  "YARD"
+  "CID"
  ],
  "deutschmark": [
   "DM"
- ],
- "dial": [
-  "O"
  ],
  "diamond": [
   "D"
@@ -4070,26 +3122,17 @@
  "diana": [
   "DI"
  ],
- "dictionary": [
-  "OED"
- ],
  "died": [
   "D",
   "DEC",
   "EX",
   "OB"
  ],
- "dinner jacket": [
-  "DJ"
- ],
  "direction": [
   "E",
   "N",
   "S",
   "W"
- ],
- "director": [
-  "D"
  ],
  "disc": [
   "CD",
@@ -4098,7 +3141,6 @@
   "O"
  ],
  "disease": [
-  "ME",
   "TB"
  ],
  "doctor": [
@@ -4108,9 +3150,7 @@
   "GP",
   "MB",
   "MD",
-  "MO",
-  "NO",
-  "WHO"
+  "MO"
  ],
  "doctor of divinity": [
   "DD"
@@ -4118,17 +3158,8 @@
  "dollar": [
   "S"
  ],
- "donut": [
-  "O"
- ],
  "dram": [
   "DR"
- ],
- "drama": [
-  "NOH"
- ],
- "drama company": [
-  "REP"
  ],
  "drip": [
   "IV"
@@ -4139,12 +3170,6 @@
   "H",
   "X"
  ],
- "drunk": [
-  "SOT"
- ],
- "drunkard": [
-  "SOT"
- ],
  "dry": [
   "AA",
   "TT"
@@ -4152,17 +3177,8 @@
  "duck": [
   "O"
  ],
- "ducks": [
-  "OO"
- ],
- "duke": [
-  "D"
- ],
  "each": [
   "EA"
- ],
- "earl": [
-  "E"
  ],
  "east": [
   "E"
@@ -4170,16 +3186,8 @@
  "east germany": [
   "GDR"
  ],
- "echo": [
-  "E"
- ],
- "economists": [
-  "LSE"
- ],
  "ecstasy": [
-  "E",
-  "EX",
-  "X"
+  "EX"
  ],
  "editor": [
   "ED"
@@ -4187,43 +3195,31 @@
  "egg": [
   "O"
  ],
- "elected": [
-  "IN"
- ],
  "electricity": [
   "AC",
   "DC"
  ],
  "eleven": [
-  "II",
   "LL",
   "XI"
  ],
  "elizabeth": [
   "E"
  ],
- "end of war": [
-  "VE"
- ],
  "energy": [
   "E",
   "J"
  ],
- "engagement": [
-  "GIG"
- ],
  "engineer": [
   "CE",
   "ME",
-  "RE",
-  "REME"
+  "RE"
  ],
  "engineers": [
   "RE"
  ],
  "english": [
   "E",
-  "EN",
   "ENG"
  ],
  "era": [
@@ -4243,9 +3239,6 @@
  "europe": [
   "EC",
   "EU"
- ],
- "european": [
-  "E"
  ],
  "excellent": [
   "AI"
@@ -4274,9 +3267,6 @@
   "DAD",
   "FR",
   "PA"
- ],
- "fellow": [
-  "F"
  ],
  "female": [
   "F"
@@ -4316,14 +3306,8 @@
  "five": [
   "V"
  ],
- "five hundred": [
-  "D"
- ],
  "fleet": [
   "RN"
- ],
- "fliers": [
-  "RAF"
  ],
  "florida": [
   "FL"
@@ -4346,16 +3330,11 @@
  "footnote": [
   "PS"
  ],
- "for everyone": [
-  "U"
- ],
  "for example": [
   "EG"
  ],
  "force": [
-  "F",
-  "G",
-  "N"
+  "F"
  ],
  "former": [
   "EX"
@@ -4385,20 +3364,11 @@
   "F",
   "FRI"
  ],
- "friend": [
-  "PAL"
- ],
  "gallium": [
   "GA"
  ],
  "game": [
   "RU"
- ],
- "gang leader": [
-  "AL"
- ],
- "gangster": [
-  "AL"
  ],
  "gas": [
   "CO",
@@ -4407,10 +3377,6 @@
   "H",
   "N",
   "O"
- ],
- "genetic code": [
-  "DNA",
-  "RNA"
  ],
  "george": [
   "G"
@@ -4431,9 +3397,6 @@
   "DEU",
   "GER"
  ],
- "glasses": [
-  "OO"
- ],
  "gold": [
   "AU",
   "OR"
@@ -4444,7 +3407,6 @@
   "PI"
  ],
  "good man": [
-  "S",
   "ST"
  ],
  "grade": [
@@ -4456,7 +3418,6 @@
  ],
  "graduate": [
   "BA",
-  "BED",
   "BSC",
   "MA",
   "MB"
@@ -4532,33 +3493,19 @@
  "group": [
   "GP"
  ],
- "grunt": [
-  "GI"
- ],
  "guevara": [
   "CHE"
- ],
- "gunmen": [
-  "RA"
  ],
  "gunners": [
   "RA"
  ],
  "gym": [
-  "PE",
-  "PT"
- ],
- "half day": [
-  "AM"
+  "PE"
  ],
  "hand": [
   "AB",
-  "E",
   "L",
-  "N",
-  "R",
-  "S",
-  "W"
+  "R"
  ],
  "hard": [
   "H"
@@ -4581,17 +3528,11 @@
  "helium": [
   "HE"
  ],
- "henry": [
-  "H"
- ],
  "her majesty": [
   "HM"
  ],
  "heroin": [
   "H"
- ],
- "hesitation": [
-  "ER"
  ],
  "hexadecimal": [
   "HEX"
@@ -4603,24 +3544,14 @@
  "hire purchase": [
   "HP"
  ],
- "hole": [
-  "O"
- ],
  "holy man": [
   "ST"
- ],
- "home": [
-  "IN"
  ],
  "home counties": [
   "SE"
  ],
  "honour": [
-  "A",
-  "J",
-  "K",
-  "OBE",
-  "Q"
+  "OBE"
  ],
  "honours": [
   "BA",
@@ -4628,23 +3559,14 @@
  ],
  "horse": [
   "G",
-  "GG",
-  "H"
+  "GG"
  ],
  "hospital": [
-  "H",
-  "SAN"
- ],
- "hospital department": [
-  "AE",
-  "ENT"
+  "H"
  ],
  "hour": [
   "H",
   "HR"
- ],
- "house": [
-  "HO"
  ],
  "houses of parliament": [
   "HP"
@@ -4653,8 +3575,7 @@
   "O"
  ],
  "hundred": [
-  "C",
-  "TON"
+  "C"
  ],
  "husband": [
   "H"
@@ -4677,9 +3598,6 @@
  "illinois": [
   "IL"
  ],
- "image": [
-  "PIC"
- ],
  "in charge": [
   "IC"
  ],
@@ -4688,10 +3606,6 @@
  ],
  "inch": [
   "IN"
- ],
- "independent": [
-  "I",
-  "IND"
  ],
  "india": [
   "IN",
@@ -4709,9 +3623,6 @@
  "inning": [
   "I"
  ],
- "inspector": [
-  "DI"
- ],
  "instant message": [
   "IM"
  ],
@@ -4720,12 +3631,6 @@
  ],
  "intelligence": [
   "IQ"
- ],
- "internet": [
-  "ISP"
- ],
- "internet provider": [
-  "ISP"
  ],
  "iodine": [
   "I"
@@ -4749,12 +3654,6 @@
   "I",
   "IS"
  ],
- "isle of man": [
-  "IOM"
- ],
- "israel": [
-  "IL"
- ],
  "it": [
   "IT",
   "SA"
@@ -4771,9 +3670,6 @@
   "J",
   "TAR"
  ],
- "japan": [
-  "YEN"
- ],
  "jet": [
   "MIG"
  ],
@@ -4784,8 +3680,7 @@
   "ED"
  ],
  "judge": [
-  "J",
-  "REF"
+  "J"
  ],
  "junction": [
   "T"
@@ -4819,8 +3714,6 @@
   "K"
  ],
  "king": [
-  "BB",
-  "CR",
   "ER",
   "GR",
   "HM",
@@ -4851,13 +3744,10 @@
   "LAB"
  ],
  "lake": [
-  "L",
-  "LA",
   "LLA"
  ],
  "large": [
-  "L",
-  "OS"
+  "L"
  ],
  "large number": [
   "C",
@@ -4865,26 +3755,18 @@
   "K",
   "M"
  ],
- "last": [
-  "Z"
- ],
  "last character": [
   "Z"
  ],
  "last month": [
   "ULT"
  ],
- "latin": [
-  "L",
-  "LAT"
- ],
  "lawrence": [
   "DH",
   "TE"
  ],
  "lawyer": [
-  "BL",
-  "DA"
+  "BL"
  ],
  "lead": [
   "PB"
@@ -4892,14 +3774,8 @@
  "learner": [
   "L"
  ],
- "lecturer": [
-  "L"
- ],
  "left": [
   "L"
- ],
- "leg": [
-  "ON"
  ],
  "letter": [
   "EF",
@@ -4919,47 +3795,20 @@
  "line": [
   "L"
  ],
- "lines": [
-  "BR",
-  "LL",
-  "RY"
- ],
- "literary": [
-  "LIT"
- ],
- "literature": [
-  "LIT"
- ],
  "lithium": [
   "LI"
  ],
  "litre": [
   "L"
  ],
- "local": [
-  "PH",
-  "PUB"
- ],
  "local area network": [
   "LAN"
- ],
- "london philharmonic orchestra": [
-  "LPO"
- ],
- "london police": [
-  "MET"
  ],
  "long playing record": [
   "LP"
  ],
  "long wave": [
   "LW"
- ],
- "look": [
-  "LO"
- ],
- "lord": [
-  "LD"
  ],
  "los angeles": [
   "LA"
@@ -4974,9 +3823,6 @@
  "love": [
   "NIL",
   "O"
- ],
- "madame": [
-  "MME"
  ],
  "maiden": [
   "M"
@@ -4993,17 +3839,11 @@
   "M",
   "PA"
  ],
- "manager": [
-  "MIC"
- ],
  "many": [
   "CL",
   "XD"
  ],
  "map-makers": [
-  "OS"
- ],
- "mapmakers": [
   "OS"
  ],
  "marines": [
@@ -5049,35 +3889,17 @@
   "MD",
   "MO"
  ],
- "mediterranean sea": [
-  "MED"
- ],
- "mega": [
-  "M"
- ],
  "megabyte": [
   "MB"
  ],
  "member": [
-  "ARM",
-  "LEG",
   "MP"
  ],
  "member of parliament": [
   "MP"
  ],
- "men": [
-  "CID",
-  "DI",
-  "MET",
-  "OR",
-  "PC"
- ],
  "messerschmitt": [
   "ME"
- ],
- "metre": [
-  "M"
  ],
  "michigan": [
   "MI"
@@ -5093,12 +3915,6 @@
  ],
  "military police": [
   "MP"
- ],
- "million": [
-  "M"
- ],
- "miners": [
-  "NUM"
  ],
  "ministry of defence": [
   "MOD"
@@ -5122,7 +3938,6 @@
   "MO"
  ],
  "monarch": [
-  "CR",
   "ER",
   "GR",
   "K",
@@ -5158,36 +3973,15 @@
  "months": [
   "MOS"
  ],
- "morning": [
-  "AM"
- ],
  "morninghalf day": [
   "AM"
  ],
  "mother": [
   "MA"
  ],
- "motor racing": [
-  "FI"
- ],
- "motorists": [
-  "AA",
-  "RAC"
- ],
  "motorway": [
   "M",
   "MI"
- ],
- "murderer": [
-  "CAIN"
- ],
- "museum": [
-  "VA"
- ],
- "namely": [
-  "IE",
-  "SC",
-  "SS"
  ],
  "national trust": [
   "NT"
@@ -5210,9 +4004,6 @@
   "NV"
  ],
  "never-never": [
-  "HP"
- ],
- "nevernever": [
   "HP"
  ],
  "new": [
@@ -5240,13 +4031,6 @@
   "NZ",
   "NZL"
  ],
- "news": [
-  "NN"
- ],
- "newspaper": [
-  "FT",
-  "RAG"
- ],
  "newton": [
   "N"
  ],
@@ -5261,8 +4045,7 @@
  ],
  "no": [
   "N",
-  "NO",
-  "X"
+  "NO"
  ],
  "no ball": [
   "NB"
@@ -5271,7 +4054,6 @@
   "NG"
  ],
  "noon": [
-  "M",
   "N"
  ],
  "north": [
@@ -5307,7 +4089,6 @@
   "LAH",
   "MI",
   "NB",
-  "PS",
   "RE",
   "SO",
   "SOH",
@@ -5318,13 +4099,9 @@
   "NB"
  ],
  "nothing": [
-  "FA",
   "LOVE",
   "NIL",
   "O"
- ],
- "notice": [
-  "D"
  ],
  "november": [
   "N",
@@ -5349,11 +4126,6 @@
  "number one": [
   "ADAM"
  ],
- "nurse": [
-  "EN",
-  "RN",
-  "SEN"
- ],
  "ocean": [
   "O"
  ],
@@ -5365,7 +4137,6 @@
   "DU"
  ],
  "officer": [
-  "CO",
   "OC"
  ],
  "ohio": [
@@ -5376,8 +4147,7 @@
  ],
  "old": [
   "EX",
-  "O",
-  "OL"
+  "O"
  ],
  "old boy": [
   "OB"
@@ -5387,10 +4157,6 @@
  ],
  "old english": [
   "OE"
- ],
- "old man": [
-  "DAD",
-  "PA"
  ],
  "old person": [
   "OAP"
@@ -5405,8 +4171,7 @@
   "A",
   "ACE",
   "AN",
-  "I",
-  "UNIT"
+  "I"
  ],
  "operating system": [
   "OS"
@@ -5414,31 +4179,19 @@
  "operation": [
   "OP"
  ],
- "order": [
-  "OM"
- ],
  "oregon": [
   "OR"
  ],
  "oriental": [
   "E"
  ],
- "other ranks": [
-  "OR"
- ],
  "ounce": [
   "OZ"
- ],
- "outside broadcasting": [
-  "OB"
  ],
  "outsize": [
   "OS"
  ],
  "outsized": [
-  "OS"
- ],
- "outstanding": [
   "OS"
  ],
  "over": [
@@ -5449,9 +4202,6 @@
  ],
  "overdose": [
   "OD"
- ],
- "oversize": [
-  "OS"
  ],
  "oxygen": [
   "O"
@@ -5468,29 +4218,20 @@
  "pair": [
   "PR"
  ],
- "papers": [
-  "ID"
- ],
  "paramilitaries": [
   "ETA",
   "IRA",
   "UDA",
   "UFF"
  ],
- "paratrooper": [
-  "PARA"
- ],
  "parking": [
   "P"
  ],
  "party": [
-  "C",
   "CON",
   "DO",
   "LAB",
-  "LD",
-  "LIB",
-  "TORY"
+  "LIB"
  ],
  "pawn": [
   "P"
@@ -5517,8 +4258,7 @@
   "PER"
  ],
  "phone company": [
-  "BT",
-  "EE"
+  "BT"
  ],
  "phosphorus": [
   "P"
@@ -5529,31 +4269,14 @@
  "physical training": [
   "PT"
  ],
- "physicists": [
-  "CERN"
- ],
  "piano": [
   "P"
- ],
- "pig": [
-  "SOW"
- ],
- "pint": [
-  "PT"
- ],
- "place": [
-  "PL",
-  "SET",
-  "SITE",
-  "SPOT"
  ],
  "plane": [
   "MIG"
  ],
  "plate": [
-  "L",
-  "LP",
-  "P"
+  "LP"
  ],
  "play": [
   "ACT"
@@ -5561,14 +4284,10 @@
  "playing": [
   "ON"
  ],
- "please": [
-  "O"
- ],
  "poem": [
   "IF"
  ],
  "poet": [
-  "PO",
   "TS"
  ],
  "point": [
@@ -5619,10 +4338,6 @@
  "present day": [
   "AD"
  ],
- "presenter": [
-  "DJ",
-  "MC"
- ],
  "priest": [
   "DD",
   "ELI",
@@ -5641,9 +4356,6 @@
   "EM",
   "EN"
  ],
- "prisoner": [
-  "CON"
- ],
  "prisoner of war": [
   "POW"
  ],
@@ -5656,9 +4368,6 @@
  "promises": [
   "IOUS"
  ],
- "promotion": [
-  "AD"
- ],
  "province": [
   "NI"
  ],
@@ -5668,9 +4377,6 @@
  "public record office": [
   "PRO"
  ],
- "pudding": [
-  "PUD"
- ],
  "quarter": [
   "E",
   "ETC",
@@ -5679,9 +4385,6 @@
   "NW",
   "S",
   "W"
- ],
- "quartet": [
-  "IV"
  ],
  "queen": [
   "ER",
@@ -5703,27 +4406,13 @@
   "P",
   "SH"
  ],
- "quietly": [
-  "P",
-  "SH"
- ],
- "race": [
-  "TT"
- ],
  "radium": [
   "RA"
  ],
  "railway": [
   "BR",
-  "EL",
   "R",
   "RY"
- ],
- "rated": [
-  "X"
- ],
- "rechabite": [
-  "TT"
  ],
  "record": [
   "EP",
@@ -5735,16 +4424,8 @@
  "regina": [
   "R"
  ],
- "religious": [
-  "PI"
- ],
- "religious education": [
-  "RE"
- ],
  "republican": [
-  "GOP",
-  "R",
-  "REP"
+  "GOP"
  ],
  "republicans": [
   "GOP"
@@ -5759,9 +4440,6 @@
   "DD",
   "REV",
   "RR"
- ],
- "revolutionary": [
-  "CHE"
  ],
  "rex": [
   "R"
@@ -5782,11 +4460,8 @@
  "river": [
   "DEE",
   "EXE",
-  "MA",
-  "OB",
   "PO",
-  "R",
-  "URE"
+  "R"
  ],
  "road": [
   "AI",
@@ -5794,12 +4469,6 @@
  ],
  "rolls royce": [
   "RR"
- ],
- "rollsroyce": [
-  "RR"
- ],
- "roman catholic": [
-  "RC"
  ],
  "rook": [
   "R"
@@ -5825,14 +4494,8 @@
  "royal navy": [
   "RN"
  ],
- "rugby union": [
-  "RU"
- ],
  "run": [
   "R"
- ],
- "rural dean": [
-  "RD"
  ],
  "sailor": [
   "AB",
@@ -5848,20 +4511,13 @@
   "RN"
  ],
  "saint": [
-  "S",
   "ST"
  ],
  "salt": [
   "AB"
  ],
- "same": [
-  "DO"
- ],
  "sappers": [
   "RE"
- ],
- "satisfactory": [
-  "S"
  ],
  "saturday": [
   "S"
@@ -5885,40 +4541,15 @@
  "secret service": [
   "SS"
  ],
- "secretary": [
-  "PA"
- ],
- "section": [
-  "OR"
- ],
  "see": [
-  "CF",
-  "LO"
+  "CF"
  ],
  "selenium": [
   "SE"
  ],
- "senior service": [
-  "RN"
- ],
- "sergeant major": [
-  "SM"
- ],
- "serial": [
-  "SER"
- ],
- "series": [
-  "SER"
- ],
- "service": [
-  "RAF"
- ],
  "setter": [
   "I",
   "ME"
- ],
- "setter's": [
-  "MY"
  ],
  "sex appeal": [
   "IT",
@@ -5933,12 +4564,6 @@
  "ship": [
   "SS"
  ],
- "ship's officer": [
-  "PO"
- ],
- "shirt": [
-  "T"
- ],
  "short time": [
   "T"
  ],
@@ -5950,11 +4575,6 @@
  ],
  "siblings": [
   "SIS"
- ],
- "side": [
-  "LEG",
-  "OFF",
-  "ON"
  ],
  "significant other": [
   "SO"
@@ -5973,9 +4593,6 @@
  "silver": [
   "AG"
  ],
- "singer": [
-  "RAT"
- ],
  "single": [
   "I"
  ],
@@ -5983,32 +4600,11 @@
   "ANT",
   "BEE"
  ],
- "sixth sense": [
-  "ESP"
- ],
- "sleep": [
-  "Z",
-  "ZZ"
- ],
  "small": [
   "S"
  ],
- "snake": [
-  "S"
- ],
- "snooze": [
-  "Z",
-  "ZZ"
- ],
- "socialite": [
-  "DEB"
- ],
- "socially acceptable": [
-  "U"
- ],
  "society": [
-  "S",
-  "SOC"
+  "S"
  ],
  "sodium": [
   "NA"
@@ -6023,15 +4619,12 @@
  "soldier": [
   "ANT",
   "GI",
-  "OR",
   "PTE",
   "RE",
-  "RM",
-  "VET"
+  "RM"
  ],
  "soldiers": [
   "MEN",
-  "OR",
   "RA",
   "RE",
   "TA"
@@ -6061,26 +4654,8 @@
  "spades": [
   "S"
  ],
- "spain": [
-  "E"
- ],
  "spanish": [
   "EL"
- ],
- "special": [
-  "S",
-  "SP"
- ],
- "spectacles": [
-  "OO"
- ],
- "spies": [
-  "CIA",
-  "MI"
- ],
- "sport": [
-  "RL",
-  "RU"
  ],
  "sportsman": [
   "BLUE"
@@ -6140,9 +4715,6 @@
   "WV",
   "WY"
  ],
- "steam ship": [
-  "SS"
- ],
  "steamship": [
   "SS"
  ],
@@ -6165,22 +4737,8 @@
   "L",
   "NUS"
  ],
- "study": [
-  "CON",
-  "DEN",
-  "READ"
- ],
- "stumped": [
-  "ST"
- ],
  "submarine": [
   "SUB",
-  "U"
- ],
- "succeeded": [
-  "S"
- ],
- "suitable for all to see": [
   "U"
  ],
  "sulfur": [
@@ -6188,9 +4746,6 @@
  ],
  "sunday": [
   "S"
- ],
- "superintendent": [
-  "SUPT"
  ],
  "support": [
   "BRA"
@@ -6204,13 +4759,6 @@
   "SUI",
   "SWI"
  ],
- "tabloid": [
-  "RAG",
-  "SUN"
- ],
- "take": [
-  "R"
- ],
  "tar": [
   "AB"
  ],
@@ -6219,9 +4767,6 @@
  ],
  "tax": [
   "VAT"
- ],
- "teacher": [
-  "DON"
  ],
  "teachers": [
   "NUT"
@@ -6249,10 +4794,6 @@
  "tenor": [
   "T"
  ],
- "tense": [
-  "PT",
-  "T"
- ],
  "territorial army": [
   "TA"
  ],
@@ -6272,9 +4813,7 @@
   "TA"
  ],
  "that is": [
-  "IE",
-  "SC",
-  "SS"
+  "IE"
  ],
  "the french": [
   "LA",
@@ -6298,9 +4837,6 @@
  "the thing": [
   "IT"
  ],
- "theatre": [
-  "REP"
- ],
  "theologian": [
   "DD"
  ],
@@ -6318,19 +4854,15 @@
  ],
  "thus": [
   "IE",
-  "SIC",
-  "SO"
+  "SIC"
  ],
  "time": [
-  "AGE",
   "HR",
   "M",
   "S",
   "T"
  ],
  "times": [
-  "BY",
-  "TT",
   "X"
  ],
  "tin": [
@@ -6356,9 +4888,6 @@
  ],
  "tripod": [
   "Y"
- ],
- "troop": [
-  "RM"
  ],
  "tuesday": [
   "T",
@@ -6389,9 +4918,6 @@
  "ultimate": [
   "Z"
  ],
- "united": [
-  "U"
- ],
  "united kingdom": [
   "GBR",
   "UK"
@@ -6413,14 +4939,6 @@
   "Y",
   "YZ",
   "Z"
- ],
- "up": [
-  "N",
-  "U"
- ],
- "upper": [
-  "N",
-  "U"
  ],
  "upper class": [
   "U"
@@ -6446,12 +4964,6 @@
  "vermont": [
   "VT"
  ],
- "vermouth": [
-  "IT"
- ],
- "version": [
-  "V"
- ],
  "versus": [
   "V",
   "VS"
@@ -6468,17 +4980,11 @@
  "very soft": [
   "PP"
  ],
- "vessel": [
-  "SS"
- ],
  "victoria": [
   "VIC"
  ],
  "virginia": [
   "VA"
- ],
- "viscount": [
-  "VIS"
  ],
  "vitamin": [
   "A",
@@ -6518,9 +5024,6 @@
  "week": [
   "W"
  ],
- "weekend": [
-  "SS"
- ],
  "weight": [
   "G",
   "LB",
@@ -6535,16 +5038,7 @@
  "western australia": [
   "WA"
  ],
- "westminster": [
-  "HP"
- ],
- "wheel": [
-  "O"
- ],
  "whistle-blower": [
-  "REF"
- ],
- "whistleblower": [
   "REF"
  ],
  "wicket": [
@@ -6581,15 +5075,7 @@
  ],
  "worker": [
   "ANT",
-  "ARM",
-  "BEE",
-  "HAND"
- ],
- "workers": [
-  "TU"
- ],
- "writing": [
-  "MS"
+  "BEE"
  ],
  "wyoming": [
   "WY"
@@ -6612,28 +5098,20 @@
   "YE",
   "YEM"
  ],
- "yen": [
-  "Y"
- ],
  "yes": [
   "AY",
   "AYE",
   "Y"
  ],
- "you": [
-  "U"
- ],
  "yours truly": [
   "I",
-  "ID",
   "ME"
  ],
  "yttrium": [
   "Y"
  ],
  "zero": [
-  "O",
-  "Z"
+  "O"
  ],
  "zinc": [
   "ZN"

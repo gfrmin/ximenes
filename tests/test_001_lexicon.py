@@ -37,4 +37,6 @@ def test_built_file_matches_build_script() -> None:
     assert spec and spec.loader
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
-    assert mod.build() == json.loads(pathlib.Path(LEXICON / "abbreviations.json").read_text())
+    main, wiki = mod.build()  # brief 010: two files (Wikipedia's CC BY-SA entries apart)
+    assert main == json.loads(pathlib.Path(LEXICON / "abbreviations.json").read_text())
+    assert wiki == json.loads(pathlib.Path(LEXICON / "abbreviations.wikipedia.json").read_text())

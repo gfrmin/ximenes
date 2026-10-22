@@ -1,0 +1,4452 @@
+{
+ "source": "Wikipedia contributors, \"Crossword abbreviations\", revision 1375193762 (2026-09-16), https://en.wikipedia.org/w/index.php?oldid=1375193762; parsed by data/lexicon/build_abbreviations.py (values over 4 letters dropped; reviewed entries per REVIEW.md)",
+ "license": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); this file is an adaptation and carries the same licence",
+ "_origin": {
+  "aboard": {
+   "SS": "wikipedia"
+  },
+  "about": {
+   "C": "wikipedia",
+   "CA": "wikipedia",
+   "RE": "wikipedia"
+  },
+  "abstainer": {
+   "TT": "wikipedia"
+  },
+  "academic": {
+   "DD": "wikipedia",
+   "PROF": "wikipedia"
+  },
+  "acceleration": {
+   "G": "wikipedia"
+  },
+  "accepted": {
+   "A": "wikipedia"
+  },
+  "account": {
+   "AC": "wikipedia"
+  },
+  "accountant": {
+   "CA": "wikipedia"
+  },
+  "ace": {
+   "A": "wikipedia",
+   "AI": "wikipedia"
+  },
+  "advert": {
+   "AD": "wikipedia"
+  },
+  "african organisation": {
+   "ANC": "wikipedia"
+  },
+  "afternoon": {
+   "PM": "wikipedia"
+  },
+  "against": {
+   "V": "wikipedia",
+   "VS": "wikipedia"
+  },
+  "agent": {
+   "REP": "wikipedia"
+  },
+  "agricultural": {
+   "AG": "wikipedia"
+  },
+  "air conditioning": {
+   "AC": "wikipedia"
+  },
+  "airman": {
+   "AC": "wikipedia",
+   "LAC": "wikipedia",
+   "PO": "wikipedia"
+  },
+  "airmen": {
+   "RAF": "wikipedia"
+  },
+  "alien": {
+   "ET": "wikipedia"
+  },
+  "also known as": {
+   "AKA": "wikipedia"
+  },
+  "aluminium": {
+   "AL": "wikipedia"
+  },
+  "alumnus": {
+   "OB": "wikipedia",
+   "OG": "wikipedia"
+  },
+  "ambassador": {
+   "HE": "wikipedia"
+  },
+  "america": {
+   "A": "review+wikipedia",
+   "AM": "wikipedia",
+   "US": "wikipedia",
+   "USA": "wikipedia"
+  },
+  "american": {
+   "GI": "wikipedia"
+  },
+  "american ship": {
+   "USS": "wikipedia"
+  },
+  "amnesty": {
+   "AI": "wikipedia"
+  },
+  "anglican": {
+   "CE": "wikipedia"
+  },
+  "answer": {
+   "A": "wikipedia"
+  },
+  "arbiter": {
+   "REF": "wikipedia"
+  },
+  "archdeacon": {
+   "VEN": "wikipedia"
+  },
+  "area": {
+   "A": "review+wikipedia"
+  },
+  "army cop": {
+   "MP": "wikipedia"
+  },
+  "army corps": {
+   "RE": "wikipedia",
+   "REME": "wikipedia"
+  },
+  "arsenic": {
+   "AS": "wikipedia"
+  },
+  "article": {
+   "A": "wikipedia",
+   "AN": "wikipedia",
+   "THE": "wikipedia"
+  },
+  "artificial intelligence": {
+   "AI": "wikipedia"
+  },
+  "artillery": {
+   "RA": "wikipedia"
+  },
+  "artist": {
+   "RA": "wikipedia"
+  },
+  "asleep": {
+   "Z": "wikipedia",
+   "ZZ": "wikipedia"
+  },
+  "at": {
+   "A": "wikipedia"
+  },
+  "at home": {
+   "IN": "wikipedia"
+  },
+  "atmosphere": {
+   "AT": "wikipedia"
+  },
+  "attorney": {
+   "DA": "wikipedia",
+   "PA": "wikipedia"
+  },
+  "australia": {
+   "A": "wikipedia",
+   "AUS": "wikipedia",
+   "OZ": "wikipedia"
+  },
+  "avenue": {
+   "AVE": "wikipedia"
+  },
+  "award": {
+   "OM": "wikipedia"
+  },
+  "bachelor of arts": {
+   "BA": "wikipedia"
+  },
+  "bachelor of medicine": {
+   "BM": "wikipedia",
+   "MB": "wikipedia"
+  },
+  "base": {
+   "E": "wikipedia",
+   "TEN": "wikipedia"
+  },
+  "basque nationalists": {
+   "ETA": "wikipedia"
+  },
+  "bearing": {
+   "E": "wikipedia",
+   "N": "wikipedia",
+   "NE": "wikipedia",
+   "NW": "wikipedia",
+   "S": "wikipedia",
+   "W": "wikipedia"
+  },
+  "beginner": {
+   "L": "wikipedia"
+  },
+  "bend": {
+   "S": "wikipedia",
+   "U": "wikipedia"
+  },
+  "bible": {
+   "AV": "wikipedia"
+  },
+  "bill": {
+   "AC": "wikipedia",
+   "IOU": "wikipedia",
+   "TAB": "wikipedia"
+  },
+  "bishop": {
+   "B": "wikipedia",
+   "DD": "wikipedia",
+   "RR": "wikipedia"
+  },
+  "boat": {
+   "SS": "wikipedia"
+  },
+  "bob": {
+   "S": "wikipedia"
+  },
+  "book": {
+   "AV": "wikipedia",
+   "B": "review+wikipedia",
+   "GEN": "wikipedia",
+   "MS": "wikipedia",
+   "NT": "wikipedia",
+   "OT": "wikipedia"
+  },
+  "books": {
+   "AV": "wikipedia",
+   "B": "wikipedia",
+   "GEN": "wikipedia",
+   "MS": "wikipedia",
+   "NT": "wikipedia",
+   "OT": "wikipedia"
+  },
+  "bowled": {
+   "B": "wikipedia"
+  },
+  "boy": {
+   "B": "wikipedia"
+  },
+  "bridge player": {
+   "E": "wikipedia",
+   "N": "wikipedia",
+   "S": "wikipedia",
+   "W": "wikipedia"
+  },
+  "british": {
+   "B": "wikipedia"
+  },
+  "broadcaster": {
+   "BBC": "wikipedia"
+  },
+  "by": {
+   "X": "wikipedia"
+  },
+  "byte": {
+   "B": "wikipedia"
+  },
+  "calcium": {
+   "CA": "wikipedia"
+  },
+  "california": {
+   "CA": "wikipedia"
+  },
+  "cape": {
+   "C": "wikipedia"
+  },
+  "car": {
+   "RR": "wikipedia",
+   "T": "wikipedia"
+  },
+  "cardinal": {
+   "E": "wikipedia",
+   "N": "wikipedia",
+   "RED": "wikipedia",
+   "S": "wikipedia",
+   "W": "wikipedia"
+  },
+  "care of": {
+   "CO": "wikipedia"
+  },
+  "caught": {
+   "C": "wikipedia",
+   "CT": "wikipedia"
+  },
+  "celsius": {
+   "C": "wikipedia"
+  },
+  "cent": {
+   "C": "wikipedia"
+  },
+  "centigrade": {
+   "C": "wikipedia"
+  },
+  "century": {
+   "C": "wikipedia"
+  },
+  "certificate": {
+   "G": "wikipedia",
+   "PG": "wikipedia",
+   "R": "wikipedia",
+   "U": "wikipedia",
+   "X": "wikipedia"
+  },
+  "champion": {
+   "CH": "wikipedia"
+  },
+  "charge": {
+   "Q": "wikipedia"
+  },
+  "charged": {
+   "ION": "wikipedia"
+  },
+  "charlie": {
+   "C": "review+wikipedia"
+  },
+  "chartered accountant": {
+   "CA": "wikipedia"
+  },
+  "check": {
+   "V": "wikipedia"
+  },
+  "checkmark": {
+   "V": "wikipedia"
+  },
+  "chief": {
+   "CH": "wikipedia"
+  },
+  "chlorine": {
+   "CL": "wikipedia"
+  },
+  "chromosome": {
+   "X": "wikipedia",
+   "Y": "wikipedia"
+  },
+  "church": {
+   "CE": "wikipedia",
+   "CH": "wikipedia",
+   "RC": "wikipedia"
+  },
+  "circa": {
+   "C": "wikipedia"
+  },
+  "circle": {
+   "O": "wikipedia"
+  },
+  "city": {
+   "EC": "wikipedia",
+   "LA": "wikipedia",
+   "NY": "wikipedia"
+  },
+  "closed": {
+   "TO": "wikipedia"
+  },
+  "club": {
+   "Y": "wikipedia"
+  },
+  "coin": {
+   "C": "wikipedia",
+   "D": "wikipedia",
+   "P": "wikipedia"
+  },
+  "cold": {
+   "C": "review+wikipedia"
+  },
+  "college": {
+   "C": "wikipedia"
+  },
+  "colonel": {
+   "COL": "wikipedia"
+  },
+  "colt": {
+   "C": "wikipedia"
+  },
+  "commanderinchief": {
+   "CIC": "wikipedia",
+   "CINC": "wikipedia"
+  },
+  "commercial": {
+   "AD": "wikipedia"
+  },
+  "committee": {
+   "COM": "wikipedia"
+  },
+  "communist": {
+   "CHE": "wikipedia",
+   "RED": "review+wikipedia"
+  },
+  "companion": {
+   "CH": "wikipedia"
+  },
+  "company": {
+   "CO": "wikipedia"
+  },
+  "compare": {
+   "CF": "wikipedia"
+  },
+  "compass point": {
+   "E": "wikipedia",
+   "N": "wikipedia",
+   "S": "wikipedia",
+   "W": "wikipedia"
+  },
+  "computer": {
+   "PC": "wikipedia"
+  },
+  "concerning": {
+   "RE": "wikipedia"
+  },
+  "conservationists": {
+   "NT": "wikipedia"
+  },
+  "conservative": {
+   "BLUE": "wikipedia",
+   "C": "wikipedia",
+   "CON": "wikipedia",
+   "TORY": "wikipedia"
+  },
+  "constable": {
+   "PC": "wikipedia"
+  },
+  "constant": {
+   "C": "wikipedia",
+   "E": "wikipedia",
+   "G": "wikipedia",
+   "K": "wikipedia",
+   "PI": "wikipedia"
+  },
+  "contralto": {
+   "C": "wikipedia"
+  },
+  "copper": {
+   "CU": "wikipedia",
+   "D": "wikipedia",
+   "P": "wikipedia",
+   "PC": "wikipedia"
+  },
+  "corner": {
+   "NE": "wikipedia",
+   "NW": "wikipedia",
+   "SE": "wikipedia",
+   "SW": "wikipedia"
+  },
+  "councillor": {
+   "CL": "wikipedia",
+   "CLLR": "wikipedia",
+   "CLR": "wikipedia"
+  },
+  "court": {
+   "CT": "wikipedia"
+  },
+  "credit": {
+   "CR": "wikipedia"
+  },
+  "criminal": {
+   "CON": "wikipedia"
+  },
+  "cross": {
+   "X": "wikipedia"
+  },
+  "current": {
+   "AC": "wikipedia",
+   "AD": "wikipedia",
+   "AMP": "wikipedia",
+   "DC": "wikipedia",
+   "I": "wikipedia"
+  },
+  "current account": {
+   "CA": "wikipedia"
+  },
+  "cystic fibrosis": {
+   "CF": "wikipedia"
+  },
+  "date": {
+   "D": "wikipedia"
+  },
+  "daughter": {
+   "D": "wikipedia"
+  },
+  "dead": {
+   "D": "wikipedia",
+   "DEC": "wikipedia",
+   "EX": "wikipedia",
+   "OB": "wikipedia"
+  },
+  "debts": {
+   "IOUS": "wikipedia"
+  },
+  "deceased": {
+   "D": "wikipedia",
+   "DEC": "wikipedia",
+   "EX": "wikipedia"
+  },
+  "decoration": {
+   "GC": "wikipedia",
+   "MM": "wikipedia",
+   "VC": "wikipedia"
+  },
+  "degree": {
+   "BA": "wikipedia",
+   "C": "wikipedia",
+   "DEG": "wikipedia",
+   "F": "wikipedia",
+   "MA": "wikipedia"
+  },
+  "democrat": {
+   "D": "review+wikipedia"
+  },
+  "departs": {
+   "D": "wikipedia"
+  },
+  "detective": {
+   "DC": "wikipedia",
+   "DI": "review+wikipedia",
+   "DS": "wikipedia",
+   "PI": "review+wikipedia"
+  },
+  "detective inspector": {
+   "DI": "wikipedia"
+  },
+  "detectives": {
+   "CID": "wikipedia",
+   "YARD": "wikipedia"
+  },
+  "deutschmark": {
+   "DM": "wikipedia"
+  },
+  "dial": {
+   "O": "wikipedia"
+  },
+  "dictionary": {
+   "OED": "wikipedia"
+  },
+  "died": {
+   "D": "wikipedia",
+   "DEC": "wikipedia",
+   "EX": "wikipedia",
+   "OB": "wikipedia"
+  },
+  "dinner jacket": {
+   "DJ": "wikipedia"
+  },
+  "direction": {
+   "E": "wikipedia",
+   "N": "wikipedia",
+   "S": "wikipedia",
+   "W": "wikipedia"
+  },
+  "director": {
+   "D": "wikipedia"
+  },
+  "disc": {
+   "CD": "wikipedia",
+   "EP": "wikipedia",
+   "LP": "wikipedia",
+   "O": "wikipedia"
+  },
+  "disease": {
+   "ME": "wikipedia",
+   "TB": "wikipedia"
+  },
+  "doctor": {
+   "BM": "wikipedia",
+   "DOC": "wikipedia",
+   "DR": "wikipedia",
+   "GP": "wikipedia",
+   "MB": "wikipedia",
+   "MD": "wikipedia",
+   "MO": "wikipedia",
+   "NO": "wikipedia",
+   "WHO": "wikipedia"
+  },
+  "doctor of divinity": {
+   "DD": "wikipedia"
+  },
+  "donut": {
+   "O": "wikipedia"
+  },
+  "drama": {
+   "NOH": "wikipedia"
+  },
+  "drama company": {
+   "REP": "wikipedia"
+  },
+  "drip": {
+   "IV": "wikipedia"
+  },
+  "drug": {
+   "C": "wikipedia",
+   "E": "wikipedia",
+   "H": "wikipedia",
+   "X": "wikipedia"
+  },
+  "drunk": {
+   "SOT": "wikipedia"
+  },
+  "drunkard": {
+   "SOT": "wikipedia"
+  },
+  "dry": {
+   "AA": "wikipedia",
+   "TT": "wikipedia"
+  },
+  "duck": {
+   "O": "wikipedia"
+  },
+  "ducks": {
+   "OO": "wikipedia"
+  },
+  "duke": {
+   "D": "review+wikipedia"
+  },
+  "each": {
+   "EA": "wikipedia"
+  },
+  "earl": {
+   "E": "review+wikipedia"
+  },
+  "east": {
+   "E": "wikipedia"
+  },
+  "east germany": {
+   "GDR": "wikipedia"
+  },
+  "echo": {
+   "E": "wikipedia"
+  },
+  "economists": {
+   "LSE": "wikipedia"
+  },
+  "ecstasy": {
+   "E": "review+wikipedia",
+   "X": "wikipedia"
+  },
+  "editor": {
+   "ED": "wikipedia"
+  },
+  "egg": {
+   "O": "wikipedia"
+  },
+  "elected": {
+   "IN": "review+wikipedia"
+  },
+  "electricity": {
+   "AC": "wikipedia",
+   "DC": "wikipedia"
+  },
+  "eleven": {
+   "II": "wikipedia",
+   "XI": "wikipedia"
+  },
+  "end of war": {
+   "VE": "wikipedia"
+  },
+  "energy": {
+   "E": "wikipedia",
+   "J": "wikipedia"
+  },
+  "engagement": {
+   "GIG": "wikipedia"
+  },
+  "engineer": {
+   "CE": "wikipedia",
+   "ME": "wikipedia",
+   "RE": "wikipedia",
+   "REME": "wikipedia"
+  },
+  "english": {
+   "E": "wikipedia",
+   "EN": "wikipedia",
+   "ENG": "wikipedia"
+  },
+  "escape": {
+   "ESC": "wikipedia"
+  },
+  "established": {
+   "EST": "wikipedia"
+  },
+  "estimated time of arrival": {
+   "ETA": "wikipedia"
+  },
+  "europe": {
+   "EC": "wikipedia",
+   "EU": "wikipedia"
+  },
+  "european": {
+   "E": "review+wikipedia"
+  },
+  "excellent": {
+   "AI": "wikipedia"
+  },
+  "exercise": {
+   "PE": "wikipedia",
+   "PT": "wikipedia"
+  },
+  "extra": {
+   "W": "wikipedia"
+  },
+  "extra large": {
+   "XL": "wikipedia"
+  },
+  "extra terrestrial": {
+   "ET": "wikipedia"
+  },
+  "fahrenheit": {
+   "F": "wikipedia"
+  },
+  "father": {
+   "DA": "wikipedia",
+   "DAD": "wikipedia",
+   "FR": "wikipedia",
+   "PA": "wikipedia"
+  },
+  "fellow": {
+   "F": "review+wikipedia"
+  },
+  "female": {
+   "F": "wikipedia"
+  },
+  "fifty": {
+   "L": "wikipedia"
+  },
+  "fighter plane": {
+   "MIG": "wikipedia"
+  },
+  "fine": {
+   "F": "wikipedia"
+  },
+  "firm": {
+   "CO": "wikipedia"
+  },
+  "fish": {
+   "LING": "wikipedia"
+  },
+  "five": {
+   "V": "wikipedia"
+  },
+  "five hundred": {
+   "D": "wikipedia"
+  },
+  "fleet": {
+   "RN": "wikipedia"
+  },
+  "fliers": {
+   "RAF": "wikipedia"
+  },
+  "flying bomb": {
+   "VI": "wikipedia"
+  },
+  "following": {
+   "F": "wikipedia"
+  },
+  "football association": {
+   "FA": "wikipedia"
+  },
+  "football club": {
+   "FC": "wikipedia"
+  },
+  "for everyone": {
+   "U": "wikipedia"
+  },
+  "for example": {
+   "EG": "wikipedia"
+  },
+  "force": {
+   "F": "wikipedia",
+   "G": "wikipedia",
+   "N": "wikipedia"
+  },
+  "former": {
+   "EX": "wikipedia"
+  },
+  "four": {
+   "IV": "wikipedia"
+  },
+  "france": {
+   "F": "wikipedia"
+  },
+  "frenchman": {
+   "M": "wikipedia"
+  },
+  "friend": {
+   "PAL": "review+wikipedia"
+  },
+  "game": {
+   "RU": "wikipedia"
+  },
+  "gang leader": {
+   "AL": "wikipedia"
+  },
+  "gangster": {
+   "AL": "wikipedia"
+  },
+  "gas": {
+   "CS": "wikipedia",
+   "H": "wikipedia",
+   "N": "wikipedia",
+   "O": "wikipedia"
+  },
+  "genetic code": {
+   "DNA": "wikipedia",
+   "RNA": "wikipedia"
+  },
+  "georgia": {
+   "GA": "wikipedia"
+  },
+  "german submarine": {
+   "U": "wikipedia"
+  },
+  "germany": {
+   "D": "wikipedia",
+   "GER": "wikipedia"
+  },
+  "glasses": {
+   "OO": "wikipedia"
+  },
+  "gold": {
+   "AU": "wikipedia",
+   "OR": "wikipedia"
+  },
+  "good": {
+   "PI": "wikipedia"
+  },
+  "good man": {
+   "S": "wikipedia",
+   "ST": "wikipedia"
+  },
+  "graduate": {
+   "BA": "wikipedia",
+   "BED": "wikipedia",
+   "MA": "wikipedia"
+  },
+  "gram": {
+   "G": "wikipedia"
+  },
+  "grand": {
+   "G": "wikipedia",
+   "K": "wikipedia",
+   "M": "wikipedia"
+  },
+  "grand prix": {
+   "GP": "wikipedia"
+  },
+  "group": {
+   "GP": "wikipedia"
+  },
+  "grunt": {
+   "GI": "wikipedia"
+  },
+  "gunmen": {
+   "RA": "wikipedia"
+  },
+  "gunners": {
+   "RA": "wikipedia"
+  },
+  "gym": {
+   "PE": "wikipedia",
+   "PT": "wikipedia"
+  },
+  "half day": {
+   "AM": "wikipedia"
+  },
+  "hand": {
+   "E": "wikipedia",
+   "L": "wikipedia",
+   "N": "wikipedia",
+   "R": "wikipedia",
+   "S": "wikipedia",
+   "W": "wikipedia"
+  },
+  "hard": {
+   "H": "wikipedia"
+  },
+  "hear": {
+   "T": "wikipedia"
+  },
+  "hectare": {
+   "HA": "wikipedia"
+  },
+  "helium": {
+   "HE": "wikipedia"
+  },
+  "henry": {
+   "H": "wikipedia"
+  },
+  "heroin": {
+   "H": "wikipedia"
+  },
+  "hesitation": {
+   "ER": "wikipedia"
+  },
+  "hire purchase": {
+   "HP": "wikipedia"
+  },
+  "hole": {
+   "O": "wikipedia"
+  },
+  "holy man": {
+   "ST": "wikipedia"
+  },
+  "home": {
+   "IN": "wikipedia"
+  },
+  "home counties": {
+   "SE": "wikipedia"
+  },
+  "honour": {
+   "A": "wikipedia",
+   "J": "wikipedia",
+   "K": "wikipedia",
+   "Q": "wikipedia"
+  },
+  "honours": {
+   "BA": "wikipedia",
+   "MA": "wikipedia"
+  },
+  "horse": {
+   "G": "wikipedia",
+   "GG": "wikipedia",
+   "H": "wikipedia"
+  },
+  "hospital": {
+   "H": "wikipedia",
+   "SAN": "wikipedia"
+  },
+  "hospital department": {
+   "AE": "review+wikipedia",
+   "ENT": "review+wikipedia"
+  },
+  "hour": {
+   "H": "wikipedia",
+   "HR": "wikipedia"
+  },
+  "house": {
+   "HO": "wikipedia"
+  },
+  "houses of parliament": {
+   "HP": "wikipedia"
+  },
+  "hug": {
+   "O": "wikipedia"
+  },
+  "hundred": {
+   "C": "wikipedia",
+   "TON": "wikipedia"
+  },
+  "husband": {
+   "H": "wikipedia"
+  },
+  "hydrogen": {
+   "H": "wikipedia"
+  },
+  "iceland": {
+   "IS": "wikipedia"
+  },
+  "image": {
+   "PIC": "wikipedia"
+  },
+  "inch": {
+   "IN": "wikipedia"
+  },
+  "independent": {
+   "I": "wikipedia",
+   "IND": "wikipedia"
+  },
+  "information technology": {
+   "IT": "wikipedia"
+  },
+  "inspector": {
+   "DI": "wikipedia"
+  },
+  "intelligence": {
+   "IQ": "wikipedia"
+  },
+  "internet": {
+   "ISP": "wikipedia"
+  },
+  "internet provider": {
+   "ISP": "wikipedia"
+  },
+  "iodine": {
+   "I": "wikipedia"
+  },
+  "ireland": {
+   "IRE": "wikipedia"
+  },
+  "irish republican army": {
+   "IRA": "wikipedia"
+  },
+  "iron": {
+   "FE": "wikipedia"
+  },
+  "island": {
+   "I": "wikipedia",
+   "IS": "wikipedia"
+  },
+  "isle of man": {
+   "IOM": "wikipedia"
+  },
+  "israel": {
+   "IL": "wikipedia"
+  },
+  "jack": {
+   "AB": "wikipedia",
+   "J": "wikipedia",
+   "TAR": "wikipedia"
+  },
+  "japan": {
+   "YEN": "wikipedia"
+  },
+  "jet": {
+   "MIG": "wikipedia"
+  },
+  "jolly": {
+   "RM": "wikipedia"
+  },
+  "journalist": {
+   "ED": "wikipedia"
+  },
+  "judge": {
+   "J": "wikipedia",
+   "REF": "wikipedia"
+  },
+  "junction": {
+   "T": "wikipedia"
+  },
+  "junior": {
+   "JR": "wikipedia"
+  },
+  "kelvin": {
+   "K": "wikipedia"
+  },
+  "kentucky": {
+   "KY": "wikipedia"
+  },
+  "key": {
+   "A": "wikipedia",
+   "B": "wikipedia",
+   "C": "wikipedia",
+   "D": "wikipedia",
+   "E": "wikipedia",
+   "F": "wikipedia",
+   "G": "wikipedia"
+  },
+  "kick off": {
+   "KO": "wikipedia"
+  },
+  "kilo": {
+   "K": "wikipedia"
+  },
+  "king": {
+   "BB": "wikipedia",
+   "CR": "wikipedia",
+   "GR": "wikipedia",
+   "HM": "wikipedia",
+   "K": "wikipedia",
+   "R": "wikipedia"
+  },
+  "kiss": {
+   "X": "wikipedia"
+  },
+  "knave": {
+   "J": "wikipedia"
+  },
+  "knight": {
+   "K": "wikipedia",
+   "KBE": "wikipedia",
+   "KG": "wikipedia",
+   "KT": "wikipedia",
+   "N": "wikipedia"
+  },
+  "knock out": {
+   "KO": "wikipedia"
+  },
+  "knot": {
+   "KT": "wikipedia"
+  },
+  "labour": {
+   "LAB": "wikipedia"
+  },
+  "lake": {
+   "L": "review+wikipedia",
+   "LA": "wikipedia"
+  },
+  "large": {
+   "L": "wikipedia",
+   "OS": "wikipedia"
+  },
+  "large number": {
+   "C": "wikipedia",
+   "D": "wikipedia",
+   "K": "wikipedia",
+   "M": "wikipedia"
+  },
+  "last": {
+   "Z": "wikipedia"
+  },
+  "last month": {
+   "ULT": "wikipedia"
+  },
+  "latin": {
+   "L": "wikipedia",
+   "LAT": "wikipedia"
+  },
+  "lawrence": {
+   "DH": "wikipedia",
+   "TE": "wikipedia"
+  },
+  "lawyer": {
+   "DA": "review+wikipedia"
+  },
+  "lead": {
+   "PB": "wikipedia"
+  },
+  "learner": {
+   "L": "wikipedia"
+  },
+  "lecturer": {
+   "L": "review+wikipedia"
+  },
+  "left": {
+   "L": "wikipedia"
+  },
+  "leg": {
+   "ON": "wikipedia"
+  },
+  "liberal": {
+   "L": "wikipedia",
+   "LIB": "wikipedia"
+  },
+  "lieutenant": {
+   "LT": "wikipedia"
+  },
+  "line": {
+   "L": "wikipedia"
+  },
+  "lines": {
+   "BR": "wikipedia",
+   "LL": "review+wikipedia",
+   "RY": "wikipedia"
+  },
+  "literary": {
+   "LIT": "wikipedia"
+  },
+  "literature": {
+   "LIT": "wikipedia"
+  },
+  "litre": {
+   "L": "wikipedia"
+  },
+  "local": {
+   "PH": "wikipedia",
+   "PUB": "wikipedia"
+  },
+  "local area network": {
+   "LAN": "wikipedia"
+  },
+  "london philharmonic orchestra": {
+   "LPO": "wikipedia"
+  },
+  "london police": {
+   "MET": "wikipedia"
+  },
+  "long playing record": {
+   "LP": "wikipedia"
+  },
+  "long wave": {
+   "LW": "wikipedia"
+  },
+  "look": {
+   "LO": "wikipedia"
+  },
+  "lord": {
+   "LD": "wikipedia"
+  },
+  "los angeles": {
+   "LA": "wikipedia"
+  },
+  "loud": {
+   "F": "wikipedia",
+   "FF": "wikipedia"
+  },
+  "love": {
+   "O": "wikipedia"
+  },
+  "madame": {
+   "MME": "wikipedia"
+  },
+  "maiden": {
+   "M": "wikipedia"
+  },
+  "male": {
+   "HE": "wikipedia",
+   "M": "wikipedia",
+   "PA": "wikipedia"
+  },
+  "manager": {
+   "MIC": "wikipedia"
+  },
+  "mapmakers": {
+   "OS": "wikipedia"
+  },
+  "marines": {
+   "RM": "wikipedia"
+  },
+  "married": {
+   "M": "wikipedia"
+  },
+  "master": {
+   "M": "wikipedia"
+  },
+  "master of arts": {
+   "MA": "wikipedia"
+  },
+  "master of ceremonies": {
+   "MC": "wikipedia"
+  },
+  "master's": {
+   "MA": "wikipedia"
+  },
+  "medal": {
+   "GC": "wikipedia",
+   "OBE": "wikipedia",
+   "OM": "wikipedia",
+   "VC": "wikipedia"
+  },
+  "medic": {
+   "BM": "wikipedia",
+   "DOC": "wikipedia",
+   "DR": "wikipedia",
+   "GP": "wikipedia",
+   "MB": "wikipedia",
+   "MD": "wikipedia",
+   "MO": "wikipedia"
+  },
+  "mediterranean sea": {
+   "MED": "wikipedia"
+  },
+  "mega": {
+   "M": "wikipedia"
+  },
+  "megabyte": {
+   "MB": "wikipedia"
+  },
+  "member": {
+   "ARM": "review+wikipedia",
+   "LEG": "wikipedia",
+   "MP": "wikipedia"
+  },
+  "member of parliament": {
+   "MP": "wikipedia"
+  },
+  "men": {
+   "CID": "wikipedia",
+   "DI": "wikipedia",
+   "MET": "wikipedia",
+   "OR": "review+wikipedia",
+   "PC": "wikipedia"
+  },
+  "messerschmitt": {
+   "ME": "wikipedia"
+  },
+  "metre": {
+   "M": "wikipedia"
+  },
+  "middle east": {
+   "ME": "wikipedia"
+  },
+  "midfielder": {
+   "L": "wikipedia"
+  },
+  "military police": {
+   "MP": "wikipedia"
+  },
+  "million": {
+   "M": "review+wikipedia"
+  },
+  "miners": {
+   "NUM": "review+wikipedia"
+  },
+  "ministry of defence": {
+   "MOD": "wikipedia"
+  },
+  "minute": {
+   "M": "wikipedia"
+  },
+  "model": {
+   "T": "wikipedia"
+  },
+  "monarch": {
+   "CR": "wikipedia",
+   "ER": "wikipedia",
+   "GR": "wikipedia",
+   "K": "wikipedia",
+   "Q": "wikipedia",
+   "R": "wikipedia"
+  },
+  "monsieur": {
+   "M": "wikipedia"
+  },
+  "morning": {
+   "AM": "wikipedia"
+  },
+  "mother": {
+   "MA": "wikipedia"
+  },
+  "motor racing": {
+   "FI": "wikipedia"
+  },
+  "motorists": {
+   "AA": "wikipedia",
+   "RAC": "wikipedia"
+  },
+  "motorway": {
+   "M": "wikipedia",
+   "MI": "wikipedia"
+  },
+  "murderer": {
+   "CAIN": "wikipedia"
+  },
+  "museum": {
+   "VA": "wikipedia"
+  },
+  "namely": {
+   "IE": "wikipedia",
+   "SC": "wikipedia",
+   "SS": "wikipedia"
+  },
+  "national trust": {
+   "NT": "wikipedia"
+  },
+  "navy": {
+   "ABS": "wikipedia",
+   "RN": "wikipedia",
+   "TARS": "wikipedia"
+  },
+  "nazis": {
+   "SS": "wikipedia"
+  },
+  "neon": {
+   "NE": "wikipedia"
+  },
+  "nevernever": {
+   "HP": "wikipedia"
+  },
+  "new": {
+   "N": "wikipedia"
+  },
+  "new testament": {
+   "NT": "wikipedia"
+  },
+  "news": {
+   "NN": "wikipedia"
+  },
+  "newspaper": {
+   "FT": "wikipedia",
+   "RAG": "wikipedia"
+  },
+  "newton": {
+   "N": "wikipedia"
+  },
+  "nil": {
+   "O": "wikipedia"
+  },
+  "nitrogen": {
+   "N": "wikipedia"
+  },
+  "no": {
+   "N": "wikipedia",
+   "X": "wikipedia"
+  },
+  "no ball": {
+   "NB": "wikipedia"
+  },
+  "noon": {
+   "M": "wikipedia",
+   "N": "wikipedia"
+  },
+  "north": {
+   "N": "wikipedia"
+  },
+  "not applicable": {
+   "NA": "wikipedia"
+  },
+  "note": {
+   "LA": "wikipedia",
+   "NB": "wikipedia",
+   "PS": "wikipedia"
+  },
+  "nothing": {
+   "FA": "wikipedia",
+   "O": "wikipedia"
+  },
+  "notice": {
+   "D": "wikipedia"
+  },
+  "now": {
+   "AD": "wikipedia"
+  },
+  "number": {
+   "C": "wikipedia",
+   "D": "wikipedia",
+   "L": "wikipedia",
+   "M": "wikipedia",
+   "NO": "wikipedia",
+   "V": "wikipedia",
+   "X": "wikipedia"
+  },
+  "nurse": {
+   "EN": "wikipedia",
+   "RN": "wikipedia",
+   "SEN": "wikipedia"
+  },
+  "odds": {
+   "SP": "wikipedia"
+  },
+  "officer": {
+   "CO": "wikipedia",
+   "OC": "wikipedia"
+  },
+  "old": {
+   "O": "wikipedia",
+   "OL": "wikipedia"
+  },
+  "old man": {
+   "DAD": "wikipedia",
+   "PA": "wikipedia"
+  },
+  "old person": {
+   "OAP": "wikipedia"
+  },
+  "old testament": {
+   "OT": "wikipedia"
+  },
+  "one": {
+   "A": "wikipedia",
+   "ACE": "wikipedia",
+   "AN": "wikipedia",
+   "I": "wikipedia",
+   "UNIT": "wikipedia"
+  },
+  "operating system": {
+   "OS": "wikipedia"
+  },
+  "operation": {
+   "OP": "wikipedia"
+  },
+  "order": {
+   "OM": "wikipedia"
+  },
+  "oriental": {
+   "E": "wikipedia"
+  },
+  "other ranks": {
+   "OR": "wikipedia"
+  },
+  "ounce": {
+   "OZ": "wikipedia"
+  },
+  "outside broadcasting": {
+   "OB": "wikipedia"
+  },
+  "outsized": {
+   "OS": "wikipedia"
+  },
+  "outstanding": {
+   "OS": "wikipedia"
+  },
+  "over": {
+   "O": "wikipedia"
+  },
+  "over the top": {
+   "OTT": "wikipedia"
+  },
+  "overdose": {
+   "OD": "wikipedia"
+  },
+  "oversize": {
+   "OS": "wikipedia"
+  },
+  "oxygen": {
+   "O": "wikipedia"
+  },
+  "page": {
+   "P": "wikipedia"
+  },
+  "painters": {
+   "RA": "wikipedia"
+  },
+  "pair": {
+   "PR": "wikipedia"
+  },
+  "papers": {
+   "ID": "wikipedia"
+  },
+  "paramilitaries": {
+   "ETA": "wikipedia",
+   "IRA": "wikipedia",
+   "UDA": "wikipedia",
+   "UFF": "wikipedia"
+  },
+  "paratrooper": {
+   "PARA": "wikipedia"
+  },
+  "parking": {
+   "P": "wikipedia"
+  },
+  "party": {
+   "C": "wikipedia",
+   "CON": "wikipedia",
+   "DO": "wikipedia",
+   "LAB": "wikipedia",
+   "LD": "wikipedia",
+   "LIB": "wikipedia",
+   "TORY": "wikipedia"
+  },
+  "peacekeepers": {
+   "UN": "wikipedia"
+  },
+  "pencil": {
+   "HB": "wikipedia"
+  },
+  "penny": {
+   "CU": "wikipedia",
+   "D": "wikipedia",
+   "P": "wikipedia"
+  },
+  "phone company": {
+   "BT": "wikipedia",
+   "EE": "wikipedia"
+  },
+  "physical education": {
+   "PE": "wikipedia"
+  },
+  "physical training": {
+   "PT": "wikipedia"
+  },
+  "physicists": {
+   "CERN": "wikipedia"
+  },
+  "piano": {
+   "P": "wikipedia"
+  },
+  "pig": {
+   "SOW": "wikipedia"
+  },
+  "pint": {
+   "PT": "wikipedia"
+  },
+  "place": {
+   "PL": "review+wikipedia",
+   "SET": "wikipedia",
+   "SITE": "wikipedia",
+   "SPOT": "wikipedia"
+  },
+  "plane": {
+   "MIG": "wikipedia"
+  },
+  "plate": {
+   "L": "wikipedia",
+   "P": "wikipedia"
+  },
+  "please": {
+   "O": "wikipedia"
+  },
+  "poem": {
+   "IF": "wikipedia"
+  },
+  "poet": {
+   "PO": "wikipedia",
+   "TS": "wikipedia"
+  },
+  "point": {
+   "E": "wikipedia",
+   "N": "wikipedia",
+   "S": "wikipedia",
+   "W": "wikipedia"
+  },
+  "pole": {
+   "N": "wikipedia",
+   "S": "wikipedia"
+  },
+  "policeman": {
+   "CID": "wikipedia",
+   "DI": "wikipedia",
+   "MET": "wikipedia",
+   "PC": "wikipedia"
+  },
+  "politician": {
+   "MP": "wikipedia"
+  },
+  "posh": {
+   "U": "wikipedia"
+  },
+  "post office": {
+   "PO": "wikipedia"
+  },
+  "potassium": {
+   "K": "wikipedia"
+  },
+  "pound": {
+   "L": "wikipedia",
+   "LB": "wikipedia"
+  },
+  "power": {
+   "P": "wikipedia"
+  },
+  "presenter": {
+   "DJ": "wikipedia",
+   "MC": "wikipedia"
+  },
+  "priest": {
+   "DD": "wikipedia",
+   "ELI": "wikipedia",
+   "FR": "wikipedia",
+   "PR": "wikipedia",
+   "REV": "wikipedia",
+   "RR": "wikipedia"
+  },
+  "prime minister": {
+   "PM": "wikipedia"
+  },
+  "prisoner": {
+   "CON": "review+wikipedia"
+  },
+  "prisoner of war": {
+   "POW": "wikipedia"
+  },
+  "promises": {
+   "IOUS": "wikipedia"
+  },
+  "promotion": {
+   "AD": "wikipedia"
+  },
+  "province": {
+   "NI": "wikipedia"
+  },
+  "pub": {
+   "PH": "wikipedia"
+  },
+  "pudding": {
+   "PUD": "wikipedia"
+  },
+  "quarter": {
+   "E": "wikipedia",
+   "N": "wikipedia",
+   "S": "wikipedia",
+   "W": "wikipedia"
+  },
+  "quartet": {
+   "IV": "wikipedia"
+  },
+  "queen": {
+   "ER": "wikipedia",
+   "HM": "wikipedia",
+   "Q": "wikipedia"
+  },
+  "quiet": {
+   "P": "wikipedia",
+   "SH": "wikipedia"
+  },
+  "quietly": {
+   "P": "review+wikipedia",
+   "SH": "wikipedia"
+  },
+  "race": {
+   "TT": "wikipedia"
+  },
+  "railway": {
+   "BR": "wikipedia",
+   "EL": "wikipedia",
+   "R": "wikipedia"
+  },
+  "rated": {
+   "X": "wikipedia"
+  },
+  "rechabite": {
+   "TT": "wikipedia"
+  },
+  "record": {
+   "EP": "wikipedia",
+   "LP": "wikipedia"
+  },
+  "ref": {
+   "UMP": "wikipedia"
+  },
+  "regina": {
+   "R": "wikipedia"
+  },
+  "religious": {
+   "PI": "wikipedia"
+  },
+  "religious education": {
+   "RE": "wikipedia"
+  },
+  "republican": {
+   "GOP": "wikipedia",
+   "R": "review+wikipedia",
+   "REP": "wikipedia"
+  },
+  "resistance": {
+   "R": "wikipedia"
+  },
+  "retired": {
+   "RET": "wikipedia"
+  },
+  "reverend": {
+   "DD": "wikipedia",
+   "REV": "wikipedia",
+   "RR": "wikipedia"
+  },
+  "revolutionary": {
+   "CHE": "review+wikipedia"
+  },
+  "rex": {
+   "R": "wikipedia"
+  },
+  "right": {
+   "R": "wikipedia"
+  },
+  "right reverend": {
+   "RR": "wikipedia"
+  },
+  "ring": {
+   "O": "wikipedia"
+  },
+  "river": {
+   "DEE": "wikipedia",
+   "MA": "wikipedia",
+   "OB": "wikipedia",
+   "PO": "wikipedia",
+   "R": "wikipedia",
+   "URE": "wikipedia"
+  },
+  "road": {
+   "AI": "wikipedia",
+   "RD": "wikipedia"
+  },
+  "rollsroyce": {
+   "RR": "wikipedia"
+  },
+  "roman catholic": {
+   "RC": "wikipedia"
+  },
+  "rook": {
+   "R": "wikipedia"
+  },
+  "round": {
+   "O": "wikipedia"
+  },
+  "royal academy": {
+   "RA": "wikipedia"
+  },
+  "royal artillery": {
+   "RA": "wikipedia"
+  },
+  "royal engineers": {
+   "RE": "wikipedia"
+  },
+  "royal marines": {
+   "RM": "wikipedia"
+  },
+  "royal navy": {
+   "RN": "wikipedia"
+  },
+  "rugby union": {
+   "RU": "wikipedia"
+  },
+  "run": {
+   "R": "wikipedia"
+  },
+  "rural dean": {
+   "RD": "wikipedia"
+  },
+  "sailor": {
+   "AB": "wikipedia",
+   "HAND": "wikipedia",
+   "JACK": "wikipedia",
+   "OS": "wikipedia",
+   "RN": "wikipedia",
+   "SALT": "wikipedia",
+   "TAR": "wikipedia"
+  },
+  "saint": {
+   "S": "wikipedia",
+   "ST": "wikipedia"
+  },
+  "same": {
+   "DO": "wikipedia"
+  },
+  "sappers": {
+   "RE": "wikipedia"
+  },
+  "satisfactory": {
+   "S": "wikipedia"
+  },
+  "say": {
+   "EG": "wikipedia"
+  },
+  "seaman": {
+   "AB": "wikipedia"
+  },
+  "second": {
+   "MO": "wikipedia",
+   "S": "wikipedia"
+  },
+  "secret service": {
+   "SS": "wikipedia"
+  },
+  "secretary": {
+   "PA": "wikipedia"
+  },
+  "section": {
+   "OR": "wikipedia"
+  },
+  "see": {
+   "LO": "wikipedia"
+  },
+  "senior service": {
+   "RN": "wikipedia"
+  },
+  "sergeant major": {
+   "SM": "wikipedia"
+  },
+  "serial": {
+   "SER": "wikipedia"
+  },
+  "series": {
+   "SER": "wikipedia"
+  },
+  "service": {
+   "RAF": "review+wikipedia"
+  },
+  "setter": {
+   "I": "wikipedia"
+  },
+  "setter's": {
+   "MY": "wikipedia"
+  },
+  "sex appeal": {
+   "IT": "wikipedia",
+   "SA": "wikipedia"
+  },
+  "shilling": {
+   "S": "wikipedia"
+  },
+  "ship": {
+   "SS": "wikipedia"
+  },
+  "ship's officer": {
+   "PO": "wikipedia"
+  },
+  "shirt": {
+   "T": "wikipedia"
+  },
+  "short wave": {
+   "SW": "wikipedia"
+  },
+  "side": {
+   "LEG": "wikipedia",
+   "OFF": "wikipedia",
+   "ON": "wikipedia"
+  },
+  "significant other": {
+   "SO": "wikipedia"
+  },
+  "silk": {
+   "KC": "wikipedia",
+   "QC": "wikipedia"
+  },
+  "silver": {
+   "AG": "wikipedia"
+  },
+  "singer": {
+   "RAT": "wikipedia"
+  },
+  "sixth sense": {
+   "ESP": "wikipedia"
+  },
+  "sleep": {
+   "Z": "wikipedia",
+   "ZZ": "wikipedia"
+  },
+  "small": {
+   "S": "wikipedia"
+  },
+  "snake": {
+   "S": "wikipedia"
+  },
+  "snooze": {
+   "Z": "wikipedia",
+   "ZZ": "wikipedia"
+  },
+  "socialite": {
+   "DEB": "wikipedia"
+  },
+  "socially acceptable": {
+   "U": "wikipedia"
+  },
+  "society": {
+   "S": "wikipedia",
+   "SOC": "wikipedia"
+  },
+  "sodium": {
+   "NA": "wikipedia"
+  },
+  "softly": {
+   "P": "wikipedia"
+  },
+  "soldier": {
+   "ANT": "wikipedia",
+   "GI": "wikipedia",
+   "OR": "wikipedia",
+   "RE": "wikipedia",
+   "RM": "wikipedia",
+   "VET": "wikipedia"
+  },
+  "soldiers": {
+   "MEN": "wikipedia",
+   "OR": "review+wikipedia"
+  },
+  "son": {
+   "S": "wikipedia"
+  },
+  "south": {
+   "S": "wikipedia"
+  },
+  "spade": {
+   "S": "wikipedia"
+  },
+  "spain": {
+   "E": "review+wikipedia"
+  },
+  "special": {
+   "S": "review+wikipedia",
+   "SP": "wikipedia"
+  },
+  "spectacles": {
+   "OO": "wikipedia"
+  },
+  "spies": {
+   "CIA": "wikipedia",
+   "MI": "wikipedia"
+  },
+  "sport": {
+   "RL": "wikipedia",
+   "RU": "wikipedia"
+  },
+  "steam ship": {
+   "SS": "wikipedia"
+  },
+  "stone": {
+   "ST": "wikipedia"
+  },
+  "street": {
+   "ST": "wikipedia"
+  },
+  "student": {
+   "L": "wikipedia",
+   "NUS": "wikipedia"
+  },
+  "study": {
+   "CON": "wikipedia",
+   "DEN": "wikipedia",
+   "READ": "wikipedia"
+  },
+  "stumped": {
+   "ST": "wikipedia"
+  },
+  "submarine": {
+   "SUB": "wikipedia",
+   "U": "wikipedia"
+  },
+  "succeeded": {
+   "S": "wikipedia"
+  },
+  "suitable for all to see": {
+   "U": "wikipedia"
+  },
+  "superintendent": {
+   "SUPT": "wikipedia"
+  },
+  "sweat": {
+   "BO": "wikipedia"
+  },
+  "tabloid": {
+   "RAG": "wikipedia",
+   "SUN": "wikipedia"
+  },
+  "take": {
+   "R": "wikipedia"
+  },
+  "tar": {
+   "AB": "wikipedia"
+  },
+  "tax": {
+   "VAT": "wikipedia"
+  },
+  "teacher": {
+   "DON": "wikipedia"
+  },
+  "teachers": {
+   "NUT": "wikipedia"
+  },
+  "team": {
+   "XI": "wikipedia"
+  },
+  "teetotal": {
+   "AA": "wikipedia",
+   "TT": "wikipedia"
+  },
+  "ten": {
+   "IO": "wikipedia",
+   "X": "wikipedia"
+  },
+  "tense": {
+   "PT": "wikipedia",
+   "T": "review+wikipedia"
+  },
+  "territorial army": {
+   "TA": "wikipedia"
+  },
+  "terrorists": {
+   "ETA": "wikipedia",
+   "IRA": "wikipedia",
+   "UDA": "wikipedia",
+   "UFF": "wikipedia"
+  },
+  "thanks": {
+   "TA": "wikipedia"
+  },
+  "that is": {
+   "IE": "wikipedia",
+   "SC": "wikipedia",
+   "SS": "wikipedia"
+  },
+  "theatre": {
+   "REP": "review+wikipedia"
+  },
+  "theologian": {
+   "DD": "wikipedia"
+  },
+  "this month": {
+   "INST": "wikipedia"
+  },
+  "thousand": {
+   "G": "wikipedia",
+   "K": "wikipedia",
+   "M": "wikipedia"
+  },
+  "thus": {
+   "IE": "wikipedia",
+   "SIC": "wikipedia",
+   "SO": "wikipedia"
+  },
+  "time": {
+   "AGE": "wikipedia",
+   "M": "wikipedia",
+   "S": "wikipedia",
+   "T": "wikipedia"
+  },
+  "times": {
+   "BY": "wikipedia",
+   "TT": "wikipedia",
+   "X": "wikipedia"
+  },
+  "toilet": {
+   "WC": "wikipedia"
+  },
+  "tory": {
+   "CON": "wikipedia"
+  },
+  "trendy": {
+   "IN": "wikipedia"
+  },
+  "tripod": {
+   "Y": "wikipedia"
+  },
+  "troop": {
+   "RM": "wikipedia"
+  },
+  "tungsten": {
+   "W": "wikipedia"
+  },
+  "tyro": {
+   "L": "wikipedia"
+  },
+  "ulster": {
+   "NI": "wikipedia"
+  },
+  "ulster defence association": {
+   "UDA": "wikipedia"
+  },
+  "ulster freedom fighters": {
+   "UFF": "wikipedia"
+  },
+  "ultimate": {
+   "Z": "wikipedia"
+  },
+  "united": {
+   "U": "review+wikipedia"
+  },
+  "united nations": {
+   "UN": "wikipedia"
+  },
+  "university": {
+   "OU": "wikipedia",
+   "U": "wikipedia",
+   "UP": "wikipedia"
+  },
+  "unknown": {
+   "X": "wikipedia",
+   "Y": "wikipedia",
+   "Z": "wikipedia"
+  },
+  "up": {
+   "N": "wikipedia",
+   "U": "wikipedia"
+  },
+  "upper": {
+   "N": "wikipedia",
+   "U": "wikipedia"
+  },
+  "value added tax": {
+   "VAT": "wikipedia"
+  },
+  "variable": {
+   "X": "wikipedia",
+   "Y": "wikipedia",
+   "Z": "wikipedia"
+  },
+  "vermouth": {
+   "IT": "wikipedia"
+  },
+  "version": {
+   "V": "wikipedia"
+  },
+  "versus": {
+   "V": "wikipedia",
+   "VS": "wikipedia"
+  },
+  "very": {
+   "V": "wikipedia"
+  },
+  "vessel": {
+   "SS": "wikipedia"
+  },
+  "viscount": {
+   "VIS": "wikipedia"
+  },
+  "volunteers": {
+   "TA": "wikipedia"
+  },
+  "vote": {
+   "X": "wikipedia"
+  },
+  "way": {
+   "AVE": "wikipedia",
+   "RD": "wikipedia",
+   "ST": "wikipedia"
+  },
+  "weekend": {
+   "SS": "wikipedia"
+  },
+  "weight": {
+   "G": "wikipedia",
+   "LB": "wikipedia"
+  },
+  "westminster": {
+   "HP": "wikipedia"
+  },
+  "wheel": {
+   "O": "wikipedia"
+  },
+  "whistleblower": {
+   "REF": "wikipedia"
+  },
+  "wide": {
+   "W": "wikipedia"
+  },
+  "wife": {
+   "W": "wikipedia"
+  },
+  "with": {
+   "W": "wikipedia"
+  },
+  "without": {
+   "WO": "wikipedia"
+  },
+  "work": {
+   "OP": "wikipedia",
+   "OPUS": "wikipedia",
+   "W": "wikipedia"
+  },
+  "worker": {
+   "ANT": "wikipedia",
+   "ARM": "wikipedia",
+   "BEE": "wikipedia",
+   "HAND": "wikipedia"
+  },
+  "workers": {
+   "TU": "wikipedia"
+  },
+  "writing": {
+   "MS": "review+wikipedia"
+  },
+  "x": {
+   "IO": "wikipedia"
+  },
+  "yard": {
+   "Y": "wikipedia",
+   "YD": "wikipedia"
+  },
+  "year": {
+   "Y": "wikipedia",
+   "YR": "wikipedia"
+  },
+  "yen": {
+   "Y": "wikipedia"
+  },
+  "yes": {
+   "Y": "wikipedia"
+  },
+  "you": {
+   "U": "review+wikipedia"
+  },
+  "yours truly": {
+   "I": "wikipedia",
+   "ID": "wikipedia"
+  },
+  "zero": {
+   "O": "wikipedia",
+   "Z": "wikipedia"
+  }
+ },
+ "aboard": [
+  "SS"
+ ],
+ "about": [
+  "C",
+  "CA",
+  "RE"
+ ],
+ "abstainer": [
+  "TT"
+ ],
+ "academic": [
+  "DD",
+  "PROF"
+ ],
+ "acceleration": [
+  "G"
+ ],
+ "accepted": [
+  "A"
+ ],
+ "account": [
+  "AC"
+ ],
+ "accountant": [
+  "CA"
+ ],
+ "ace": [
+  "A",
+  "AI"
+ ],
+ "advert": [
+  "AD"
+ ],
+ "african organisation": [
+  "ANC"
+ ],
+ "afternoon": [
+  "PM"
+ ],
+ "against": [
+  "V",
+  "VS"
+ ],
+ "agent": [
+  "REP"
+ ],
+ "agricultural": [
+  "AG"
+ ],
+ "air conditioning": [
+  "AC"
+ ],
+ "airman": [
+  "AC",
+  "LAC",
+  "PO"
+ ],
+ "airmen": [
+  "RAF"
+ ],
+ "alien": [
+  "ET"
+ ],
+ "also known as": [
+  "AKA"
+ ],
+ "aluminium": [
+  "AL"
+ ],
+ "alumnus": [
+  "OB",
+  "OG"
+ ],
+ "ambassador": [
+  "HE"
+ ],
+ "america": [
+  "A",
+  "AM",
+  "US",
+  "USA"
+ ],
+ "american": [
+  "GI"
+ ],
+ "american ship": [
+  "USS"
+ ],
+ "amnesty": [
+  "AI"
+ ],
+ "anglican": [
+  "CE"
+ ],
+ "answer": [
+  "A"
+ ],
+ "arbiter": [
+  "REF"
+ ],
+ "archdeacon": [
+  "VEN"
+ ],
+ "area": [
+  "A"
+ ],
+ "army cop": [
+  "MP"
+ ],
+ "army corps": [
+  "RE",
+  "REME"
+ ],
+ "arsenic": [
+  "AS"
+ ],
+ "article": [
+  "A",
+  "AN",
+  "THE"
+ ],
+ "artificial intelligence": [
+  "AI"
+ ],
+ "artillery": [
+  "RA"
+ ],
+ "artist": [
+  "RA"
+ ],
+ "asleep": [
+  "Z",
+  "ZZ"
+ ],
+ "at": [
+  "A"
+ ],
+ "at home": [
+  "IN"
+ ],
+ "atmosphere": [
+  "AT"
+ ],
+ "attorney": [
+  "DA",
+  "PA"
+ ],
+ "australia": [
+  "A",
+  "AUS",
+  "OZ"
+ ],
+ "avenue": [
+  "AVE"
+ ],
+ "award": [
+  "OM"
+ ],
+ "bachelor of arts": [
+  "BA"
+ ],
+ "bachelor of medicine": [
+  "BM",
+  "MB"
+ ],
+ "base": [
+  "E",
+  "TEN"
+ ],
+ "basque nationalists": [
+  "ETA"
+ ],
+ "bearing": [
+  "E",
+  "N",
+  "NE",
+  "NW",
+  "S",
+  "W"
+ ],
+ "beginner": [
+  "L"
+ ],
+ "bend": [
+  "S",
+  "U"
+ ],
+ "bible": [
+  "AV"
+ ],
+ "bill": [
+  "AC",
+  "IOU",
+  "TAB"
+ ],
+ "bishop": [
+  "B",
+  "DD",
+  "RR"
+ ],
+ "boat": [
+  "SS"
+ ],
+ "bob": [
+  "S"
+ ],
+ "book": [
+  "AV",
+  "B",
+  "GEN",
+  "MS",
+  "NT",
+  "OT"
+ ],
+ "books": [
+  "AV",
+  "B",
+  "GEN",
+  "MS",
+  "NT",
+  "OT"
+ ],
+ "bowled": [
+  "B"
+ ],
+ "boy": [
+  "B"
+ ],
+ "bridge player": [
+  "E",
+  "N",
+  "S",
+  "W"
+ ],
+ "british": [
+  "B"
+ ],
+ "broadcaster": [
+  "BBC"
+ ],
+ "by": [
+  "X"
+ ],
+ "byte": [
+  "B"
+ ],
+ "calcium": [
+  "CA"
+ ],
+ "california": [
+  "CA"
+ ],
+ "cape": [
+  "C"
+ ],
+ "car": [
+  "RR",
+  "T"
+ ],
+ "cardinal": [
+  "E",
+  "N",
+  "RED",
+  "S",
+  "W"
+ ],
+ "care of": [
+  "CO"
+ ],
+ "caught": [
+  "C",
+  "CT"
+ ],
+ "celsius": [
+  "C"
+ ],
+ "cent": [
+  "C"
+ ],
+ "centigrade": [
+  "C"
+ ],
+ "century": [
+  "C"
+ ],
+ "certificate": [
+  "G",
+  "PG",
+  "R",
+  "U",
+  "X"
+ ],
+ "champion": [
+  "CH"
+ ],
+ "charge": [
+  "Q"
+ ],
+ "charged": [
+  "ION"
+ ],
+ "charlie": [
+  "C"
+ ],
+ "chartered accountant": [
+  "CA"
+ ],
+ "check": [
+  "V"
+ ],
+ "checkmark": [
+  "V"
+ ],
+ "chief": [
+  "CH"
+ ],
+ "chlorine": [
+  "CL"
+ ],
+ "chromosome": [
+  "X",
+  "Y"
+ ],
+ "church": [
+  "CE",
+  "CH",
+  "RC"
+ ],
+ "circa": [
+  "C"
+ ],
+ "circle": [
+  "O"
+ ],
+ "city": [
+  "EC",
+  "LA",
+  "NY"
+ ],
+ "closed": [
+  "TO"
+ ],
+ "club": [
+  "Y"
+ ],
+ "coin": [
+  "C",
+  "D",
+  "P"
+ ],
+ "cold": [
+  "C"
+ ],
+ "college": [
+  "C"
+ ],
+ "colonel": [
+  "COL"
+ ],
+ "colt": [
+  "C"
+ ],
+ "commanderinchief": [
+  "CIC",
+  "CINC"
+ ],
+ "commercial": [
+  "AD"
+ ],
+ "committee": [
+  "COM"
+ ],
+ "communist": [
+  "CHE",
+  "RED"
+ ],
+ "companion": [
+  "CH"
+ ],
+ "company": [
+  "CO"
+ ],
+ "compare": [
+  "CF"
+ ],
+ "compass point": [
+  "E",
+  "N",
+  "S",
+  "W"
+ ],
+ "computer": [
+  "PC"
+ ],
+ "concerning": [
+  "RE"
+ ],
+ "conservationists": [
+  "NT"
+ ],
+ "conservative": [
+  "BLUE",
+  "C",
+  "CON",
+  "TORY"
+ ],
+ "constable": [
+  "PC"
+ ],
+ "constant": [
+  "C",
+  "E",
+  "G",
+  "K",
+  "PI"
+ ],
+ "contralto": [
+  "C"
+ ],
+ "copper": [
+  "CU",
+  "D",
+  "P",
+  "PC"
+ ],
+ "corner": [
+  "NE",
+  "NW",
+  "SE",
+  "SW"
+ ],
+ "councillor": [
+  "CL",
+  "CLLR",
+  "CLR"
+ ],
+ "court": [
+  "CT"
+ ],
+ "credit": [
+  "CR"
+ ],
+ "criminal": [
+  "CON"
+ ],
+ "cross": [
+  "X"
+ ],
+ "current": [
+  "AC",
+  "AD",
+  "AMP",
+  "DC",
+  "I"
+ ],
+ "current account": [
+  "CA"
+ ],
+ "cystic fibrosis": [
+  "CF"
+ ],
+ "date": [
+  "D"
+ ],
+ "daughter": [
+  "D"
+ ],
+ "dead": [
+  "D",
+  "DEC",
+  "EX",
+  "OB"
+ ],
+ "debts": [
+  "IOUS"
+ ],
+ "deceased": [
+  "D",
+  "DEC",
+  "EX"
+ ],
+ "decoration": [
+  "GC",
+  "MM",
+  "VC"
+ ],
+ "degree": [
+  "BA",
+  "C",
+  "DEG",
+  "F",
+  "MA"
+ ],
+ "democrat": [
+  "D"
+ ],
+ "departs": [
+  "D"
+ ],
+ "detective": [
+  "DC",
+  "DI",
+  "DS",
+  "PI"
+ ],
+ "detective inspector": [
+  "DI"
+ ],
+ "detectives": [
+  "CID",
+  "YARD"
+ ],
+ "deutschmark": [
+  "DM"
+ ],
+ "dial": [
+  "O"
+ ],
+ "dictionary": [
+  "OED"
+ ],
+ "died": [
+  "D",
+  "DEC",
+  "EX",
+  "OB"
+ ],
+ "dinner jacket": [
+  "DJ"
+ ],
+ "direction": [
+  "E",
+  "N",
+  "S",
+  "W"
+ ],
+ "director": [
+  "D"
+ ],
+ "disc": [
+  "CD",
+  "EP",
+  "LP",
+  "O"
+ ],
+ "disease": [
+  "ME",
+  "TB"
+ ],
+ "doctor": [
+  "BM",
+  "DOC",
+  "DR",
+  "GP",
+  "MB",
+  "MD",
+  "MO",
+  "NO",
+  "WHO"
+ ],
+ "doctor of divinity": [
+  "DD"
+ ],
+ "donut": [
+  "O"
+ ],
+ "drama": [
+  "NOH"
+ ],
+ "drama company": [
+  "REP"
+ ],
+ "drip": [
+  "IV"
+ ],
+ "drug": [
+  "C",
+  "E",
+  "H",
+  "X"
+ ],
+ "drunk": [
+  "SOT"
+ ],
+ "drunkard": [
+  "SOT"
+ ],
+ "dry": [
+  "AA",
+  "TT"
+ ],
+ "duck": [
+  "O"
+ ],
+ "ducks": [
+  "OO"
+ ],
+ "duke": [
+  "D"
+ ],
+ "each": [
+  "EA"
+ ],
+ "earl": [
+  "E"
+ ],
+ "east": [
+  "E"
+ ],
+ "east germany": [
+  "GDR"
+ ],
+ "echo": [
+  "E"
+ ],
+ "economists": [
+  "LSE"
+ ],
+ "ecstasy": [
+  "E",
+  "X"
+ ],
+ "editor": [
+  "ED"
+ ],
+ "egg": [
+  "O"
+ ],
+ "elected": [
+  "IN"
+ ],
+ "electricity": [
+  "AC",
+  "DC"
+ ],
+ "eleven": [
+  "II",
+  "XI"
+ ],
+ "end of war": [
+  "VE"
+ ],
+ "energy": [
+  "E",
+  "J"
+ ],
+ "engagement": [
+  "GIG"
+ ],
+ "engineer": [
+  "CE",
+  "ME",
+  "RE",
+  "REME"
+ ],
+ "english": [
+  "E",
+  "EN",
+  "ENG"
+ ],
+ "escape": [
+  "ESC"
+ ],
+ "established": [
+  "EST"
+ ],
+ "estimated time of arrival": [
+  "ETA"
+ ],
+ "europe": [
+  "EC",
+  "EU"
+ ],
+ "european": [
+  "E"
+ ],
+ "excellent": [
+  "AI"
+ ],
+ "exercise": [
+  "PE",
+  "PT"
+ ],
+ "extra": [
+  "W"
+ ],
+ "extra large": [
+  "XL"
+ ],
+ "extra terrestrial": [
+  "ET"
+ ],
+ "fahrenheit": [
+  "F"
+ ],
+ "father": [
+  "DA",
+  "DAD",
+  "FR",
+  "PA"
+ ],
+ "fellow": [
+  "F"
+ ],
+ "female": [
+  "F"
+ ],
+ "fifty": [
+  "L"
+ ],
+ "fighter plane": [
+  "MIG"
+ ],
+ "fine": [
+  "F"
+ ],
+ "firm": [
+  "CO"
+ ],
+ "fish": [
+  "LING"
+ ],
+ "five": [
+  "V"
+ ],
+ "five hundred": [
+  "D"
+ ],
+ "fleet": [
+  "RN"
+ ],
+ "fliers": [
+  "RAF"
+ ],
+ "flying bomb": [
+  "VI"
+ ],
+ "following": [
+  "F"
+ ],
+ "football association": [
+  "FA"
+ ],
+ "football club": [
+  "FC"
+ ],
+ "for everyone": [
+  "U"
+ ],
+ "for example": [
+  "EG"
+ ],
+ "force": [
+  "F",
+  "G",
+  "N"
+ ],
+ "former": [
+  "EX"
+ ],
+ "four": [
+  "IV"
+ ],
+ "france": [
+  "F"
+ ],
+ "frenchman": [
+  "M"
+ ],
+ "friend": [
+  "PAL"
+ ],
+ "game": [
+  "RU"
+ ],
+ "gang leader": [
+  "AL"
+ ],
+ "gangster": [
+  "AL"
+ ],
+ "gas": [
+  "CS",
+  "H",
+  "N",
+  "O"
+ ],
+ "genetic code": [
+  "DNA",
+  "RNA"
+ ],
+ "georgia": [
+  "GA"
+ ],
+ "german submarine": [
+  "U"
+ ],
+ "germany": [
+  "D",
+  "GER"
+ ],
+ "glasses": [
+  "OO"
+ ],
+ "gold": [
+  "AU",
+  "OR"
+ ],
+ "good": [
+  "PI"
+ ],
+ "good man": [
+  "S",
+  "ST"
+ ],
+ "graduate": [
+  "BA",
+  "BED",
+  "MA"
+ ],
+ "gram": [
+  "G"
+ ],
+ "grand": [
+  "G",
+  "K",
+  "M"
+ ],
+ "grand prix": [
+  "GP"
+ ],
+ "group": [
+  "GP"
+ ],
+ "grunt": [
+  "GI"
+ ],
+ "gunmen": [
+  "RA"
+ ],
+ "gunners": [
+  "RA"
+ ],
+ "gym": [
+  "PE",
+  "PT"
+ ],
+ "half day": [
+  "AM"
+ ],
+ "hand": [
+  "E",
+  "L",
+  "N",
+  "R",
+  "S",
+  "W"
+ ],
+ "hard": [
+  "H"
+ ],
+ "hear": [
+  "T"
+ ],
+ "hectare": [
+  "HA"
+ ],
+ "helium": [
+  "HE"
+ ],
+ "henry": [
+  "H"
+ ],
+ "heroin": [
+  "H"
+ ],
+ "hesitation": [
+  "ER"
+ ],
+ "hire purchase": [
+  "HP"
+ ],
+ "hole": [
+  "O"
+ ],
+ "holy man": [
+  "ST"
+ ],
+ "home": [
+  "IN"
+ ],
+ "home counties": [
+  "SE"
+ ],
+ "honour": [
+  "A",
+  "J",
+  "K",
+  "Q"
+ ],
+ "honours": [
+  "BA",
+  "MA"
+ ],
+ "horse": [
+  "G",
+  "GG",
+  "H"
+ ],
+ "hospital": [
+  "H",
+  "SAN"
+ ],
+ "hospital department": [
+  "AE",
+  "ENT"
+ ],
+ "hour": [
+  "H",
+  "HR"
+ ],
+ "house": [
+  "HO"
+ ],
+ "houses of parliament": [
+  "HP"
+ ],
+ "hug": [
+  "O"
+ ],
+ "hundred": [
+  "C",
+  "TON"
+ ],
+ "husband": [
+  "H"
+ ],
+ "hydrogen": [
+  "H"
+ ],
+ "iceland": [
+  "IS"
+ ],
+ "image": [
+  "PIC"
+ ],
+ "inch": [
+  "IN"
+ ],
+ "independent": [
+  "I",
+  "IND"
+ ],
+ "information technology": [
+  "IT"
+ ],
+ "inspector": [
+  "DI"
+ ],
+ "intelligence": [
+  "IQ"
+ ],
+ "internet": [
+  "ISP"
+ ],
+ "internet provider": [
+  "ISP"
+ ],
+ "iodine": [
+  "I"
+ ],
+ "ireland": [
+  "IRE"
+ ],
+ "irish republican army": [
+  "IRA"
+ ],
+ "iron": [
+  "FE"
+ ],
+ "island": [
+  "I",
+  "IS"
+ ],
+ "isle of man": [
+  "IOM"
+ ],
+ "israel": [
+  "IL"
+ ],
+ "jack": [
+  "AB",
+  "J",
+  "TAR"
+ ],
+ "japan": [
+  "YEN"
+ ],
+ "jet": [
+  "MIG"
+ ],
+ "jolly": [
+  "RM"
+ ],
+ "journalist": [
+  "ED"
+ ],
+ "judge": [
+  "J",
+  "REF"
+ ],
+ "junction": [
+  "T"
+ ],
+ "junior": [
+  "JR"
+ ],
+ "kelvin": [
+  "K"
+ ],
+ "kentucky": [
+  "KY"
+ ],
+ "key": [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G"
+ ],
+ "kick off": [
+  "KO"
+ ],
+ "kilo": [
+  "K"
+ ],
+ "king": [
+  "BB",
+  "CR",
+  "GR",
+  "HM",
+  "K",
+  "R"
+ ],
+ "kiss": [
+  "X"
+ ],
+ "knave": [
+  "J"
+ ],
+ "knight": [
+  "K",
+  "KBE",
+  "KG",
+  "KT",
+  "N"
+ ],
+ "knock out": [
+  "KO"
+ ],
+ "knot": [
+  "KT"
+ ],
+ "labour": [
+  "LAB"
+ ],
+ "lake": [
+  "L",
+  "LA"
+ ],
+ "large": [
+  "L",
+  "OS"
+ ],
+ "large number": [
+  "C",
+  "D",
+  "K",
+  "M"
+ ],
+ "last": [
+  "Z"
+ ],
+ "last month": [
+  "ULT"
+ ],
+ "latin": [
+  "L",
+  "LAT"
+ ],
+ "lawrence": [
+  "DH",
+  "TE"
+ ],
+ "lawyer": [
+  "DA"
+ ],
+ "lead": [
+  "PB"
+ ],
+ "learner": [
+  "L"
+ ],
+ "lecturer": [
+  "L"
+ ],
+ "left": [
+  "L"
+ ],
+ "leg": [
+  "ON"
+ ],
+ "liberal": [
+  "L",
+  "LIB"
+ ],
+ "lieutenant": [
+  "LT"
+ ],
+ "line": [
+  "L"
+ ],
+ "lines": [
+  "BR",
+  "LL",
+  "RY"
+ ],
+ "literary": [
+  "LIT"
+ ],
+ "literature": [
+  "LIT"
+ ],
+ "litre": [
+  "L"
+ ],
+ "local": [
+  "PH",
+  "PUB"
+ ],
+ "local area network": [
+  "LAN"
+ ],
+ "london philharmonic orchestra": [
+  "LPO"
+ ],
+ "london police": [
+  "MET"
+ ],
+ "long playing record": [
+  "LP"
+ ],
+ "long wave": [
+  "LW"
+ ],
+ "look": [
+  "LO"
+ ],
+ "lord": [
+  "LD"
+ ],
+ "los angeles": [
+  "LA"
+ ],
+ "loud": [
+  "F",
+  "FF"
+ ],
+ "love": [
+  "O"
+ ],
+ "madame": [
+  "MME"
+ ],
+ "maiden": [
+  "M"
+ ],
+ "male": [
+  "HE",
+  "M",
+  "PA"
+ ],
+ "manager": [
+  "MIC"
+ ],
+ "mapmakers": [
+  "OS"
+ ],
+ "marines": [
+  "RM"
+ ],
+ "married": [
+  "M"
+ ],
+ "master": [
+  "M"
+ ],
+ "master of arts": [
+  "MA"
+ ],
+ "master of ceremonies": [
+  "MC"
+ ],
+ "master's": [
+  "MA"
+ ],
+ "medal": [
+  "GC",
+  "OBE",
+  "OM",
+  "VC"
+ ],
+ "medic": [
+  "BM",
+  "DOC",
+  "DR",
+  "GP",
+  "MB",
+  "MD",
+  "MO"
+ ],
+ "mediterranean sea": [
+  "MED"
+ ],
+ "mega": [
+  "M"
+ ],
+ "megabyte": [
+  "MB"
+ ],
+ "member": [
+  "ARM",
+  "LEG",
+  "MP"
+ ],
+ "member of parliament": [
+  "MP"
+ ],
+ "men": [
+  "CID",
+  "DI",
+  "MET",
+  "OR",
+  "PC"
+ ],
+ "messerschmitt": [
+  "ME"
+ ],
+ "metre": [
+  "M"
+ ],
+ "middle east": [
+  "ME"
+ ],
+ "midfielder": [
+  "L"
+ ],
+ "military police": [
+  "MP"
+ ],
+ "million": [
+  "M"
+ ],
+ "miners": [
+  "NUM"
+ ],
+ "ministry of defence": [
+  "MOD"
+ ],
+ "minute": [
+  "M"
+ ],
+ "model": [
+  "T"
+ ],
+ "monarch": [
+  "CR",
+  "ER",
+  "GR",
+  "K",
+  "Q",
+  "R"
+ ],
+ "monsieur": [
+  "M"
+ ],
+ "morning": [
+  "AM"
+ ],
+ "mother": [
+  "MA"
+ ],
+ "motor racing": [
+  "FI"
+ ],
+ "motorists": [
+  "AA",
+  "RAC"
+ ],
+ "motorway": [
+  "M",
+  "MI"
+ ],
+ "murderer": [
+  "CAIN"
+ ],
+ "museum": [
+  "VA"
+ ],
+ "namely": [
+  "IE",
+  "SC",
+  "SS"
+ ],
+ "national trust": [
+  "NT"
+ ],
+ "navy": [
+  "ABS",
+  "RN",
+  "TARS"
+ ],
+ "nazis": [
+  "SS"
+ ],
+ "neon": [
+  "NE"
+ ],
+ "nevernever": [
+  "HP"
+ ],
+ "new": [
+  "N"
+ ],
+ "new testament": [
+  "NT"
+ ],
+ "news": [
+  "NN"
+ ],
+ "newspaper": [
+  "FT",
+  "RAG"
+ ],
+ "newton": [
+  "N"
+ ],
+ "nil": [
+  "O"
+ ],
+ "nitrogen": [
+  "N"
+ ],
+ "no": [
+  "N",
+  "X"
+ ],
+ "no ball": [
+  "NB"
+ ],
+ "noon": [
+  "M",
+  "N"
+ ],
+ "north": [
+  "N"
+ ],
+ "not applicable": [
+  "NA"
+ ],
+ "note": [
+  "LA",
+  "NB",
+  "PS"
+ ],
+ "nothing": [
+  "FA",
+  "O"
+ ],
+ "notice": [
+  "D"
+ ],
+ "now": [
+  "AD"
+ ],
+ "number": [
+  "C",
+  "D",
+  "L",
+  "M",
+  "NO",
+  "V",
+  "X"
+ ],
+ "nurse": [
+  "EN",
+  "RN",
+  "SEN"
+ ],
+ "odds": [
+  "SP"
+ ],
+ "officer": [
+  "CO",
+  "OC"
+ ],
+ "old": [
+  "O",
+  "OL"
+ ],
+ "old man": [
+  "DAD",
+  "PA"
+ ],
+ "old person": [
+  "OAP"
+ ],
+ "old testament": [
+  "OT"
+ ],
+ "one": [
+  "A",
+  "ACE",
+  "AN",
+  "I",
+  "UNIT"
+ ],
+ "operating system": [
+  "OS"
+ ],
+ "operation": [
+  "OP"
+ ],
+ "order": [
+  "OM"
+ ],
+ "oriental": [
+  "E"
+ ],
+ "other ranks": [
+  "OR"
+ ],
+ "ounce": [
+  "OZ"
+ ],
+ "outside broadcasting": [
+  "OB"
+ ],
+ "outsized": [
+  "OS"
+ ],
+ "outstanding": [
+  "OS"
+ ],
+ "over": [
+  "O"
+ ],
+ "over the top": [
+  "OTT"
+ ],
+ "overdose": [
+  "OD"
+ ],
+ "oversize": [
+  "OS"
+ ],
+ "oxygen": [
+  "O"
+ ],
+ "page": [
+  "P"
+ ],
+ "painters": [
+  "RA"
+ ],
+ "pair": [
+  "PR"
+ ],
+ "papers": [
+  "ID"
+ ],
+ "paramilitaries": [
+  "ETA",
+  "IRA",
+  "UDA",
+  "UFF"
+ ],
+ "paratrooper": [
+  "PARA"
+ ],
+ "parking": [
+  "P"
+ ],
+ "party": [
+  "C",
+  "CON",
+  "DO",
+  "LAB",
+  "LD",
+  "LIB",
+  "TORY"
+ ],
+ "peacekeepers": [
+  "UN"
+ ],
+ "pencil": [
+  "HB"
+ ],
+ "penny": [
+  "CU",
+  "D",
+  "P"
+ ],
+ "phone company": [
+  "BT",
+  "EE"
+ ],
+ "physical education": [
+  "PE"
+ ],
+ "physical training": [
+  "PT"
+ ],
+ "physicists": [
+  "CERN"
+ ],
+ "piano": [
+  "P"
+ ],
+ "pig": [
+  "SOW"
+ ],
+ "pint": [
+  "PT"
+ ],
+ "place": [
+  "PL",
+  "SET",
+  "SITE",
+  "SPOT"
+ ],
+ "plane": [
+  "MIG"
+ ],
+ "plate": [
+  "L",
+  "P"
+ ],
+ "please": [
+  "O"
+ ],
+ "poem": [
+  "IF"
+ ],
+ "poet": [
+  "PO",
+  "TS"
+ ],
+ "point": [
+  "E",
+  "N",
+  "S",
+  "W"
+ ],
+ "pole": [
+  "N",
+  "S"
+ ],
+ "policeman": [
+  "CID",
+  "DI",
+  "MET",
+  "PC"
+ ],
+ "politician": [
+  "MP"
+ ],
+ "posh": [
+  "U"
+ ],
+ "post office": [
+  "PO"
+ ],
+ "potassium": [
+  "K"
+ ],
+ "pound": [
+  "L",
+  "LB"
+ ],
+ "power": [
+  "P"
+ ],
+ "presenter": [
+  "DJ",
+  "MC"
+ ],
+ "priest": [
+  "DD",
+  "ELI",
+  "FR",
+  "PR",
+  "REV",
+  "RR"
+ ],
+ "prime minister": [
+  "PM"
+ ],
+ "prisoner": [
+  "CON"
+ ],
+ "prisoner of war": [
+  "POW"
+ ],
+ "promises": [
+  "IOUS"
+ ],
+ "promotion": [
+  "AD"
+ ],
+ "province": [
+  "NI"
+ ],
+ "pub": [
+  "PH"
+ ],
+ "pudding": [
+  "PUD"
+ ],
+ "quarter": [
+  "E",
+  "N",
+  "S",
+  "W"
+ ],
+ "quartet": [
+  "IV"
+ ],
+ "queen": [
+  "ER",
+  "HM",
+  "Q"
+ ],
+ "quiet": [
+  "P",
+  "SH"
+ ],
+ "quietly": [
+  "P",
+  "SH"
+ ],
+ "race": [
+  "TT"
+ ],
+ "railway": [
+  "BR",
+  "EL",
+  "R"
+ ],
+ "rated": [
+  "X"
+ ],
+ "rechabite": [
+  "TT"
+ ],
+ "record": [
+  "EP",
+  "LP"
+ ],
+ "ref": [
+  "UMP"
+ ],
+ "regina": [
+  "R"
+ ],
+ "religious": [
+  "PI"
+ ],
+ "religious education": [
+  "RE"
+ ],
+ "republican": [
+  "GOP",
+  "R",
+  "REP"
+ ],
+ "resistance": [
+  "R"
+ ],
+ "retired": [
+  "RET"
+ ],
+ "reverend": [
+  "DD",
+  "REV",
+  "RR"
+ ],
+ "revolutionary": [
+  "CHE"
+ ],
+ "rex": [
+  "R"
+ ],
+ "right": [
+  "R"
+ ],
+ "right reverend": [
+  "RR"
+ ],
+ "ring": [
+  "O"
+ ],
+ "river": [
+  "DEE",
+  "MA",
+  "OB",
+  "PO",
+  "R",
+  "URE"
+ ],
+ "road": [
+  "AI",
+  "RD"
+ ],
+ "rollsroyce": [
+  "RR"
+ ],
+ "roman catholic": [
+  "RC"
+ ],
+ "rook": [
+  "R"
+ ],
+ "round": [
+  "O"
+ ],
+ "royal academy": [
+  "RA"
+ ],
+ "royal artillery": [
+  "RA"
+ ],
+ "royal engineers": [
+  "RE"
+ ],
+ "royal marines": [
+  "RM"
+ ],
+ "royal navy": [
+  "RN"
+ ],
+ "rugby union": [
+  "RU"
+ ],
+ "run": [
+  "R"
+ ],
+ "rural dean": [
+  "RD"
+ ],
+ "sailor": [
+  "AB",
+  "HAND",
+  "JACK",
+  "OS",
+  "RN",
+  "SALT",
+  "TAR"
+ ],
+ "saint": [
+  "S",
+  "ST"
+ ],
+ "same": [
+  "DO"
+ ],
+ "sappers": [
+  "RE"
+ ],
+ "satisfactory": [
+  "S"
+ ],
+ "say": [
+  "EG"
+ ],
+ "seaman": [
+  "AB"
+ ],
+ "second": [
+  "MO",
+  "S"
+ ],
+ "secret service": [
+  "SS"
+ ],
+ "secretary": [
+  "PA"
+ ],
+ "section": [
+  "OR"
+ ],
+ "see": [
+  "LO"
+ ],
+ "senior service": [
+  "RN"
+ ],
+ "sergeant major": [
+  "SM"
+ ],
+ "serial": [
+  "SER"
+ ],
+ "series": [
+  "SER"
+ ],
+ "service": [
+  "RAF"
+ ],
+ "setter": [
+  "I"
+ ],
+ "setter's": [
+  "MY"
+ ],
+ "sex appeal": [
+  "IT",
+  "SA"
+ ],
+ "shilling": [
+  "S"
+ ],
+ "ship": [
+  "SS"
+ ],
+ "ship's officer": [
+  "PO"
+ ],
+ "shirt": [
+  "T"
+ ],
+ "short wave": [
+  "SW"
+ ],
+ "side": [
+  "LEG",
+  "OFF",
+  "ON"
+ ],
+ "significant other": [
+  "SO"
+ ],
+ "silk": [
+  "KC",
+  "QC"
+ ],
+ "silver": [
+  "AG"
+ ],
+ "singer": [
+  "RAT"
+ ],
+ "sixth sense": [
+  "ESP"
+ ],
+ "sleep": [
+  "Z",
+  "ZZ"
+ ],
+ "small": [
+  "S"
+ ],
+ "snake": [
+  "S"
+ ],
+ "snooze": [
+  "Z",
+  "ZZ"
+ ],
+ "socialite": [
+  "DEB"
+ ],
+ "socially acceptable": [
+  "U"
+ ],
+ "society": [
+  "S",
+  "SOC"
+ ],
+ "sodium": [
+  "NA"
+ ],
+ "softly": [
+  "P"
+ ],
+ "soldier": [
+  "ANT",
+  "GI",
+  "OR",
+  "RE",
+  "RM",
+  "VET"
+ ],
+ "soldiers": [
+  "MEN",
+  "OR"
+ ],
+ "son": [
+  "S"
+ ],
+ "south": [
+  "S"
+ ],
+ "spade": [
+  "S"
+ ],
+ "spain": [
+  "E"
+ ],
+ "special": [
+  "S",
+  "SP"
+ ],
+ "spectacles": [
+  "OO"
+ ],
+ "spies": [
+  "CIA",
+  "MI"
+ ],
+ "sport": [
+  "RL",
+  "RU"
+ ],
+ "steam ship": [
+  "SS"
+ ],
+ "stone": [
+  "ST"
+ ],
+ "street": [
+  "ST"
+ ],
+ "student": [
+  "L",
+  "NUS"
+ ],
+ "study": [
+  "CON",
+  "DEN",
+  "READ"
+ ],
+ "stumped": [
+  "ST"
+ ],
+ "submarine": [
+  "SUB",
+  "U"
+ ],
+ "succeeded": [
+  "S"
+ ],
+ "suitable for all to see": [
+  "U"
+ ],
+ "superintendent": [
+  "SUPT"
+ ],
+ "sweat": [
+  "BO"
+ ],
+ "tabloid": [
+  "RAG",
+  "SUN"
+ ],
+ "take": [
+  "R"
+ ],
+ "tar": [
+  "AB"
+ ],
+ "tax": [
+  "VAT"
+ ],
+ "teacher": [
+  "DON"
+ ],
+ "teachers": [
+  "NUT"
+ ],
+ "team": [
+  "XI"
+ ],
+ "teetotal": [
+  "AA",
+  "TT"
+ ],
+ "ten": [
+  "IO",
+  "X"
+ ],
+ "tense": [
+  "PT",
+  "T"
+ ],
+ "territorial army": [
+  "TA"
+ ],
+ "terrorists": [
+  "ETA",
+  "IRA",
+  "UDA",
+  "UFF"
+ ],
+ "thanks": [
+  "TA"
+ ],
+ "that is": [
+  "IE",
+  "SC",
+  "SS"
+ ],
+ "theatre": [
+  "REP"
+ ],
+ "theologian": [
+  "DD"
+ ],
+ "this month": [
+  "INST"
+ ],
+ "thousand": [
+  "G",
+  "K",
+  "M"
+ ],
+ "thus": [
+  "IE",
+  "SIC",
+  "SO"
+ ],
+ "time": [
+  "AGE",
+  "M",
+  "S",
+  "T"
+ ],
+ "times": [
+  "BY",
+  "TT",
+  "X"
+ ],
+ "toilet": [
+  "WC"
+ ],
+ "tory": [
+  "CON"
+ ],
+ "trendy": [
+  "IN"
+ ],
+ "tripod": [
+  "Y"
+ ],
+ "troop": [
+  "RM"
+ ],
+ "tungsten": [
+  "W"
+ ],
+ "tyro": [
+  "L"
+ ],
+ "ulster": [
+  "NI"
+ ],
+ "ulster defence association": [
+  "UDA"
+ ],
+ "ulster freedom fighters": [
+  "UFF"
+ ],
+ "ultimate": [
+  "Z"
+ ],
+ "united": [
+  "U"
+ ],
+ "united nations": [
+  "UN"
+ ],
+ "university": [
+  "OU",
+  "U",
+  "UP"
+ ],
+ "unknown": [
+  "X",
+  "Y",
+  "Z"
+ ],
+ "up": [
+  "N",
+  "U"
+ ],
+ "upper": [
+  "N",
+  "U"
+ ],
+ "value added tax": [
+  "VAT"
+ ],
+ "variable": [
+  "X",
+  "Y",
+  "Z"
+ ],
+ "vermouth": [
+  "IT"
+ ],
+ "version": [
+  "V"
+ ],
+ "versus": [
+  "V",
+  "VS"
+ ],
+ "very": [
+  "V"
+ ],
+ "vessel": [
+  "SS"
+ ],
+ "viscount": [
+  "VIS"
+ ],
+ "volunteers": [
+  "TA"
+ ],
+ "vote": [
+  "X"
+ ],
+ "way": [
+  "AVE",
+  "RD",
+  "ST"
+ ],
+ "weekend": [
+  "SS"
+ ],
+ "weight": [
+  "G",
+  "LB"
+ ],
+ "westminster": [
+  "HP"
+ ],
+ "wheel": [
+  "O"
+ ],
+ "whistleblower": [
+  "REF"
+ ],
+ "wide": [
+  "W"
+ ],
+ "wife": [
+  "W"
+ ],
+ "with": [
+  "W"
+ ],
+ "without": [
+  "WO"
+ ],
+ "work": [
+  "OP",
+  "OPUS",
+  "W"
+ ],
+ "worker": [
+  "ANT",
+  "ARM",
+  "BEE",
+  "HAND"
+ ],
+ "workers": [
+  "TU"
+ ],
+ "writing": [
+  "MS"
+ ],
+ "x": [
+  "IO"
+ ],
+ "yard": [
+  "Y",
+  "YD"
+ ],
+ "year": [
+  "Y",
+  "YR"
+ ],
+ "yen": [
+  "Y"
+ ],
+ "yes": [
+  "Y"
+ ],
+ "you": [
+  "U"
+ ],
+ "yours truly": [
+  "I",
+  "ID"
+ ],
+ "zero": [
+  "O",
+  "Z"
+ ]
+}

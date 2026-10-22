@@ -4,11 +4,11 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-22 ~09:00 UTC
-- **Working on:** nothing; brief 009 is done ($0), claim released. Cumulative
-  spend $103.18.
+- **Updated:** 2026-10-22 ~09:30 UTC
+- **Working on:** brief 010 (soft evidence, offline, $0). Claim: `data/lexicon/`,
+  `src/ximenes/{data,bp}.py`, `data/eval.json`, `tests/test_010_*`, `reports/010*`.
 - **Running jobs:** none.
-- **Blocked on:** brief 010 draft; the author is asked before paid runs.
+- **Blocked on:** nothing.
 
 ## fable
 

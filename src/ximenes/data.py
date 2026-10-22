@@ -172,11 +172,28 @@ def indicator_trust() -> dict[str, dict[str, bool]]:
     return {op: {p: _trusted(o) for p, o in d.items()} for op, d in raw.items()}
 
 
+ABBREVIATION_FILES = ("abbreviations.json", "abbreviations.wikipedia.json")
+
+
+@functools.cache
+def abbreviation_origins() -> dict[str, dict[str, str]]:
+    """{phrase: {VALUE: origin}} merged over the abbreviation files (brief 010:
+    the CC BY-SA Wikipedia entries live in their own file); origins union."""
+    merged: dict[str, dict[str, set[str]]] = {}
+    for name in ABBREVIATION_FILES:
+        path = LEXICON / name
+        if path.exists():
+            for k, d in json.loads(path.read_text())["_origin"].items():
+                for v, o in d.items():
+                    merged.setdefault(k, {}).setdefault(v, set()).update(o.split("+"))
+    return {k: {v: "+".join(sorted(o)) for v, o in d.items()} for k, d in merged.items()}
+
+
 @functools.cache
 def abbreviation_trust() -> dict[str, dict[str, bool]]:
     """{phrase: {VALUE: reviewed or hand-written?}} (DESIGN D4)."""
-    raw = json.loads((LEXICON / "abbreviations.json").read_text())["_origin"]
-    return {k: {v: _trusted(o) for v, o in d.items()} for k, d in raw.items()}
+    return {k: {v: _trusted(o) for v, o in d.items()}
+            for k, d in abbreviation_origins().items()}
 
 
 @functools.cache
@@ -188,9 +205,8 @@ def indicators() -> dict[str, frozenset[str]]:
 
 @functools.cache
 def abbreviations() -> dict[str, frozenset[str]]:
-    """{phrase: abbreviations}, from data/lexicon/abbreviations.json."""
-    raw = json.loads((LEXICON / "abbreviations.json").read_text())
-    return {k: frozenset(v) for k, v in raw.items() if k != "source" and not k.startswith("_")}
+    """{phrase: abbreviations}, merged over the abbreviation files."""
+    return {k: frozenset(d) for k, d in abbreviation_origins().items()}
 
 
 @dataclass(frozen=True, order=True)
