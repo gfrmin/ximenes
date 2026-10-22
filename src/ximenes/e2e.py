@@ -23,6 +23,7 @@ import sys
 import uuid
 from collections import Counter
 from collections.abc import Mapping, Sequence
+from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
 from typing import Any
 
@@ -206,21 +207,23 @@ def run_grids(names: Sequence[str], policy: str, args: argparse.Namespace,
     models = {"proposer": SETTINGS["solve_models"]["proposer"],
               "formaliser": SETTINGS["solve_models"]["formaliser"],
               "judge": SETTINGS["judges"]["model"]}
-    out = []
-    for name in names:
+    def one(name: str) -> dict[str, Any]:
         grid, clues = load_grid(paths[name])
-        backend, totals, memo = _backend(args, log_path)
+        backend, totals, memo = _backend(args, log_path)  # fresh meter, memo and cap per grid
         g = GridRun(name, grid, clues, backend, totals, tables, models, warm=memo,
                     proposer=CFG["proposer"])
         g.run(policy, gain, gain["rho"]["rho"] if gain else 0.0,
               CFG["budget_usd"] if policy == "voc" else float("inf"))
-        slots = final_slots(g)
-        out.append({"puzzle": name, "checkpoints": g.checkpoints, "events": g.events,
-                    "proposal_usd": g.checkpoints[0]["usd"], "items": slot_items(g),
-                    "slots": slots, "usd": g.totals[0],
-                    "fully_correct": g.checkpoints[-1]["letters_correct"] == 1})
-        print(json.dumps({"grid": len(out), "usd": g.totals[0],
+        print(json.dumps({"grid": name, "usd": g.totals[0],
                           "clues": g.checkpoints[-1]["clues_correct"]}), file=sys.stderr)
+        return {"puzzle": name, "checkpoints": g.checkpoints, "events": g.events,
+                "proposal_usd": g.checkpoints[0]["usd"], "items": slot_items(g),
+                "slots": final_slots(g), "usd": g.totals[0],
+                "fully_correct": g.checkpoints[-1]["letters_correct"] == 1}
+
+    # grids are independent: run them side by side (each grid's moves stay in order)
+    with ThreadPoolExecutor(max_workers=max(1, min(len(names), CFG["grid_workers"]))) as pool:
+        out = list(pool.map(one, names))
     doc = {"run_id": run_id, "policy": policy, "log": str(log_path), "grids": out,
            "proposer": CFG["proposer"], "budget_usd": CFG["budget_usd"]}
     runs.mkdir(parents=True, exist_ok=True)
