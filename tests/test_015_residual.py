@@ -109,3 +109,63 @@ def test_decision_bands() -> None:
     assert decide({"a": _row(3, 17, 1.0)})["band"] == "report_and_stop"
     # two arms tied within intervals above the bar: the cheaper one goes to B
     assert decide({"a": _row(12, 17, 2.0), "b": _row(11, 17, 0.5)})["arm_for_b"] == "b"
+
+
+def _stuck() -> object:
+    from ximenes.residual import StuckSlot
+
+    return StuckSlot("g", "1A", "Fruit some deli meshes", parse_enumeration("4"), "L??E", "LIME")
+
+
+def test_arms_read_their_instruments_with_a_stub() -> None:
+    from ximenes.instruments import CHOOSE_LIST, PROPOSE_PATTERN, PROPOSE_TOP
+    from ximenes.residual import ARMS, ask
+
+    s = _stuck()
+    seen = []
+
+    def backend(instrument, model, inp):
+        seen.append((instrument, model, inp.get("effort")))
+        if instrument == PROPOSE_PATTERN:
+            return ["LIME", "lime", "LOBE", "TOOLONG", "LIME"], {"usd": 0.0}
+        if instrument == PROPOSE_TOP:
+            return {"candidates": [{"answer": "lobe", "share": 0.2},
+                                   {"answer": "LIME", "share": 0.7}]}, {"usd": 0.0}
+        assert instrument == CHOOSE_LIST and "LIME [Quarantine]" in inp["words"]
+        return {"candidates": [{"answer": "LIME", "share": 0.6},
+                               {"answer": "LAKE", "share": 0.1}], "other": 0.3}, {"usd": 0.0}
+
+    r1 = ask("opus_low_resample", s, backend)
+    assert r1["ranked"] == ["LIME", "LOBE"] and r1["shares"] == [0.6, 0.2]
+    r2 = ask("opus_high", s, backend)
+    assert r2["ranked"] == ["LIME", "LOBE"] and r2["other"] is None
+    wl = {(4,): frozenset({"LIME", "LOBE", "LUBE"})}
+    r5 = ask("choose_list", s, backend, wl, {"LIME": "Quarantine"})
+    assert r5["ranked"] == ["LIME"] and r5["off_list"] == ["LAKE"] and r5["other"] == 0.3
+    assert [m for _i, m, _e in seen] == [ARMS[a]["model"] for a in
+                                         ("opus_low_resample", "opus_high", "choose_list")]
+    assert [e for _i, _m, e in seen][1:] == [ARMS["opus_high"]["effort"],
+                                              ARMS["choose_list"]["effort"]]
+
+
+def test_choose_list_skips_long_lists() -> None:
+    from ximenes.residual import ask
+
+    s = _stuck()
+    big = {(4,): frozenset(f"L{a}{b}E" for a in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                           for b in "ABCDEFGHIJKLMNOPQRSTUVWXYZ")}  # 676 > list_max
+
+    def backend(*_a):
+        raise AssertionError("no call for a list over list_max")
+
+    assert ask("choose_list", s, backend, big, {})["skipped"] == "list_over_max"
+
+
+def test_score_counts_gold_in_k_and_top_share_when_wrong() -> None:
+    from ximenes.residual import score
+
+    res = {"a": {"ranked": ["X", "G"], "shares": [0.7, 0.2]},
+           "b": {"ranked": ["H"], "shares": [0.9]}, "c": {"ranked": [], "shares": []}}
+    out = score(res, {"a": "G", "b": "H", "c": "Z"}, [1, 5])
+    assert out["gold_in_1"]["hits"] == 1 and out["gold_in_5"]["hits"] == 2
+    assert out["top_share_when_wrong"] == {"n": 1, "mean": 0.7} and out["empty"] == 1
