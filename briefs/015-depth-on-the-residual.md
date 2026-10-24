@@ -1,4 +1,4 @@
-# Brief 015: depth on the residual
+# Brief 015: depth or enumeration on the residual
 
 **Status: drafted 2026-10-24 by fable. Waiting for the author's Phase 3
 envelope (proposed $60). Do not start paid calls until ROADMAP's Spending
@@ -26,28 +26,70 @@ agents instead. That is a different domain at a vastly larger scale, so it
 moves the prior and settles nothing. This brief measures depth here, on the
 slots that need it.
 
+The other route is the author's (2026-10-24). The answer is in a
+finite word list, and the crossing letters cut that list to a few entries.
+So a slot's candidates can be *enumerated*, and the model only has to
+*choose* among them, which is easier than recalling the answer. That
+changes three things:
+- Recall becomes the word list's coverage, a number we can measure for $0.
+- OTHER in BP becomes P(gold not in the list), which is small and can be
+  estimated. Today it is a floor.
+- The DSL gets a job it didn't have in 014. Checking each enumerated word
+  against the clue, top-down, is the verifier's natural direction. The
+  mechanical operations on literal fodder (anagram, hidden word, reversal,
+  letter selection) are exactly where models are weakest, because they see
+  tokens, not letters. There, the DSL can *generate* candidates, and
+  generate them completely.
+
+## Stage A0: enumeration ($0, no calls)
+On the same stuck slots as Stage A (defined below):
+- **Word list W:** Open English WordNet's lemmas ∪ Moby's headwords and
+  entries, both already fetched by `setup.sh` (brief 008). Reduce each to
+  letters and key it by enumeration, so (4,5) matches only two-word
+  entries of 4 and 5 letters. Add no new data source in this brief.
+- **Report per slot:**
+  - gold ∈ W (the coverage, with a Beta interval);
+  - |W ∩ pattern|, as a distribution;
+  - whether the mechanical generators on the clue's literal fodder produce
+    gold (anagram of contiguous words with the right letter count; hidden
+    word, forwards and reversed);
+  - which words in W ∩ pattern the verifier admits, as Ok or Quarantine,
+    and whether gold is one of them.
+- **Report by kind of miss:** split the misses into those not in W and
+  those in W but not chosen. That split decides between arm 5 and the
+  depth arms.
+
 ## Stage A: slot-level recall (dev data; cap $15)
 - **Slots.** Every slot in 013's and 014's evaluation grids whose gold was
   not among the candidates at the end state. Take each slot's final
   crossing pattern from the logs. Those grids are already read, so from
   now on they are dev data and never an evaluation set again. Say so in
   `data/eval.json`.
-- **Arms**, one structured-output call per slot per arm, top 5 with shares,
-  same prompt as `propose_pattern` with only the model and effort changed:
+- **Arms.** One structured-output call per slot per arm, top 5 with shares.
+  Arms 1–4 use the same prompt as `propose_pattern`, with only the model and
+  effort changed:
   1. `claude-opus-5-5` at low effort, 5 resamples: the control. This is
      how often plain resampling finds gold.
   2. `claude-opus-5-5`, high effort.
   3. `claude-opus-5-5`, max effort.
   4. `claude-fable-5-1`, high effort. Drop this arm, and say so, if the
      smoke test shows the account can't call it.
+  5. **Choose from the list:** `claude-opus-5-5` at low effort, given the
+     clue, the pattern and W ∩ pattern (with the words the verifier
+     admitted marked). It returns up to 5 words from the list, with
+     shares, plus OTHER. Run it only where |W ∩ pattern| ≤ 300; above
+     that, count the slot as a miss for this arm and report how many
+     there were.
+  6. **Union:** arm 5 ∪ the best of arms 2–4. This costs nothing to compute.
 - **Smoke test:** 3 slots per arm. Report the cost per call. If the
   projected cost of the full Stage A exceeds $15, cut arm 3 first.
 - **Report:** gold-in-1 and gold-in-5 per arm, with Beta(1,1) 90%
   intervals; $ per slot; and the arm's top share on slots where it is
   wrong, because Stage B's calibration needs it.
 
-**Decision rule, written before any call.** Let r be the best arm's
-gold-in-5 on the stuck slots.
+**Decision rule, written before any call.** Let r be gold-in-5 on the stuck
+slots for the best of arms 1–6. A0's generator-plus-verifier counts as
+an arm at $0.
 - If r's lower bound is ≥ 0.25, run Stage B with that arm. Where two arms
   tie within their intervals, use the cheaper one.
 - If every arm's upper bound is < 0.10, depth does not reach the residual.
@@ -63,9 +105,11 @@ gold-in-5 on the stuck slots.
 - **Arms, paired:**
   - (a) 014's `frontier_calibrated`, unchanged.
   - (b) The same, plus **escalation**. When (a) would stop (no new
-    candidates, or budget), call the Stage A arm on the uncommitted slot
-    with the most known letters, then re-run BP. Repeat until every slot
-    is committed or the budget is spent.
+    candidates, or budget), take the uncommitted slot with the most known
+    letters. Try the cheapest arm that met the bar first (arm 5 if it
+    did), then the depth arm, then re-run BP. Repeat until every slot is
+    committed or the budget is spent. If arm 5 is used, OTHER for that
+    slot is A0's estimate of P(gold ∉ W).
 - **Calibration of escalated candidates:** fit the same logistic form as
   013, on Stage A's slots, and write it to `data/` before Stage B. Note
   that those slots are selected (stuck only). Stage B's paired outcome is
