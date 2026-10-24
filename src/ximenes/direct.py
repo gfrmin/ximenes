@@ -165,7 +165,7 @@ def summary(docs: Mapping[str, Mapping[str, Any]], runs: pathlib.Path) -> dict[s
         e, _bins = ece_of([c for c, _y in cal], [y for _c, y in cal], PARAMS["bins"])
         out["arms"][arm] = {
             "grids": len(doc["grids"]), "unfinished": len(doc["grids"]) - len(done),
-            "dropped_by_postcutoff_rule": CFG["n_grids"] - len(doc["grids"]),
+            "dropped_by_cutoff_rule": CFG["n_grids"] - len(doc["grids"]),
             "fully_correct": sum(fc.values()),
             "clues": sum(g["clues_right"] for g in done) / max(1, sum(g["slots"] for g in done)),
             "usd": doc["usd"], "usd_per_grid": doc["usd"] / max(1, len(doc["grids"])),
