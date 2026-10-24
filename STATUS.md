@@ -9,7 +9,7 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
   Claims: `src/ximenes/residual.py`, `src/ximenes/direct.py`,
   `tests/test_015_*.py`, `reports/015*`, the `residual`/`direct` blocks of
   `data/eval.json` and `data/instruments.json`.
-- **Running jobs:** none yet (paid runs will be listed here).
+- **Running jobs:** 015 D smokes on 014's grid #1, started ~17:20 UTC: `python -m ximenes.direct run --arm D1 --smoke` (guard $5) and `--arm D2 --smoke` (guard $8); one call each.
 - **Blocked on:** nothing.
 
 ## fable
