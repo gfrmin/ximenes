@@ -90,17 +90,20 @@ update", pull and run the routine at once.
   - **A0/A** decide whether depth (more thinking, a stronger model) or
     enumeration (a word list cut by the crossing letters, the model
     choosing from it) reaches the residual.
-- **015 closed (2026-10-24):** asking Opus directly, 30/40 at
-  $0.28/grid, beat the full solver's 17/40 (P = 0.998); depth (one
-  high-effort call) found gold-in-5 on 12/17 stuck slots. **016, the
-  hybrid, is open.** After it, by expected value per dollar:
-  1. if the hybrid wins, the same comparison on more grids (n = 100);
-  2. if D wins, the note, then more grids for D alone (~$0.30 a grid);
-  3. 017, harder puzzles (Times, Toughie), open: does asking directly
-     hold up? Sources approved by the author 2026-10-24.
-  4. 018, other model families on `steel`: low priority.
-- **The note** (`docs/NOTE-draft.md`) waits for 016: its headline is
-  now D against the hybrid. Publishing it is the author's call.
+- **015–017 closed (2026-10-24):** Opus asked directly, one call at
+  high effort: 30/40 (015, dev), 35/40 (016, fresh dailies), 28/36 (017,
+  Times + Toughie); 93/116 pooled at ~$0.27 a grid. The hybrid gained one
+  grid in 016 and 017 (P = 0.75 each, middle band): direct is the
+  default; the hybrid's value is calibration (ECE 0.002–0.003 vs ~0.07).
+  The hybrid line is closed as an accuracy claim. Envelope $40.45 of $60.
+- **Next, by value:** the note (the author's decision to publish); then
+  nothing paid is pending. 018 (other families on `steel`) stays low
+  priority. A cheap open lever, if wanted: a non-steep map that sends
+  D's confident answers through the crossing letters before committing
+  (017: the map committed 6 of 8 misses untested); measurable free on
+  016/017 logs, as dev data.
+- **The note** (`docs/NOTE-draft.md`) is rewritten around 015–017.
+  Publishing it is the author's call.
 
 ## Things that went wrong before
 Read `docs/INCIDENTS.md`. The ones a lead can cause or catch:

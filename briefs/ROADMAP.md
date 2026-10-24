@@ -107,6 +107,12 @@ solver's 17/40 (P = 0.998). One high-effort call reached gold-in-5 on
 12 of 17 stuck slots. 016 builds the hybrid on fresh grids; Stage B is
 folded into it.
 
+**016 and 017 closed (2026-10-24):** asking directly got 35/40 fresh
+dailies and 28/36 Times and Toughie grids (pooled 93/116 with 015's
+30/40, ~$0.27 a grid). The hybrid added one grid each time (P = 0.75,
+middle band): direct is the default, the hybrid's value is calibration.
+Phase 3: $40.45 of $60.
+
 ## Spending
 Standing envelope for Phase 2: **$150**, delegated by the author to `fable`
 on 2026-10-22. Each brief states its cap; the builder may spend up to that

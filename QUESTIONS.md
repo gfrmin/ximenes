@@ -598,3 +598,12 @@ site stays off limits either way.
 
 Barred puzzles (Listener, Azed, Mephisto) are out: our grids are blocked
 grids only (012 skipped barred ones).
+
+## After 017 (`lead`, 2026-10-24)
+
+**Question for the author (yes/no): publish `docs/NOTE-draft.md` as
+rewritten around 015–017?** Headline: Opus 5.5 asked directly fills 80%
+of 116 post-cutoff grids (dailies, Times, Toughie) at ~$0.27 a grid; the
+bespoke machinery adds calibration, not accuracy. **Recommendation:
+yes, after you read it** (p ≈ 0.7 you'll want edits first). Nothing
+paid is pending; $19.55 of the Phase 3 envelope is unspent.

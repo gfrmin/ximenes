@@ -1,80 +1,113 @@
-# ximenes: what it takes to solve cryptic crosswords, measured on clean puzzles (draft note)
+# ximenes: a frontier model solves most cryptic crosswords when simply asked (draft note)
 
-*Draft, 2026-10-23. Numbers from `reports/` 013 and 014. Every number
-replays bit for bit from its logs.*
+*Draft, 2026-10-24, rewritten by `lead` after briefs 015–017. Numbers
+from `reports/` 013–017. Every number replays bit for bit from its logs.
+Publishing it is the author's decision.*
 
 ## Result
 
-On **40 Guardian, Independent and FT daily cryptics published 2 August to
-22 October 2026** (after every model's knowledge cutoff plus a month; two
-disjoint samples of 20, each read once), the full solver fills **17 grids
-fully correctly (43%; Beta posterior 95% interval 29–58%)**. It gets 95–97%
-of clues right, and its committed answers are right 97.7–99.2% of the time
-(465/476 and 491/495).
+**Claude Opus 5.5, given the whole puzzle in one call at high effort,
+filled 93 of 116 post-cutoff cryptic grids fully correctly (80%; Beta
+posterior 95% interval about 72–86%), at about $0.27 a grid.** Its
+answers were 99.2–99.6% of clues right.
 
-A much simpler solver does as well. **Claude Opus 5.5 proposing answers, the
-grid's crossing letters, belief propagation, and a posterior fitted on
-held-out grids** fills **8 of 20** of the second sample's grids fully
-correctly (95% interval 22–62%), level with the full solver's 7 on the same
-grids. It reaches its 8 by **$1 per grid**.
+| set (post-cutoff, Aug–Oct 2026) | fully correct | 90% interval | $ / grid | brief |
+|---|---|---|---|---|
+| Guardian, Independent, FT dailies (grids our solver had read; the model had not) | 30 / 40 | | 0.28 | 015 |
+| Guardian, Independent, FT dailies, never read | 35 / 40 | | 0.26 | 016 |
+| Times dailies | 16 / 20 | [0.62, 0.90] | | 017 |
+| Telegraph Toughies | 12 / 16 | [0.54, 0.88] | | 017 |
+| **hard pooled (Times + Toughie)** | **28 / 36** | [0.64, 0.87] | 0.27 | 017 |
 
-## What each part contributes (paired, on post-cutoff grids)
+- **Hard puzzles cost it little:** 78% on Times and Toughie grids against
+  75% and 88% on the two daily sets.
+- **When it fails, it fails by one slot.** Each of its 23 imperfect
+  grids had exactly one wrong answer. Its stated confidence on those
+  answers was mostly below 0.9 (20 of 23), so its own confidence flags
+  most of its errors.
+- **The bespoke solver we built first did worse.** Over five briefs it
+  grew to a sound wordplay verifier, crossing letters, belief propagation,
+  a fitted posterior and value-of-computation search. It solved 17 of
+  the same first 40 grids (43%) at $0.90–2.22 a grid. Paired, the direct call
+  was fully correct on 15 grids the solver missed, and the solver on 2
+  the direct call missed (P(direct better) = 0.998).
 
-| step | effect | evidence |
-|---|---|---|
-| Opus as proposer, not a small model | the right answer is a candidate for most clues; with half the letters known, in the top 5 for 150 of 150 test clues | brief 011 |
-| crossing letters + belief propagation | clues right 0.78 → 0.97 from the same candidates | 013 ablation |
-| **calibration** (a posterior fitted on held-out grids) | raw proposer shares are underconfident (ECE 0.177 against the fitted posterior's 0.064; 341 committed slots against 495 in 013); with the fitted posterior and no verifier, 430 committed, 425 right; uncalibrated, the solver under-commits and runs out of crossing letters | 013 appendix (raw vs full solver), 014's calibrated arm; attributed to calibration because 014 shows the verifier adds nothing on top of it |
-| the sound-by-grammar wordplay verifier, on top of calibration | **no measurable gain**: fully correct 7 vs 8 of 20, P(full better) = 0.375; clue difference −0.004 (95% −0.035 to +0.029) | 014 |
-| choosing computations by value per dollar | beats attempting every clue, but level with a simple heuristic | 005, 006 |
-| persistent re-proposal of the last slots | no gain: the slots it works on stay hard | 014 |
+## What the machinery adds on top of asking directly
+
+The hybrid feeds the direct call's answers, with calibrated
+probabilities, into crossing letters, belief propagation and
+high-effort re-proposal of uncertain slots. It costs under a cent a grid
+more.
+
+| | accuracy | calibration (ECE) | evidence |
+|---|---|---|---|
+| direct call, stated confidence | 35/40 dailies, 28/36 hard | 0.067–0.071 | 016, 017 |
+| hybrid | 36/40, 29/36 (one grid more each time, never one fewer) | **0.002–0.003** | 016, 017 |
+
+- **Accuracy:** each pre-registered paired test landed in its middle
+  band (P = 0.75 each). By the rules written beforehand, the direct call
+  stays the default and the hybrid is not claimed as an accuracy gain.
+- **Calibration** is the measured contribution: the hybrid's
+  probabilities are close to exact.
+- **Its limit** is known: a steep calibration map commits the direct
+  call's confident mistakes before the crossing letters can test them
+  (6 of 8 misses in 017).
+
+## What we learned on the way (briefs 000–014)
+- **Crossing letters and belief propagation** took the same candidates
+  from 0.78 to 0.97 of clues right (013).
+- **Calibration, not verification,** was what a model proposing clue by
+  clue lacked: raw shares were underconfident (ECE 0.177), and a fitted
+  posterior fixed it (014).
+- **The sound-by-grammar verifier** admits none of ~3,000 mutant parses
+  and names what each verified answer rests on, but added no accuracy
+  over a calibrated frontier (014: 7 vs 8 of 20, P = 0.375). Its value
+  is audit.
+- **Depth beats breadth.** On slots the solver never cracked, one
+  high-effort call put gold in its top 5 on 12 of 17; five low-effort
+  samples managed 6 (015).
+- **The lesson for method** (`docs/METHOD.md`): measure the strongest
+  simple baseline (the model given the whole problem, allowed to think)
+  before building. We measured it at brief 015, and it outperformed
+  everything built before it.
 
 ## How this compares
 - **Darmok** (2026) solved the Times Crossword Championship final faster
-  than its human winner, with an ensemble of frontier models. It has
-  published no accuracy over a puzzle set and no cost, so there is no
-  like-for-like number. Ours is on daily puzzles, with no time limit, and is
-  reported with its cost and an interval.
+  than its human winner with an ensemble of frontier models. It
+  published no accuracy over a puzzle set and no cost. Our numbers suggest
+  most of that capability is the frontier model itself: one call solves
+  about four Times dailies in five. We have not measured championship
+  puzzles or time.
 - **Published single-clue work** (Andrews & Witteveen, ICML 2025: 32.5%
-  top-1 on Cryptonite, with small open models and a Python verifier its
-  authors show can be fooled) predates today's models, and uses a dataset
-  those models have likely seen.
+  top-1 on Cryptonite, small open models, a verifier its authors show can
+  be fooled) predates today's models and uses a dataset they have likely
+  seen.
 
 ## What is distinctive
-1. **The decomposition itself.** On contamination-free grids, calibration,
-   not verification, is what a strong proposer was missing; crossing
-   letters do most of the work. A cheap configuration matches the full
-   machinery.
-2. **A verifier that cannot be fooled, whose value is audit.** It admits
-   none of ~3,000 mutant parses. It adds no accuracy here, but each answer
-   it verifies names the judgements it rests on (a synonym, a definition)
-   and the string operations that hold.
-3. **Calibrated, selective answers.** On clean grids, committed answers
-   are right 97.7–99.2% of the time. On single clues (Cryptonite, 2000–2020,
-   so possibly seen by the models), answering only at P ≥ 0.9 covers 37.9%
-   of clues at 96.8% accuracy (ECE 0.027).
-4. **A contamination-aware protocol.** Post-cutoff puzzles defined by each
-   model's knowledge cutoff, harvested without reading their content,
-   grids reconstructed from clue lists, pre-registered fit/evaluation
-   splits and decision rules, tables committed before evaluation (checked
-   from git history), and evaluation grids read once. It also publishes
-   what the September 2026 advisory group on mathematics and AI asked labs
-   for, and what OpenAI's October release of maths results left out: the
-   prompts (`src/ximenes/prompts.py`), the cost of each run, and every
-   denominator, including the puzzles excluded and the failed grids.
+1. **Clean, priced, pre-registered numbers.** Post-cutoff puzzles
+   defined by each model's knowledge cutoff plus a month, harvested
+   without reading their content; evaluation grids read once; decision
+   rules, splits and tables committed before the data (checked from git
+   history); every denominator, the prompts
+   (`src/ximenes/prompts.py`) and the cost of each run.
+2. **A negative result about bespoke machinery,** measured paired: the
+   model asked directly beats the solver built around it, and the
+   machinery's lasting value is calibration and audit.
+3. **A verifier that cannot be fooled,** whose value is explanation,
+   not accuracy.
 
 ## Caveats
-- **n = 40 grids, and 20 for the simple solver.** Intervals are wide. The
-  two samples differ (the full solver 10/20 then 7/20), which is within
-  sampling noise for rates near 0.4.
-- **Selection.** Only puzzles blogged on Fifteensquared, parsed completely
-  and reconstructed uniquely; 61 posts were incomplete (a clue number with
-  no row), mostly linked clues, which biases toward simpler grids. No Times puzzles.
+- **n = 116 grids** in all, 76 of them never read before (016, 017).
+  Intervals are given.
+- **Selection.** Only puzzles blogged (Fifteensquared, Times for the
+  Times, Big Dave's), parsed completely and reconstructed uniquely;
+  linked-clue puzzles and barred grids are excluded, which biases toward
+  simpler grids.
 - **Blind parser.** Rows were checked by mechanical invariants, not read.
-- **One proposer family.** Only Anthropic models were tested; the
-  remaining failures are answers never proposed, which other families may
-  propose (planned, brief 015).
-- **Costs** are API list prices for evaluation runs only, not development
-  (~$245 across all briefs).
-- **Data** cannot be shared (newspaper puzzles and blog content); the code,
-  the protocol and every result's replay log can.
+- **One model family.** Only Anthropic models; Fable 5.1 was smoke-tested
+  only (its cutoff left too few grids).
+- **No time limit,** and no championship puzzles.
+- **Costs** are API list prices for evaluation runs; development across
+  all briefs was $285.59.
+- **Data** cannot be shared (newspaper puzzles and blog content); the
+  code, the protocol and every result's replay log can.

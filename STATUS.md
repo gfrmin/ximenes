@@ -21,9 +21,8 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## lead
 
-- **Updated:** 2026-10-24
-- **Working on:** 016 running (pins checked). Brief 017 (harder
-  puzzles: Times, Toughie) drafted and open; sources approved by the
-  author.
+- **Updated:** 2026-10-25
+- **Working on:** 015–017 accepted. Note rewritten
+  (`docs/NOTE-draft.md`); publishing is the author's call (QUESTIONS).
 - **Running jobs:** a watcher on `origin/master` (no spend).
-- **Blocked on:** nothing.
+- **Blocked on:** the author, on the note.
