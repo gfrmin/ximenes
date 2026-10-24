@@ -90,17 +90,15 @@ update", pull and run the routine at once.
   - **A0/A** decide whether depth (more thinking, a stronger model) or
     enumeration (a word list cut by the crossing letters, the model
     choosing from it) reaches the residual.
-- **After 015, by expected value per dollar:**
-  1. If D wins: a hybrid, with D's answers as the calibrated solver's
-     round-1 proposals.
-  2. If A meets its bar: B.
-  3. More evaluation grids for the headline (up to 88 unused in 012's
-     harvest, plus new posts). At ~$1–2 per grid, 60 more grids (n = 100)
-     take the 95% interval from about ±15 to about ±10 points. This is
-     needed before the note is published.
-  4. 016, other model families on the author's `steel` GPU: low priority.
-- **The note** (`docs/NOTE-draft.md`) waits for 015's D, whichever way it
-  goes.
+- **015 closed (2026-10-24):** asking Opus directly, 30/40 at
+  $0.28/grid, beat the full solver's 17/40 (P = 0.998); depth (one
+  high-effort call) found gold-in-5 on 12/17 stuck slots. **016, the
+  hybrid, is open.** After it, by expected value per dollar:
+  1. if the hybrid wins, the same comparison on more grids (n = 100);
+  2. if D wins, the note, then more grids for D alone (~$0.30 a grid);
+  3. 017, other model families on `steel`: low priority.
+- **The note** (`docs/NOTE-draft.md`) waits for 016: its headline is
+  now D against the hybrid. Publishing it is the author's call.
 
 ## Things that went wrong before
 Read `docs/INCIDENTS.md`. The ones a lead can cause or catch:

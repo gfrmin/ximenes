@@ -23,7 +23,7 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 ## lead
 
 - **Updated:** 2026-10-24
-- **Working on:** 015 checked: D1 30/40 vs solver 17/40, P = 0.998.
-  Stage A finishing as a secondary (no B). Drafting 016 (hybrid).
+- **Working on:** 015 accepted (4edff24). Brief 016 (the hybrid)
+  drafted and open, cap $30; Stage B folded into it.
 - **Running jobs:** a watcher on `origin/master` (no spend).
-- **Blocked on:** opus's 015 report.
+- **Blocked on:** nothing; opus starts 016.
