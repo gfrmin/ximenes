@@ -249,11 +249,12 @@ def _at(checkpoints: Sequence[Mapping[str, Any]], budget: float) -> dict[str, An
 # --- runs and the summary ---------------------------------------------------------------------
 
 
-def run(names: Sequence[str], args: argparse.Namespace, smoke: bool) -> dict[str, Any]:
+def run(names: Sequence[str], args: argparse.Namespace, smoke: bool,
+        paths: Mapping[str, pathlib.Path] | None = None) -> dict[str, Any]:
     from .e2e import grids
     from .policy import _backend
 
-    paths = {p.stem: p for p in grids()[0]}
+    paths = paths or {p.stem: p for p in grids()[0]}
     cal = json.loads(MAP_FILE.read_text())
     started = datetime.now(UTC)
     run_id = f"{started.strftime('%Y%m%dT%H%M%SZ')}-hybrid-{args.backend}-{uuid.uuid4().hex}"

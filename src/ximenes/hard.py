@@ -6,6 +6,7 @@ Dave's), harvested under 012's protocol.
     python -m ximenes.hard run --smoke        # one grid per publisher
     python -m ximenes.hard run                # the pinned list (paid)
     python -m ximenes.hard summary --run runs/<run>.json
+    python -m ximenes.hard hybrid --log runs/<direct run>.jsonl   # arm (b), lead's ee33af0
 """
 
 from __future__ import annotations
@@ -92,7 +93,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     from .policy import _backend
 
     p = argparse.ArgumentParser(prog="python -m ximenes.hard")
-    p.add_argument("step", choices=("split", "run", "summary"))
+    p.add_argument("step", choices=("split", "run", "summary", "hybrid"))
     p.add_argument("--smoke", action="store_true")
     p.add_argument("--run", default=None)
     p.add_argument("--n", type=int, default=None, help="per publisher, if the smoke says cut")
@@ -110,6 +111,19 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
     if args.step == "summary":
         print(json.dumps(summary(json.loads(pathlib.Path(args.run).read_text())), indent=1))
+        return 0
+    if args.step == "hybrid":  # arm (b): 016's hybrid unchanged, the direct calls replayed
+        from . import hybrid
+
+        names = hard_split()
+        if names != CFG["grid_list"]:
+            raise SystemExit("the seeded split differs from data/eval.json's pinned grid_list")
+        doc = hybrid.run(names, args, False, paths())
+        print(json.dumps({"run_id": doc["run_id"], **hybrid.summary(doc),
+                          "by_publisher": {k: hybrid.summary(
+                              {"grids": [g for g in doc["grids"]
+                                         if g["puzzle"].startswith(k + "-")]})
+                              for k in CFG["publishers"]}}, indent=1))
         return 0
     if args.smoke:
         names = smoke_names()
