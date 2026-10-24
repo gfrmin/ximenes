@@ -7,7 +7,7 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 - **Updated:** 2026-10-24 ~21:00 UTC
 - **Working on:** brief 016 (the hybrid). Claims: `src/ximenes/hybrid.py`,
   `tests/test_016_*.py`, `reports/016*`, `data/hybrid-d-calibration.json`, `data/eval.json` `hybrid`.
-- **Running jobs:** none yet (smoke on 014's grid #1 next).
+- **Running jobs:** 016 full run (both arms, 40 grids), started ~21:05 UTC, `python -m ximenes.hybrid run --max-usd 30`, output `runs/016-full.out`; expected ~$15. Resume: same command with `--log <its jsonl>`.
 - **Blocked on:** nothing.
 
 ## fable
