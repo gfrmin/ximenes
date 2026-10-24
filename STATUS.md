@@ -4,13 +4,11 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-24 ~18:00 UTC
-- **Working on:** brief 015 (A0, then D, then A; B needs the author's cap).
-  Claims: `src/ximenes/residual.py`, `src/ximenes/direct.py`,
-  `tests/test_015_*.py`, `reports/015*`, the `residual`/`direct` blocks of
-  `data/eval.json` and `data/instruments.json`.
-- **Running jobs:** 015 Stage A, all five arms on the 17 stuck slots (fable_high on its 9), started ~19:40 UTC, guard $5 per arm; smokes cost $0.57, projection ~$3. D done ($13.28).
-- **Blocked on:** nothing.
+- **Updated:** 2026-10-24 ~20:10 UTC
+- **Working on:** nothing; brief 015 done (`reports/015-depth-on-the-residual.md`).
+  Stage B is triggered (Opus high, 12/17) but needs the author's cap; D says hybrid next. Claims released.
+- **Running jobs:** none.
+- **Blocked on:** next brief (lead).
 
 ## fable
 

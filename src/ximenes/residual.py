@@ -593,7 +593,9 @@ def stage_a_summary(slots: Sequence[StuckSlot], a0: Mapping[str, Mapping[str, An
                                          -table[a]["usd"]))
         both = {i: union(docs["choose_list"]["slots"][i], docs[best]["slots"][i])
                 for i in docs[best]["slots"] if i in docs["choose_list"]["slots"]}
-        table["union"] = {**score(both, gold, CFG["ks"]), "with": best, "usd": 0.0}
+        # free to compute, but it needs both arms' calls: priced at their sum
+        table["union"] = {**score(both, gold, CFG["ks"]), "with": best,
+                          "usd": table["choose_list"]["usd"] + table[best]["usd"]}
     return {"arms": table, "decision": decide(table)}
 
 
