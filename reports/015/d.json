@@ -1,0 +1,47 @@
+{
+ "arms": {
+  "D1": {
+   "grids": 40,
+   "unfinished": 0,
+   "dropped_by_cutoff_rule": 0,
+   "fully_correct": 30,
+   "clues": 0.9917149958574979,
+   "usd": 11.340312,
+   "usd_per_grid": 0.28350780000000003,
+   "conflicts_per_grid": 0.05,
+   "grids_with_conflicts": 2,
+   "ece": 0.0735956917978459,
+   "n_calibration": 1207,
+   "stop_reasons": [
+    "end_turn"
+   ],
+   "vs": {
+    "full_solver": {
+     "n": 40,
+     "direct": 30,
+     "solver": 17,
+     "both": 15,
+     "neither": 8,
+     "only_direct": 15,
+     "only_solver": 2,
+     "p_direct_greater": 0.9983578574173876
+    },
+    "calibrated_frontier": {
+     "n": 20,
+     "direct": 14,
+     "solver": 8,
+     "both": 8,
+     "neither": 6,
+     "only_direct": 6,
+     "only_solver": 0,
+     "p_direct_greater": 0.9691982033309794
+    }
+   }
+  }
+ },
+ "decision": {
+  "arm": "D1",
+  "p_vs_full_solver": 0.9983578574173876,
+  "band": "direct_beats_bespoke"
+ }
+}
