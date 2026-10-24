@@ -4,11 +4,11 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-24 ~20:10 UTC
-- **Working on:** nothing; brief 015 done (`reports/015-depth-on-the-residual.md`).
-  Stage B is triggered (Opus high, 12/17) but needs the author's cap; D says hybrid next. Claims released.
-- **Running jobs:** none.
-- **Blocked on:** next brief (lead).
+- **Updated:** 2026-10-24 ~21:00 UTC
+- **Working on:** brief 016 (the hybrid). Claims: `src/ximenes/hybrid.py`,
+  `tests/test_016_*.py`, `reports/016*`, `data/hybrid-d-calibration.json`, `data/eval.json` `hybrid`.
+- **Running jobs:** none yet (smoke on 014's grid #1 next).
+- **Blocked on:** nothing.
 
 ## fable
 

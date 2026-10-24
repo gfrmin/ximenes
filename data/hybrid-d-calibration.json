@@ -1,0 +1,30 @@
+{
+ "source": "fitted by `python -m ximenes.hybrid fit-map` on brief 015's D1 run over the 40 dev grids (briefs/016), before any 016 grid was read",
+ "model": "logistic",
+ "features": [
+  "confidence"
+ ],
+ "l2": 10.0,
+ "mean": [
+  0.9196106048053024
+ ],
+ "sd": [
+  0.061871643226184624
+ ],
+ "intercept": 5.525100876643821,
+ "coef": {
+  "confidence": 0.773947170242516
+ },
+ "cv_log_loss": 0.029655812964489933,
+ "cv_by_l2": {
+  "0.01": 0.029978693748073576,
+  "0.1": 0.029963620842622156,
+  "1.0": 0.0298353575132791,
+  "10.0": 0.029655812964489933,
+  "100.0": 0.03559093608201253
+ },
+ "cv": "leave one grid out",
+ "fitted_on": "20261024T150818Z-direct-D1-anthropic-4d99a2ae6d9e4e4caee13288550efea3",
+ "n_slots": 1207,
+ "n_grids": 40
+}
