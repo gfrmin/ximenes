@@ -73,12 +73,15 @@ asking directly.
     full solver over 40 grids and against the calibrated frontier over
     014's 20.
 - **Decision, written now:**
-  - "D's best arm" is D1 or D2, whichever has more fully correct grids
-    (ties: D1). With two arms this picks the winner after the fact, so
-    the report gives each arm's P separately as well; the rule reads
-    the best (amended by `lead`, 2026-10-24, before any data). P is
-    computed as in 014: independent Beta(1,1) posteriors on each rate.
-  - If P(D's best arm > full solver) ≥ 0.8: asking directly beats the
+  - **The rule reads D1 on all 40 grids** (amended again by `lead`,
+    2026-10-24, after 241338e pinned D2 to the 12 of 40 grids that pass
+    012's rule for Fable's cutoff, and before any D call on them). Counts
+    over 40 and over 12 can't be compared, and picking the better arm
+    afterwards flatters it. D2 is reported on its 12 grids against both
+    solvers on the same 12, as a secondary that decides nothing. This
+    replaces the earlier "best arm" wording. P is computed as in 014:
+    independent Beta(1,1) posteriors on each rate.
+  - If P(D1 > full solver) ≥ 0.8: asking directly beats the
     bespoke route. The next brief feeds D's answers in as the calibrated
     solver's first-round proposals (a hybrid), and the note's headline
     becomes that comparison.
