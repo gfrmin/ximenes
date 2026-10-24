@@ -2,7 +2,9 @@
 
 **Status: drafted 2026-10-24 by fable. Waiting for the author's Phase 3
 envelope (proposed $60). Do not start paid calls until ROADMAP's Spending
-section shows it.**
+section shows it.** Order: A0, then D, then A, then B only if A meets its
+bar. Caps: A0 $0, D $25, A $15. B gets its own cap (~$50) from the author
+if A triggers it.
 
 Headline number: on the **stuck slots** of 013 and 014 (the slots where the
 gold answer was never proposed), **gold-in-5 per proposer arm**, with
@@ -40,6 +42,44 @@ changes three things:
   letter selection) are exactly where models are weakest, because they see
   tokens, not letters. There, the DSL can *generate* candidates, and
   generate them completely.
+
+## Stage D: ask the model directly (cap $25; run after A0)
+"Just ask the model" was measured only clue by clue, with Haiku on
+Cryptonite (brief 000). Nobody has measured a frontier model given the
+whole puzzle and allowed to think. This is the baseline any reader will ask
+for. It is also the honest answer to whether the bespoke solver beats
+asking directly.
+- **Grids:** the 40 evaluation grids of 013 and 014, paired against their
+  stored results. Use 014's 8/20 for the calibrated frontier. Use 013's
+  10/20 and 014's 7/20 for the full solver. The direct arm has no tunable
+  parameters. Commit its prompt and settings before any of these grids is
+  called. Smoke-test on 014's grid #1 only, which is already a smoke grid,
+  and don't revise the prompt after that.
+- **Input:** the clue list (numbers, clues, enumerations) and the grid as
+  text: each slot with its length and its crossings ("1A letter 3 = 2D
+  letter 1"). Nothing from our solver.
+- **Arms:** one call per puzzle, structured output
+  `{slot: {answer, confidence}}`:
+  - D1: `claude-opus-5-5` at high effort.
+  - D2: `claude-fable-5-1` at high effort, if the account can call it.
+    Apply 012's post-cutoff rule to its knowledge cutoff and report any
+    grids dropped.
+  - If the smoke test projects D1 + D2 over $25, run D1 only.
+- **Free checks on D's output:** crossing conflicts per grid, and the ECE
+  of its stated confidences.
+- **Report:**
+  - fully correct grids, clues and $ per grid;
+  - the paired tables and P(direct > solver) under Beta(1,1), against the
+    full solver over 40 grids and against the calibrated frontier over
+    014's 20.
+- **Decision, written now:**
+  - If P(D's best arm > full solver) ≥ 0.8: asking directly beats the
+    bespoke route. The next brief feeds D's answers in as the calibrated
+    solver's first-round proposals (a hybrid), and the note's headline
+    becomes that comparison.
+  - If ≤ 0.2: the note adds "a bespoke solver beats asking the model
+    directly", with the paired numbers.
+  - Otherwise, report both, with no change of plan.
 
 ## Stage A0: enumeration ($0, no calls)
 On the same stuck slots as Stage A (defined below):
@@ -96,7 +136,7 @@ an arm at $0.
   The note says so, and 016 (other model families) is the last lever.
 - Otherwise, report and stop; fable decides.
 
-## Stage B: end to end (only if triggered; cap $45)
+## Stage B: end to end (only if triggered; cap set by the author then, ~$50)
 - **Grids:** 20 post-cutoff grids that have never been read. Use 013's
   reserve if any remains. Otherwise use a new harvest of posts after
   2026-10-22 under 012's protocol (REST API, 20 s delay, blind parser,
