@@ -142,6 +142,25 @@ an arm at $0.
   The note says so, and 016 (other model families) is the last lever.
 - Otherwise, report and stop; `lead` decides.
 
+**`lead`'s rule for the middle band, written 2026-10-24 after A0's $0
+numbers and before any Stage A call.** A0 found 17 stuck slots. At
+n = 17 the drop band cannot occur (0/17 has a 90% upper bound of 0.153),
+and the B band needs at least 8/17. So:
+- If the best arm's point estimate r̂ ≥ 0.25 but its lower bound is
+  < 0.25, the sample is too small, not the arm too weak. Run that arm
+  only on further stuck slots (defined as for the first set, from the
+  `frontier_calibrated` arm's end states on 014's grids, slots not
+  already in the set), within Stage A's cap, then apply the brief's rule
+  once more on the pooled slots. That second look is the last.
+- If r̂ < 0.25, depth and enumeration do not reach the residual at a
+  rate worth an end-to-end run. No B; the note says so with the
+  numbers; the next brief follows D's decision (hybrid if D wins,
+  otherwise more evaluation grids, `docs/LEAD.md`).
+- A0 caps arm 5: gold is in W ∩ pattern for 8 of 17 slots, so arm 5 can
+  reach the B band only by choosing gold on every one of them. In 2 of 17
+  slots gold does not fit the final pattern (a wrong committed crosser),
+  so no arm given that pattern can find it; report them separately.
+
 ## Stage B: end to end (only if triggered; cap set by the author then, ~$50)
 - **Grids:** 20 post-cutoff grids that have never been read. Use 013's
   reserve if any remains. Otherwise use a new harvest of posts after

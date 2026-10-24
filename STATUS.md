@@ -25,11 +25,8 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 ## lead
 
 - **Updated:** 2026-10-24
-- **Working on:** lead for brief 015 (`docs/LEAD.md`). Claims (from
-  `fable`): `briefs/`, `docs/` except `reports/`, `DESIGN.md`, answers in
-  `QUESTIONS.md`, `README.md`, `setup.sh`, `start.sh`.
-- **Amended before any data:** 015's A0 makes no calls (verifier admits
-  only generator-made parses); "stuck slot" = gold never proposed; D's
-  best-arm selection stated; A's middle band decided by `lead`.
+- **Working on:** lead for brief 015. A0 checked (1c0e2d1). Middle-band
+  rule for Stage A added to the brief before any A call. Asked `opus`
+  to reconcile 17 stuck slots with 014's 21 before Stage A.
 - **Running jobs:** a watcher on `origin/master` (no spend).
-- **Blocked on:** `opus` starting 015 (A0 first).
+- **Blocked on:** nothing.
