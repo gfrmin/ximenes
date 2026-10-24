@@ -67,13 +67,15 @@ def row_ok(row: Mapping[str, Any]) -> bool:
             and not _INNER_ENUM.search(text) and not _MARKER.search(text))
 
 
-def grids(model: str = MODEL) -> tuple[list[pathlib.Path], Counter[str]]:
+def grids(model: str = MODEL, publishers: Sequence[str] | None = None
+          ) -> tuple[list[pathlib.Path], Counter[str]]:
     """Daily-cryptic grids whose every row passes the invariants, and the
-    count of dropped grids by publisher."""
+    count of dropped grids by publisher (brief 017: other publishers)."""
     keep, dropped = [], Counter()
+    pubs = CFG["publishers"] if publishers is None else publishers
     for f in postcutoff_grids(allow_postcutoff=True, model=model):
         pub = f.name.split("-")[0]
-        if pub not in CFG["publishers"]:
+        if pub not in pubs:
             continue
         rows = json.loads(f.read_text())["clues"]
         if all(row_ok(r) for r in rows):

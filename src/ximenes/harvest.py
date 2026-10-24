@@ -6,6 +6,8 @@ are printed; content never is.
     python -m ximenes.harvest fetch      # categories + posts since the floor
     python -m ximenes.harvest update     # RSS feed (one request): new posts only
     python -m ximenes.harvest parse      # clue rows + reconstructed grids, counts only
+    python -m ximenes.harvest fetch --source bigdave|tftt   # brief 017: one category per source
+    python -m ximenes.harvest parse --source bigdave|tftt
 """
 
 from __future__ import annotations
@@ -64,18 +66,22 @@ def http_get(url: str) -> tuple[int, bytes]:
         return e.code, b""
 
 
-def fetch(get: Callable[[str], bytes], root: pathlib.Path = RAW) -> dict[str, Any]:
-    """Categories, then every post dated on or after the floor, page by page.
-    Writes raw JSON; returns counts only."""
+def fetch(get: Callable[[str], bytes], root: pathlib.Path = RAW,
+          source: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Categories, then every post dated on or after the floor, page by page
+    (brief 017: only the source's one category). Writes raw JSON; returns
+    counts only."""
     root.mkdir(parents=True, exist_ok=True)
-    api = CFG["base"] + "/wp-json/wp/v2"
-    cats = json.loads(get(f"{api}/categories?per_page={CFG['per_page']}"
-                          "&_fields=id,name,slug,count,parent"))
+    api = (source or CFG)["base"] + "/wp-json/wp/v2"
+    only = f"&categories={source['category']}" if source else ""
+    cats = ([{"id": source["category"], "name": source["publisher"]}] if source else
+            json.loads(get(f"{api}/categories?per_page={CFG['per_page']}"
+                           "&_fields=id,name,slug,count,parent")))
     (root / "categories.json").write_text(json.dumps(cats))
     posts: list[dict[str, Any]] = []
     page = 1
     while True:
-        batch = json.loads(get(f"{api}/posts?after={CFG['after']}T00:00:00"
+        batch = json.loads(get(f"{api}/posts?after={CFG['after']}T00:00:00{only}"
                                f"&per_page={CFG['per_page']}&page={page}&orderby=date&order=asc"
                                "&_fields=id,date,link,title,categories,tags,content,author"))
         posts += batch
@@ -143,9 +149,12 @@ def rows_of(entries: list[Entry], post: dict[str, Any], publisher: str) -> list[
              "post_id": post["id"]} for e in entries]
 
 
-def parse_all(root: pathlib.Path = RAW, out: pathlib.Path = POSTCUTOFF) -> dict[str, Any]:
+def parse_all(root: pathlib.Path = RAW, out: pathlib.Path = POSTCUTOFF,
+              publishers: dict[str, str] | None = None) -> dict[str, Any]:
     """Parse every kept post, reconstruct its grid, write rows and grids for
-    complete puzzles; return counts by publisher and by shape (no content)."""
+    complete puzzles; return counts by publisher and by shape (no content).
+    `publishers` maps a category name to a publisher (default: 012's)."""
+    pubs = CFG["publishers"] if publishers is None else publishers
     cats = {c["id"]: c["name"] for c in json.loads((root / "categories.json").read_text())}
     grids_dir = out / "grids"
     grids_dir.mkdir(parents=True, exist_ok=True)
@@ -155,8 +164,7 @@ def parse_all(root: pathlib.Path = RAW, out: pathlib.Path = POSTCUTOFF) -> dict[
     for f in sorted(root.glob("post-*.json")):
         post = json.loads(f.read_text())
         names = {cats.get(c, "") for c in post["categories"]}
-        publisher = next((CFG["publishers"][n] for n in sorted(names) if n in CFG["publishers"]),
-                         None)
+        publisher = next((pubs[n] for n in sorted(names) if n in pubs), None)
         st = stats.setdefault(publisher or "skipped", Counter())
         st["posts"] += 1
         if publisher is None or names & set(CFG["skip_categories"]):
@@ -197,15 +205,19 @@ def parse_all(root: pathlib.Path = RAW, out: pathlib.Path = POSTCUTOFF) -> dict[
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="python -m ximenes.harvest")
     p.add_argument("step", choices=("fetch", "update", "parse"))
+    p.add_argument("--source", choices=sorted(CFG["sources"]), default=None)
     args = p.parse_args(argv)
+    src = CFG["sources"][args.source] if args.source else None
+    root = POSTCUTOFF / src["raw"] if src else RAW
     if args.step == "fetch":
         t0 = time.monotonic()
-        counts = fetch(polite(http_get, time.monotonic, time.sleep))
+        counts = fetch(polite(http_get, time.monotonic, time.sleep), root, src)
         print(json.dumps({**counts, "seconds": time.monotonic() - t0}))
     elif args.step == "update":
         print(json.dumps(update(polite(http_get, time.monotonic, time.sleep))))
     else:
-        print(json.dumps(parse_all(), indent=1))
+        print(json.dumps(parse_all(root, publishers={src["publisher"]: src["publisher"]}
+                                   if src else None), indent=1))
     return 0
 
 

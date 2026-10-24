@@ -1,0 +1,64 @@
+{
+ "publishers": {
+  "times": {
+   "posts": 60,
+   "entries": 1774,
+   "grid_unique": 54,
+   "complete": 54,
+   "clues_complete": 1601,
+   "grid_limit": 1,
+   "grid_incomplete": 2,
+   "grid_none": 3
+  },
+  "toughie": {
+   "posts": 46,
+   "entries": 662,
+   "grid_incomplete": 21,
+   "grid_limit": 1,
+   "grid_unique": 16,
+   "complete": 16,
+   "clues_complete": 481,
+   "grid_none": 8
+  }
+ },
+ "shapes": {
+  "table/span": {
+   "times:unique": 26,
+   "times:incomplete": 2,
+   "times:none": 3
+  },
+  "table/uspan": {
+   "times:unique": 28,
+   "times:limit": 1
+  },
+  "p+br/u": {
+   "toughie:incomplete": 9,
+   "toughie:unique": 4
+  },
+  "p+br/uspan": {
+   "toughie:incomplete": 11,
+   "toughie:limit": 1,
+   "toughie:unique": 12
+  },
+  "p/span": {
+   "toughie:none": 8,
+   "toughie:incomplete": 1
+  }
+ },
+ "after_row_invariants": {
+  "times": 54,
+  "toughie": 16
+ },
+ "requests": {
+  "tftt": {
+   "robots": 1,
+   "categories": 1,
+   "posts": 1
+  },
+  "bigdave": {
+   "robots": 1,
+   "categories": 3,
+   "posts": 1
+  }
+ }
+}

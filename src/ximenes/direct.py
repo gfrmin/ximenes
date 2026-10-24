@@ -107,10 +107,11 @@ def grids_for(arm: str) -> list[tuple[str, str]]:
     return [(b, n) for b, n in pairs if n in ok]
 
 
-def run(arm: str, names: Sequence[tuple[str, str]], backend: Instrument) -> list[dict[str, Any]]:
+def run(arm: str, names: Sequence[tuple[str, str]], backend: Instrument,
+        paths: Mapping[str, pathlib.Path] | None = None) -> list[dict[str, Any]]:
     from .e2e import grids
 
-    paths = {p.stem: p for p in grids()[0]}
+    paths = paths or {p.stem: p for p in grids()[0]}
     cfg = CFG["arms"][arm]
 
     def one(bn: tuple[str, str]) -> dict[str, Any]:
