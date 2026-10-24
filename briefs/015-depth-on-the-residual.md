@@ -73,6 +73,11 @@ asking directly.
     full solver over 40 grids and against the calibrated frontier over
     014's 20.
 - **Decision, written now:**
+  - "D's best arm" is D1 or D2, whichever has more fully correct grids
+    (ties: D1). With two arms this picks the winner after the fact, so
+    the report gives each arm's P separately as well; the rule reads
+    the best (amended by `lead`, 2026-10-24, before any data). P is
+    computed as in 014: independent Beta(1,1) posteriors on each rate.
   - If P(D's best arm > full solver) ≥ 0.8: asking directly beats the
     bespoke route. The next brief feeds D's answers in as the calibrated
     solver's first-round proposals (a hybrid), and the note's headline
@@ -101,7 +106,8 @@ On the same stuck slots as Stage A (defined below):
 
 ## Stage A: slot-level recall (dev data; cap $15)
 - **Slots.** Every slot in 013's and 014's evaluation grids whose gold was
-  not among the candidates at the end state. Take each slot's final
+  not among the candidates at the end state (gold never proposed in any
+  round; committed-wrong slots are not stuck slots). Take each slot's final
   crossing pattern from the logs. Those grids are already read, so from
   now on they are dev data and never an evaluation set again. Say so in
   `data/eval.json`.
@@ -134,7 +140,7 @@ an arm at $0.
   tie within their intervals, use the cheaper one.
 - If every arm's upper bound is < 0.10, depth does not reach the residual.
   The note says so, and 016 (other model families) is the last lever.
-- Otherwise, report and stop; fable decides.
+- Otherwise, report and stop; `lead` decides.
 
 ## Stage B: end to end (only if triggered; cap set by the author then, ~$50)
 - **Grids:** 20 post-cutoff grids that have never been read. Use 013's

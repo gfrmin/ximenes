@@ -16,6 +16,7 @@ in message filenames, and as a commit trailer `Agent: <name>`.
 |---|---|---|
 | `fable` | Claude session in claude.ai (Fable 5.1 until 2026-10-22 ~05:00 UTC, Opus 5.5 after; still `fable`, distinct from the `opus` builder), working with the author: scaffold, briefs, docs, reviews, answers in `QUESTIONS.md` on the author's behalf (git author `builder`, then `fable`, then `Claude <noreply@anthropic.com>` from 2026-10-21 ~18:30 UTC; the `Agent: fable` trailer is the identity) | 2026-10-21 |
 | `opus` | Claude Opus 5.5 session: brief 000 harness | 2026-10-21 |
+| `lead` | Claude Opus 5.5 (`claude-opus-5-5`), cloud session in claude.ai: lead from brief 015 (`docs/LEAD.md`); answers, report checks, spend within the envelope, next briefs | 2026-10-24 |
 
 New agent: add a row in your first commit.
 
