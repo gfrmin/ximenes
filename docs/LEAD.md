@@ -96,8 +96,11 @@ update", pull and run the routine at once.
   grid in 016 and 017 (P = 0.75 each, middle band): direct is the
   default; the hybrid's value is calibration (ECE 0.002–0.003 vs ~0.07).
   The hybrid line is closed as an accuracy claim. Envelope $40.45 of $60.
-- **Next, by value:** the note (the author's decision to publish); then
-  nothing paid is pending. 018 (other families on `steel`) stays low
+- **018 is open** (`briefs/018-no-grid.md`, cap $12): the direct call
+  with clues only, paired against D1 on the 40 dev grids; it decides
+  what the note says about supplying the world. Then the note, and the
+  project closes (ROADMAP, Closing).
+- **Otherwise** nothing paid is pending. 018 (other families on `steel`) stays low
   priority. A cheap open lever, if wanted: a non-steep map that sends
   D's confident answers through the crossing letters before committing
   (017: the map committed 6 of 8 misses untested); measurable free on

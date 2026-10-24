@@ -52,8 +52,9 @@ end-to-end grid, then a clean number.
 | 015 | **Depth or enumeration on the residual** (`briefs/015-depth-on-the-residual.md`): Stage A0 ($0), word-list coverage, pattern matches and DSL generators on 013's and 014's stuck slots (gold never proposed), now dev data; Stage D ($25), the model given the whole puzzle (Opus high, Fable 5.1), paired against our solver on 013's and 014's 40 grids; Stage A, Opus at low / high / max effort, Fable 5.1, and Opus choosing from the pattern-matched list; Stage B, only if the best arm's gold-in-5 lower bound is ≥ 0.25: escalation on 20 never-read grids, paired against 014's calibrated frontier | D: fully correct grids, direct vs solver, paired; A: gold-in-5 per arm, $ per slot; B: fully correct grids, paired | $60 (Phase 3, open) |
 | 016 | **The hybrid** (`briefs/016-hybrid.md`): Opus asked directly (015 D1) as round 1, calibrated BP, Opus-high escalation on uncommitted slots; paired against D1 alone on 40 never-read post-cutoff grids | fully correct grids, hybrid vs direct, paired; $ per grid | $30 |
 | 017 | **Harder puzzles** (`briefs/017-harder-puzzles.md`): harvest Times dailies (Times for the Times) and Telegraph Toughies (Big Dave) post-cutoff under 012's protocol; Opus asked directly (015 D1) on up to 20 of each | fully correct grids, pooled, with 90% interval; per publisher | $15 |
-| 018 | **Recall across model families** (low priority): open-weight models on the author's `steel` box (GPU, Ollama), beside Opus, on 015's stuck slots; each family alone and their union | gold-in-5 per model and for the union | ≤ $10 |
-| 019+ | The note (`docs/NOTE-draft.md`) finalised with 015's result | — | per brief |
+| 018 | **What the grid is worth** (`briefs/018-no-grid.md`): Opus asked directly with clues only, paired against 015 D1 on the same 40 dev grids; the closing measurement | fully correct grids, clues-only vs with-grid, paired | $12 |
+| 019 | **Recall across model families** (low priority): open-weight models on the author's `steel` box (GPU, Ollama), beside Opus, on 015's stuck slots; each family alone and their union | gold-in-5 per model and for the union | ≤ $10 |
+| — | The note (`docs/NOTE-draft.md`) finalised with 015's result | — | per brief |
 
 **Stop rule, pre-registered for 013.** On post-cutoff grids: if fewer than **10%** of grids are fully
 correct at ≤ **$5 per grid**, the project stops chasing full grids and the
@@ -99,7 +100,7 @@ them. 015 (drafted 2026-10-24) tests depth (higher effort, a stronger
 model) and enumeration (a finite word list cut by the crossing letters,
 the DSL as generator and checker) on those slots, then end to end only if the slot-level bar is met.
 Phase 3's envelope is open (Spending, below). Other model
-families on `steel` move to 018, still low priority.
+families on `steel` move to 019, low priority; the project closes after 018 and the note.
 
 **015 closed (2026-10-24):** Opus 5.5 given the whole puzzle at high
 effort got 30/40 grids fully correct at $0.28 a grid, against the full
@@ -112,6 +113,15 @@ dailies and 28/36 Times and Toughie grids (pooled 93/116 with 015's
 30/40, ~$0.27 a grid). The hybrid added one grid each time (P = 0.75,
 middle band): direct is the default, the hybrid's value is calibration.
 Phase 3: $40.45 of $60.
+
+**Closing (set 2026-10-25 by the author, recorded by `lead`):** ximenes has
+answered its question. A frontier model given the whole puzzle needs
+little corralling for cryptic crosswords; our machinery's measured value
+is calibration and audit. The project closes after 018 (what the grid is
+worth) and the note, and stands as the control case for the author's
+programme: problems where agents fail unless grounded, calibrated and
+corralled. Candidates for that programme are screened in a new
+repository, not here.
 
 ## Spending
 Standing envelope for Phase 2: **$150**, delegated by the author to `fable`

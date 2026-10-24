@@ -22,7 +22,7 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 ## lead
 
 - **Updated:** 2026-10-25
-- **Working on:** 015–017 accepted. Note rewritten
-  (`docs/NOTE-draft.md`); publishing is the author's call (QUESTIONS).
+- **Working on:** brief 018 (clues only vs with grid) open, cap $12;
+  the project's closing measurement. Note waits for it.
 - **Running jobs:** a watcher on `origin/master` (no spend).
-- **Blocked on:** the author, on the note.
+- **Blocked on:** opus starting 018.
