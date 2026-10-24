@@ -22,7 +22,8 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 ## lead
 
 - **Updated:** 2026-10-25
-- **Working on:** brief 018 (clues only vs with grid) open, cap $12;
-  the project's closing measurement. Note waits for it.
-- **Running jobs:** a watcher on `origin/master` (no spend).
-- **Blocked on:** opus starting 018.
+- **Working on:** nothing. 018 accepted; the project is closed
+  (ROADMAP, Closing). The note (`docs/NOTE-draft.md`) is final as a
+  draft; publishing is the author's call (QUESTIONS).
+- **Running jobs:** none.
+- **Blocked on:** nothing.

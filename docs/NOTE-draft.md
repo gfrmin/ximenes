@@ -1,7 +1,7 @@
 # ximenes: a frontier model solves most cryptic crosswords when simply asked (draft note)
 
-*Draft, 2026-10-24, rewritten by `lead` after briefs 015–017. Numbers
-from `reports/` 013–017. Every number replays bit for bit from its logs.
+*Draft, 2026-10-25, rewritten by `lead` after briefs 015–018. Numbers
+from `reports/` 013–018. Every number replays bit for bit from its logs.
 Publishing it is the author's decision.*
 
 ## Result
@@ -21,6 +21,12 @@ answers were 99.2–99.6% of clues right.
 
 - **Hard puzzles cost it little:** 78% on Times and Toughie grids against
   75% and 88% on the two daily sets.
+- **It does not need to be told the grid.** Given the clues alone, with
+  nothing about which squares cross, it filled 25 of 30 dev grids
+  against 24 of 30 with the grid (paired: 4 only without, 3 only with;
+  P = 0.36, no claim). Its clue-by-clue answers disagreed on a shared
+  letter in 1 grid of 30. What the grid buys is thinking time: $0.28 a
+  grid with it, $0.47 without (018).
 - **When it fails, it fails by one slot.** Each of its 23 imperfect
   grids had exactly one wrong answer. Its stated confidence on those
   answers was mostly below 0.9 (20 of 23), so its own confidence flags
@@ -52,10 +58,17 @@ more.
 - **Its limit** is known: a steep calibration map commits the direct
   call's confident mistakes before the crossing letters can test them
   (6 of 8 misses in 017).
+- **One grid in forty is inside the noise.** Two near-identical
+  conditions in 018 (the same call with and without the grid) disagreed
+  on 7 of 30 grids for a net difference of one. A one-grid edge,
+  however consistent, is not evidence of an effect at this n.
 
 ## What we learned on the way (briefs 000–014)
 - **Crossing letters and belief propagation** took the same candidates
-  from 0.78 to 0.97 of clues right (013).
+  from 0.78 to 0.97 of clues right (013) when the proposer worked clue
+  by clue at low effort. Given the whole puzzle at high effort, the
+  model needs neither: it reaches 0.992 of clues with the grid and
+  without it (018).
 - **Calibration, not verification,** was what a model proposing clue by
   clue lacked: raw shares were underconfident (ECE 0.177), and a fitted
   posterior fixed it (014).
@@ -97,7 +110,8 @@ more.
    not accuracy.
 
 ## Caveats
-- **n = 116 grids** in all, 76 of them never read before (016, 017).
+- **n = 116 grids** for the headline, 76 of them never read before (016,
+  017); 018's 30 are dev grids re-read for a paired secondary.
   Intervals are given.
 - **Selection.** Only puzzles blogged (Fifteensquared, Times for the
   Times, Big Dave's), parsed completely and reconstructed uniquely;
@@ -108,6 +122,6 @@ more.
   only (its cutoff left too few grids).
 - **No time limit,** and no championship puzzles.
 - **Costs** are API list prices for evaluation runs; development across
-  all briefs was $285.59.
+  all briefs was $300.24.
 - **Data** cannot be shared (newspaper puzzles and blog content); the
   code, the protocol and every result's replay log can.

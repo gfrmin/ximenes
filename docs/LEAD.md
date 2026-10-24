@@ -96,10 +96,12 @@ update", pull and run the routine at once.
   grid in 016 and 017 (P = 0.75 each, middle band): direct is the
   default; the hybrid's value is calibration (ECE 0.002–0.003 vs ~0.07).
   The hybrid line is closed as an accuracy claim. Envelope $40.45 of $60.
-- **018 is open** (`briefs/018-no-grid.md`, cap $12): the direct call
-  with clues only, paired against D1 on the 40 dev grids; it decides
-  what the note says about supplying the world. Then the note, and the
-  project closes (ROADMAP, Closing).
+- **018 closed (2026-10-25):** clues only 25/30 against 24/30 with the
+  grid (P = 0.36, no claim); the grid buys thinking time ($0.28 vs
+  $0.47 a grid), not accuracy. The crossword's world is one the model
+  already has. **The project is closed** (ROADMAP, Closing); the note
+  is final as a draft and publishing is the author's. Envelope $55.10
+  of $60; cumulative $300.24.
 - **Otherwise** nothing paid is pending. 018 (other families on `steel`) stays low
   priority. A cheap open lever, if wanted: a non-steep map that sends
   D's confident answers through the crossing letters before committing

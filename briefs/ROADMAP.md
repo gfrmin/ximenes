@@ -117,8 +117,8 @@ Phase 3: $40.45 of $60.
 **Closing (set 2026-10-25 by the author, recorded by `lead`):** ximenes has
 answered its question. A frontier model given the whole puzzle needs
 little corralling for cryptic crosswords; our machinery's measured value
-is calibration and audit. The project closes after 018 (what the grid is
-worth) and the note, and stands as the control case for the author's
+is calibration and audit. 018 found the grid buys cost, not accuracy (25/30 clues only vs
+24/30 with it, P = 0.36). The project closed on 2026-10-25 with the note, and stands as the control case for the author's
 programme: problems where agents fail unless grounded, calibrated and
 corralled. Candidates for that programme are screened in a new
 repository, not here.
