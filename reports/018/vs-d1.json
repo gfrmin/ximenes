@@ -1,0 +1,31 @@
+{
+ "n": 30,
+ "unfinished": 0,
+ "clues_only": {
+  "fully_correct": 25,
+  "clues": 0.99235807860262,
+  "usd": 14.208127999999999,
+  "usd_per_grid": 0.4736042666666666,
+  "conflicts_per_grid": 0.2,
+  "grids_with_conflicts": 1,
+  "ece": 0.07981441048034935,
+  "wrong_slots_per_imperfect_grid": [
+   1,
+   1,
+   1,
+   2,
+   2
+  ]
+ },
+ "with_grid_d1": {
+  "fully_correct": 24
+ },
+ "paired": {
+  "both": 21,
+  "only_with_grid": 3,
+  "only_clues_only": 4,
+  "neither": 2,
+  "p_theta_gt_half": 0.36328125
+ },
+ "decision": "no_claim"
+}
