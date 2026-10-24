@@ -49,7 +49,7 @@ end-to-end grid, then a clean number.
 | 012 | **Post-cutoff harvest** from Fifteensquared (REST API, 20 s delay, local only): clues, answers, explanations from 2026-08-01; grids reconstructed; post-cutoff rule moved to knowledge cutoffs | puzzles, clues and unique grids by publisher | $0 |
 | 013 | **End-to-end grid solver**: Opus `list` round 1, Opus `sample` re-proposal (011's picks), posterior / OTHER / gain model refitted on post-cutoff fit grids, VOC at $5/grid; 20 post-cutoff evaluation grids (`briefs/013-end-to-end.md`) | fully correct grids, clues, letters, $ per grid; stop rule below | $80 |
 | 014 | **Close the last slots**: persistent re-proposal for two paired policies (full solver; frontier + fitted vote posterior; raw frontier smoke only), 20 fresh post-cutoff grids (seed 20261028) | fully correct grids per policy at $1/$2/$3; pooled 40-grid rate; what the verifier adds over calibration | $90 |
-| 015 | **Depth or enumeration on the residual** (`briefs/015-depth-on-the-residual.md`): Stage A0 ($0), word-list coverage, pattern matches and DSL generators on 013's and 014's stuck slots (gold never proposed), now dev data; Stage A, Opus at low / high / max effort, Fable 5.1, and Opus choosing from the pattern-matched list; Stage B, only if the best arm's gold-in-5 lower bound is ≥ 0.25: escalation on 20 never-read grids, paired against 014's calibrated frontier | gold-in-5 per arm, $ per slot; then fully correct grids, paired | $60 (Phase 3, waits for the author) |
+| 015 | **Depth or enumeration on the residual** (`briefs/015-depth-on-the-residual.md`): Stage A0 ($0), word-list coverage, pattern matches and DSL generators on 013's and 014's stuck slots (gold never proposed), now dev data; Stage D ($25), the model given the whole puzzle (Opus high, Fable 5.1), paired against our solver on 013's and 014's 40 grids; Stage A, Opus at low / high / max effort, Fable 5.1, and Opus choosing from the pattern-matched list; Stage B, only if the best arm's gold-in-5 lower bound is ≥ 0.25: escalation on 20 never-read grids, paired against 014's calibrated frontier | D: fully correct grids, direct vs solver, paired; A: gold-in-5 per arm, $ per slot; B: fully correct grids, paired | $60 (Phase 3, open) |
 | 016 | **Recall across model families** (low priority): open-weight models on the author's `steel` box (GPU, Ollama), beside Opus, on 015's stuck slots; each family alone and their union | gold-in-5 per model and for the union | ≤ $10 |
 | 017+ | The note (`docs/NOTE-draft.md`) finalised with 015's result | — | per brief |
 
@@ -96,7 +96,7 @@ proposed). 014's persistence was breadth at low effort and did not reach
 them. 015 (drafted 2026-10-24) tests depth (higher effort, a stronger
 model) and enumeration (a finite word list cut by the crossing letters,
 the DSL as generator and checker) on those slots, then end to end only if the slot-level bar is met.
-It needs a Phase 3 envelope from the author (proposed $60). Other model
+Phase 3's envelope is open (Spending, below). Other model
 families on `steel` move to 016, still low priority.
 
 ## Spending
@@ -106,6 +106,14 @@ cap without asking, after a smoke test whose cost it reports. Anything
 beyond a brief's cap or the envelope needs `fable`'s written approval in
 `comms/`. The author can veto at any time by editing this section.
 Cumulative before Phase 2: $103.18; after 013: $160.64 (Phase 2 $57.46 of $150).
+
+**Phase 3 envelope: $60**, opened by the author on 2026-10-24 (his "You have
+my OK" in the claude.ai thread, recorded by `fable`). It covers brief 015's
+A0 ($0), D ($25) and A ($15). Stage B gets its own cap from the author if A
+triggers it. From 015 on, the lead role passes from `fable` to `lead`
+(`docs/LEAD.md`), with the same spending rules: anything beyond a brief's
+cap or this envelope needs the lead's written approval in `comms/`, and
+anything beyond the envelope needs the author's.
 
 ## Phase 1 (done)
 

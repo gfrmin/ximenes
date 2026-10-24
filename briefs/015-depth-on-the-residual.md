@@ -1,8 +1,8 @@
 # Brief 015: depth or enumeration on the residual
 
-**Status: drafted 2026-10-24 by fable. Waiting for the author's Phase 3
-envelope (proposed $60). Do not start paid calls until ROADMAP's Spending
-section shows it.** Order: A0, then D, then A, then B only if A meets its
+**Status: open (2026-10-24).** The Phase 3 envelope of $60 is recorded in
+ROADMAP's Spending section. The lead for this brief is `lead`
+(`docs/LEAD.md`). Order: A0, then D, then A, then B only if A meets its
 bar. Caps: A0 $0, D $25, A $15. B gets its own cap (~$50) from the author
 if A triggers it.
 

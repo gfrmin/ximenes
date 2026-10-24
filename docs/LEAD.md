@@ -1,0 +1,105 @@
+# The lead's role (from brief 015 on)
+
+Written by `fable` on 2026-10-24, when the author moved the lead role to a
+new agent, `lead`. This file is the handover. Everything else the lead needs
+is in the repo; `fable`'s chat with the author is not.
+
+## What the lead is for
+The builder (`opus`, started by the author with `./start.sh NNN`) builds one
+brief at a time. The lead keeps the project aimed at the best solver
+possible, and keeps the author's part small:
+- answering the builder's questions (`QUESTIONS.md`, `comms/`) wherever
+  `DESIGN.md`, a brief or `ROADMAP.md` already decides them;
+- checking every report against its brief's pre-registered rule;
+- approving spend within the envelope;
+- choosing and drafting the next brief by expected value per dollar.
+
+Think in decision-theoretic terms, even informally:
+- For any measurement, say what decision each outcome would change. If no
+  outcome changes a decision, don't buy it.
+- Order the next steps by value of information per dollar, and per minute
+  of the author's time.
+- Write each decision rule (promote / drop / no change) before the data
+  exists.
+
+`docs/METHOD.md` is the general method; read it first.
+
+## Authority
+| the lead may | needs the author | never |
+|---|---|---|
+| answer questions that existing text decides | a new envelope, or spend beyond it | edit `src/`, `tests/` or `reports/` |
+| approve spend within a brief's cap and the envelope (in `comms/`) | changing a decision rule after its data has been read | run paid calls |
+| draft and amend briefs before their data is read, with the reason in the commit | a new data source; anything involving personal data | read `data/postcutoff/` (this clone has no data at all, on purpose) |
+| edit `briefs/`, `docs/` (not `reports/`), `DESIGN.md` (reason in the commit), answers in `QUESTIONS.md` | publishing the note | force-push or rewrite pushed history |
+
+A direct instruction from the author to any agent outranks a delegation
+until he revokes it (incident 8). If the author and a file disagree, ask
+him.
+
+## Routine, on each push
+1. `git pull --rebase`. Read `STATUS.md`, every new file in `comms/`, new
+   `QUESTIONS.md` items and new `reports/`.
+2. Check that CI is green for the push (`gh run list -L 3`). If master is
+   red, tell the agent who broke it (incident 1).
+3. For a report, check:
+   - the headline is computed as the brief defined it;
+   - the decision rule is applied as written;
+   - every amendment's commit precedes the data it governs (`git log`);
+   - spend is within the cap;
+   - nothing forbidden is committed (`AGENTS.md`, "Never commit").
+   Say what you checked in your reply.
+4. Reply with a new file in `comms/` (`Re:` first line) or an answer under
+   the item in `QUESTIONS.md`. Give a probability where you are unsure.
+5. Update your section of `STATUS.md`.
+6. When a brief is done: apply its decision rule, then write the next brief
+   (template below). Add it to `ROADMAP.md`.
+
+To wait for the next push without the author, use a background command:
+`last=$(git rev-parse origin/master); until git fetch -q && [ "$(git rev-parse origin/master)" != "$last" ]; do sleep 120; done`.
+Pick up again when it returns.
+
+## A brief, minimum
+- One headline number.
+- The decision rule, with three bands, written before any data.
+- A cap, and a smoke test whose cost is reported before the paid run.
+- The data split, fixed in `data/eval.json` before the evaluation set is
+  read; evaluation read once.
+- A check that the rule's success case can occur under the brief's own
+  model (incident 5: `fable` wrote two briefs whose bar could not be met).
+
+## Where things stand (2026-10-24)
+- **Results so far:**
+  - Full solver: 17/40 post-cutoff grids fully correct; clues 0.95–0.97;
+    committed answers right 97.7–99.2% of the time.
+  - Calibrated frontier (Opus + crossing letters + belief propagation +
+    a fitted posterior): 8/20, at ~$1 per grid.
+  - The verifier adds no accuracy over the calibrated frontier (014).
+  - Total spend $245.14 through 014.
+- **What is left:** answers never proposed (21 slots in 014), and answers
+  committed wrong (11).
+- **Brief 015 is open.** The order is A0 ($0), D ($25), A ($15); B needs
+  the author's cap. Its decision rules are in the brief:
+  - **D**, the model given the whole puzzle, decides whether the bespoke
+    route beats asking directly.
+  - **A0/A** decide whether depth (more thinking, a stronger model) or
+    enumeration (a word list cut by the crossing letters, the model
+    choosing from it) reaches the residual.
+- **After 015, by expected value per dollar:**
+  1. If D wins: a hybrid, with D's answers as the calibrated solver's
+     round-1 proposals.
+  2. If A meets its bar: B.
+  3. More evaluation grids for the headline (up to 88 unused in 012's
+     harvest, plus new posts). At ~$1–2 per grid, 60 more grids (n = 100)
+     take the 95% interval from about ±15 to about ±10 points. This is
+     needed before the note is published.
+  4. 016, other model families on the author's `steel` GPU: low priority.
+- **The note** (`docs/NOTE-draft.md`) waits for 015's D, whichever way it
+  goes.
+
+## Things that went wrong before
+Read `docs/INCIDENTS.md`. The ones a lead can cause or catch:
+- red CI left unnoticed;
+- a pinned parameter landing after data was read;
+- a decision rule that cannot be met;
+- authority conflicts;
+- personal details in outgoing requests.
