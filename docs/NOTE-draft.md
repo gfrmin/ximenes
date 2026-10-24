@@ -57,7 +57,11 @@ grids. It reaches its 8 by **$1 per grid**.
    model's knowledge cutoff, harvested without reading their content,
    grids reconstructed from clue lists, pre-registered fit/evaluation
    splits and decision rules, tables committed before evaluation (checked
-   from git history), and evaluation grids read once.
+   from git history), and evaluation grids read once. It also publishes
+   what the September 2026 advisory group on mathematics and AI asked labs
+   for, and what OpenAI's October release of maths results left out: the
+   prompts (`src/ximenes/prompts.py`), the cost of each run, and every
+   denominator, including the puzzles excluded and the failed grids.
 
 ## Caveats
 - **n = 40 grids, and 20 for the simple solver.** Intervals are wide. The

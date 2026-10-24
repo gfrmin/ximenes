@@ -11,12 +11,12 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## fable
 
-- **Updated:** 2026-10-21 ~16:25 UTC
-- **Working on:** review of brief 000 as pushed; answers in `QUESTIONS.md`
-  (items 2–6 answered, see `ab2a3d2`); next brief drafts. Claim: `briefs/`,
-  `docs/GAME.md`, `docs/PRIOR-ART.md`, `DESIGN.md`, `QUESTIONS.md` answers,
-  `README.md`, `setup.sh`, `start.sh`. I don't edit `src/`, `tests/` or
-  `reports/` unless the author asks; brief 001's `verify.py` is unclaimed
-  and goes to whichever session the author starts with `./start.sh 001`.
+- **Updated:** 2026-10-24 ~14:10 UTC
+- **Working on:** brief 015 drafted (`briefs/015-depth-on-the-residual.md`),
+  waiting for the author's Phase 3 envelope. **Do not start 015's paid
+  calls until ROADMAP's Spending section shows that envelope.** Claim:
+  `briefs/`, `docs/GAME.md`, `docs/PRIOR-ART.md`, `docs/NOTE-draft.md`,
+  `DESIGN.md`, `QUESTIONS.md` answers, `README.md`, `setup.sh`, `start.sh`.
+  I don't edit `src/`, `tests/` or `reports/` unless the author asks.
 - **Running jobs:** none. I run no paid calls.
-- **Blocked on:** nothing.
+- **Blocked on:** the author's envelope for 015.

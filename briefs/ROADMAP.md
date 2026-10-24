@@ -49,8 +49,9 @@ end-to-end grid, then a clean number.
 | 012 | **Post-cutoff harvest** from Fifteensquared (REST API, 20 s delay, local only): clues, answers, explanations from 2026-08-01; grids reconstructed; post-cutoff rule moved to knowledge cutoffs | puzzles, clues and unique grids by publisher | $0 |
 | 013 | **End-to-end grid solver**: Opus `list` round 1, Opus `sample` re-proposal (011's picks), posterior / OTHER / gain model refitted on post-cutoff fit grids, VOC at $5/grid; 20 post-cutoff evaluation grids (`briefs/013-end-to-end.md`) | fully correct grids, clues, letters, $ per grid; stop rule below | $80 |
 | 014 | **Close the last slots**: persistent re-proposal for two paired policies (full solver; frontier + fitted vote posterior; raw frontier smoke only), 20 fresh post-cutoff grids (seed 20261028) | fully correct grids per policy at $1/$2/$3; pooled 40-grid rate; what the verifier adds over calibration | $90 |
-| 015 | **Recall across model families** (low priority, after 014): open-weight models on the author's `steel` box (GPU, Ollama), optionally Ollama cloud, beside Opus; brief 011's protocol on post-cutoff clues only, per-model knowledge cutoffs respected; each family alone and their union | gold-in-5 at no pattern and at half pattern per model and for the union; $ per clue | ≤ $10 |
-| 016+ | The note (`docs/NOTE-draft.md`) finalised; then whatever 014 shows is the limit | — | per brief |
+| 015 | **Depth on the residual** (`briefs/015-depth-on-the-residual.md`): Stage A, Opus at low / high / max effort and Fable 5.1 on 013's and 014's stuck slots (gold never proposed), now dev data; Stage B, only if the best arm's gold-in-5 lower bound is ≥ 0.25: escalation on 20 never-read grids, paired against 014's calibrated frontier | gold-in-5 per arm, $ per slot; then fully correct grids, paired | $60 (Phase 3, waits for the author) |
+| 016 | **Recall across model families** (low priority): open-weight models on the author's `steel` box (GPU, Ollama), beside Opus, on 015's stuck slots; each family alone and their union | gold-in-5 per model and for the union | ≤ $10 |
+| 017+ | The note (`docs/NOTE-draft.md`) finalised with 015's result | — | per brief |
 
 **Stop rule, pre-registered for 013.** On post-cutoff grids: if fewer than **10%** of grids are fully
 correct at ≤ **$5 per grid**, the project stops chasing full grids and the
@@ -91,10 +92,11 @@ decision it informs, per dollar:
 014 settled the paired comparison: a calibrated Opus + crossers + BP solver
 matches the full machinery at ~$1 per grid. Phase 2 spent $141.96 of its
 $150 envelope. What is left is the proposer's recall (answers never
-proposed); 015 measures it across model families on the author's `steel`
-GPU, using the logged Opus samples for the union, so its API spend is ~$0.
-Low priority, as the author set it; no new envelope until the author opens
-one.
+proposed). 014's persistence was breadth at low effort and did not reach
+them. 015 (drafted 2026-10-24) tests depth: higher effort and a stronger
+model on those slots, then end to end only if the slot-level bar is met.
+It needs a Phase 3 envelope from the author (proposed $60). Other model
+families on `steel` move to 016, still low priority.
 
 ## Spending
 Standing envelope for Phase 2: **$150**, delegated by the author to `fable`
