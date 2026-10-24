@@ -4,10 +4,13 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-22 ~13:30 UTC
-- **Working on:** nothing; brief 014 done (`reports/014-last-slots.md`). Claims released.
-- **Running jobs:** none.
-- **Blocked on:** next brief.
+- **Updated:** 2026-10-24 ~18:00 UTC
+- **Working on:** brief 015 (A0, then D, then A; B needs the author's cap).
+  Claims: `src/ximenes/residual.py`, `src/ximenes/direct.py`,
+  `tests/test_015_*.py`, `reports/015*`, the `residual`/`direct` blocks of
+  `data/eval.json` and `data/instruments.json`.
+- **Running jobs:** none yet (paid runs will be listed here).
+- **Blocked on:** nothing.
 
 ## fable
 
