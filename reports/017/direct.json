@@ -1,0 +1,77 @@
+{
+ "pooled": {
+  "grids": 36,
+  "unfinished": 0,
+  "fully_correct": 28,
+  "interval": [
+   0.6435691559001284,
+   0.8668189003565141
+  ],
+  "clues": 0.9926131117266851,
+  "conflicts_per_grid": 0.0,
+  "ece": 0.06696214219759927,
+  "wrong_slots_per_imperfect_grid": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "wrong_with_stated_ge_high": 2,
+  "stop_reasons": {
+   "end_turn": 36
+  }
+ },
+ "usd": 9.692144000000003,
+ "usd_per_grid": 0.2692262222222223,
+ "by_publisher": {
+  "times": {
+   "grids": 20,
+   "unfinished": 0,
+   "fully_correct": 16,
+   "interval": [
+    0.6155918923723416,
+    0.9011564704015065
+   ],
+   "clues": 0.9933554817275747,
+   "conflicts_per_grid": 0.0,
+   "ece": 0.06282392026578075,
+   "wrong_slots_per_imperfect_grid": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "wrong_with_stated_ge_high": 1,
+   "stop_reasons": {
+    "end_turn": 20
+   }
+  },
+  "toughie": {
+   "grids": 16,
+   "unfinished": 0,
+   "fully_correct": 12,
+   "interval": [
+    0.5394506401101671,
+    0.8762290852304528
+   ],
+   "clues": 0.9916839916839917,
+   "conflicts_per_grid": 0.0,
+   "ece": 0.07338877338877339,
+   "wrong_slots_per_imperfect_grid": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "wrong_with_stated_ge_high": 1,
+   "stop_reasons": {
+    "end_turn": 16
+   }
+  }
+ },
+ "decision": "direct_holds"
+}

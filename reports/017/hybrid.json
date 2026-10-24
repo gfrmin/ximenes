@@ -1,0 +1,136 @@
+{
+ "run_id": "20261024T163938Z-hybrid-anthropic-c51e4a1fd1224bdbaaccd37d01631e73",
+ "grids": 36,
+ "unfinished": 0,
+ "direct": {
+  "fully_correct": 28,
+  "clues": 0.9926131117266851,
+  "usd_per_grid": 0.26922622222222226,
+  "conflicts_per_grid": 0.0
+ },
+ "hybrid": {
+  "fully_correct": 29,
+  "clues": 0.9935364727608494,
+  "usd_per_grid": 0.273945,
+  "conflicts_per_grid": 0.0
+ },
+ "paired": {
+  "both": 28,
+  "only_direct": 0,
+  "only_hybrid": 1,
+  "neither": 7,
+  "p_theta_gt_half": 0.75,
+  "p_independent_beta": 0.6108066394783934
+ },
+ "hybrid_at_0.5": {
+  "fully_correct": 29,
+  "clues": 0.9933779761904762
+ },
+ "hybrid_at_1.0": {
+  "fully_correct": 29,
+  "clues": 0.9933779761904762
+ },
+ "ece": {
+  "direct_stated": 0.06696214219759927,
+  "direct_calibrated": 0.0036024406005673907,
+  "hybrid_marginals": 0.0019793257815330285
+ },
+ "overturned": {
+  "wrong_to_right": 1
+ },
+ "stops": {
+  "all_committed": 33,
+  "no_new_candidates": 3
+ },
+ "decision": "lead_chooses",
+ "by_publisher": {
+  "times": {
+   "grids": 20,
+   "unfinished": 0,
+   "direct": {
+    "fully_correct": 16,
+    "clues": 0.9933554817275747,
+    "usd_per_grid": 0.264119,
+    "conflicts_per_grid": 0.0
+   },
+   "hybrid": {
+    "fully_correct": 17,
+    "clues": 0.9950166112956811,
+    "usd_per_grid": 0.2651208,
+    "conflicts_per_grid": 0.0
+   },
+   "paired": {
+    "both": 16,
+    "only_direct": 0,
+    "only_hybrid": 1,
+    "neither": 3,
+    "p_theta_gt_half": 0.75,
+    "p_independent_beta": 0.6517417980832612
+   },
+   "hybrid_at_0.5": {
+    "fully_correct": 17,
+    "clues": 0.9948809523809524
+   },
+   "hybrid_at_1.0": {
+    "fully_correct": 17,
+    "clues": 0.9948809523809524
+   },
+   "ece": {
+    "direct_stated": 0.06282392026578075,
+    "direct_calibrated": 0.0017396176630244942,
+    "hybrid_marginals": 0.001601068089750502
+   },
+   "overturned": {
+    "wrong_to_right": 1
+   },
+   "stops": {
+    "all_committed": 19,
+    "no_new_candidates": 1
+   },
+   "decision": "lead_chooses"
+  },
+  "toughie": {
+   "grids": 16,
+   "unfinished": 0,
+   "direct": {
+    "fully_correct": 12,
+    "clues": 0.9916839916839917,
+    "usd_per_grid": 0.27561025,
+    "conflicts_per_grid": 0.0
+   },
+   "hybrid": {
+    "fully_correct": 12,
+    "clues": 0.9916839916839917,
+    "usd_per_grid": 0.28497525,
+    "conflicts_per_grid": 0.0
+   },
+   "paired": {
+    "both": 12,
+    "only_direct": 0,
+    "only_hybrid": 0,
+    "neither": 4,
+    "p_theta_gt_half": 0.5,
+    "p_independent_beta": 0.49999999999999867
+   },
+   "hybrid_at_0.5": {
+    "fully_correct": 12,
+    "clues": 0.991499255952381
+   },
+   "hybrid_at_1.0": {
+    "fully_correct": 12,
+    "clues": 0.991499255952381
+   },
+   "ece": {
+    "direct_stated": 0.07338877338877339,
+    "direct_calibrated": 0.005933873882065985,
+    "hybrid_marginals": 0.0024527376951568977
+   },
+   "overturned": {},
+   "stops": {
+    "all_committed": 14,
+    "no_new_candidates": 2
+   },
+   "decision": "lead_chooses"
+  }
+ }
+}
