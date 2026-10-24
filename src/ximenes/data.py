@@ -10,6 +10,7 @@ import functools
 import hashlib
 import json
 import pathlib
+import re
 from collections.abc import Iterable, Iterator
 from dataclasses import dataclass
 from datetime import UTC, date, datetime, timedelta
@@ -309,3 +310,42 @@ def load_thesauri(root: pathlib.Path = THESAURI_SRC) -> Thesauri:
         {k: frozenset(v) for k, v in similar.items()},
         {k: frozenset(v) for k, v in members.items()},
     )
+
+
+# --- brief 015: the word list W ----------------------------------------------------------
+
+_PART = re.compile(r"[^\s\-–]+")
+
+
+def entry_key(entry: str) -> tuple[tuple[int, ...], str] | None:
+    """An entry's enumeration (letters per space- or hyphen-separated word)
+    and its letters, uppercase; None if a word has no letter."""
+    words = ["".join(ch for ch in w.upper() if "A" <= ch <= "Z") for w in _PART.findall(entry)]
+    if not words or not all(words):
+        return None
+    return tuple(map(len, words)), "".join(words)
+
+
+@functools.cache
+def load_wordlist(root: pathlib.Path = THESAURI_SRC) -> dict[tuple[int, ...], frozenset[str]]:
+    """Brief 015's W: Open English WordNet's lemmas and every Moby Thesaurus
+    entry (headwords and the words on their lines), reduced to letters and
+    keyed by enumeration, so (4, 5) holds only two-word entries of 4 and 5."""
+    import gzip
+    import xml.etree.ElementTree as ET
+
+    load_thesauri(root)  # checks the sources against their hashes
+    entries: set[str] = set()
+    with open(root / "mthesaur.txt", encoding="latin-1") as f:
+        for line in f:
+            entries.update(w.strip() for w in line.split(",") if w.strip())
+    with gzip.open(root / "english-wordnet-2025.xml.gz", "rb") as f:
+        for _event, el in ET.iterparse(f, events=("start",)):
+            if el.tag == "Lemma":
+                entries.add(el.get("writtenForm", ""))
+    out: dict[tuple[int, ...], set[str]] = {}
+    for e in entries:
+        k = entry_key(e)
+        if k is not None:
+            out.setdefault(k[0], set()).add(k[1])
+    return {k: frozenset(v) for k, v in out.items()}

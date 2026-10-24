@@ -232,3 +232,26 @@ JUDGES = {
         "Spoken: {phrase}\nHeard: {value}",
     ),
 }
+
+# Brief 015, Stage A arms 2-4: 004's pattern prompt, asking for a top list with shares
+ANSWER_PATTERN_TOP_V1 = (
+    "Solve this cryptic crossword clue. The numbers in brackets give the "
+    "answer's word lengths. Some letters are known from crossing answers: "
+    "{pattern} (? = unknown). Give up to {n} candidate answers, best first, in "
+    "capital letters, each with the probability (0 to 1) that it is the "
+    "answer.\n\n{clue_text} ({enumeration})"
+)
+
+# Brief 015, Stage A arm 5: choose from the word list cut by the pattern
+CHOOSE_LIST_V1 = (
+    "Solve this cryptic crossword clue. The numbers in brackets give the "
+    "answer's word lengths. Some letters are known from crossing answers: "
+    "{pattern} (? = unknown).\n\n{clue_text} ({enumeration})\n\n"
+    "Below is every entry of a word list that fits the pattern. A word marked "
+    "[Ok] or [Quarantine] has a mechanical wordplay parse (an anagram or a "
+    "hidden word) that a checker accepted, [Ok] with a listed indicator and "
+    "[Quarantine] with an unlisted one; the definition was not checked. "
+    "Choose up to {n} words from the list, best first, each with the "
+    "probability (0 to 1) that it is the answer, and give as `other` the "
+    "probability that the answer is not in the list.\n\n{words}"
+)

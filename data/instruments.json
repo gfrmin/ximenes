@@ -1,5 +1,5 @@
 {
-  "source": "prices: claude-api skill model table (cached 2026-10-06), USD per million tokens, first-party API; max_tokens per skill default for non-streaming requests; effort/retries chosen 2026-10-21 for brief 000; ollama: ollama.com cloud, free tier per author 2026-10-21 (price 0), retry delays chosen 2026-10-21; ollama retry_status: HTTP rate-limit and server-error codes (RFC 9110, RFC 6585); ollama timeout_seconds: chosen 2026-10-21 (client default is no timeout, which hung a run); released: model release dates (ISO) from public announcements, checked 2026-10-21 by fable for the author (QUESTIONS.md brief 000); claude-fable-5-1 exact date not found, 2026-10-21 used as an upper bound (date known available); null blocks post-cutoff use of that model; formalise_gold settings chosen 2026-10-21 for brief 001 (Sonnet 5.5 per the brief, effort low to limit spend); cache_price_multipliers: claude-api skill (cache reads ~0.1x, 5-minute writes ~1.25x base input); brief 002: concurrency.sample_workers (concurrent samples per clue, comms 2026-10-21; scheduling only, so kept out of the logged input), formalise_clue settings (Sonnet, effort low), judges (Haiku 5.5 effort low per briefs/002-proposer-loop.md; max_tokens and reason_chars chosen 2026-10-21); solve_models: brief 002 (proposer fixed at Haiku 5.5 through 002-003 per QUESTIONS 000 item 3; formaliser Sonnet 5.5); brief 003: judge_indicator (Haiku 5.5, effort low, per briefs/003-calibration.md); brief 004: propose_pattern (Haiku, same settings as propose_answers, pattern of crossing letters in the prompt); brief 011: propose_list (list-v1 / list-pattern-v1, up to n=10 candidates, effort low, max_tokens as the other proposers) per briefs/011-recall-by-proposer.md; formats (brief 011, comms 20261022T1450Z: fable's choice after the author asked for better extraction than the last line): structured-output JSON schemas sent as output_config.format; `answer` for sample cells, `candidates` (the prompt asks for up to n) for list cells; the first property is the extracted field; knowledge_cutoff (brief 012): last day of the stated cutoff month; Opus 5.5: June 2026 (stated by the model's system information); Sonnet 5.5 and Haiku 5.5: June 2026 assumed for the same generation per the brief, to be checked against Anthropic's model pages; null blocks post-cutoff use",
+  "source": "prices: claude-api skill model table (cached 2026-10-06), USD per million tokens, first-party API; max_tokens per skill default for non-streaming requests; effort/retries chosen 2026-10-21 for brief 000; ollama: ollama.com cloud, free tier per author 2026-10-21 (price 0), retry delays chosen 2026-10-21; ollama retry_status: HTTP rate-limit and server-error codes (RFC 9110, RFC 6585); ollama timeout_seconds: chosen 2026-10-21 (client default is no timeout, which hung a run); released: model release dates (ISO) from public announcements, checked 2026-10-21 by fable for the author (QUESTIONS.md brief 000); claude-fable-5-1 exact date not found, 2026-10-21 used as an upper bound (date known available); null blocks post-cutoff use of that model; formalise_gold settings chosen 2026-10-21 for brief 001 (Sonnet 5.5 per the brief, effort low to limit spend); cache_price_multipliers: claude-api skill (cache reads ~0.1x, 5-minute writes ~1.25x base input); brief 002: concurrency.sample_workers (concurrent samples per clue, comms 2026-10-21; scheduling only, so kept out of the logged input), formalise_clue settings (Sonnet, effort low), judges (Haiku 5.5 effort low per briefs/002-proposer-loop.md; max_tokens and reason_chars chosen 2026-10-21); solve_models: brief 002 (proposer fixed at Haiku 5.5 through 002-003 per QUESTIONS 000 item 3; formaliser Sonnet 5.5); brief 003: judge_indicator (Haiku 5.5, effort low, per briefs/003-calibration.md); brief 004: propose_pattern (Haiku, same settings as propose_answers, pattern of crossing letters in the prompt); brief 011: propose_list (list-v1 / list-pattern-v1, up to n=10 candidates, effort low, max_tokens as the other proposers) per briefs/011-recall-by-proposer.md; formats (brief 011, comms 20261022T1450Z: fable's choice after the author asked for better extraction than the last line): structured-output JSON schemas sent as output_config.format; `answer` for sample cells, `candidates` (the prompt asks for up to n) for list cells; the first property is the extracted field; knowledge_cutoff (brief 012): last day of the stated cutoff month; Opus 5.5: June 2026 (stated by the model's system information); Sonnet 5.5 and Haiku 5.5: June 2026 assumed for the same generation per the brief, to be checked against Anthropic's model pages; null blocks post-cutoff use; brief 015 (opus, 2026-10-24, before any 015 call): formats `shares` (arms 2-4) and `shares_other` (arm 5), the whole JSON object kept; anthropic.stream_above_max_tokens 16000 (the SDK's non-streaming ceiling per the claude-api skill; larger max_tokens stream); residual_arms per briefs/015 Stage A: arm 1 = 014's propose_pattern instrument (k=5, low, answer format), arms 2-4 one call with 004's pattern prompt asking for top 5 with shares, max_tokens 64000 (the skill's streaming default) so high/max thinking is not cut, arm 5 Opus low with the W-cut list; knowledge_cutoff claude-fable-5-1 2026-08-28: an upper bound, the Models API's created_at for the model (queried 2026-10-24); the true cutoff is no later, so 012's rule on this bound drops every grid the true rule would",
   "tokens_per_price_unit": 1000000,
   "prices_usd": {
     "claude-fable-5-1": {
@@ -29,7 +29,8 @@
     "effort": "low"
   },
   "anthropic": {
-    "max_retries": 8
+    "max_retries": 8,
+    "stream_above_max_tokens": 16000
   },
   "ollama": {
     "host": "https://ollama.com",
@@ -140,13 +141,110 @@
         "candidates"
       ],
       "additionalProperties": false
+    },
+    "shares": {
+      "type": "object",
+      "properties": {
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "answer": {
+                "type": "string"
+              },
+              "share": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "answer",
+              "share"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "candidates"
+      ],
+      "additionalProperties": false
+    },
+    "shares_other": {
+      "type": "object",
+      "properties": {
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "answer": {
+                "type": "string"
+              },
+              "share": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "answer",
+              "share"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "other": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "candidates",
+        "other"
+      ],
+      "additionalProperties": false
     }
   },
   "knowledge_cutoff": {
-    "claude-fable-5-1": null,
+    "claude-fable-5-1": "2026-08-28",
     "claude-opus-5-5": "2026-06-30",
     "claude-sonnet-5-5": "2026-06-30",
     "claude-haiku-5-5": "2026-06-30",
     "minimax-m3.1-flash": null
+  },
+  "residual_arms": {
+    "opus_low_resample": {
+      "kind": "resample",
+      "model": "claude-opus-5-5",
+      "effort": "low",
+      "k": 5,
+      "format": "answer"
+    },
+    "opus_high": {
+      "kind": "top",
+      "model": "claude-opus-5-5",
+      "effort": "high",
+      "n": 5,
+      "max_tokens": 64000
+    },
+    "opus_max": {
+      "kind": "top",
+      "model": "claude-opus-5-5",
+      "effort": "max",
+      "n": 5,
+      "max_tokens": 64000
+    },
+    "fable_high": {
+      "kind": "top",
+      "model": "claude-fable-5-1",
+      "effort": "high",
+      "n": 5,
+      "max_tokens": 64000
+    },
+    "choose_list": {
+      "kind": "choose",
+      "model": "claude-opus-5-5",
+      "effort": "low",
+      "n": 5,
+      "max_tokens": 16000
+    }
   }
 }

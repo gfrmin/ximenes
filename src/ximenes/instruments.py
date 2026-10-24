@@ -21,7 +21,9 @@ from typing import Any, Protocol
 from .data import DATA
 from .prompts import (
     ANSWER_ONLY_V1,
+    ANSWER_PATTERN_TOP_V1,
     ANSWER_PATTERN_V1,
+    CHOOSE_LIST_V1,
     FORMALISE_CLUE_USER,
     FORMALISE_USER,
     JUDGES,
@@ -38,9 +40,13 @@ PROPOSE_ANSWERS = "propose_answers"
 SETTINGS: dict[str, Json] = json.loads((DATA / "instruments.json").read_text())
 
 PROMPTS = {"answer-only-v1": ANSWER_ONLY_V1, "answer-pattern-v1": ANSWER_PATTERN_V1,
-           "list-v1": LIST_V1, "list-pattern-v1": LIST_PATTERN_V1}
+           "list-v1": LIST_V1, "list-pattern-v1": LIST_PATTERN_V1,
+           "answer-pattern-top-v1": ANSWER_PATTERN_TOP_V1, "choose-list-v1": CHOOSE_LIST_V1}
 PROPOSE_PATTERN = "propose_pattern"
 PROPOSE_LIST = "propose_list"
+PROPOSE_TOP = "propose_top"  # brief 015
+CHOOSE_LIST = "choose_list"  # brief 015
+SOLVE_GRID = "solve_grid"  # brief 015, Stage D
 FORMALISE_GOLD = "formalise_gold"
 FORMALISE_CLUE = "formalise_clue"
 JUDGE_SYNONYM = "judge_synonym"
@@ -322,6 +328,22 @@ def _formatted(message: Any, inp: Mapping[str, Json]) -> str:
     return "\n".join(map(str, value)) if isinstance(value, list) else str(value)
 
 
+def _json_reply(message: Any) -> dict[str, Json]:
+    """Brief 015: a structured-output reply's whole JSON object ({} on a
+    refusal, a truncated reply, or text that is not the schema's JSON)."""
+    text = "".join(b.text for b in message.content if b.type == "text")
+    try:
+        data = json.loads(text)
+    except ValueError:
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def _render(inp: Mapping[str, Json]) -> str:
+    fields = {k: ("\n".join(map(str, v)) if isinstance(v, list) else v) for k, v in inp.items()}
+    return PROMPTS[inp["prompt"]].format(**fields)
+
+
 def anthropic_backend() -> Instrument:
     """Live backend. Needs the `llm` extra and ANTHROPIC_API_KEY (or another
     credential the SDK resolves). No sampling parameters are sent: current
@@ -331,17 +353,17 @@ def anthropic_backend() -> Instrument:
     client = anthropic.Anthropic(max_retries=SETTINGS["anthropic"]["max_retries"])
 
     def sample(model: str, inp: Mapping[str, Json]) -> Any:
-        prompt = PROMPTS[inp["prompt"]].format(**inp)
+        prompt = _render(inp) if inp.get("render") else PROMPTS[inp["prompt"]].format(**inp)
         fmt = ({"format": {"type": "json_schema", "schema": SETTINGS["formats"][inp["format"]]}}
                if inp.get("format") else {})
         think = {"thinking": {"type": inp["thinking"]}} if inp.get("thinking") else {}
-        return client.messages.create(
-            model=model,
-            max_tokens=inp["max_tokens"],
-            output_config={"effort": inp["effort"], **fmt},
-            messages=[{"role": "user", "content": prompt}],
-            **think,
-        )
+        kw = {"model": model, "max_tokens": inp["max_tokens"],
+              "output_config": {"effort": inp["effort"], **fmt},
+              "messages": [{"role": "user", "content": prompt}], **think}
+        if inp["max_tokens"] > SETTINGS["anthropic"]["stream_above_max_tokens"]:
+            with client.messages.stream(**kw) as stream:  # brief 015: long thinking
+                return stream.get_final_message()
+        return client.messages.create(**kw)
 
     def formalise(model: str, inp: Mapping[str, Json]) -> Any:
         return client.messages.create(
@@ -383,6 +405,9 @@ def anthropic_backend() -> Instrument:
             messages = [sample(model, inp)]
             output = (_formatted(messages[0], inp) if inp.get("format") else
                       "".join(b.text for b in messages[0].content if b.type == "text"))
+        elif instrument in (PROPOSE_TOP, CHOOSE_LIST, SOLVE_GRID):
+            messages = [sample(model, inp)]
+            output = {**_json_reply(messages[0]), "_stop_reason": messages[0].stop_reason}
         elif instrument == FORMALISE_GOLD:
             messages = [formalise(model, inp)]
             output = _expression(messages[0])
@@ -586,3 +611,25 @@ def propose_list(clue_text: str, enumeration: str, pattern: str | None, model: s
            **({"format": fmt} if fmt else {}), **({"thinking": thinking} if thinking else {})}
     output, _ = backend(PROPOSE_LIST, model, inp)
     return str(output)
+
+
+def propose_top(clue_text: str, enumeration: str, pattern: str, n: int, model: str,
+                effort: str, max_tokens: int, *, backend: Instrument) -> dict[str, Json]:
+    """Brief 015 (Stage A arms 2-4): one call, up to n answers with shares."""
+    inp = {"clue_text": clue_text, "enumeration": enumeration, "pattern": pattern, "n": n,
+           "prompt": "answer-pattern-top-v1", "format": "shares", "effort": effort,
+           "max_tokens": max_tokens}
+    output, _ = backend(PROPOSE_TOP, model, inp)
+    return {"candidates": [], **dict(output)}
+
+
+def choose_from_list(clue_text: str, enumeration: str, pattern: str, words: list[str],
+                     n: int, model: str, effort: str, max_tokens: int, *,
+                     backend: Instrument) -> dict[str, Json]:
+    """Brief 015 (Stage A arm 5): up to n words chosen from `words`, with
+    shares, plus the share that the answer is not in the list."""
+    inp = {"clue_text": clue_text, "enumeration": enumeration, "pattern": pattern,
+           "words": words, "n": n, "prompt": "choose-list-v1", "render": True,
+           "format": "shares_other", "effort": effort, "max_tokens": max_tokens}
+    output, _ = backend(CHOOSE_LIST, model, inp)
+    return {"candidates": [], **dict(output)}
