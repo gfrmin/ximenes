@@ -57,6 +57,10 @@ are Beta(1,1) 90%.
 | 6. union of 5 and 3 | 17 | 12 | 14 [0.62, 0.92] | (5 + 3) | 0.51 (4) |
 | A0. generator + verifier | 17 | 1 | 1 [0.02, 0.24] | 0 | — |
 
+- **Superseded:** Stage B does not run. `lead`'s 2ce6749 (after D's
+  result, before Stage A finished) made A a secondary whose bands trigger
+  nothing; escalation folds into brief 016 (the hybrid). The rule's
+  reading below is reported as written.
 - **Decision (the brief's rule, written before any call):** the best arm
   is Opus max, r = 14/17, lower bound 0.62 ≥ 0.25, so **Stage B is
   triggered**. Opus high ties within its interval (upper 0.84 ≥ 0.82)
@@ -94,6 +98,26 @@ are Beta(1,1) 90%.
   The split favours the depth arms over arm 5: W's coverage (9/17) caps
   enumeration below what one high-effort call reaches. Arm 5 found 6 of
   the 8 slots it could reach; the other 9 were out of its reach.
+
+## Appendix (2026-10-24, for 016): D1's misses
+
+From D1's run file, no calls. Each of the 10 grids D1 did not get fully
+correct has **exactly one wrong slot** (10 wrong answers over 1,207
+slots; no slot missing from a reply). **None of the 10 wrong answers had
+a stated confidence ≥ 0.9.** Their confidences were 0.20, 0.40, 0.60,
+0.60, 0.60, 0.65, 0.75, 0.75, 0.75 and 0.85. So a 0.9 threshold on D's
+stated confidence would have flagged every one of D's errors. Both grids
+with a crossing conflict are among the 10. By brief and publisher:
+
+| brief | FT | Guardian | Independent |
+|---|---|---|---|
+| 013 | 2 | 2 | 0 |
+| 014 | 2 | 2 | 2 |
+
+For comparison, D1's ECE of 0.074 sits beside **013's full solver at
+0.064**; the raw frontier was 0.177 (013's appendix). 013 measured no ECE
+for the calibrated frontier; the 0.064 quoted in comms 20261024T1900Z is
+the full solver's.
 
 ## What the stuck set is
 
