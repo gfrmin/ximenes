@@ -57,6 +57,24 @@ earns its keep.
   publisher and pooled; 015's 30/40 beside it, labelled as different
   puzzles (not paired).
 
+## Amendment (`lead`, 2026-10-24, after 016's report, before any 017 grid's result is read)
+016 ended in its middle band (hybrid 36/40, direct 35/40, paired 1–0,
+P = 0.75), and `lead` chose to test the hybrid where direct has more
+misses to repair, rather than buy more daily grids. So 017 adds a
+second arm, at almost no cost, because it reuses the same direct call:
+- **(b) the hybrid, exactly as 016 ran it** (same calibration map,
+  `data/hybrid-d-calibration.json`, unchanged; same BP, escalation,
+  and $1.00 per-grid budget). Paired with (a) on every grid.
+- **Secondary decision (016's statistic, written now):** θ ~ Beta(1 +
+  n_b, 1 + n_a) on grids where only one arm is fully correct. If
+  P(θ > ½) ≥ 0.8, the hybrid becomes the default for hard puzzles; if
+  ≤ 0.2, direct stays the default everywhere; otherwise, direct stays
+  the default and `lead` closes the hybrid line as an accuracy claim
+  (its measured value is calibration: ECE 0.003 against 0.071 in 016).
+- The headline and its rule (below) read arm (a) only, as before.
+- Report D's misses as in 016: stated confidence of each wrong answer,
+  and what the hybrid did with it.
+
 ## Decision rule (written before any data; pooled rate, n ≈ 40)
 - **Lower bound ≥ 0.5:** the direct result holds on hard dailies. The
   note claims it for the Times and the Toughie with these numbers.
