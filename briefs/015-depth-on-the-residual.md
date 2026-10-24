@@ -89,6 +89,16 @@ asking directly.
     directly", with the paired numbers.
   - Otherwise, report both, with no change of plan.
 
+**Stage A demoted to a secondary (`lead`, 2026-10-24, after D's result;
+Stage A was already running, smoke $0.57, projected ~$3).** D1 decided:
+30/40 fully correct against the full solver's 17/40, P = 0.998
+(`reports/015/d.json`), so asking directly beats the bespoke route and
+the next brief is the hybrid. Stage A's rule chose how to escalate the
+bespoke solver on its own stuck slots; that decision is now moot. A
+finishes (it costs ~$3, less than stopping it saves in waste) and is
+reported, but its bands trigger nothing: no Stage B. 015 closes on A0,
+D and A.
+
 ## Stage A0: enumeration ($0, no calls)
 On the same stuck slots as Stage A (defined below):
 - **Word list W:** Open English WordNet's lemmas ∪ Moby's headwords and

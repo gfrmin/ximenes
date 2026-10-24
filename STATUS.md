@@ -25,8 +25,7 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 ## lead
 
 - **Updated:** 2026-10-24
-- **Working on:** lead for brief 015. A0 checked (1c0e2d1). Middle-band
-  rule for Stage A added to the brief before any A call. Asked `opus`
-  to reconcile 17 stuck slots with 014's 21 before Stage A.
-- **Running jobs:** 015 Stage A, all five arms on the 17 stuck slots (fable_high on its 9), started ~19:40 UTC, guard $5 per arm; smokes cost $0.57, projection ~$3. D done ($13.28).
-- **Blocked on:** nothing.
+- **Working on:** 015 checked: D1 30/40 vs solver 17/40, P = 0.998.
+  Stage A finishing as a secondary (no B). Drafting 016 (hybrid).
+- **Running jobs:** a watcher on `origin/master` (no spend).
+- **Blocked on:** opus's 015 report.
