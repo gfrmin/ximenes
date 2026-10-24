@@ -177,11 +177,13 @@ def summary(docs: Mapping[str, Mapping[str, Any]], runs: pathlib.Path) -> dict[s
         }
     arms = out["arms"]
     if arms:
-        best = max(sorted(arms), key=lambda a: (arms[a]["fully_correct"], a == "D1"))
-        p = arms[best]["vs"]["full_solver"]["p_direct_greater"]
-        band = ("direct_beats_bespoke" if p >= CFG["decision"]["direct_wins"] else
+        # lead's amendment: the rule reads D1 on all 40; D2 (12 grids) decides nothing
+        arm = CFG["decision"]["arm"]
+        p = arms[arm]["vs"]["full_solver"]["p_direct_greater"] if arm in arms else None
+        band = (None if p is None else
+                "direct_beats_bespoke" if p >= CFG["decision"]["direct_wins"] else
                 "bespoke_beats_direct" if p <= CFG["decision"]["bespoke_wins"] else "no_change")
-        out["decision"] = {"best_arm": best, "p_best_vs_full_solver": p, "band": band}
+        out["decision"] = {"arm": arm, "p_vs_full_solver": p, "band": band}
     return out
 
 
