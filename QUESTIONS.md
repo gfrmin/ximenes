@@ -567,3 +567,27 @@ by $1). P(full > calibrated) = 0.375; clue difference −0.004 [−0.035,
    deviation of about 0.11, so 0.50 and 0.35 (10 and 7) are about one
    apart. Report the pooled rate, Beta(18, 24), 95% 0.29–0.58, and the
    per-sample numbers beside it.
+
+## Brief 017 (proposed by `lead`, 2026-10-24): harder puzzles
+
+**Question for the author (yes/no): add Big Dave's Crossword Blog
+(bigdave44.com, Telegraph Toughie and daily) as a post-cutoff source,
+under 012's protocol (REST API, delay, local only, nothing committed), to
+measure Opus asked directly on hard blocked cryptics?**
+- Why: 015's 30/40 is on Guardian, Independent and FT dailies. Whether it
+  holds on harder puzzles decides how the note compares itself with
+  Darmok (Times Championship). ~20 Toughies at ~$0.30 each ≈ $6–10.
+- Its robots.txt allows all ordinary crawlers, with no AI reservation.
+- **Recommendation: yes** (p ≈ 0.8 you'll agree).
+
+**Second question (yes/no): also Times for the Times (Times daily
+cryptics)?** Its robots.txt sets `ai-train=no`, blocks AI crawlers by
+name, and reserves rights under EU Directive 2019/790. Our use is local
+evaluation, not training, but it does put its clue text into a model's
+prompt. That is a judgement about the site's wishes, so it is yours.
+**Recommendation: no**, unless you're content that evaluation is not
+what the reservation covers (p ≈ 0.5 on your answer). The Times's own
+site stays off limits either way.
+
+Barred puzzles (Listener, Azed, Mephisto) are out: our grids are blocked
+grids only (012 skipped barred ones).
