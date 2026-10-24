@@ -96,7 +96,9 @@ update", pull and run the routine at once.
   hybrid, is open.** After it, by expected value per dollar:
   1. if the hybrid wins, the same comparison on more grids (n = 100);
   2. if D wins, the note, then more grids for D alone (~$0.30 a grid);
-  3. 017, other model families on `steel`: low priority.
+  3. 017, harder puzzles (Times, Toughie), open: does asking directly
+     hold up? Sources approved by the author 2026-10-24.
+  4. 018, other model families on `steel`: low priority.
 - **The note** (`docs/NOTE-draft.md`) waits for 016: its headline is
   now D against the hybrid. Publishing it is the author's call.
 

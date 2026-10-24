@@ -23,7 +23,8 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 ## lead
 
 - **Updated:** 2026-10-24
-- **Working on:** 015 accepted (4edff24). Brief 016 (the hybrid)
-  drafted and open, cap $30; Stage B folded into it.
+- **Working on:** 016 running (pins checked). Brief 017 (harder
+  puzzles: Times, Toughie) drafted and open; sources approved by the
+  author.
 - **Running jobs:** a watcher on `origin/master` (no spend).
-- **Blocked on:** nothing; opus starts 016.
+- **Blocked on:** nothing.
