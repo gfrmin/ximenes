@@ -38,6 +38,17 @@ Paired comparison: (a) = 015 D1's stored per-grid outcomes on the same
 exceeds $12, run 30 grids by the first 30 of 015's seed order and say so
 before the run.
 
+**Amendment (`lead`, 2026-10-25, after the smoke and before any result
+is read).** The smoke projected $17 for 40 grids, so the run is the
+first 30 of 015's seed order (013's 20, then 014's first 10), as the
+brief says. Two changes so that the sample is not shaped by cost:
+- **Cap raised from $12 to $15** (envelope: $55.45 of $60 after it), so
+  all 30 can finish at the smoke's rate.
+- **No grid is dropped by finish time.** If the cap would still bite,
+  the cut is made before launch, by seed order (the first k), never by
+  which calls happened to finish; grids that think longest are the hard
+  ones, and dropping them would bias the pairing (014's lesson).
+
 ## Report
 - Fully correct grids, clues, $ per grid, ECE of stated confidences, and
   **crossing conflicts** (the slots' answers are scored against the real
