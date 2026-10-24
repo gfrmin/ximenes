@@ -39,7 +39,7 @@ him.
 ## Routine, on each push
 1. `git pull --rebase`. Read `STATUS.md`, every new file in `comms/`, new
    `QUESTIONS.md` items and new `reports/`.
-2. Check that CI is green for the push (`gh run list -L 3`). If master is
+2. Check that CI is green for the push (`gh run list -L 3`, or `gh api repos/gfrmin/ximenes/actions/runs?per_page=3` where GraphQL is blocked). If master is
    red, tell the agent who broke it (incident 1).
 3. For a report, check:
    - the headline is computed as the brief defined it;
@@ -56,7 +56,9 @@ him.
 
 To wait for the next push without the author, use a background command:
 `last=$(git rev-parse origin/master); until git fetch -q && [ "$(git rev-parse origin/master)" != "$last" ]; do sleep 120; done`.
-Pick up again when it returns.
+Pick up again when it returns. In a cloud session, a background command
+stops after about two hours: re-arm it. When the author writes "repo
+update", pull and run the routine at once.
 
 ## A brief, minimum
 - One headline number.
