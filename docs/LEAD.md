@@ -77,8 +77,12 @@ update", pull and run the routine at once.
     a fitted posterior): 8/20, at ~$1 per grid.
   - The verifier adds no accuracy over the calibrated frontier (014).
   - Total spend $245.14 through 014.
-- **What is left:** answers never proposed (21 slots in 014), and answers
-  committed wrong (11).
+- **What is left** (reconciled by `opus`, comms 20261024T1715Z, over the
+  full solver's 48 wrong slots in 013 + 014): gold never returned by any
+  call 31 (17 guessed, the 015 stuck slots, and 14 committed); gold
+  returned then dropped 6; gold in the end state but lost in BP 11; the final pattern excludes gold in 23,
+  mostly behind a wrong committed crosser. 014's "21 never proposed" was
+  loose: 9 of those 21 were never proposed.
 - **Brief 015 is open.** The order is A0 ($0), D ($25), A ($15); B needs
   the author's cap. Its decision rules are in the brief:
   - **D**, the model given the whole puzzle, decides whether the bespoke
