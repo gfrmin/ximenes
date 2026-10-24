@@ -266,3 +266,11 @@ DIRECT_GRID_V1 = (
     "every slot, in capital letters, and your probability (0 to 1) that it is "
     "right.\n\nClues\n{clues}\n\nGrid\n{grid}"
 )
+
+# Brief 018: direct-grid-v1 with the grid removed (clue lines unchanged), pinned before any call
+DIRECT_CLUES_V1 = (
+    "Solve this cryptic crossword. Below are the clues, with the numbers in "
+    "brackets giving each answer's word lengths. Take as long as you need. "
+    "Give an answer for every slot, in capital letters, and your probability "
+    "(0 to 1) that it is right.\n\nClues\n{clues}"
+)

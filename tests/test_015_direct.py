@@ -69,3 +69,25 @@ def test_run_with_a_stub_backend(monkeypatch) -> None:
     cfg = CFG["arms"]["D1"]
     assert seen == [(SOLVE_GRID, cfg["model"], CFG["prompt"], cfg["effort"], cfg["max_tokens"])]
     assert out[0]["fully_correct"] and out[0]["calibration"] == [[0.8, True]] * len(gold)
+
+
+def test_clues_only_arm_sends_no_grid(monkeypatch) -> None:
+    """Brief 018: arm C's input has no grid lines and the clues-only prompt;
+    D1's input (and so its replay key) is unchanged."""
+    from ximenes import e2e
+
+    grid, clues, gold = _grid()
+    monkeypatch.setattr(e2e, "grids", lambda *a, **k: ([FIX], {}))
+    seen = []
+
+    def backend(instrument, model, inp):
+        seen.append(dict(inp))
+        return ({"answers": [{"slot": k, "answer": v, "confidence": 0.8}
+                             for k, v in gold.items()]}, {"usd": 0.0})
+
+    run("C", [("018", FIX.stem)], backend)
+    run("D1", [("018", FIX.stem)], backend)
+    assert "grid" not in seen[0] and seen[0]["prompt"] == "direct-clues-v1"
+    assert seen[1]["prompt"] == "direct-grid-v1" and "grid" in seen[1]
+    assert set(seen[1]) == {"clues", "grid", "prompt", "render", "format", "effort",
+                            "max_tokens"}

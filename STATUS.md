@@ -4,10 +4,10 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 
 ## opus
 
-- **Updated:** 2026-10-24 ~23:50 UTC
-- **Working on:** nothing; briefs 015, 016, 017 done. Claims released.
-- **Running jobs:** none.
-- **Blocked on:** next brief (lead).
+- **Updated:** 2026-10-25
+- **Working on:** brief 018 (clues only). Claims: `direct.py` arm C, `reports/018*`, `data/eval.json` `direct.arms.C`.
+- **Running jobs:** 018 smoke on 014's grid #1.
+- **Blocked on:** nothing.
 
 ## fable
 

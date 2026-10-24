@@ -120,8 +120,9 @@ def run(arm: str, names: Sequence[tuple[str, str]], backend: Instrument,
         gold = {k: normalise(c.answer) for k, c in clues.items()}
         clue_lines, grid_lines = puzzle_text(grid, clues)
         try:
-            out = solve_grid(clue_lines, grid_lines, cfg["model"], cfg["effort"],
-                             cfg["max_tokens"], backend=backend)
+            out = solve_grid(clue_lines, grid_lines if cfg.get("grid", True) else None,
+                             cfg["model"], cfg["effort"], cfg["max_tokens"], backend=backend,
+                             prompt=cfg.get("prompt", CFG["prompt"]))
         except Exception as e:  # noqa: BLE001 - recorded, never silently dropped
             return {"brief": brief, "puzzle": name, "unfinished": f"{type(e).__name__}: {e}"}
         return {"brief": brief, "puzzle": name, "stop_reason": out.get("_stop_reason"),
@@ -188,11 +189,46 @@ def summary(docs: Mapping[str, Mapping[str, Any]], runs: pathlib.Path) -> dict[s
     return out
 
 
+def vs_d1(c_doc: Mapping[str, Any], d1_doc: Mapping[str, Any]) -> dict[str, Any]:
+    """Brief 018: arm (c) against 015's stored D1 outcomes, paired, with
+    016's statistic theta ~ Beta(1 + only D1, 1 + only (c))."""
+    from .hybrid import p_paired
+
+    c = {g["puzzle"]: g for g in c_doc["grids"] if "unfinished" not in g}
+    a = {g["puzzle"]: g["fully_correct"] for g in d1_doc["grids"] if g["puzzle"] in c}
+    only_a = sum(a[k] and not c[k]["fully_correct"] for k in a)
+    only_c = sum(c[k]["fully_correct"] and not a[k] for k in a)
+    p = p_paired(only_a, only_c)
+    rule = CFG["no_grid_decision"]
+    cal = [x for g in c.values() for x in g["calibration"]]
+    return {"n": len(a), "unfinished": len(c_doc["grids"]) - len(c),
+            "clues_only": {"fully_correct": sum(g["fully_correct"] for g in c.values()),
+                           "clues": sum(g["clues_right"] for g in c.values())
+                           / max(1, sum(g["slots"] for g in c.values())),
+                           "usd": c_doc["usd"], "usd_per_grid": c_doc["usd"] / max(1, len(c)),
+                           "conflicts_per_grid": sum(g["conflicts"] for g in c.values())
+                           / max(1, len(c)),
+                           "grids_with_conflicts": sum(g["conflicts"] > 0 for g in c.values()),
+                           "ece": ece_of([x for x, _y in cal], [bool(y) for _x, y in cal],
+                                         PARAMS["bins"])[0] if cal else None,
+                           "wrong_slots_per_imperfect_grid": sorted(
+                               g["slots"] - g["clues_right"] for g in c.values()
+                               if not g["fully_correct"])},
+            "with_grid_d1": {"fully_correct": sum(a.values())},
+            "paired": {"both": sum(a[k] and c[k]["fully_correct"] for k in a),
+                       "only_with_grid": only_a, "only_clues_only": only_c,
+                       "neither": sum(not a[k] and not c[k]["fully_correct"] for k in a),
+                       "p_theta_gt_half": p},
+            "decision": ("grid_is_load_bearing" if p >= rule["grid_matters"] else
+                         "grid_does_little" if p <= rule["grid_idle"] else "no_claim")}
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     from .policy import _backend
 
     p = argparse.ArgumentParser(prog="python -m ximenes.direct")
-    p.add_argument("step", choices=("grids", "run", "summary"))
+    p.add_argument("step", choices=("grids", "run", "summary", "vs-d1"))
+    p.add_argument("--run", default=None, help="vs-d1: the arm C run JSON")
     p.add_argument("--arm", choices=sorted(CFG["arms"]), default="D1")
     p.add_argument("--smoke", action="store_true", help="014's grid #1 only")
     p.add_argument("--backend", choices=("anthropic", "stub"), default="anthropic")
@@ -205,11 +241,15 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.step == "grids":
         print(json.dumps({a: len(grids_for(a)) for a in sorted(CFG["arms"])}))
         return 0
+    if args.step == "vs-d1":
+        d1 = json.loads((runs / f"{CFG['d1_run']}.json").read_text())
+        print(json.dumps(vs_d1(json.loads(pathlib.Path(args.run).read_text()), d1), indent=1))
+        return 0
     if args.step == "summary":
         docs = {}
         for f in sorted(runs.glob("*-direct-*-anthropic-*.json")):
             doc = json.loads(f.read_text())
-            if not doc["smoke"]:
+            if not doc["smoke"] and doc["arm"] in ("D1", "D2"):
                 docs[doc["arm"]] = doc
         print(json.dumps(summary(docs, runs), indent=1))
         return 0
