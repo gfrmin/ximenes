@@ -231,6 +231,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     p.add_argument("--run", default=None, help="vs-d1: the arm C run JSON")
     p.add_argument("--arm", choices=sorted(CFG["arms"]), default="D1")
     p.add_argument("--smoke", action="store_true", help="014's grid #1 only")
+    p.add_argument("--n", type=int, default=None, help="brief 018: the first n of 015's order")
     p.add_argument("--backend", choices=("anthropic", "stub"), default="anthropic")
     p.add_argument("--log", nargs="*", default=[])
     p.add_argument("--offline", action="store_true")
@@ -255,7 +256,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
     from .last_slots import reserve_split
 
-    names = [("014", reserve_split()[0])] if args.smoke else grids_for(args.arm)
+    names = [("014", reserve_split()[0])] if args.smoke else grids_for(args.arm)[:args.n]
     started = datetime.now(UTC)
     run_id = (f"{started.strftime('%Y%m%dT%H%M%SZ')}-direct-{args.arm}-{args.backend}-"
               f"{uuid.uuid4().hex}")
