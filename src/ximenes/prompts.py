@@ -255,3 +255,14 @@ CHOOSE_LIST_V1 = (
     "probability (0 to 1) that it is the answer, and give as `other` the "
     "probability that the answer is not in the list.\n\n{words}"
 )
+
+# Brief 015, Stage D: the whole puzzle, one call (pinned before any grid was called)
+DIRECT_GRID_V1 = (
+    "Solve this cryptic crossword. Below are the clues, with the numbers in "
+    "brackets giving each answer's word lengths, and the grid as text: each "
+    "slot with its length and the letters it shares with crossing slots "
+    "(\"1A letter 3 = 2D letter 1\" means the third letter of 1 Across is the "
+    "first letter of 2 Down). Take as long as you need. Give an answer for "
+    "every slot, in capital letters, and your probability (0 to 1) that it is "
+    "right.\n\nClues\n{clues}\n\nGrid\n{grid}"
+)

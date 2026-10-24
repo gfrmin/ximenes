@@ -24,6 +24,7 @@ from .prompts import (
     ANSWER_PATTERN_TOP_V1,
     ANSWER_PATTERN_V1,
     CHOOSE_LIST_V1,
+    DIRECT_GRID_V1,
     FORMALISE_CLUE_USER,
     FORMALISE_USER,
     JUDGES,
@@ -41,7 +42,8 @@ SETTINGS: dict[str, Json] = json.loads((DATA / "instruments.json").read_text())
 
 PROMPTS = {"answer-only-v1": ANSWER_ONLY_V1, "answer-pattern-v1": ANSWER_PATTERN_V1,
            "list-v1": LIST_V1, "list-pattern-v1": LIST_PATTERN_V1,
-           "answer-pattern-top-v1": ANSWER_PATTERN_TOP_V1, "choose-list-v1": CHOOSE_LIST_V1}
+           "answer-pattern-top-v1": ANSWER_PATTERN_TOP_V1, "choose-list-v1": CHOOSE_LIST_V1,
+           "direct-grid-v1": DIRECT_GRID_V1}
 PROPOSE_PATTERN = "propose_pattern"
 PROPOSE_LIST = "propose_list"
 PROPOSE_TOP = "propose_top"  # brief 015
@@ -633,3 +635,13 @@ def choose_from_list(clue_text: str, enumeration: str, pattern: str, words: list
            "format": "shares_other", "effort": effort, "max_tokens": max_tokens}
     output, _ = backend(CHOOSE_LIST, model, inp)
     return {"candidates": [], **dict(output)}
+
+
+def solve_grid(clues: list[str], grid: list[str], model: str, effort: str, max_tokens: int,
+               *, backend: Instrument) -> dict[str, Json]:
+    """Brief 015 (Stage D): the whole puzzle in one call; every slot's answer
+    with a stated confidence."""
+    inp = {"clues": clues, "grid": grid, "prompt": "direct-grid-v1", "render": True,
+           "format": "grid_answers", "effort": effort, "max_tokens": max_tokens}
+    output, _ = backend(SOLVE_GRID, model, inp)
+    return {"answers": [], **dict(output)}
