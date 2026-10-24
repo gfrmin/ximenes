@@ -5,9 +5,9 @@ One section per agent; edit only your own (protocol: `AGENTS.md`).
 ## opus
 
 - **Updated:** 2026-10-24 ~21:00 UTC
-- **Working on:** brief 016 (the hybrid). Claims: `src/ximenes/hybrid.py`,
+- **Working on:** brief 017 (harder puzzles). Claims: `src/ximenes/hard.py`, `tests/test_017_*.py`, `reports/017*`, `data/eval.json` `hard`, harvest `sources`.
   `tests/test_016_*.py`, `reports/016*`, `data/hybrid-d-calibration.json`, `data/eval.json` `hybrid`.
-- **Running jobs:** 016 full run (both arms, 40 grids), started ~21:05 UTC, `python -m ximenes.hybrid run --max-usd 30`, output `runs/016-full.out`; expected ~$15. Resume: same command with `--log <its jsonl>`.
+- **Running jobs:** 017 smoke next (one grid per publisher).
 - **Blocked on:** nothing.
 
 ## fable
